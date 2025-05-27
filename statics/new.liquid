@@ -1,7 +1,7 @@
 {% assign title  =  'buttons.create_post' | t %}
 {% set_meta_title title %}
 
-{% if current_user.blank? %}
+{% if !current_user.blank? %}
   <main class="grow">
     <section class="relative">
       <!-- Illustration -->
