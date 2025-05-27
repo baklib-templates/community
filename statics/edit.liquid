@@ -2,7 +2,7 @@
 {% set_meta_title title %}
 
 {%  assign page = current_user.pages[params.page_path] %}
-{% if current_user %}
+{% if current_user.blank? %}
   <main class="grow">
     <section class="relative">
       <!-- Illustration -->
