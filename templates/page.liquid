@@ -22,7 +22,6 @@
               <div class="flex flex-col space-y-6 lg:flex-row lg:space-y-0 lg:space-x-6">
 
                 <!-- Upvotes button -->
-                {{ page.visitor_posted_feedback }}
                 <div class="flex space-x-2 md:block md:space-y-2 md:space-x-0">
                   <div class="shrink-0" x-data="{ posted_feedback: {{ page.visitor_posted_feedback }}, feedback_count: {{ page | feedback_type_count: site.settings.feedback_useful_type }}  } ">
                     <div x-show="posted_feedback == true" @click="posted_feedback=false;feedback_count--" x-cloak>
