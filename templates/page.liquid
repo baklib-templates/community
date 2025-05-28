@@ -4,7 +4,7 @@
     {% assign default_avatar_url = 'images/avatar.svg' |  asset_url %}
 {% endunless %}
 
-<p class="text-gray-900">{{ page.visitor_posted_feedback }}</p>
+<p>{{ page.visitor_posted_feedback }}</p>
 <main class="grow">
   <section class="relative overflow-hidden">
     <!-- Illustration -->
@@ -24,7 +24,7 @@
 
                 <!-- Upvotes button -->
                 <div class="flex space-x-2 md:block md:space-y-2 md:space-x-0">
-                  <div class="shrink-0" x-data="{ posted_feedback: false, feedback_count: {{ page | feedback_type_count: site.settings.feedback_useful_type }}  } ">
+                  <div class="shrink-0" x-data="{ posted_feedback: {{ page.visitor_posted_feedback }}, feedback_count: {{ page | feedback_type_count: site.settings.feedback_useful_type }}  } ">
                     <div x-show="posted_feedback == true" @click="posted_feedback=false;feedback_count--" x-cloak>
                       {% form_tag 'delete_feedback', page: page, useful_type: site.settings.feedback_useful_type %}
                         <div class="shrink-0">
