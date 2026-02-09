@@ -47,8 +47,6 @@ Demo: https://demo-question.uibak.com/
   ├── package-lock.json
   ├── package.json
   ├── snippets
-  │   ├── _demo_forum.liquid
-  │   ├── _feedback_form.liquid
   │   ├── _footer.liquid
   │   ├── _header.liquid
   │   ├── _hero.liquid
@@ -59,6 +57,12 @@ Demo: https://demo-question.uibak.com/
   │   ├── _reply_answer_form.liquid
   │   ├── _reply_page_form.liquid
   │   ├── _search_form.liquid
+  │   ├── _sidebar_newest.liquid
+  │   ├── _sidebar_popular.liquid
+  │   ├── _sidebar_recommend.liquid
+  │   ├── _sidebar_tags.liquid
+  │   ├── _order_tabs.liquid
+  │   ├── _paginate.liquid
   │   └── _tag.liquid
   ├── statics
   │   ├── edit.liquid

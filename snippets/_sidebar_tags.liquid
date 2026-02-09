@@ -1,0 +1,12 @@
+{% comment %}
+  Usage: {% render 'sidebar_tags' %}
+  Uses site.tags
+{% endcomment %}
+<div class="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4">
+  <div class="text-md font-semibold uppercase mb-4 text-slate-600 dark:text-slate-400">{{ 'generic.tags' | t }}</div>
+  <div class="flex flex-wrap gap-2">
+    {% for tag in site.tags %}
+      {% render 'tag', tag: tag %}
+    {% endfor %}
+  </div>
+</div>

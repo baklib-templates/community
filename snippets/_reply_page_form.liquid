@@ -1,14 +1,16 @@
 {% if current_user %}
-  <div class="flex space-x-3" id="create_reply_{{ target.id }}_form">
-    <div class="w-full">
+  <div class="flex flex-col sm:flex-row sm:space-x-3 w-full" id="create_reply_{{ target.id }}_form">
+    <div class="w-full min-w-0">
       {% form_tag 'reply' %}
         <input value="{{ target.full_slug }}" autocomplete="off" type="hidden" name="target_full_path">
         <input value="create_reply_success" autocomplete="off" type="hidden" name="return_template_name">
         <input value="true" autocomplete="off" type="hidden" name="reply[published]">
-        <textarea name="reply[body]" rows="4" class="w-full p-2 border rounded-md form-textarea placeholder:italic"
-        placeholder="{{ 'generic.reply' | t }}" required></textarea>
+        {% comment %} <textarea name="reply[body]" rows="4" class="w-full p-2 border rounded-md form-textarea placeholder:italic"
+        placeholder="{{ 'generic.reply' | t }}" required></textarea> {% endcomment %}
+        {% form_field_tag 'richtext', 'reply[body]', content, toolbar: 'simple', under_el_id: '#edit-info-bar-container' %}
 
-        <div id="reply_page_error" class="text-xs text-red-500"></div>
+
+        <div id="reply_page_error" class="text-xs text-red-500 dark:text-red-400 mt-1"></div>
         <div class="flex items-center justify-end space-x-3">
           <input
             type="submit"
@@ -21,7 +23,7 @@
   </div>
 {% else %}
   <div class="mx-auto max-w-5xl w-full">
-      <div class="[&:nth-child(-n+4)]:-order-1 bg-gradient-to-tr from-slate-50/20 via-blue-100/50 to-orange-50/20 dark:from-slate-800/20 dark:via-slate-800/50 dark:to-slate-800/20">
+      <div class="[&:nth-child(-n+4)]:-order-1 rounded-lg border border-slate-200 dark:border-slate-700 bg-gradient-to-tr from-slate-50/80 via-blue-50/60 to-orange-50/40 dark:from-slate-800/40 dark:via-slate-800/60 dark:to-slate-800/40">
         <div class="relative p-5">
           {{ 'generic.under_comment' | t }}
           {% form_tag 'sign_in_with_baklib' %}

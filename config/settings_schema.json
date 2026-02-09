@@ -1,7 +1,7 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "q_and_a",
+    "theme_name": "community_question",
     "theme_label": "t:theme_label",
     "theme_description": "t:theme_description",
     "theme_version": "1.0.0",
@@ -110,20 +110,20 @@
         "id": "slogan",
         "type": "text",
         "label": "站点口号",
-        "default": "Data driven content, Content driven data."
+        "default": "A community of makers that learn and grow together"
       },
       {
         "id": "feedback_useful_type",
         "type": "text",
         "label": "首选反馈表情",
-        "placeholder": "在'应用设置'->'反馈设置'中复制过来",
+        "placeholder": "如 😊 等 emoji，需在应用设置中配置",
         "default": "😊"
       },
       {
         "id": "copyright_info",
         "type": "text",
         "label": "版权信息",
-        "placeholder": "中站点页脚显示"
+        "placeholder": "在站点页脚显示"
       }
     ]
   },

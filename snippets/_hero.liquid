@@ -4,9 +4,10 @@
 {% assign default_description =  '👋 Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.' %}
 
 <!-- Hero -->
-<section class="relative overflow-hidden">
-    <!-- Bg -->
-    <div class="absolute inset-0 bg-opacity-50 pointer-events-none -z-10" aria-hidden="true" style="background: {{ page.settings.bg_color }};"></div>
+<section class="relative overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900">
+    {% if page.settings.bg_color %}
+    <div class="absolute inset-0 pointer-events-none -z-10" aria-hidden="true" style="background: {{ page.settings.bg_color }};"></div>
+    {% endif %}
 
     <!-- Illustration -->
     {% if page.settings.illustration_url %}
@@ -26,8 +27,8 @@
 
                     <!-- Copy -->
                     <div class="md:pr-32">
-                        <h1 class="pb-6 text-transparent h2 font-aspekta bg-clip-text" style="color: {{ page.settings.text_color | default: '#333' }};">{{ page.settings.slogan |  default: default_slogan }}</h1>
-                        <p class="mb-8 text-lg" style="color: {{ page.settings.text_color | default: '#333' }};">{{ page.settings.description |  default: default_description }}</p>
+                        <h1 class="pb-6 text-transparent h2 font-aspekta bg-clip-text" style="color: {{ page.settings.text_color | default: '#333' }};">{{ page.settings.slogan | default: site.settings.slogan | default: default_slogan }}</h1>
+                        <p class="mb-8 text-lg" style="color: {{ page.settings.text_color | default: '#333' }};">{{ page.settings.description | default: default_description }}</p>
                     </div>
 
                     <!-- Image -->

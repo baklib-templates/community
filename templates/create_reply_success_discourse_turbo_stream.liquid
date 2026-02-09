@@ -1,0 +1,16 @@
+{% layout none %}
+{% comment %}
+  Discourse 风格：根评论添加后，使用 reply_page_form_discourse 和 reply_discourse
+{% endcomment %}
+
+<turbo-stream action="replace" target="create_reply_{{ reply.target.id }}_form">
+  <template>
+    {% render 'reply_page_form_discourse', target: reply.target %}
+  </template>
+</turbo-stream>
+
+<turbo-stream action="prepend" target="page_{{ reply.target.id }}_replies_list">
+  <template>
+    {% render 'reply_discourse', reply: reply %}
+  </template>
+</turbo-stream>
