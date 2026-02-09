@@ -162,7 +162,7 @@
   {
     "name": "帖子页面模板",
     "description": "发布的页面详情模板",
-    "thumb_url": "images/theme/page.png",
+    "thumb_url": "images/theme/page.webp",
     "sub_page_templates": ["page"],
     "settings": [
       {
@@ -182,7 +182,14 @@
         "type": "select",
         "choices_from": "$site.collection_tags",
         "label": "集合",
-        "info": "从首页设置的集合字段中选择"
+        "info": "从首页设置的集合分类字段中选择"
+      },
+      {
+        "id": "feature",
+        "type": "select",
+        "choices_from": "$site.feature_tags",
+        "label": "功能",
+        "info": "从首页设置的功能分类字段中选择"
       },
       {
         "id": "tags",

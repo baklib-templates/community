@@ -146,7 +146,7 @@
 {
   "name": "帖子页面模板2",
   "description": "Discourse 风格帖子详情模板",
-  "thumb_url": "images/theme/page2.png",
+  "thumb_url": "images/theme/page2.webp",
   "sub_page_templates": ["page"],
   "settings": [
     { "id": "title", "type": "text", "placeholder": "", "label": "标题", "info": "显示在正文上方的文章标题" },
@@ -157,6 +157,13 @@
       "choices_from": "$site.collection_tags",
       "label": "集合",
       "info": "从首页设置的集合字段中选择"
+    },
+    {
+      "id": "feature",
+      "type": "select",
+      "choices_from": "$site.feature_tags",
+      "label": "功能",
+      "info": "从首页设置的功能分类字段中选择"
     },
     { "id": "tags", "type": "tag_picker", "multiple": true, "label": "页面标签" },
     { "id": "is_recommend", "type": "checkbox", "label": "是否推荐", "info": "选定推荐后，会在推荐栏目显示", "default": false }

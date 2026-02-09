@@ -131,11 +131,18 @@
     "name": "集合设置",
     "settings": [
       {
+        "id": "feature_tags",
+        "type": "textarea",
+        "label": "功能标签",
+        "rows": 10,
+        "info": "每行一个功能标签，用于集合分类。格式：每行一个标签名称"
+      },
+      {
         "id": "collection_tags",
         "type": "textarea",
         "label": "集合标签",
         "rows": 10,
-        "info": "每行一个集合标签，用于图片资源的集合分类。格式：每行一个标签名称"
+        "info": "每行一个集合标签，用于集合分类。格式：每行一个标签名称"
       }
     ]
   },
