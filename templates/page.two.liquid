@@ -151,6 +151,13 @@
   "settings": [
     { "id": "title", "type": "text", "placeholder": "", "label": "标题", "info": "显示在正文上方的文章标题" },
     { "id": "content", "type": "richtext", "label": "问题内容" },
+    {
+      "id": "collection",
+      "type": "select",
+      "choices_from": "$site.collection_tags",
+      "label": "集合",
+      "info": "从首页设置的集合字段中选择"
+    },
     { "id": "tags", "type": "tag_picker", "multiple": true, "label": "页面标签" },
     { "id": "is_recommend", "type": "checkbox", "label": "是否推荐", "info": "选定推荐后，会在推荐栏目显示", "default": false }
   ],

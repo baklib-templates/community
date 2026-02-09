@@ -15,6 +15,25 @@
                 <h2 class="font-semibold text-md text-slate-800 dark:text-slate-100 mb-2">
                     <a href="{{ page.path }}" data-turbo="false" class="hover:text-primary">{{ page.link_text }}</a>
                 </h2>
+                <!-- Tags and Collection -->
+                {% if page.settings.tags.size > 0 or page.settings.collection %}
+                    <div class="flex flex-wrap items-center gap-2 mb-2">
+                        {% if page.settings.collection %}
+                            <span class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-md bg-primary/10 text-primary border border-primary/20">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-3 h-3">
+                                    <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
+                                    <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
+                                </svg>
+                                {{ page.settings.collection }}
+                            </span>
+                        {% endif %}
+                        {% if page.settings.tags.size > 0 %}
+                            {% for tag in page.settings.tags %}
+                                {% render 'tag', tag: tag %}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                {% endif %}
                 <!-- Footer -->
                 <footer class="flex flex-wrap text-sm">
                     <div

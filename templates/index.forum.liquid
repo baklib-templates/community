@@ -13,7 +13,7 @@
 <!-- Hero -->
 {% render 'hero', page: page %}
 
-<div class="px-4 sm:px-6 lg:px-8 py-8 md:py-0 my-4 lg:my-8 w-full max-w-7xl mx-auto">
+<div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-7xl mx-auto">
     <div class="xl:flex">
 
         <!-- Left + Middle content -->
@@ -48,10 +48,10 @@
                         <div
                             class="flex flex-nowrap overflow-x-scroll no-scrollbar md:block md:overflow-auto px-4 md:space-y-3 -mx-4">
                             <!-- Group 1 -->
-                            {% if false %}
+                            {% if true %}
                             <div>
                                 <div
-                                    class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase mb-3 md:sr-only">
+                                    class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase mb-3 ">
                                     {{ 'generic.navigation' | t}}</div>
                                 <ul class="flex flex-nowrap md:block mr-3 md:mr-0">
                                     <li class="mr-0.5 md:mr-0 md:mb-0.5">
@@ -63,7 +63,7 @@
                                                     d="M4.904 10.114a.98.98 0 0 1 0-1.961h5.886a.98.98 0 0 1 0 1.961H4.904ZM2.863 5.166a1.962 1.962 0 0 0-.901 1.651v5.26c0 1.083.878 1.961 1.961 1.961h7.85a1.962 1.962 0 0 0 1.961-1.961v-5.26c0-.668-.34-1.29-.901-1.65L7.848 1.961 2.863 5.166ZM6.786.312a1.962 1.962 0 0 1 2.123 0l4.985 3.204a3.923 3.923 0 0 1 1.802 3.301v5.26A3.923 3.923 0 0 1 11.772 16H3.923A3.923 3.923 0 0 1 0 12.077v-5.26c0-1.335.679-2.579 1.802-3.3L6.786.311Z">
                                                 </path>
                                             </svg>
-                                            <span class="text-sm font-medium text-violet-500">Home</span>
+                                            <span class="text-sm font-medium text-violet-500">总部</span>
                                         </a>
                                     </li>
                                     <li class="mr-0.5 md:mr-0 md:mb-0.5">
@@ -76,8 +76,7 @@
                                                 </path>
                                             </svg>
                                             <span
-                                                class="text-sm font-medium text-gray-600 dark:text-gray-300">Reading
-                                                List</span>
+                                                class="text-sm font-medium text-gray-600 dark:text-gray-300">经销商</span>
                                         </a>
                                     </li>
                                     <li class="mr-0.5 md:mr-0 md:mb-0.5">
@@ -90,25 +89,43 @@
                                                 </path>
                                             </svg>
                                             <span
-                                                class="text-sm font-medium text-gray-600 dark:text-gray-300">Listings</span>
+                                                class="text-sm font-medium text-gray-600 dark:text-gray-300">车主</span>
                                         </a>
                                     </li>
-                                    <li class="mr-0.5 md:mr-0 md:mb-0.5">
-                                        <a class="flex items-center px-2.5 py-2 rounded-lg whitespace-nowrap"
-                                            href="#0">
-                                            <svg class="shrink-0 fill-current text-gray-400 dark:text-gray-500 mr-2"
-                                                width="16" height="16" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M1 12a1 1 0 0 1-.707-1.704l4.496-4.493a1 1 0 0 1 1.413 0l3.29 3.287 4.79-4.785a1 1 0 1 1 1.413 1.412l-5.496 5.491a1 1 0 0 1-1.413 0L5.496 7.92l-3.79 3.787A1 1 0 0 1 .999 12Z">
-                                                </path>
-                                            </svg>
-                                            <span
-                                                class="text-sm font-medium text-gray-600 dark:text-gray-300">Podcasts</span>
-                                        </a>
-                                    </li>
+                                 
                                 </ul>
                             </div>
                             {% endif %}
+
+                            <!-- 自定义集合 -->
+                            <div>
+                                <div
+                                    class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase mb-3 ">
+                                    资源类型 </div>
+                                <ul class="flex flex-nowrap md:block mr-3 md:mr-0">
+                                    
+                                    {% assign collections = site.settings.collection_tags | newline_to_br | split: '<br />'  %}
+                                    {% for collection in collections %}
+                                        {% assign collection_name = collection | strip %}
+                                        {% if collection_name != '' %}
+                                            <li class="mr-0.5 md:mr-0 md:mb-0.5">
+                                                <a class="flex items-center px-2.5 py-2 rounded-lg whitespace-nowrap"
+                                                    href="#0">
+                                                    <svg class="shrink-0 fill-current text-gray-400 dark:text-gray-500 mr-2"
+                                                        width="16" height="16" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M5 9a1 1 0 1 1 0-2h6a1 1 0 0 1 0 2H5ZM1 4a1 1 0 1 1 0-2h14a1 1 0 0 1 0 2H1Zm0 10a1 1 0 0 1 0-2h14a1 1 0 0 1 0 2H1Z">
+                                                        </path>
+                                                    </svg>
+                                                    <span
+                                                        class="text-sm font-medium text-gray-600 dark:text-gray-300">{{ collection_name }}</span>
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            
                             <!-- Group 2 -->
                             <div>
                                 <div class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase mb-3">

@@ -25,6 +25,8 @@ import tomSelect from "./controllers/tomSelect";
 import SmartForegroundColorController from "./controllers/smart_foreground_color_controller"
 // 颜色选择器
 import ColorPickerController from "./controllers/color_picker_controller"
+//更多菜单
+import MoreMenuController from "./controllers/more_menu_controller"
 
 Alpine.directive("tom-select", tomSelect);
 Alpine.directive("tooltip", tooltip);
@@ -48,5 +50,5 @@ application.register("sticky", StickyController)
 application.register("upload", UploadController)
 application.register("smart-foreground-color", SmartForegroundColorController)
 application.register("color-picker", ColorPickerController)
-
+application.register("more-menu", MoreMenuController)
 
