@@ -10,20 +10,15 @@
       <div class="pt-6 md:pt-12">
         <header class="mb-8">
           <h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2">
-            集合 (collection) 与功能 (feature) 查询示例
+            集合与功能查询
           </h1>
-          <p class="text-sm text-slate-600 dark:text-slate-400">
-            本页面演示如何使用 <code>query</code> 标签，根据
-            <code>page.settings.collection</code> 和 <code>page.settings.feature</code>
-            查询使用 <code>page.liquid</code> 模板创建的页面。
-          </p>
         </header>
 
         <div class="grid gap-8 lg:grid-cols-2">
           <!-- Collection 查询 -->
           <div>
             <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">
-              按集合 (collection) 查询
+              按集合
             </h2>
 
             {% if collections.size > 0 %}
@@ -37,13 +32,17 @@
                       </h3>
 
                       {% comment %}
-                        使用 query 按 collection 精确匹配，且仅筛选 page 模板
+                        使用 query 按 collection 精确匹配，且仅筛选 page 模板。
+                        写法参考文档示例：
+                        https://dev.baklib.cn/liquid/tags/4ece
                       {% endcomment %}
-                      {% query collection_pages from site.pages['/'] %}
+                      {% query collection_pages from site.pages %}
                         {
                           "where": {
-                            "template_name_eq": "page",
-                            "settings.collection_eq": {{ collection_name }}
+                            "and": {
+                              "template_name_eq": "page",
+                              "settings.collection_eq": collection_name
+                            }
                           },
                           "order_by": ["created_at desc"],
                           "limit": 20
@@ -88,7 +87,7 @@
           <!-- Feature 查询 -->
           <div>
             <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">
-              按功能 (feature) 查询
+              按功能
             </h2>
 
             {% if features.size > 0 %}
@@ -102,13 +101,17 @@
                       </h3>
 
                       {% comment %}
-                        使用 query 按 feature 精确匹配，且仅筛选 page 模板
+                        使用 query 按 feature 精确匹配，且仅筛选 page 模板。
+                        写法参考文档示例：
+                        https://dev.baklib.cn/liquid/tags/4ece
                       {% endcomment %}
-                      {% query feature_pages from site.pages['/'] %}
+                      {% query feature_pages from site.pages %}
                         {
                           "where": {
-                            "template_name_eq": "page",
-                            "settings.feature_eq": {{ feature_name }}
+                            "and": {
+                              "template_name_eq": "page",
+                              "settings.feature_eq": feature_name
+                            }
                           },
                           "order_by": ["created_at desc"],
                           "limit": 20

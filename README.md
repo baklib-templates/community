@@ -96,6 +96,7 @@
 │   ├── _sidebar_tags.liquid
 │   └── _tag.liquid
 ├── statics
+│   ├── about.liquid
 │   ├── edit.liquid
 │   ├── feed.liquid
 │   ├── new.liquid
@@ -123,6 +124,7 @@
 
 ### 页面模板
 
+- **`statics/about.liquid`**：模板介绍与操作教程页，访问路径 `/s/about`，可通过导航菜单「关于本站」进入
 - **`index.liquid`**：首页列表，展示所有帖子
 - **`index.forum.liquid`**：论坛风格首页，带侧边栏
 - **`page.liquid`**：Reddit 风格帖子详情页
@@ -152,6 +154,7 @@
 3. 设置集合标签（用于帖子分类）
 4. 选择帖子模板风格（Reddit 或 Discourse）
 5. 开始发布内容
+6. 可通过导航菜单「关于本站」（`/s/about`）访问模板介绍和操作教程
 
 ## 🌟 特色功能
 

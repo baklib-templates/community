@@ -126,7 +126,7 @@
     "name": "集合设置",
     "settings": [
       {
-        "id": "is_show_collection_feature_tags  ",
+        "id": "is_show_collection_feature_tags",
         "type": "checkbox",
         "label": "是否显示集合/功能标签",
         "default": false
@@ -158,7 +158,7 @@
         "label": "导航菜单",
         "rows": 10,
         "info": "格式：menu_name[url，每行一个链接。",
-        "default": "首页[/\n关于本站[/s/about\nBabklib[https://www.baklib.com"
+        "default": "首页[/\n关于本站[/s/about\n集合[/s/tags"
       },
       {
         "id": "header_menu_html",

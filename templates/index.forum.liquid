@@ -59,7 +59,7 @@
                                             {% assign feature_name = feature | strip %}
                                             {% if feature_name != '' %}
                                             <li class="mr-0.5 md:mr-0 md:mb-0.5">
-                                                <a class="flex items-center px-2.5 py-2 rounded-lg whitespace-nowrap dark:bg-gray-800"
+                                                <a class="flex items-center px-2.5 py-2 rounded-lg whitespace-nowrap dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700"
                                                     href="/s/tag?f={{ feature_name | url_encode }}">
                                                     <svg class="shrink-0 fill-current text-slate-500 mr-2" width="16"
                                                         height="16" viewBox="0 0 16 16">
@@ -89,7 +89,7 @@
                                             {% assign collection_name = collection | strip %}
                                             {% if collection_name != '' %}
                                                 <li class="mr-0.5 md:mr-0 md:mb-0.5">
-                                                    <a class="flex items-center px-2.5 py-2 rounded-lg whitespace-nowrap"
+                                                    <a class="flex items-center px-2.5 py-2 rounded-lg whitespace-nowrap hover:bg-gray-100 dark:hover:bg-gray-700"
                                                         href="/s/tag?c={{ collection_name | url_encode }}">
                                                         <svg class="shrink-0 fill-current text-gray-400 dark:text-gray-500 mr-2"
                                                             width="16" height="16" viewBox="0 0 16 16">
