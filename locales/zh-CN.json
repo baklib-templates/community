@@ -45,7 +45,9 @@
     "copyright": "版权所有",
     "news_letter": "加入社区，参与讨论！",
     "terms1": "提交的内容，需要后台管理员审核以后方能在前端展示。",
-    "terms2": "平台使用者须遵循相关声明和条款："
+    "terms2": "平台使用者须遵循相关声明和条款：",
+    "collection": "集合",
+    "feature": "功能"
   },
   "placeholders": {
     "search": "站内搜索",

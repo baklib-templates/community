@@ -78,8 +78,17 @@
                           {% for tag in page.settings.tags %}
                             {% render 'tag', tag: tag %}
                           {% endfor %}
+                          <!--Collection-->
+                          {% if page.settings.collection %}
+                                <a href="/s/tag?c={{ page.settings.collection }}" class=" text-primary hover:text-primary/80 px-2 py-1 rounded-full bg-primary/10">#{{ page.settings.collection }}</a>
+                          {% endif %}
+                          <!--Feature-->
+                          {% if page.settings.feature %}
+                                <a href="/s/tag?f={{ page.settings.feature }}" class=" text-primary hover:text-primary/80 px-2 py-1 rounded-full bg-primary/10">#{{ page.settings.feature }}</a>
+                          {% endif %}
                       </div>
                     {% endif %}
+                    
                   </article>
 
                   {% if page.author.id == current_user.member_id %}
@@ -181,6 +190,7 @@
         "id": "collection",
         "type": "select",
         "choices_from": "$site.collection_tags",
+        "queryable": true,
         "label": "集合",
         "info": "从首页设置的集合分类字段中选择"
       },
@@ -188,6 +198,7 @@
         "id": "feature",
         "type": "select",
         "choices_from": "$site.feature_tags",
+        "queryable": true,
         "label": "功能",
         "info": "从首页设置的功能分类字段中选择"
       },
@@ -195,11 +206,13 @@
         "id": "tags",
         "type": "tag_picker",
         "multiple": true,
+        "queryable": true,
         "label": "页面标签"
       },
       {
         "id": "is_recommend",
         "type": "checkbox",
+        "queryable": true,
         "label": "是否推荐",
         "info": "选定推荐后，会在推荐栏目显示",
         "default": false

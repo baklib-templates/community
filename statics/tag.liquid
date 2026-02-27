@@ -1,0 +1,282 @@
+{% assign collection_value = params.c | default: "" | strip %}
+{% assign feature_value = params.f | default: "" | strip %}
+{% assign title_query = params.q | default: "" | strip %}
+
+{% if collection_value != "" and feature_value != "" %}
+  {% assign title = "集合：" | append: collection_value | append: " · 功能：" | append: feature_value %}
+{% elsif collection_value != "" %}
+  {% assign title = "集合：" | append: collection_value %}
+{% elsif feature_value != "" %}
+  {% assign title = "功能：" | append: feature_value %}
+{% else %}
+  {% assign title = "全部帖子" %}
+{% endif %}
+
+{% set_meta_title title %}
+
+{% assign page_size = 10 %}
+{% assign current_page = params.page | default: 1 | floor %}
+{% assign offset = page_size | times: current_page | minus: page_size %}
+
+{%- comment -%}
+  根据是否有 c / f 参数，决定 query 条件：
+  - c + f 同时存在：AND 组合
+  - 仅 c 或仅 f：单条件
+  - 都没有：仅按 template_name 过滤
+{%- endcomment -%}
+
+{% assign results = nil %}
+{% assign results_size = 0 %}
+
+{% if collection_value != "" and feature_value != "" %}
+  {% if title_query != "" %}
+    {% query results from site.pages %}
+      {
+        "where": {
+          "template_name_eq": "page",
+          "settings.collection_eq": params.c,
+          "settings.feature_eq": params.f,
+          "name_matches": params.q
+        },
+        "order_by": ["created_at desc"],
+        "limit": {{ page_size }},
+        "offset": {{ offset }}
+      }
+    {% endquery %}
+  {% else %}
+    {% query results from site.pages %}
+      {
+        "where": {
+          "template_name_eq": "page",
+          "settings.collection_eq": params.c,
+          "settings.feature_eq": params.f
+        },
+        "order_by": ["created_at desc"],
+        "limit": {{ page_size }},
+        "offset": {{ offset }}
+      }
+    {% endquery %}
+  {% endif %}
+{% elsif collection_value != "" %}
+  {% if title_query != "" %}
+    {% query results from site.pages %}
+      {
+        "where": {
+          "template_name_eq": "page",
+          "settings.collection_eq": params.c,
+          "name_matches": params.q
+        },
+        "order_by": ["created_at desc"],
+        "limit": {{ page_size }},
+        "offset": {{ offset }}
+      }
+    {% endquery %}
+  {% else %}
+    {% query results from site.pages %}
+      {
+        "where": {
+          "template_name_eq": "page",
+          "settings.collection_eq": params.c
+        },
+        "order_by": ["created_at desc"],
+        "limit": {{ page_size }},
+        "offset": {{ offset }}
+      }
+    {% endquery %}
+  {% endif %}
+{% elsif feature_value != "" %}
+  {% if title_query != "" %}
+    {% query results from site.pages %}
+      {
+        "where": {
+          "template_name_eq": "page",
+          "settings.feature_eq": params.f,
+          "name_matches": params.q
+        },
+        "order_by": ["created_at desc"],
+        "limit": {{ page_size }},
+        "offset": {{ offset }}
+      }
+    {% endquery %}
+  {% else %}
+    {% query results from site.pages %}
+      {
+        "where": {
+          "template_name_eq": "page",
+          "settings.feature_eq": params.f
+        },
+        "order_by": ["created_at desc"],
+        "limit": {{ page_size }},
+        "offset": {{ offset }}
+      }
+    {% endquery %}
+  {% endif %}
+{% elsif title_query != "" %}
+  {% query results from site.pages %}
+    {
+      "where": {
+        "template_name_eq": "page",
+        "name_matches": params.q
+      },
+      "order_by": ["created_at desc"],
+      "limit": {{ page_size }},
+      "offset": {{ offset }}
+    }
+  {% endquery %}
+{% else %}
+  {% query results from site.pages %}
+    {
+      "where": {
+        "template_name_eq": "page"
+      },
+      "order_by": ["created_at desc"],
+      "limit": {{ page_size }},
+      "offset": {{ offset }}
+    }
+  {% endquery %}
+{% endif %}
+
+{% assign results_size = results | size %}
+
+{%- comment -%}
+  构建基础查询参数（不含 page），用于分页链接复用。
+{%- endcomment -%}
+{% assign c_param = collection_value | url_encode %}
+{% assign f_param = feature_value | url_encode %}
+{% assign q_param = title_query | url_encode %}
+{% assign base_query = "" %}
+{% if c_param != "" %}
+  {% assign base_query = base_query | append: "c=" | append: c_param %}
+{% endif %}
+{% if f_param != "" %}
+  {% if base_query != "" %}
+    {% assign base_query = base_query | append: "&" %}
+  {% endif %}
+  {% assign base_query = base_query | append: "f=" | append: f_param %}
+{% endif %}
+{% if q_param != "" %}
+  {% if base_query != "" %}
+    {% assign base_query = base_query | append: "&" %}
+  {% endif %}
+  {% assign base_query = base_query | append: "q=" | append: q_param %}
+{% endif %}
+
+{% assign collection_tags_raw = site.settings.collection_tags | default: "" %}
+{% assign collection_options = collection_tags_raw | newline_to_br | split: "<br />" %}
+{% assign feature_tags_raw = site.settings.feature_tags | default: "" %}
+{% assign feature_options = feature_tags_raw | newline_to_br | split: "<br />" %}
+
+<main class="grow">
+  <section class="max-w-4xl mx-auto">
+    <div class="my-12">
+      <!-- Content header -->
+      <div class="pb-6 mb-4 border-b border-slate-200 dark:border-slate-800">
+        <h1 class="text-xl font-semibold text-slate-900 dark:text-slate-100">
+          {{ title }}
+        </h1>
+      </div>
+
+      <!-- Filter form -->
+      <form method="get" action="/s/tag" class="mb-6 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/40 p-4">
+        <div class="grid gap-3 md:grid-cols-3">
+          <div>
+            <label for="filter_collection" class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">
+              集合 (collection)
+            </label>
+            <select id="filter_collection" name="c" class="w-full text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/60 px-2 py-1.5">
+              <option value="">{{ 'generic.all' | t: '全部' }}</option>
+              {% for c in collection_options %}
+                {% assign c_name = c | strip %}
+                {% if c_name != "" %}
+                  <option value="{{ c_name }}" {% if c_name == collection_value %}selected{% endif %}>{{ c_name }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+
+          <div>
+            <label for="filter_feature" class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">
+              功能 (feature)
+            </label>
+            <select id="filter_feature" name="f" class="w-full text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/60 px-2 py-1.5">
+              <option value="">{{ 'generic.all' | t: '全部' }}</option>
+              {% for f in feature_options %}
+                {% assign f_name = f | strip %}
+                {% if f_name != "" %}
+                  <option value="{{ f_name }}" {% if f_name == feature_value %}selected{% endif %}>{{ f_name }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+
+          <div>
+            <label for="filter_q" class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">
+              标题包含
+            </label>
+            <input
+              id="filter_q"
+              type="search"
+              name="q"
+              value="{{ title_query | escape }}"
+              class="w-full text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/60 px-2 py-1.5"
+              placeholder="输入标题关键字"
+            />
+          </div>
+        </div>
+        <div class="flex justify-end gap-2 mt-3">
+          <a href="/s/tag" class="btn btn-sm btn-ghost">
+            重置
+          </a>
+          <button type="submit" class="btn btn-sm">
+            {{ 'generic.search' | t }}
+          </button>
+        </div>
+      </form>
+
+      {% if results_size > 0 %}
+        <!-- List -->
+        <div class="flex flex-col mb-6 space-y-3">
+          {% for page in results %}
+            {% render 'page', page: page %}
+          {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex items-center justify-between text-sm text-slate-500 dark:text-slate-400">
+          {% if current_page > 1 %}
+            {% assign prev_page = current_page | minus: 1 %}
+            {% assign prev_query = base_query %}
+            {% if prev_query != "" %}
+              {% assign prev_query = prev_query | append: "&page=" | append: prev_page %}
+            {% else %}
+              {% assign prev_query = "page=" | append: prev_page %}
+            {% endif %}
+            <a href="/s/tag?{{ prev_query }}" class="btn btn-ghost">
+              {{ "paginate.previous" | t }}
+            </a>
+          {% else %}
+            <span></span>
+          {% endif %}
+
+          {% if results_size == page_size %}
+            {% assign next_page = current_page | plus: 1 %}
+            {% assign next_query = base_query %}
+            {% if next_query != "" %}
+              {% assign next_query = next_query | append: "&page=" | append: next_page %}
+            {% else %}
+              {% assign next_query = "page=" | append: next_page %}
+            {% endif %}
+            <a href="/s/tag?{{ next_query }}" class="btn btn-ghost ml-auto">
+              {{ "paginate.next" | t }}
+            </a>
+          {% endif %}
+        </div>
+      {% else %}
+        <p class="text-sm text-slate-500 dark:text-slate-400">
+          暂无符合条件的帖子。
+        </p>
+      {% endif %}
+    </div>
+  </section>
+</main>
+

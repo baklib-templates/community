@@ -1,0 +1,29 @@
+site:
+  language: "zh-CN"
+  time_zone: "Asia/Shanghai"
+  favicon: "images/thumbnail.png"
+  settings:
+    logo_url: "images/logo.png"
+    default_avatar: "images/avatar.svg"
+    slogan: "一个现代化的问答社区，连接问题与答案"
+    is_allow_published: false
+    feedback_useful_type: "😊"
+    feature_tags: |
+      入门指南
+      使用技巧
+      最佳实践
+      产品更新
+    collection_tags: |
+      使用问答
+      故障排查
+      社区公告
+      活动分享
+    header_menu: |
+      首页[/
+      关于本站[/s/about
+      Baklib[https://www.baklib.com
+    header_menu_html: "<a class='underline text-slate-500 hover:no-underline' href='/'>首页</a>"
+    footer_menu_html: "<li><a class='underline text-slate-500 hover:no-underline' href='/'>首页</a></li>"
+    head_html: ""
+    copyright_info: "Powered by Baklib Question Community"
+

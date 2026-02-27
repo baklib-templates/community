@@ -44,7 +44,9 @@
     "copyright": "All rights reserved",
     "news_letter": "Join the community and participate in the discussion",
     "terms1": "The submitted content needs to be reviewed by the backend administrator before it can be displayed on the front end.",
-    "terms2": "Platform users must comply with relevant statements and terms: "
+    "terms2": "Platform users must comply with relevant statements and terms: ",
+    "collection": "Collection",
+    "feature": "Feature"
   },
   "placeholders": {
     "search": "Searching...",

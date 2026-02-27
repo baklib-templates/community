@@ -1,0 +1,157 @@
+{% assign title = "集合与功能查询" %}
+{% set_meta_title title %}
+
+{% assign collections = site.settings.collection_tags | newline_to_br | split: "<br />" %}
+{% assign features = site.settings.feature_tags | newline_to_br | split: "<br />" %}
+
+<main class="grow">
+  <section>
+    <div class="max-w-6xl px-4 mx-auto sm:px-6">
+      <div class="pt-6 md:pt-12">
+        <header class="mb-8">
+          <h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+            集合 (collection) 与功能 (feature) 查询示例
+          </h1>
+          <p class="text-sm text-slate-600 dark:text-slate-400">
+            本页面演示如何使用 <code>query</code> 标签，根据
+            <code>page.settings.collection</code> 和 <code>page.settings.feature</code>
+            查询使用 <code>page.liquid</code> 模板创建的页面。
+          </p>
+        </header>
+
+        <div class="grid gap-8 lg:grid-cols-2">
+          <!-- Collection 查询 -->
+          <div>
+            <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">
+              按集合 (collection) 查询
+            </h2>
+
+            {% if collections.size > 0 %}
+              <div class="space-y-6">
+                {% for c in collections %}
+                  {% assign collection_name = c | strip %}
+                  {% if collection_name != "" %}
+                    <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-white dark:bg-slate-900/30">
+                      <h3 class="text-sm font-medium text-slate-800 dark:text-slate-100 mb-2">
+                        集合：{{ collection_name }}
+                      </h3>
+
+                      {% comment %}
+                        使用 query 按 collection 精确匹配，且仅筛选 page 模板
+                      {% endcomment %}
+                      {% query collection_pages from site.pages['/'] %}
+                        {
+                          "where": {
+                            "template_name_eq": "page",
+                            "settings.collection_eq": {{ collection_name }}
+                          },
+                          "order_by": ["created_at desc"],
+                          "limit": 20
+                        }
+                      {% endquery %}
+
+                      {% assign collection_page_size = collection_pages | size %}
+                      {% if collection_page_size > 0 %}
+                        <ul class="space-y-1 text-sm">
+                          {% for p in collection_pages %}
+                            <li class="flex items-center justify-between gap-2">
+                              <a href="{{ p.path }}" class="text-primary hover:text-primary/80 truncate">
+                                {{ p.link_text }}
+                              </a>
+                              <span class="shrink-0 text-xs text-slate-500 dark:text-slate-400">
+                                {{ p.created_at | date: "%Y-%m-%d" }}
+                              </span>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                        <div class="mt-3">
+                          <a href="/s/tag?c={{ collection_name | url_encode }}" class="text-xs text-primary hover:text-primary/80">
+                            {{ 'generic.read_more' | t }}
+                          </a>
+                        </div>
+                      {% else %}
+                        <p class="text-xs text-slate-500 dark:text-slate-400">
+                          暂无使用该集合的页面。
+                        </p>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% else %}
+              <p class="text-sm text-slate-500 dark:text-slate-400">
+                尚未在站点设置中配置 <code>collection_tags</code>。
+              </p>
+            {% endif %}
+          </div>
+
+          <!-- Feature 查询 -->
+          <div>
+            <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">
+              按功能 (feature) 查询
+            </h2>
+
+            {% if features.size > 0 %}
+              <div class="space-y-6">
+                {% for f in features %}
+                  {% assign feature_name = f | strip %}
+                  {% if feature_name != "" %}
+                    <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-white dark:bg-slate-900/30">
+                      <h3 class="text-sm font-medium text-slate-800 dark:text-slate-100 mb-2">
+                        功能：{{ feature_name }}
+                      </h3>
+
+                      {% comment %}
+                        使用 query 按 feature 精确匹配，且仅筛选 page 模板
+                      {% endcomment %}
+                      {% query feature_pages from site.pages['/'] %}
+                        {
+                          "where": {
+                            "template_name_eq": "page",
+                            "settings.feature_eq": {{ feature_name }}
+                          },
+                          "order_by": ["created_at desc"],
+                          "limit": 20
+                        }
+                      {% endquery %}
+
+                      {% assign feature_page_size = feature_pages | size %}
+                      {% if feature_page_size > 0 %}
+                        <ul class="space-y-1 text-sm">
+                          {% for p in feature_pages %}
+                            <li class="flex items-center justify-between gap-2">
+                              <a href="{{ p.path }}" class="text-primary hover:text-primary/80 truncate">
+                                {{ p.link_text }}
+                              </a>
+                              <span class="shrink-0 text-xs text-slate-500 dark:text-slate-400">
+                                {{ p.created_at | date: "%Y-%m-%d" }}
+                              </span>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                        <div class="mt-3">
+                          <a href="/s/tag?f={{ feature_name | url_encode }}" class="text-xs text-primary hover:text-primary/80">
+                            {{ 'generic.read_more' | t }}
+                          </a>
+                        </div>
+                      {% else %}
+                        <p class="text-xs text-slate-500 dark:text-slate-400">
+                          暂无使用该功能标签的页面。
+                        </p>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% else %}
+              <p class="text-sm text-slate-500 dark:text-slate-400">
+                尚未在站点设置中配置 <code>feature_tags</code>。
+              </p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+

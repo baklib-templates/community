@@ -106,12 +106,7 @@
         "info": "先发后审：前台提交即发布；先审后发：前台提交，后台审核后发布。",
         "default": false
       },
-      {
-        "id": "slogan",
-        "type": "text",
-        "label": "站点口号",
-        "default": "A community of makers that learn and grow together"
-      },
+      
       {
         "id": "feedback_useful_type",
         "type": "text",
@@ -131,7 +126,14 @@
     "name": "集合设置",
     "settings": [
       {
+        "id": "is_show_collection_feature_tags  ",
+        "type": "checkbox",
+        "label": "是否显示集合/功能标签",
+        "default": false
+      },
+      {
         "id": "feature_tags",
+        "queryable": true,
         "type": "textarea",
         "label": "功能标签",
         "rows": 10,
@@ -139,6 +141,7 @@
       },
       {
         "id": "collection_tags",
+        "queryable": true,
         "type": "textarea",
         "label": "集合标签",
         "rows": 10,

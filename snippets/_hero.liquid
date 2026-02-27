@@ -1,6 +1,6 @@
 {% assign default_illustration_url = 'images/demo/hero-illustration.svg' |  asset_url %}
 {% assign default_hero_url = 'images/demo/hero-image.png' |  asset_url %}
-{% assign default_slogan =  '👋 A community of makers that learn and grow together' %}
+{% assign default_slogan =  '👋 一个共同学习、共同成长的创客社区' %}
 {% assign default_description =  '👋 Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.' %}
 
 <!-- Hero -->
@@ -27,8 +27,8 @@
 
                     <!-- Copy -->
                     <div class="md:pr-32">
-                        <h1 class="pb-6 text-transparent h2 font-aspekta bg-clip-text" style="color: {{ page.settings.text_color | default: '#333' }};">{{ page.settings.slogan | default: site.settings.slogan | default: default_slogan }}</h1>
-                        <p class="mb-8 text-lg" style="color: {{ page.settings.text_color | default: '#333' }};">{{ page.settings.description | default: default_description }}</p>
+                        <h1 class="pb-6 text-transparent h2 font-aspekta bg-clip-text" style="color: {{ page.settings.text_color | default: '#ffffff' }};">{{ page.settings.slogan | default: site.settings.slogan | default: default_slogan }}</h1>
+                        <p class="mb-8 text-lg" style="color: {{ page.settings.text_color | default: '#ffffff' }};">{{ page.settings.description | default: default_description }}</p>
                     </div>
 
                     <!-- Image -->

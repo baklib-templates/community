@@ -1,0 +1,20 @@
+pages:
+  name: "Question Community"
+  slug: "index"
+  template_name: "index"
+  settings:
+    description: "👋 一个现代化的问答社区模板，适合知识库、FAQ、技术支持和社区讨论等场景。"
+  children:
+    - name: "这是我的第1篇帖子"
+      slug: "post1"
+      template_name: "page"
+      settings:
+        title: "这是我的第1篇帖子"
+        content: "这是我的第1篇帖子内容"
+    - name: "这是我的第2篇帖子"
+      slug: "post2"
+      template_name: "page"
+      settings:
+        title: "这是我的第2篇帖子"
+        content: "这是我的第2篇帖子内容"
+
