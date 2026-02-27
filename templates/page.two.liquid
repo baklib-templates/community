@@ -1,0 +1,176 @@
+{% assign pages = site.pages['/'].children_in_list %}
+{% assign default_avatar_url = site.settings.default_avatar %}
+{% unless default_avatar_url %}
+  {% assign default_avatar_url = 'images/avatar.svg' | asset_url %}
+{% endunless %}
+
+<main class="grow">
+  <section class="py-6 md:py-10">
+    <div class="max-w-7xl px-4 mx-auto sm:px-6">
+      {% comment %} Discourse 三栏布局: 左导航 | 主内容 | 右时间线 {% endcomment %}
+      <div class="xl:grid xl:grid-cols-[220px_1fr_180px] xl:gap-8">
+        <!-- 左侧导航栏 -->
+        <aside class="hidden xl:block shrink-0">
+          <div class="sticky top-20">
+            {% render 'sidebar_discourse_nav' %}
+          </div>
+        </aside>
+
+        <!-- 主内容区 -->
+        <div class="min-w-0">
+          <div class="flex flex-col gap-6 lg:flex-row lg:gap-6">
+            <!-- Upvotes 按钮 -->
+            <div class="flex flex-row lg:flex-col gap-2 shrink-0">
+              <div x-data="{ posted_feedback: {% if page.visitor_posted_feedback %}true{% else %}false{% endif %}, feedback_count: {{ page | feedback_type_count: site.settings.feedback_useful_type }} }">
+                <div x-show="posted_feedback == true" @click="posted_feedback=false;feedback_count--" x-cloak>
+                  {% form_tag 'delete_feedback', page: page, useful_type: site.settings.feedback_useful_type %}
+                    <button name="feedback[useful_type]" value="{{ site.settings.feedback_useful_type }}"
+                      :class="{ '!bg-primary': '{{ site.settings.feedback_useful_type }}' === '{{ page.last_feedback_emoji }}' }"
+                      class="h-12 w-12 pt-2 items-center text-center flex flex-col rounded border border-primary bg-primary hover:bg-slate-300 dark:hover:bg-slate-800">
+                      <svg class="fill-white" width="12" height="6" xmlns="http://www.w3.org/2000/svg"><path d="m0 6 6-6 6 6z"></path></svg>
+                      <span class="text-white" x-text="feedback_count"></span>
+                    </button>
+                  {% endform_tag %}
+                </div>
+                <div x-show="posted_feedback == false" @click="posted_feedback=true;feedback_count++" x-cloak>
+                  {% form_tag 'feedback', page: page %}
+                    <button name="feedback[useful_type]" value="{{ site.settings.feedback_useful_type }}"
+                      class="h-12 w-12 pt-2 items-center text-center flex flex-col rounded border border-primary-200 bg-gradient-to-tr from-slate-200/20 via-slate-200/50 to-slate-200/20 hover:bg-slate-300 dark:hover:bg-slate-800">
+                      <svg class="fill-violet-500" width="12" height="6" xmlns="http://www.w3.org/2000/svg"><path d="m0 6 6-6 6 6z"></path></svg>
+                      <span x-text="feedback_count"></span>
+                    </button>
+                  {% endform_tag %}
+                </div>
+              </div>
+            </div>
+
+            <!-- 帖子内容 -->
+            <div class="flex-1 min-w-0">
+              <article class="mb-10">
+                {% comment %} Discourse: 标题 + 标签置顶 {% endcomment %}
+                <header class="mb-4">
+                  <h1 class="mb-3 text-2xl md:text-3xl font-bold font-aspekta text-slate-900 dark:text-slate-100">{{ page.link_text }}</h1>
+                  {% if page.settings.tags.size > 0 %}
+                    <div class="flex flex-wrap gap-1.5 mb-4">
+                      {% for tag in page.settings.tags %}
+                        {% render 'tag', tag: tag %}
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                  {% comment %} Discourse: 作者左，时间右 {% endcomment %}
+                  <div class="flex items-center justify-between gap-4">
+                    <div class="flex items-center gap-2">
+                      <img class="w-8 h-8 rounded-full shrink-0" src="{{ page.author.avatar_url | default: default_avatar_url }}" width="32" height="32" alt="" />
+                      <a class="font-medium text-primary hover:text-primary/80" href="{{ page.author.profile_url | default: '#' }}">{{ page.author.name }}</a>
+                    </div>
+                    <div class="text-sm text-slate-500 dark:text-slate-400">
+                      {{ page.created_at | date: "%Y-%m-%d %H:%M" }} · {{ page.comments | size }} {{ 'generic.comments' | t }}
+                    </div>
+                  </div>
+                </header>
+
+                <div class="ProseMirror prose dark:prose-invert max-w-none break-words">
+                  {{ page.settings.content }}
+                </div>
+
+                {% comment %} 互动区: 点赞 + 链接 {% endcomment %}
+                <div class="flex items-center gap-4 mt-4 pt-4 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
+                  <span class="flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+                      <path d="m9.653 16.915-.005-.003-.019-.01a20.758 20.758 0 0 1-1.162-.682 22.049 22.049 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.584l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z" />
+                    </svg>
+                    {{ page | feedback_type_count: site.settings.feedback_useful_type }}
+                  </span>
+                  <a href="{{ page.path }}" class="hover:text-primary" aria-label="链接">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+                      <path d="M12.232 4.232a2.5 2.5 0 0 1 3.536 3.536l-1.225 1.224a.75.75 0 0 0 1.061 1.06l1.224-1.224a4 4 0 0 0-5.656-5.656l-3 3a4 4 0 0 0 2.056 6.761.75.75 0 0 0 .5-1.415 2.5 2.5 0 0 1-1.28-4.224l3-3Z" />
+                      <path d="M11.603 7.963a.75.75 0 0 0-.977 1.038l.358.389a4.002 4.002 0 0 1 1.28 4.224.75.75 0 0 0 .5 1.415 4 4 0 0 0-2.056-6.761l-.358-.389a.75.75 0 0 0-1.038.977Z" />
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              {% if page.author.id == current_user.member_id %}
+                <div class="my-4 p-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
+                  <div class="flex gap-3">
+                    <a href="/s/edit?page_path={{ page.full_slug }}" class="btn">{{ 'buttons.edit' | t }}</a>
+                    {% form_tag 'delete_page', page %}
+                      <button type="submit" class="btn btn-ghost">{{ 'buttons.delete' | t }}</button>
+                    {% endform_tag %}
+                  </div>
+                </div>
+              {% endif %}
+
+              <!-- 回复列表 -->
+              <div data-controller="load_more">
+                <div class="pb-4 mb-4 border-b border-slate-200 dark:border-slate-800">
+                  <h2 class="text-xl font-semibold">{{ page.comments | size }} {{ 'generic.comments' | t }}</h2>
+                </div>
+
+                {% render 'reply_page_form_discourse', target: page %}
+
+                {% assign answers = page.comments | roots %}
+                <ul id="page_{{ page.id }}_replies_list" data-load_more-target="container">
+                  {% paginate_tag answers, per: 4 %}
+                    {% for reply in answers %}
+                      {% render 'reply_discourse', reply: reply %}
+                    {% endfor %}
+                  {% endpaginate_tag %}
+                </ul>
+                {{ paginate.next.page }}
+                {% if paginate.next_page %}
+                  <button id="load_more" data-action="click->load_more#loadMore" data-load_more-url-value="/s/replies?page_path={{ page.full_slug }}&_page={{ paginate.next_page }}"
+                    data-load_more-target="button" class="btn btn-ghost mt-4">
+                    {{ 'generic.read_more' | t }}
+                  </button>
+                {% endif %}
+              </div>
+
+              {% render 'related_topics', pages: pages, current_page: page %}
+            </div>
+          </div>
+        </div>
+
+        <!-- 右侧时间线 -->
+        <aside class="hidden xl:block shrink-0">
+          <div class="sticky top-20">
+            {% render 'post_timeline', page: page %}
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% schema %}
+{
+  "name": "帖子页面模板2",
+  "description": "Discourse 风格帖子详情模板",
+  "thumb_url": "images/theme/page2.webp",
+  "sub_page_templates": ["page"],
+  "settings": [
+    { "id": "title", "type": "text", "placeholder": "", "label": "标题", "info": "显示在正文上方的文章标题" },
+    { "id": "content", "type": "richtext", "label": "问题内容" },
+    {
+      "id": "collection",
+      "type": "select",
+      "choices_from": "$site.collection_tags",
+      "label": "集合",
+      "info": "从首页设置的集合字段中选择"
+    },
+    {
+      "id": "feature",
+      "type": "select",
+      "choices_from": "$site.feature_tags",
+      "label": "功能",
+      "info": "从首页设置的功能分类字段中选择"
+    },
+    { "id": "tags", "type": "tag_picker", "multiple": true, "label": "页面标签" },
+    { "id": "is_recommend", "type": "checkbox", "label": "是否推荐", "info": "选定推荐后，会在推荐栏目显示", "default": false }
+  ],
+  "user_creatable": true,
+  "user_editable": true,
+  "user_deletable": true,
+  "user_permitted_attributes": ["title", "content"]
+}
+{% endschema %}

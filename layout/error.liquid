@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% meta_tags %}
     {{ 'javascripts/main.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
-    <!-- Tailwind -->
     {{ 'css/main.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
   </head>
-  <body class="h-screen">
+  <body class="min-h-screen antialiased tracking-tight font-inter bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-200" data-controller="theme">
     {{ content_for_layout }}
   </body>
 </html>

@@ -1,0 +1,16 @@
+{% layout none %}
+{% comment %}
+  Discourse 风格：子回复添加后，使用 reply_discourse
+{% endcomment %}
+
+<turbo-stream action="replace" target="create_reply_{{ reply.parent.id }}_id">
+  <template>
+    {% render 'reply_answer_form', root: reply.root, parent: reply.parent, return_template: 'create_answer_reply_success_discourse' %}
+  </template>
+</turbo-stream>
+
+<turbo-stream action="prepend" target="answer_{{ reply.parent.id }}_replies_list">
+  <template>
+    {% render 'reply_discourse', reply: reply %}
+  </template>
+</turbo-stream>

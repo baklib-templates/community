@@ -1,0 +1,36 @@
+{% comment %}
+  Discourse 风格回复表单：登录用户用 richtext，未登录用户显示 Discourse 风格注册提示
+{% endcomment %}
+{% if current_user %}
+  <div class="flex flex-col sm:flex-row sm:space-x-3 w-full" id="create_reply_{{ target.id }}_form">
+    <div class="w-full min-w-0">
+      {% form_tag 'reply' %}
+        <input value="{{ target.full_slug }}" autocomplete="off" type="hidden" name="target_full_path">
+        <input value="create_reply_success_discourse" autocomplete="off" type="hidden" name="return_template_name">
+        <input value="true" autocomplete="off" type="hidden" name="reply[published]">
+        {% form_field_tag 'richtext', 'reply[body]', content, toolbar: 'simple', under_el_id: '#edit-info-bar-container' %}
+        <div id="reply_page_error" class="text-xs text-red-500 dark:text-red-400 mt-1"></div>
+        <div class="flex items-center justify-end space-x-3 mt-2">
+          <input type="submit" value="{{ 'buttons.submit' | t }}" @click="open = false;name=content.substring(0, 50)" class="btn" />
+        </div>
+      {% endform_tag %}
+    </div>
+  </div>
+{% else %}
+  <div class="rounded-xl border border-violet-200 dark:border-violet-800/50 bg-gradient-to-br from-violet-50/80 via-purple-50/60 to-indigo-50/50 dark:from-slate-800/60 dark:via-violet-900/20 dark:to-slate-800/60 p-6">
+    <p class="text-slate-700 dark:text-slate-300 mb-2">{{ 'generic.discourse_signup_prompt' | t: '你好！看来你很喜欢参与讨论，但你还没有注册账号。' }}</p>
+    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">{{ 'generic.discourse_signup_benefits' | t: '注册后你可以发布话题、回复评论，与社区成员互动。' }}</p>
+    <div class="flex flex-wrap gap-2">
+      {% form_tag 'sign_in_with_baklib' %}
+        <input value="true" type="hidden" name="sign_up">
+        <input type="submit" value="{{ 'buttons.join' | t }}" class="btn btn-sm" data-disable-with="..." />
+      {% endform_tag %}
+      <button type="button" class="btn btn-sm btn-ghost" onclick="this.closest('.rounded-xl').style.display='none'">
+        {{ 'generic.maybe_later' | t: '也许以后' }}
+      </button>
+      <button type="button" class="btn btn-sm btn-ghost text-slate-500 hover:text-slate-700" onclick="this.closest('.rounded-xl').style.display='none'">
+        {{ 'generic.no_thanks' | t: '不，谢谢' }}
+      </button>
+    </div>
+  </div>
+{% endif %}

@@ -15,8 +15,8 @@
   </template>
 </turbo-stream>
 
-{%# 将新增评论添加至根评论的子回复最上方 %}
-<turbo-stream action="prepend" target="answer_{{ reply.root.id }}_replies_list">
+{%# 将新增评论添加至被回复对象(parent)的子回复列表最上方 %}
+<turbo-stream action="prepend" target="answer_{{ reply.parent.id }}_replies_list">
   <template>
     {% render 'reply', reply: reply %}
   </template>

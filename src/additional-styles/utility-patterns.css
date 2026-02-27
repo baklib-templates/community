@@ -59,7 +59,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .form-input,
 .form-textarea {
-    @apply placeholder-slate-600;
+    @apply placeholder-slate-500 dark:placeholder-slate-400;
 }
 
 .form-select {
@@ -86,7 +86,7 @@ input[type="search"]::-webkit-search-results-decoration {
 /* Buttons */
 .btn,
 .btn-sm {
-    @apply text-sm text-white !bg-primary hover:!bg-secondary font-medium inline-flex items-center justify-center rounded-full leading-5 whitespace-nowrap duration-150 ease-in-out;
+    @apply text-sm text-white !bg-primary hover:!bg-secondary font-medium inline-flex items-center justify-center rounded-full leading-5 whitespace-nowrap duration-150 ease-in-out touch-manipulation;
 }
 
 .btn {

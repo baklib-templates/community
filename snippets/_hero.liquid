@@ -5,12 +5,13 @@
 
 <!-- Hero -->
 <section class="relative overflow-hidden">
-    <!-- Bg -->
-    <div class="absolute inset-0 bg-opacity-50 pointer-events-none -z-10" aria-hidden="true" style="background: {{ page.settings.bg_color }};"></div>
+    {% if page.settings.bg_color %}
+    <div class="absolute inset-0 pointer-events-none -z-10" aria-hidden="true" style="background: {{ page.settings.bg_color }};"></div>
+    {% endif %}
 
     <!-- Illustration -->
     {% if page.settings.illustration_url %}
-        <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -z-10" aria-hidden="true">
+        <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 z-1" aria-hidden="true">
             <img src="{{ page.settings.illustration_url }}" class="max-w-none min-h-96" alt="Hero Illustration">
         </div>
     {% endif %}
@@ -26,8 +27,8 @@
 
                     <!-- Copy -->
                     <div class="md:pr-32">
-                        <h1 class="pb-6 text-transparent h2 font-aspekta bg-clip-text" style="color: {{ page.settings.text_color | default: '#333' }};">{{ page.settings.slogan |  default: default_slogan }}</h1>
-                        <p class="mb-8 text-lg" style="color: {{ page.settings.text_color | default: '#333' }};">{{ page.settings.description |  default: default_description }}</p>
+                        <h1 class="pb-6 text-transparent h2 font-aspekta bg-clip-text" style="color: {{ page.settings.text_color | default: '#333' }};">{{ page.settings.slogan | default: site.settings.slogan | default: default_slogan }}</h1>
+                        <p class="mb-8 text-lg" style="color: {{ page.settings.text_color | default: '#333' }};">{{ page.settings.description | default: default_description }}</p>
                     </div>
 
                     <!-- Image -->

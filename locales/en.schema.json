@@ -7,19 +7,8 @@
       "header_name": "Header and footer menu",
       "head_title": "Head HTML Settings",
       "settings": {
-        "hero_image_url": {
-          "label": "Hero Banner",
-          "info": "For the help center index theme, size of 1900*600px is recommended."
-        },
         "description": {
           "label": "site description"
-        },
-        "hot_tags": {
-            "label": "Hot search keywords (please separate them with English comma: ,)"
-        },
-        "company_name": {
-          "label": "Company Name",
-          "default": "Tanmer Inc."
         },
         "copyright_info": {
           "label": "Copyright Info",
@@ -44,10 +33,10 @@
       "name": "Page",
       "description": "Document content page",
       "settings": {
-        "description":{
+        "description": {
           "label": "Description"
         },
-        "content":{
+        "content": {
           "label": "Content",
           "info": "Synchronized from data source, cannot be edited"
         },
@@ -55,7 +44,7 @@
           "label": "ICON",
           "info": "1:1 ratio is recommended"
         },
-        "tags":{
+        "tags": {
           "label": "Tags"
         }
       }
