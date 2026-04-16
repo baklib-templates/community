@@ -7,13 +7,13 @@
                 {% if site.settings.logo_url %}
                     <a class="flex items-center space-x-1 group" href="/" aria-label="Baklib">
                         {% assign logo = 'images/demo/logo.svg' | asset_url %}
-                        <img src="{{ site.settings.logo_url | default: site.favicon_url | default: logo }}" class="w-auto h-8 hover:scale-175 hover:rotate-2" alt="{{ site.name }}" />
+                        <img src="{{ site.settings.logo_url | default: site.favicon_url | default: logo }}" class="w-auto h-12 hover:scale-175 hover:rotate-2" alt="{{ site.name }}" />
                         <span class="sr-only">{{ site.name }}</span>
                     </a>
                 {% else %}
                     <a class="flex items-center space-x-1 group" href="/" aria-label="Baklib">
                         {% assign logo = 'images/demo/logo.svg' | asset_url %}
-                        <img src="{{ site.favicon_url | default: logo }}" class="w-auto h-8 hover:scale-175 hover:rotate-2" alt="{{ site.name }}" />
+                        <img src="{{ site.favicon_url | default: logo }}" class="w-auto h-12 hover:scale-175 hover:rotate-2" alt="{{ site.name }}" />
                         <span class="text-md">{{ site.name }}</span>
                     </a>
                 {% endif %}
