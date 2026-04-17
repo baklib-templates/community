@@ -129,7 +129,7 @@
         "id": "is_show_collection_feature_tags",
         "type": "checkbox",
         "label": "是否显示集合/功能标签",
-        "default": false
+        "default": true
       },
       {
         "id": "feature_tags",
