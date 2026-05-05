@@ -37,11 +37,11 @@
   </main>
 {% else %}
   <div class="w-2/3 px-2 mx-auto sm:px-6 min-h-fit">
-    未登录跳转登录页...
+    {{ 'prompts.redirect_login_edit' | t }}
     {% form_tag 'sign_in_with_baklib' %}
       <input value="true" type="hidden" name="sign_up">
       <input type="submit"
-        value="{{ "buttons.login" | t: '登录' }}"
+        value="{{ 'buttons.login' | t }}"
         class="items-center hidden px-3 py-2 text-sm font-medium text-white transition duration-150 ease-in-out hover:text-slate-200 lg:px-5"
         data-disable-with=" ... " x-init="$el.click()"
         >

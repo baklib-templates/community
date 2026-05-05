@@ -48,6 +48,55 @@
           "label": "标签"
         }
       }
+    },
+    "community": {
+      "collections_section_name": "集合设置",
+      "logo_url_label": "站点LOGO",
+      "logo_url_info": "用在站点顶部的 LOGO",
+      "default_avatar_label": "默认头像",
+      "default_avatar_info": "新注册用户未设置头像之前，显示该默认头像",
+      "is_allow_published_label": "是否开启先发后审",
+      "is_allow_published_info": "先发后审：前台提交即发布；先审后发：前台提交，后台审核后发布。",
+      "feedback_useful_type_label": "首选反馈表情",
+      "feedback_useful_type_placeholder": "如 😊 等 emoji，需在应用设置中配置",
+      "copyright_info_label": "版权信息",
+      "copyright_info_placeholder": "在站点页脚显示",
+      "is_show_collection_feature_tags_label": "是否显示集合/功能标签",
+      "feature_tags_label": "功能标签",
+      "feature_tags_info": "每行一个功能标签，用于集合分类。格式：每行一个标签名称",
+      "collection_tags_label": "集合标签",
+      "collection_tags_info": "每行一个集合标签，用于集合分类。格式：每行一个标签名称",
+      "header_menu_label": "导航菜单",
+      "header_menu_info": "格式：menu_name[url，每行一个链接。"
+    },
+    "community_templates": {
+      "index_home_name": "Index",
+      "index_home_description": "社区首页（列表）",
+      "index_forum_name": "Index Forum",
+      "index_forum_description": "社区首页（论坛布局）",
+      "shared_slogan_label": "站点口号",
+      "shared_slogan_default": "👋 一个共同学习、共同成长的创客社区",
+      "shared_tags_label": "站点热门标签",
+      "hero_text_color_label": "Hero 文字颜色",
+      "hero_bg_color_label": "Hero 背景色",
+      "hero_illustration_label": "Hero 背景插图（SVG）",
+      "hero_illustration_info": "虚幻背景SVG格式，参考：",
+      "hero_banner_label": "Hero Banner 图片（PNG）",
+      "hero_banner_info": "PNG 透明背景格式，参考：",
+      "page_detail_name": "帖子页面模板",
+      "page_detail_description": "发布的页面详情模板",
+      "page_two_name": "帖子页面模板2",
+      "page_two_description": "Discourse 风格帖子详情模板",
+      "post_title_label": "标题",
+      "post_title_info": "显示在正文上方的文章标题",
+      "post_content_label": "问题内容",
+      "post_collection_label": "集合",
+      "post_collection_info": "从首页设置的集合标签中选择",
+      "post_feature_label": "功能",
+      "post_feature_info": "从首页设置的功能标签中选择",
+      "post_tags_label": "页面标签",
+      "post_recommend_label": "是否推荐",
+      "post_recommend_info": "选定推荐后，会在推荐栏目显示"
     }
   }
 }

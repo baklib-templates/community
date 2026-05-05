@@ -81,7 +81,7 @@
                                 <div>
                                     <div
                                         class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase mb-3 ">
-                                        资源类型 </div>
+                                        {{ 'forum.resource_types' | t }} </div>
                                     <ul class="flex flex-nowrap md:block mr-3 md:mr-0">
                                         
                                         {% assign collections = site.settings.collection_tags | newline_to_br | split: '<br />'  %}
@@ -191,16 +191,16 @@
 
 {% schema %}
     {
-        "name": "Index Forum",
-        "description": "Community Index Page Forum Theme",
-        "thumb_url": "images/theme/index-forum.webp",
+        "name": "t:settings_schema.community_templates.index_forum_name",
+        "description": "t:settings_schema.community_templates.index_forum_description",
+        "thumb_url": "images/theme/${lang}/index-forum.webp",
         "sub_page_templates": ["page"],
         "settings": [
             {
                 "id": "slogan",
                 "type": "text",
-                "label": "站点口号",
-                "default": "👋 一个共同学习、共同成长的创客社区"
+                "label": "t:settings_schema.community_templates.shared_slogan_label",
+                "default": "👋 A maker community to learn and grow together"
             },
             {
                 "id": "description",
@@ -212,17 +212,17 @@
                 "id": "tags",
                 "type": "tag_picker",
                 "multiple": true,
-                "label": "站点热门标签"
+                "label": "t:settings_schema.community_templates.shared_tags_label"
             },
             {
                 "id": "text_color",
                 "type": "color",
-                "label": "Hero 文字颜色",
+                "label": "t:settings_schema.community_templates.hero_text_color_label",
                 "default": "#ffffff"
             },
             {
                 "id": "bg_color",
-                "label": "Hero 背景色",
+                "label": "t:settings_schema.community_templates.hero_bg_color_label",
                 "type": "color_background"
             },
             {
@@ -230,16 +230,16 @@
                 "type": "image_picker",
                 "ratio": "16:9",
                 "width": 400,
-                "label": "Hero 背景插图（SVG）",
-                "info": "虚幻背景SVG格式，参考："
+                "label": "t:settings_schema.community_templates.hero_illustration_label",
+                "info": "t:settings_schema.community_templates.hero_illustration_info"
             },
             {
                 "id": "hero_url",
                 "type": "image_picker",
                 "ratio": "4:3",
                 "width": 400,
-                "label": "Hero Banner 图片（PNG）",
-                "info": "PNG 透明背景格式，参考："
+                "label": "t:settings_schema.community_templates.hero_banner_label",
+                "info": "t:settings_schema.community_templates.hero_banner_info"
             }
         ]
     }

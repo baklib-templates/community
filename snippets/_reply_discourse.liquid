@@ -74,13 +74,13 @@
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
         </svg>
-        {{ 'generic.show_replies' | t: '展开' }} ({{ children_count }})
+        {{ 'generic.show_replies' | t }} ({{ children_count }})
       </button>
       <button type="button" class="text-xs text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary-400 mb-1 flex items-center gap-1" @click="collapsed = !collapsed" x-show="!collapsed" x-cloak>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
         </svg>
-        {{ 'generic.collapse_replies' | t: '折叠' }}
+        {{ 'generic.collapse_replies' | t }}
       </button>
     {% endif %}
     <ul class="reply-children mt-0 pl-4 ml-8 border-l-2 border-slate-200 dark:border-slate-700 space-y-0" id="answer_{{ reply.id }}_replies_list" {% if is_collapsible %}x-show="!collapsed"{% endif %}>

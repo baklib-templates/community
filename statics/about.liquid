@@ -1,4 +1,5 @@
-{% set_meta_title '关于本站' %}
+{% assign _about_meta = 'about.meta_title' | t %}
+{% set_meta_title _about_meta %}
 
 <main class="grow">
   <section>
@@ -6,178 +7,107 @@
       <div class="pt-6 md:pt-12">
         <header class="mb-8">
           <h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2">
-            关于本站
+            {{ 'about.title' | t }}
           </h1>
           <p class="text-slate-600 dark:text-slate-400">
-            基于 Baklib Question 问答社区模板构建，本文档介绍模板功能与操作教程。
+            {{ 'about.subtitle' | t }}
           </p>
         </header>
 
-        <!-- 模板介绍 -->
         <div class="mb-10">
           <h2 class="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-4">
-            模板介绍
+            {{ 'about.section_intro' | t }}
           </h2>
           <div class="prose dark:prose-invert max-w-none">
-            <p>
-              Baklib Question 是一款现代化的问答社区模板，支持 <strong>Reddit</strong> 和 <strong>Discourse</strong> 两种风格。
-              提供完整的帖子发布、多层级回复、标签分类、集合管理、时间线展示等功能。
-            </p>
-            <p class="text-slate-600 dark:text-slate-400">
-              适用于知识库、FAQ、技术支持、社区讨论等场景。
-            </p>
+            <p>{{ 'about.intro_p1' | t }}</p>
+            <p class="text-slate-600 dark:text-slate-400">{{ 'about.intro_scope' | t }}</p>
           </div>
         </div>
 
-        <!-- 核心特性 -->
         <div class="mb-10">
           <h2 class="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-4">
-            核心特性
+            {{ 'about.section_features' | t }}
           </h2>
           <ul class="space-y-2 text-slate-700 dark:text-slate-300 ml-4">
-            <li class="flex items-start gap-2">
-              <span class="text-primary shrink-0">•</span>
-              <span><strong>帖子发布与管理</strong>：支持标题、正文、标签和集合分类</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-primary shrink-0">•</span>
-              <span><strong>多层级回复</strong>：支持无限层级嵌套评论，Reddit / Discourse 两种展示风格</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-primary shrink-0">•</span>
-              <span><strong>标签与集合</strong>：功能标签与集合分类，便于内容组织与检索</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-primary shrink-0">•</span>
-              <span><strong>时间线展示</strong>：Discourse 风格提供右侧时间线，展示主帖与回复节点</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-primary shrink-0">•</span>
-              <span><strong>相关主题推荐</strong>：自动推荐相关话题，提升内容发现</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-primary shrink-0">•</span>
-              <span><strong>点赞/反馈系统</strong>：支持对帖子进行投票反馈</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-primary shrink-0">•</span>
-              <span><strong>站内搜索</strong>：快速搜索站点内容</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-primary shrink-0">•</span>
-              <span><strong>审核机制</strong>：支持先发后审或先审后发两种模式</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-primary shrink-0">•</span>
-              <span><strong>响应式设计</strong>：适配桌面端与移动端</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-primary shrink-0">•</span>
-              <span><strong>暗色模式</strong>：支持亮色/暗色主题切换</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-primary shrink-0">•</span>
-              <span><strong>Turbo Stream</strong>：实时更新，无需刷新页面</span>
-            </li>
+            <li class="flex items-start gap-2"><span class="text-primary shrink-0">•</span><span>{{ 'about.feat_posts' | t }}</span></li>
+            <li class="flex items-start gap-2"><span class="text-primary shrink-0">•</span><span>{{ 'about.feat_replies' | t }}</span></li>
+            <li class="flex items-start gap-2"><span class="text-primary shrink-0">•</span><span>{{ 'about.feat_tags' | t }}</span></li>
+            <li class="flex items-start gap-2"><span class="text-primary shrink-0">•</span><span>{{ 'about.feat_timeline' | t }}</span></li>
+            <li class="flex items-start gap-2"><span class="text-primary shrink-0">•</span><span>{{ 'about.feat_related' | t }}</span></li>
+            <li class="flex items-start gap-2"><span class="text-primary shrink-0">•</span><span>{{ 'about.feat_feedback' | t }}</span></li>
+            <li class="flex items-start gap-2"><span class="text-primary shrink-0">•</span><span>{{ 'about.feat_search' | t }}</span></li>
+            <li class="flex items-start gap-2"><span class="text-primary shrink-0">•</span><span>{{ 'about.feat_moderation' | t }}</span></li>
+            <li class="flex items-start gap-2"><span class="text-primary shrink-0">•</span><span>{{ 'about.feat_responsive' | t }}</span></li>
+            <li class="flex items-start gap-2"><span class="text-primary shrink-0">•</span><span>{{ 'about.feat_dark' | t }}</span></li>
+            <li class="flex items-start gap-2"><span class="text-primary shrink-0">•</span><span>{{ 'about.feat_turbo' | t }}</span></li>
           </ul>
         </div>
 
-        <!-- 操作教程 -->
         <div class="mb-10">
           <h2 class="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-4">
-            操作教程
+            {{ 'about.section_tutorial' | t }}
           </h2>
 
           <div class="space-y-6 ml-4">
             <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-5 bg-white dark:bg-slate-900/30">
-              <h3 class="text-lg font-medium text-slate-900 dark:text-slate-100 mb-2">
-                1. 模板安装
-              </h3>
-              <p class="text-slate-600 dark:text-slate-400 mb-2">
-                在 Baklib 应用市场中找到「Question 问答社区」模板，按流程创建站点即可完成初始社区搭建。
-                也可通过 Git 添加：<code class="text-sm px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800">https://gitee.com/baklib/community-question</code>
-              </p>
+              <h3 class="text-lg font-medium text-slate-900 dark:text-slate-100 mb-2">{{ 'about.tut_install_title' | t }}</h3>
+              <p class="text-slate-600 dark:text-slate-400 mb-2">{{ 'about.tut_install_body' | t }}</p>
+              <p><code class="text-sm px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800">https://gitee.com/baklib/community-question</code></p>
             </div>
 
             <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-5 bg-white dark:bg-slate-900/30">
-              <h3 class="text-lg font-medium text-slate-900 dark:text-slate-100 mb-2">
-                2. 应用设置
-              </h3>
-              <p class="text-slate-600 dark:text-slate-400 mb-3">
-                进入 <strong>应用设置 → 界面展示</strong> 配置：
-              </p>
+              <h3 class="text-lg font-medium text-slate-900 dark:text-slate-100 mb-2">{{ 'about.tut_app_title' | t }}</h3>
+              <p class="text-slate-600 dark:text-slate-400 mb-3">{{ 'about.tut_app_intro' | t }}</p>
               <ul class="list-inside space-y-1.5 text-slate-600 dark:text-slate-400 text-sm">
-                <li><strong>站点 LOGO</strong>：作为页头 LOGO 展示</li>
-                <li><strong>默认头像</strong>：新用户未上传头像时显示</li>
-                <li><strong>是否开启先发后审</strong>：先发后审（发布即展示）/ 先审后发（需后台审核后展示）</li>
-                <li><strong>首选反馈表情</strong>：复制自「反馈设置」，用于帖子投票</li>
-                <li><strong>版权信息</strong>：显示于站点页脚</li>
-                <li><strong>页头/页脚导航</strong>：自定义导航链接</li>
+                <li>{{ 'about.tut_app_logo' | t }}</li>
+                <li>{{ 'about.tut_app_avatar' | t }}</li>
+                <li>{{ 'about.tut_app_review' | t }}</li>
+                <li>{{ 'about.tut_app_emoji' | t }}</li>
+                <li>{{ 'about.tut_app_copy' | t }}</li>
+                <li>{{ 'about.tut_app_nav' | t }}</li>
               </ul>
             </div>
 
             <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-5 bg-white dark:bg-slate-900/30">
-              <h3 class="text-lg font-medium text-slate-900 dark:text-slate-100 mb-2">
-                3. 首页设置
-              </h3>
-              <p class="text-slate-600 dark:text-slate-400 mb-2">
-                进入 <strong>页面管理 → 首页 → 设置 → 页面模板</strong> 切换展示样式：
-              </p>
+              <h3 class="text-lg font-medium text-slate-900 dark:text-slate-100 mb-2">{{ 'about.tut_home_title' | t }}</h3>
+              <p class="text-slate-600 dark:text-slate-400 mb-2">{{ 'about.tut_home_intro' | t }}</p>
               <ul class="list-inside space-y-1 text-slate-600 dark:text-slate-400 text-sm">
-                <li><strong>index</strong>：Reddit 风格，简洁 vertical 布局</li>
-                <li><strong>index.forum</strong>：Discourse 风格，带左侧导航与侧边栏</li>
+                <li>{{ 'about.tut_home_index' | t }}</li>
+                <li>{{ 'about.tut_home_forum' | t }}</li>
               </ul>
-              <p class="text-slate-600 dark:text-slate-400 mt-3 mb-2">
-                帖子详情页同样可切换 <strong>page</strong>（Reddit）或 <strong>page.two</strong>（Discourse）。
-              </p>
+              <p class="text-slate-600 dark:text-slate-400 mt-3 mb-2">{{ 'about.tut_home_detail' | t }}</p>
             </div>
 
             <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-5 bg-white dark:bg-slate-900/30">
-              <h3 class="text-lg font-medium text-slate-900 dark:text-slate-100 mb-2">
-                4. Hero 定制
-              </h3>
-              <p class="text-slate-600 dark:text-slate-400 mb-2">
-                进入 <strong>页面管理 → 首页 → 编辑内容</strong> 可配置：
-              </p>
+              <h3 class="text-lg font-medium text-slate-900 dark:text-slate-100 mb-2">{{ 'about.tut_hero_title' | t }}</h3>
+              <p class="text-slate-600 dark:text-slate-400 mb-2">{{ 'about.tut_hero_intro' | t }}</p>
               <ul class="list-inside space-y-1 text-slate-600 dark:text-slate-400 text-sm">
-                <li>首页口号、描述</li>
-                <li>背景颜色 / 背景图片（二选一）</li>
-                <li>右侧示意图</li>
+                <li>{{ 'about.tut_hero_li1' | t }}</li>
+                <li>{{ 'about.tut_hero_li2' | t }}</li>
+                <li>{{ 'about.tut_hero_li3' | t }}</li>
               </ul>
             </div>
 
             <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-5 bg-white dark:bg-slate-900/30">
-              <h3 class="text-lg font-medium text-slate-900 dark:text-slate-100 mb-2">
-                5. 集合与标签
-              </h3>
-              <p class="text-slate-600 dark:text-slate-400 text-sm">
-                在 <strong>应用设置 → 集合设置</strong> 中配置「功能标签」和「集合标签」，用于帖子分类。
-                启用「是否显示集合/功能标签」后，侧边栏及帖子中会展示分类入口。
-              </p>
+              <h3 class="text-lg font-medium text-slate-900 dark:text-slate-100 mb-2">{{ 'about.tut_cols_title' | t }}</h3>
+              <p class="text-slate-600 dark:text-slate-400 text-sm">{{ 'about.tut_cols_body' | t }}</p>
             </div>
           </div>
         </div>
 
-        <!-- 相关链接 -->
         <div class="border-t border-slate-200 dark:border-slate-700 pt-8">
           <h2 class="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-4">
-            相关链接
+            {{ 'about.section_links' | t }}
           </h2>
           <ul class="space-y-2">
             <li>
-              <a href="https://help.baklib.cn/themes/community/question" target="_blank" rel="noopener" class="text-primary hover:text-primary/80 underline">
-                帮助中心 - Question 问答社区文档
-              </a>
+              <a href="https://help.baklib.cn/themes/community/question" target="_blank" rel="noopener" class="text-primary hover:text-primary/80 underline">{{ 'about.link_help' | t }}</a>
             </li>
             <li>
-              <a href="https://demo-question.uibak.com/" target="_blank" rel="noopener" class="text-primary hover:text-primary/80 underline">
-                Demo 演示
-              </a>
+              <a href="https://demo-question.uibak.com/" target="_blank" rel="noopener" class="text-primary hover:text-primary/80 underline">{{ 'about.link_demo' | t }}</a>
             </li>
             <li>
-              <a href="https://community.baklib.cn/" target="_blank" rel="noopener" class="text-primary hover:text-primary/80 underline">
-                真实案例 - Baklib 社区
-              </a>
+              <a href="https://community.baklib.cn/" target="_blank" rel="noopener" class="text-primary hover:text-primary/80 underline">{{ 'about.link_case' | t }}</a>
             </li>
           </ul>
         </div>

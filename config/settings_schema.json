@@ -1,7 +1,7 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "community_question",
+    "theme_name": "community",
     "theme_label": "t:theme_label",
     "theme_description": "t:theme_description",
     "theme_version": "1.0.0",
@@ -11,11 +11,11 @@
     "theme_support_url": "https://help.baklib.cn/themes/community/question",
     "theme_thumb_url": "images/theme/thumb.png",
     "theme_preview_images": [
-      "images/theme/question.webp",
-      "images/theme/index.webp",
-      "images/theme/feeds.webp",
-      "images/theme/page.webp",
-      "images/theme/comment.webp"
+      "images/theme/${lang}/question.webp",
+      "images/theme/${lang}/index.webp",
+      "images/theme/${lang}/feeds.webp",
+      "images/theme/${lang}/page.webp",
+      "images/theme/${lang}/comment.webp"
     ],
     "theme_languages": [
       {
@@ -24,13 +24,25 @@
       },
       {
         "name": "English",
-        "value": "en-US"
+        "value": "en"
+      },
+      {
+        "name": "Deutsch",
+        "value": "de"
+      },
+      {
+        "name": "Français",
+        "value": "fr"
+      },
+      {
+        "name": "日本語",
+        "value": "ja"
       }
     ],
     "recommendations": {
       "color_schemas": {
         "fashion": {
-          "name": "时尚",
+          "name": "Fashion",
           "colors": {
             "--theme-color-primary": "#3D50E0",
             "--theme-color-secondary": "#E91E63",
@@ -41,7 +53,7 @@
           }
         },
         "old_school": {
-          "name": "复古",
+          "name": "Vintage",
           "colors": {
             "--theme-color-primary": "#9C27B0",
             "--theme-color-secondary": "#673AB7",
@@ -54,25 +66,25 @@
       },
       "initial_pages": {
         "default": {
-          "name": "Question Community",
+          "name": "Community",
           "default": false,
           "pages": [
             {
-              "name": "这是我的第1篇帖子",
+              "name": "Welcome — my first post",
               "slug": "post1",
               "template": "page",
               "settings":
               {
-                "content": "这是我的第1篇帖子内容"
+                "content": "This is sample content for the first post."
               }
             },
             {
-              "name": "这是我的第2篇帖子",
+              "name": "Getting started with discussions",
               "slug": "post2",
               "template": "page",
               "settings":
               {
-                "content": "这是我的第1篇帖子内容"
+                "content": "This is sample content for the second post."
               }
             }
           ]
@@ -88,64 +100,64 @@
         "type": "image_picker",
         "ratio": "3:1",
         "width": 150,
-        "label": "站点LOGO",
-        "info": "用在站点顶部的 LOGO"
+        "label": "t:settings_schema.community.logo_url_label",
+        "info": "t:settings_schema.community.logo_url_info"
       },
       {
         "id": "default_avatar",
         "type": "image_picker",
         "ratio": "4:4",
         "width": 100,
-        "label": "默认头像",
-        "info": "新注册用户未设置头像之前，显示该默认头像"
+        "label": "t:settings_schema.community.default_avatar_label",
+        "info": "t:settings_schema.community.default_avatar_info"
       },
       {
         "id": "is_allow_published",
         "type": "checkbox",
-        "label": "是否开启先发后审",
-        "info": "先发后审：前台提交即发布；先审后发：前台提交，后台审核后发布。",
-        "default": false
+        "label": "t:settings_schema.community.is_allow_published_label",
+        "info": "t:settings_schema.community.is_allow_published_info",
+        "default": true
       },
       
       {
         "id": "feedback_useful_type",
         "type": "text",
-        "label": "首选反馈表情",
-        "placeholder": "如 😊 等 emoji，需在应用设置中配置",
+        "label": "t:settings_schema.community.feedback_useful_type_label",
+        "placeholder": "t:settings_schema.community.feedback_useful_type_placeholder",
         "default": "😊"
       },
       {
         "id": "copyright_info",
         "type": "text",
-        "label": "版权信息",
-        "placeholder": "在站点页脚显示"
+        "label": "t:settings_schema.community.copyright_info_label",
+        "placeholder": "t:settings_schema.community.copyright_info_placeholder"
       }
     ]
   },
   {
-    "name": "集合设置",
+    "name": "t:settings_schema.community.collections_section_name",
     "settings": [
       {
         "id": "is_show_collection_feature_tags",
         "type": "checkbox",
-        "label": "是否显示集合/功能标签",
+        "label": "t:settings_schema.community.is_show_collection_feature_tags_label",
         "default": true
       },
       {
         "id": "feature_tags",
         "queryable": true,
         "type": "textarea",
-        "label": "功能标签",
+        "label": "t:settings_schema.community.feature_tags_label",
         "rows": 10,
-        "info": "每行一个功能标签，用于集合分类。格式：每行一个标签名称"
+        "info": "t:settings_schema.community.feature_tags_info"
       },
       {
         "id": "collection_tags",
         "queryable": true,
         "type": "textarea",
-        "label": "集合标签",
+        "label": "t:settings_schema.community.collection_tags_label",
         "rows": 10,
-        "info": "每行一个集合标签，用于集合分类。格式：每行一个标签名称"
+        "info": "t:settings_schema.community.collection_tags_info"
       }
     ]
   },
@@ -155,10 +167,10 @@
       {
         "id": "header_menu",
         "type": "textarea",
-        "label": "导航菜单",
+        "label": "t:settings_schema.community.header_menu_label",
         "rows": 10,
-        "info": "格式：menu_name[url，每行一个链接。",
-        "default": "首页[/\n关于本站[/s/about\n集合[/s/tags"
+        "info": "t:settings_schema.community.header_menu_info",
+        "default": "Home[/\nAbout[/s/about\nCollections[/s/tags\nBaklib[https://www.baklib.com"
       },
       {
         "id": "header_menu_html",

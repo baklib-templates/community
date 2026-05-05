@@ -1,6 +1,92 @@
 {
-  "theme_label": "问答社区",
-  "theme_description": "现代化的问答社区模板，支持类 Reddit 和 Discourse 两种风格。提供完整的帖子发布、多层级回复、标签分类、集合管理、时间线展示等功能，适用于知识库、FAQ、技术支持、社区讨论等场景。",
+  "theme_label": "社区",
+  "theme_description": "对标 Discourse（论坛布局、时间线、侧栏）、Reddit（线性列表与帖子流）及 Stack Overflow 类结构化问答场景的现代化社区模板。支持帖子发布、多层级回复、标签与集合、点赞反馈与站内搜索，适用于知识库、FAQ、技术支持与社区讨论。",
+  "nav": {
+    "more_menu_title": "更多导航菜单",
+    "site_search": "全站搜索"
+  },
+  "forum": {
+    "resource_types": "资源类型"
+  },
+  "errors": {
+    "create_failed": "创建失败"
+  },
+  "prompts": {
+    "page_restricted": "本页面需要授权才可以访问",
+    "redirect_login_edit": "未登录，跳转至登录页…"
+  },
+  "hero": {
+    "default_slogan": "👋 一个共同学习、共同成长的创客社区",
+    "default_description": "👋 适配多种设备的首页模板，一次配置，多端一致呈现。"
+  },
+  "tag_filter": {
+    "collection_prefix": "集合：",
+    "feature_prefix": "功能：",
+    "pair_sep": " · ",
+    "all_posts": "全部帖子",
+    "filter_collection": "集合 (collection)",
+    "filter_feature": "功能 (feature)",
+    "reset": "重置",
+    "empty_results": "暂无符合条件的帖子。"
+  },
+  "tags_hub": {
+    "page_title": "集合与功能查询",
+    "by_collection": "按集合",
+    "by_feature": "按功能",
+    "collection_heading": "集合：",
+    "feature_heading": "功能：",
+    "empty_collection_pages": "暂无使用该集合的页面。",
+    "empty_feature_pages": "暂无使用该功能标签的页面。",
+    "not_configured_collection": "尚未在站点设置中配置 collection_tags。",
+    "not_configured_feature": "尚未在站点设置中配置 feature_tags。"
+  },
+  "about": {
+    "meta_title": "关于本站",
+    "title": "关于本站",
+    "subtitle": "基于 Baklib Community 模板构建，本文档介绍模板功能与操作教程。",
+    "section_intro": "模板介绍",
+    "intro_p1": "Baklib Community 是一款现代化的问答社区模板，可选 Reddit 与 Discourse 两种展示风格，并提供帖子发布、多层级回复、标签分类、集合管理、时间线展示等功能。",
+    "intro_scope": "适用于知识库、FAQ、技术支持、社区讨论等场景。",
+    "section_features": "核心特性",
+    "feat_posts": "帖子发布与管理：支持标题、正文、标签和集合分类",
+    "feat_replies": "多层级回复：无限层级嵌套评论，Reddit / Discourse 两种展示风格",
+    "feat_tags": "标签与集合：功能标签与集合分类，便于内容组织与检索",
+    "feat_timeline": "时间线展示：Discourse 风格提供右侧时间线，展示主帖与回复节点",
+    "feat_related": "相关主题推荐：自动推荐相关话题，提升内容发现",
+    "feat_feedback": "点赞/反馈系统：支持对帖子进行投票反馈",
+    "feat_search": "站内搜索：快速搜索站点内容",
+    "feat_moderation": "审核机制：支持先发后审或先审后发两种模式",
+    "feat_responsive": "响应式设计：适配桌面端与移动端",
+    "feat_dark": "暗色模式：支持亮色/暗色主题切换",
+    "feat_turbo": "Turbo Stream：实时更新，无需刷新页面",
+    "section_tutorial": "操作教程",
+    "tut_install_title": "1. 模板安装",
+    "tut_install_body": "在 Baklib 应用市场中找到社区问答模板，按流程创建站点即可完成初始社区搭建。也可通过 Git 添加：",
+    "tut_app_title": "2. 应用设置",
+    "tut_app_intro": "进入 应用设置 → 界面展示 配置：",
+    "tut_app_logo": "站点 LOGO：作为页头 LOGO 展示",
+    "tut_app_avatar": "默认头像：新用户未上传头像时显示",
+    "tut_app_review": "是否开启先发后审：先发后审（发布即展示）/ 先审后发（需后台审核后展示）",
+    "tut_app_emoji": "首选反馈表情：复制自「反馈设置」，用于帖子投票",
+    "tut_app_copy": "版权信息：显示于站点页脚",
+    "tut_app_nav": "页头/页脚导航：自定义导航链接",
+    "tut_home_title": "3. 首页设置",
+    "tut_home_intro": "进入 页面管理 → 首页 → 设置 → 页面模板 切换展示样式：",
+    "tut_home_index": "index：Reddit 风格，简洁纵向布局",
+    "tut_home_forum": "index.forum：Discourse 风格，带左侧导航与侧边栏",
+    "tut_home_detail": "帖子详情页同样可切换 page（Reddit）或 page.two（Discourse）。",
+    "tut_hero_title": "4. Hero 定制",
+    "tut_hero_intro": "进入 页面管理 → 首页 → 编辑内容 可配置：",
+    "tut_hero_li1": "首页口号、描述",
+    "tut_hero_li2": "背景颜色 / 背景图片（二选一）",
+    "tut_hero_li3": "右侧示意图",
+    "tut_cols_title": "5. 集合与标签",
+    "tut_cols_body": "在 应用设置 → 集合设置 中配置「功能标签」和「集合标签」，用于帖子分类。启用「是否显示集合/功能标签」后，侧边栏及帖子中会展示分类入口。",
+    "section_links": "相关链接",
+    "link_help": "帮助中心 · Community 文档",
+    "link_demo": "Demo 演示",
+    "link_case": "真实案例 · Baklib 社区"
+  },
   "generic": {
     "close": "关闭",
     "search": "搜索",
@@ -46,8 +132,13 @@
     "news_letter": "加入社区，参与讨论！",
     "terms1": "提交的内容，需要后台管理员审核以后方能在前端展示。",
     "terms2": "平台使用者须遵循相关声明和条款：",
+    "terms_link": "免责声明",
     "collection": "集合",
-    "feature": "功能"
+    "feature": "功能",
+    "timeline": "时间线",
+    "original_post": "主帖",
+    "topic": "话题",
+    "activity": "活动"
   },
   "placeholders": {
     "search": "站内搜索",
@@ -67,9 +158,6 @@
     "sso_login": "SSO 登录",
     "baklib_login": "Baklib 账号登录",
     "redirect_to": "未登录，跳转至登录页"
-  },
-  "prompts": {
-    "page_restricted": "本页面需要授权才可以访问"
   },
   "paginate": {
     "showing": "当前显示第",

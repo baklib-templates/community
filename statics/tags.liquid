@@ -1,4 +1,4 @@
-{% assign title = "集合与功能查询" %}
+{% assign title = 'tags_hub.page_title' | t %}
 {% set_meta_title title %}
 
 {% assign collections = site.settings.collection_tags | newline_to_br | split: "<br />" %}
@@ -10,7 +10,7 @@
       <div class="pt-6 md:pt-12">
         <header class="mb-8">
           <h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2">
-            集合与功能查询
+            {{ 'tags_hub.page_title' | t }}
           </h1>
         </header>
 
@@ -18,7 +18,7 @@
           <!-- Collection 查询 -->
           <div>
             <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">
-              按集合
+              {{ 'tags_hub.by_collection' | t }}
             </h2>
 
             {% if collections.size > 0 %}
@@ -28,7 +28,7 @@
                   {% if collection_name != "" %}
                     <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-white dark:bg-slate-900/30">
                       <h3 class="text-sm font-medium text-slate-800 dark:text-slate-100 mb-2">
-                        集合：{{ collection_name }}
+                        {{ 'tags_hub.collection_heading' | t }}{{ collection_name }}
                       </h3>
 
                       {% comment %}
@@ -70,7 +70,7 @@
                         </div>
                       {% else %}
                         <p class="text-xs text-slate-500 dark:text-slate-400">
-                          暂无使用该集合的页面。
+                          {{ 'tags_hub.empty_collection_pages' | t }}
                         </p>
                       {% endif %}
                     </div>
@@ -79,7 +79,7 @@
               </div>
             {% else %}
               <p class="text-sm text-slate-500 dark:text-slate-400">
-                尚未在站点设置中配置 <code>collection_tags</code>。
+                {{ 'tags_hub.not_configured_collection' | t }}
               </p>
             {% endif %}
           </div>
@@ -87,7 +87,7 @@
           <!-- Feature 查询 -->
           <div>
             <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">
-              按功能
+              {{ 'tags_hub.by_feature' | t }}
             </h2>
 
             {% if features.size > 0 %}
@@ -97,7 +97,7 @@
                   {% if feature_name != "" %}
                     <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-white dark:bg-slate-900/30">
                       <h3 class="text-sm font-medium text-slate-800 dark:text-slate-100 mb-2">
-                        功能：{{ feature_name }}
+                        {{ 'tags_hub.feature_heading' | t }}{{ feature_name }}
                       </h3>
 
                       {% comment %}
@@ -139,7 +139,7 @@
                         </div>
                       {% else %}
                         <p class="text-xs text-slate-500 dark:text-slate-400">
-                          暂无使用该功能标签的页面。
+                          {{ 'tags_hub.empty_feature_pages' | t }}
                         </p>
                       {% endif %}
                     </div>
@@ -148,7 +148,7 @@
               </div>
             {% else %}
               <p class="text-sm text-slate-500 dark:text-slate-400">
-                尚未在站点设置中配置 <code>feature_tags</code>。
+                {{ 'tags_hub.not_configured_feature' | t }}
               </p>
             {% endif %}
           </div>

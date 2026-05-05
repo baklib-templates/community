@@ -164,7 +164,7 @@
                             <button type="button"
                                     class="p-2 rounded-full hover:bg-primary hover:text-white dark:hover:bg-gray-700 transition-colors text-gray-600 dark:text-gray-400"
                                     data-action="click->more-menu#toggle"
-                                    title="更多导航菜单">
+                                    title="{{ 'nav.more_menu_title' | t }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                                         <path d="M11.644 1.59a.75.75 0 0 1 .712 0l9.75 5.25a.75.75 0 0 1 0 1.32l-9.75 5.25a.75.75 0 0 1-.712 0l-9.75-5.25a.75.75 0 0 1 0-1.32l9.75-5.25Z" />
                                         <path d="m3.265 10.602 7.668 4.129a2.25 2.25 0 0 0 2.134 0l7.668-4.13 1.37.739a.75.75 0 0 1 0 1.32l-9.75 5.25a.75.75 0 0 1-.71 0l-9.75-5.25a.75.75 0 0 1 0-1.32l1.37-.738Z" />
@@ -179,7 +179,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                     </svg>
                                 
-                                    <span>全站搜索</span>
+                                    <span>{{ 'nav.site_search' | t }}</span>
                                 </a>
 
                                 {% assign header_menus = site.settings.header_menu | newline_to_br | split: '<br />' %}

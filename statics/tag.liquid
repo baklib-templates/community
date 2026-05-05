@@ -1,14 +1,17 @@
 {% assign collection_value = params.c | default: "" | strip %}
 {% assign feature_value = params.f | default: "" | strip %}
 
+{% assign _cp = 'tag_filter.collection_prefix' | t %}
+{% assign _fp = 'tag_filter.feature_prefix' | t %}
+{% assign _sep = 'tag_filter.pair_sep' | t %}
 {% if collection_value != "" and feature_value != "" %}
-  {% assign title = "集合：" | append: collection_value | append: " · 功能：" | append: feature_value %}
+  {% assign title = _cp | append: collection_value | append: _sep | append: _fp | append: feature_value %}
 {% elsif collection_value != "" %}
-  {% assign title = "集合：" | append: collection_value %}
+  {% assign title = _cp | append: collection_value %}
 {% elsif feature_value != "" %}
-  {% assign title = "功能：" | append: feature_value %}
+  {% assign title = _fp | append: feature_value %}
 {% else %}
-  {% assign title = "全部帖子" %}
+  {% assign title = 'tag_filter.all_posts' | t %}
 {% endif %}
 
 {% set_meta_title title %}
@@ -101,10 +104,10 @@
         <div class="grid gap-3 md:grid-cols-2">
           <div>
             <label for="filter_collection" class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">
-              集合 (collection)
+              {{ 'tag_filter.filter_collection' | t }}
             </label>
             <select id="filter_collection" name="c" class="w-full text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/60 px-2 py-1.5">
-              <option value="">{{ 'generic.all' | t: '全部' }}</option>
+              <option value="">{{ 'generic.all' | t }}</option>
               {% for c in collection_options %}
                 {% assign c_name = c | strip %}
                 {% if c_name != "" %}
@@ -116,10 +119,10 @@
 
           <div>
             <label for="filter_feature" class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">
-              功能 (feature)
+              {{ 'tag_filter.filter_feature' | t }}
             </label>
             <select id="filter_feature" name="f" class="w-full text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/60 px-2 py-1.5">
-              <option value="">{{ 'generic.all' | t: '全部' }}</option>
+              <option value="">{{ 'generic.all' | t }}</option>
               {% for f in feature_options %}
                 {% assign f_name = f | strip %}
                 {% if f_name != "" %}
@@ -132,7 +135,7 @@
         </div>
         <div class="flex justify-end gap-2 mt-3">
           <a href="/s/tag" class="btn btn-sm btn-ghost">
-            重置
+            {{ 'tag_filter.reset' | t }}
           </a>
           <button type="submit" class="btn btn-sm">
             {{ 'generic.search' | t }}
@@ -152,7 +155,7 @@
         {% endpaginate_tag %}
       {% else %}
         <p class="text-sm text-slate-500 dark:text-slate-400">
-          暂无符合条件的帖子。
+          {{ 'tag_filter.empty_results' | t }}
         </p>
       {% endif %}
     </div>

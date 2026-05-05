@@ -48,6 +48,55 @@
           "label": "Tags"
         }
       }
+    },
+    "community": {
+      "collections_section_name": "Collections",
+      "logo_url_label": "Site logo",
+      "logo_url_info": "Logo shown in the site header",
+      "default_avatar_label": "Default avatar",
+      "default_avatar_info": "Shown for members who have not set an avatar",
+      "is_allow_published_label": "Publish before review",
+      "is_allow_published_info": "When enabled, submissions go live immediately; when disabled, staff must approve before they appear.",
+      "feedback_useful_type_label": "Primary feedback emoji",
+      "feedback_useful_type_placeholder": "e.g. 😊 — configure in app feedback settings",
+      "copyright_info_label": "Copyright line",
+      "copyright_info_placeholder": "Shown in the footer",
+      "is_show_collection_feature_tags_label": "Show collection & feature tags",
+      "feature_tags_label": "Feature tags",
+      "feature_tags_info": "One tag per line; used to categorize posts.",
+      "collection_tags_label": "Collection tags",
+      "collection_tags_info": "One tag per line; used as collections.",
+      "header_menu_label": "Header menu",
+      "header_menu_info": "Format: menu_name[url — one entry per line."
+    },
+    "community_templates": {
+      "index_home_name": "Index",
+      "index_home_description": "Community home (list layout)",
+      "index_forum_name": "Index Forum",
+      "index_forum_description": "Community home (forum layout)",
+      "shared_slogan_label": "Site slogan",
+      "shared_slogan_default": "👋 A maker community to learn and grow together",
+      "shared_tags_label": "Popular tags",
+      "hero_text_color_label": "Hero text color",
+      "hero_bg_color_label": "Hero background",
+      "hero_illustration_label": "Hero illustration (SVG)",
+      "hero_illustration_info": "Decorative SVG background; see docs for examples.",
+      "hero_banner_label": "Hero banner (PNG)",
+      "hero_banner_info": "PNG with transparency; see docs for examples.",
+      "page_detail_name": "Post (Reddit style)",
+      "page_detail_description": "Thread detail — linear layout",
+      "page_two_name": "Post (Discourse style)",
+      "page_two_description": "Thread detail — sidebar & timeline",
+      "post_title_label": "Title",
+      "post_title_info": "Headline shown above the body",
+      "post_content_label": "Body",
+      "post_collection_label": "Collection",
+      "post_collection_info": "Choose from collection tags on the home page",
+      "post_feature_label": "Feature",
+      "post_feature_info": "Choose from feature tags on the home page",
+      "post_tags_label": "Tags",
+      "post_recommend_label": "Featured",
+      "post_recommend_info": "When enabled, the post can appear in the featured list"
     }
   }
 }

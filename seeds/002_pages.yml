@@ -1,20 +1,19 @@
 pages:
-  name: "Question Community"
+  name: "Community"
   slug: "index"
   template_name: "index"
   settings:
-    description: "👋 一个现代化的问答社区模板，适合知识库、FAQ、技术支持和社区讨论等场景。"
+    description: "👋 A modern Q&A community template for knowledge bases, FAQs, technical support, and discussions."
   children:
-    - name: "这是我的第1篇帖子"
+    - name: "Welcome — my first post"
       slug: "post1"
       template_name: "page"
       settings:
-        title: "这是我的第1篇帖子"
-        content: "这是我的第1篇帖子内容"
-    - name: "这是我的第2篇帖子"
+        title: "Welcome — my first post"
+        content: "This is sample content for the first post."
+    - name: "Getting started with discussions"
       slug: "post2"
       template_name: "page"
       settings:
-        title: "这是我的第2篇帖子"
-        content: "这是我的第2篇帖子内容"
-
+        title: "Getting started with discussions"
+        content: "This is sample content for the second post."

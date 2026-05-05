@@ -25,7 +25,7 @@
                 {% for page in pages %}
                   {% render 'page', page: page %}
                 {% else %}
-                  <div class="w-full mx-auto my-8">{{ "search.no_results" | t: 'No results found' }}</div>
+                  <div class="w-full mx-auto my-8">{{ 'generic.empty' | t }}</div>
                 {% endfor %}
                 {% render 'paginate', paginate: paginate %}
               {% endpaginate_tag %}

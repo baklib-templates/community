@@ -1,0 +1,102 @@
+{
+  "settings_schema": {
+    "generic": {
+      "name": "Grundeinstellungen",
+      "help_center_index_description": "Ideal für ausführliche Produkt-Handbücher",
+      "list_index_description": "Listen-/Lexikon-Stil",
+      "header_name": "Kopf- und Fußzeilenmenü",
+      "head_title": "Head-HTML-Einstellungen",
+      "settings": {
+        "description": {
+          "label": "Site-Beschreibung"
+        },
+        "copyright_info": {
+          "label": "Copyright-Zeile",
+          "default": "Alle Rechte vorbehalten"
+        },
+        "header_menu_html": {
+          "label": "Kopfzeilen-Navigation",
+          "info": "Unterstützt HTML, JavaScript und Tailwind CSS"
+        },
+        "footer_menu_html": {
+          "label": "Fußzeilen-Navigation",
+          "info": "Unterstützt HTML, JavaScript und Tailwind CSS"
+        },
+        "head_html": {
+          "label": "Head-HTML",
+          "info": "Dieser Inhalt wird im <head> der Site eingebettet. Bitte gültiges HTML verwenden.",
+          "placeholder": "<meta name='author' content='Baklib' />"
+        }
+      }
+    },
+    "page": {
+      "name": "Seite",
+      "description": "Dokument-Inhaltsseite",
+      "settings": {
+        "description": {
+          "label": "Beschreibung"
+        },
+        "content": {
+          "label": "Inhalt",
+          "info": "Mit Datenquelle synchronisiert, nicht bearbeitbar"
+        },
+        "icon": {
+          "label": "Symbol",
+          "info": "Seitenverhältnis 1:1 empfohlen"
+        },
+        "tags": {
+          "label": "Tags"
+        }
+      }
+    },
+    "community": {
+      "collections_section_name": "Sammlungen",
+      "logo_url_label": "Site-Logo",
+      "logo_url_info": "Logo in der Kopfzeile",
+      "default_avatar_label": "Standard-Avatar",
+      "default_avatar_info": "Für Mitglieder ohne eigenes Avatarbild",
+      "is_allow_published_label": "Vor Prüfung veröffentlichen",
+      "is_allow_published_info": "Ein: Einreichungen sind sofort live. Aus: Team muss vor Veröffentlichung freigeben.",
+      "feedback_useful_type_label": "Haupt-Feedback-Emoji",
+      "feedback_useful_type_placeholder": "z. B. 😊 — in App-Feedback-Einstellungen konfigurieren",
+      "copyright_info_label": "Copyright-Zeile",
+      "copyright_info_placeholder": "Wird in der Fußzeile angezeigt",
+      "is_show_collection_feature_tags_label": "Sammlungs- & Funktions-Tags anzeigen",
+      "feature_tags_label": "Funktions-Tags",
+      "feature_tags_info": "Ein Tag pro Zeile; zur Kategorisierung von Beiträgen.",
+      "collection_tags_label": "Sammlungs-Tags",
+      "collection_tags_info": "Ein Tag pro Zeile; werden als Sammlungen verwendet.",
+      "header_menu_label": "Kopfzeilenmenü",
+      "header_menu_info": "Format: Menüname[URL — eine Zeile pro Eintrag."
+    },
+    "community_templates": {
+      "index_home_name": "Index",
+      "index_home_description": "Community-Startseite (Listen-Layout)",
+      "index_forum_name": "Index Forum",
+      "index_forum_description": "Community-Startseite (Forum-Layout)",
+      "shared_slogan_label": "Site-Slogan",
+      "shared_slogan_default": "👋 Eine Maker-Community zum Lernen und Wachsen",
+      "shared_tags_label": "Beliebte Tags",
+      "hero_text_color_label": "Hero-Textfarbe",
+      "hero_bg_color_label": "Hero-Hintergrund",
+      "hero_illustration_label": "Hero-Illustration (SVG)",
+      "hero_illustration_info": "Dekoratives SVG im Hintergrund; siehe Dokumentation.",
+      "hero_banner_label": "Hero-Banner (PNG)",
+      "hero_banner_info": "PNG mit Transparenz; siehe Dokumentation.",
+      "page_detail_name": "Beitrag (Reddit-Stil)",
+      "page_detail_description": "Thread-Detail — lineares Layout",
+      "page_two_name": "Beitrag (Discourse-Stil)",
+      "page_two_description": "Thread-Detail — Seitenleiste & Zeitachse",
+      "post_title_label": "Titel",
+      "post_title_info": "Überschrift über dem Text",
+      "post_content_label": "Text",
+      "post_collection_label": "Sammlung",
+      "post_collection_info": "Aus Sammlungs-Tags auf der Startseite wählen",
+      "post_feature_label": "Funktion",
+      "post_feature_info": "Aus Funktions-Tags auf der Startseite wählen",
+      "post_tags_label": "Tags",
+      "post_recommend_label": "Empfohlen",
+      "post_recommend_info": "Wenn aktiv, kann der Beitrag in der Empfehlungsliste erscheinen"
+    }
+  }
+}

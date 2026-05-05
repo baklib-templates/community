@@ -129,31 +129,31 @@
 
 {% schema %}
 {
-  "name": "帖子页面模板2",
-  "description": "Discourse 风格帖子详情模板",
-  "thumb_url": "images/theme/page2.webp",
+  "name": "t:settings_schema.community_templates.page_two_name",
+  "description": "t:settings_schema.community_templates.page_two_description",
+  "thumb_url": "images/theme/${lang}/page-2.webp",
   "sub_page_templates": ["page"],
   "settings": [
-    { "id": "title", "type": "text", "placeholder": "", "label": "标题", "info": "显示在正文上方的文章标题" },
-    { "id": "content", "type": "richtext", "label": "问题内容" },
+    { "id": "title", "type": "text", "placeholder": "", "label": "t:settings_schema.community_templates.post_title_label", "info": "t:settings_schema.community_templates.post_title_info" },
+    { "id": "content", "type": "richtext", "label": "t:settings_schema.community_templates.post_content_label" },
     {
       "id": "collection",
       "type": "select",
       "choices_from": "$site.collection_tags",
       "queryable": true,
-      "label": "集合",
-      "info": "从首页设置的集合字段中选择"
+      "label": "t:settings_schema.community_templates.post_collection_label",
+      "info": "t:settings_schema.community_templates.post_collection_info"
     },
     {
       "id": "feature",
       "type": "select",
       "choices_from": "$site.feature_tags",
       "queryable": true,
-      "label": "功能",
-      "info": "从首页设置的功能分类字段中选择"
+      "label": "t:settings_schema.community_templates.post_feature_label",
+      "info": "t:settings_schema.community_templates.post_feature_info"
     },
-    { "id": "tags", "type": "tag_picker", "multiple": true, "queryable": true, "label": "页面标签" },
-    { "id": "is_recommend", "type": "checkbox", "queryable": true, "label": "是否推荐", "info": "选定推荐后，会在推荐栏目显示", "default": false }
+    { "id": "tags", "type": "tag_picker", "multiple": true, "queryable": true, "label": "t:settings_schema.community_templates.post_tags_label" },
+    { "id": "is_recommend", "type": "checkbox", "queryable": true, "label": "t:settings_schema.community_templates.post_recommend_label", "info": "t:settings_schema.community_templates.post_recommend_info", "default": false }
   ],
   "user_creatable": true,
   "user_editable": true,

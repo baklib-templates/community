@@ -1,0 +1,102 @@
+{
+  "settings_schema": {
+    "generic": {
+      "name": "基本設定",
+      "help_center_index_description": "機能が豊富な製品マニュアル向け",
+      "list_index_description": "リスト／辞書スタイル",
+      "header_name": "ヘッダー・フッターメニュー",
+      "head_title": "Head HTML 設定",
+      "settings": {
+        "description": {
+          "label": "サイトの説明"
+        },
+        "copyright_info": {
+          "label": "著作権表示",
+          "default": "無断転載を禁じます"
+        },
+        "header_menu_html": {
+          "label": "ヘッダーナビゲーション",
+          "info": "HTML・JavaScript・Tailwind CSS に対応"
+        },
+        "footer_menu_html": {
+          "label": "フッターナビゲーション",
+          "info": "HTML・JavaScript・Tailwind CSS に対応"
+        },
+        "head_html": {
+          "label": "Head HTML",
+          "info": "サイトの <head> 内に埋め込まれます。標準的な HTML で記述してください。",
+          "placeholder": "<meta name='author' content='Baklib' />"
+        }
+      }
+    },
+    "page": {
+      "name": "ページ",
+      "description": "ドキュメントコンテンツページ",
+      "settings": {
+        "description": {
+          "label": "説明"
+        },
+        "content": {
+          "label": "コンテンツ",
+          "info": "データソースと同期され、ここでは編集できません"
+        },
+        "icon": {
+          "label": "アイコン",
+          "info": "1:1 の比率を推奨"
+        },
+        "tags": {
+          "label": "タグ"
+        }
+      }
+    },
+    "community": {
+      "collections_section_name": "コレクション",
+      "logo_url_label": "サイトロゴ",
+      "logo_url_info": "ヘッダーに表示されるロゴ",
+      "default_avatar_label": "デフォルトアバター",
+      "default_avatar_info": "画像未設定のメンバーに表示",
+      "is_allow_published_label": "承認前に公開",
+      "is_allow_published_info": "オン：送信後すぐ公開。オフ：スタッフ承認後に公開。",
+      "feedback_useful_type_label": "主なフィードバック絵文字",
+      "feedback_useful_type_placeholder": "例：😊 — アプリのフィードバック設定で指定",
+      "copyright_info_label": "著作権表示",
+      "copyright_info_placeholder": "フッターに表示",
+      "is_show_collection_feature_tags_label": "コレクションと機能タグを表示",
+      "feature_tags_label": "機能タグ",
+      "feature_tags_info": "1 行に 1 タグ。投稿の分類に使います。",
+      "collection_tags_label": "コレクションタグ",
+      "collection_tags_info": "1 行に 1 タグ。コレクションとして使います。",
+      "header_menu_label": "ヘッダーメニュー",
+      "header_menu_info": "形式：メニュー名[URL — 1 行に 1 エントリ。"
+    },
+    "community_templates": {
+      "index_home_name": "インデックス",
+      "index_home_description": "コミュニティホーム（リストレイアウト）",
+      "index_forum_name": "インデックス（フォーラム）",
+      "index_forum_description": "コミュニティホーム（フォーラムレイアウト）",
+      "shared_slogan_label": "サイトスローガン",
+      "shared_slogan_default": "👋 学び合い成長するメーカーコミュニティ",
+      "shared_tags_label": "人気タグ",
+      "hero_text_color_label": "ヒーロー文字色",
+      "hero_bg_color_label": "ヒーロー背景",
+      "hero_illustration_label": "ヒーローイラスト（SVG）",
+      "hero_illustration_info": "装飾用 SVG。ドキュメントの例を参照。",
+      "hero_banner_label": "ヒーローバナー（PNG）",
+      "hero_banner_info": "透過 PNG。ドキュメントの例を参照。",
+      "page_detail_name": "投稿（Reddit 風）",
+      "page_detail_description": "スレッド詳細 — 線形レイアウト",
+      "page_two_name": "投稿（Discourse 風）",
+      "page_two_description": "スレッド詳細 — サイドバーとタイムライン",
+      "post_title_label": "タイトル",
+      "post_title_info": "本文の上に表示する見出し",
+      "post_content_label": "本文",
+      "post_collection_label": "コレクション",
+      "post_collection_info": "ホームで設定したコレクションタグから選択",
+      "post_feature_label": "機能タグ",
+      "post_feature_info": "ホームで設定した機能タグから選択",
+      "post_tags_label": "タグ",
+      "post_recommend_label": "おすすめ",
+      "post_recommend_info": "オンにするとおすすめ一覧に表示されることがあります"
+    }
+  }
+}

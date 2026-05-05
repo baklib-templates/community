@@ -1,0 +1,102 @@
+{
+  "settings_schema": {
+    "generic": {
+      "name": "Paramètres de base",
+      "help_center_index_description": "Idéal pour les manuels produits riches en fonctionnalités",
+      "list_index_description": "Style liste / dictionnaire",
+      "header_name": "Menus en-tête et pied de page",
+      "head_title": "Paramètres HTML du head",
+      "settings": {
+        "description": {
+          "label": "Description du site"
+        },
+        "copyright_info": {
+          "label": "Mention de copyright",
+          "default": "Tous droits réservés"
+        },
+        "header_menu_html": {
+          "label": "Menu de navigation en-tête",
+          "info": "Prend en charge HTML, JavaScript et Tailwind CSS"
+        },
+        "footer_menu_html": {
+          "label": "Menu de navigation pied de page",
+          "info": "Prend en charge HTML, JavaScript et Tailwind CSS"
+        },
+        "head_html": {
+          "label": "Code HTML du head",
+          "info": "Ce contenu sera intégré dans la balise <head> du site. Utilisez du HTML valide.",
+          "placeholder": "<meta name='author' content='Baklib' />"
+        }
+      }
+    },
+    "page": {
+      "name": "Page",
+      "description": "Page de contenu document",
+      "settings": {
+        "description": {
+          "label": "Description"
+        },
+        "content": {
+          "label": "Contenu",
+          "info": "Synchronisé depuis la source de données, non modifiable"
+        },
+        "icon": {
+          "label": "Icône",
+          "info": "Ratio 1:1 recommandé"
+        },
+        "tags": {
+          "label": "Étiquettes"
+        }
+      }
+    },
+    "community": {
+      "collections_section_name": "Collections",
+      "logo_url_label": "Logo du site",
+      "logo_url_info": "Logo affiché dans l’en-tête",
+      "default_avatar_label": "Avatar par défaut",
+      "default_avatar_info": "Affiché pour les membres sans photo",
+      "is_allow_published_label": "Publier avant validation",
+      "is_allow_published_info": "Activé : les envois sont en ligne immédiatement ; désactivé : validation requise avant publication.",
+      "feedback_useful_type_label": "Émoji de retour principal",
+      "feedback_useful_type_placeholder": "ex. 😊 — à configurer dans les paramètres de feedback",
+      "copyright_info_label": "Mention de copyright",
+      "copyright_info_placeholder": "Affichée dans le pied de page",
+      "is_show_collection_feature_tags_label": "Afficher les étiquettes collection et fonctionnalité",
+      "feature_tags_label": "Étiquettes de fonctionnalité",
+      "feature_tags_info": "Une étiquette par ligne ; utilisées pour catégoriser les publications.",
+      "collection_tags_label": "Étiquettes de collection",
+      "collection_tags_info": "Une étiquette par ligne ; utilisées comme collections.",
+      "header_menu_label": "Menu d’en-tête",
+      "header_menu_info": "Format : nom_du_menu[url — une ligne par entrée."
+    },
+    "community_templates": {
+      "index_home_name": "Index",
+      "index_home_description": "Accueil communauté (liste)",
+      "index_forum_name": "Index forum",
+      "index_forum_description": "Accueil communauté (forum)",
+      "shared_slogan_label": "Slogan du site",
+      "shared_slogan_default": "👋 Une communauté de créateurs pour apprendre et progresser",
+      "shared_tags_label": "Étiquettes populaires",
+      "hero_text_color_label": "Couleur du texte du hero",
+      "hero_bg_color_label": "Arrière-plan du hero",
+      "hero_illustration_label": "Illustration du hero (SVG)",
+      "hero_illustration_info": "SVG décoratif en arrière-plan ; voir la documentation.",
+      "hero_banner_label": "Bannière du hero (PNG)",
+      "hero_banner_info": "PNG avec transparence ; voir la documentation.",
+      "page_detail_name": "Publication (style Reddit)",
+      "page_detail_description": "Détail du fil — mise en page linéaire",
+      "page_two_name": "Publication (style Discourse)",
+      "page_two_description": "Détail du fil — barre latérale et chronologie",
+      "post_title_label": "Titre",
+      "post_title_info": "Titre affiché au-dessus du corps",
+      "post_content_label": "Corps",
+      "post_collection_label": "Collection",
+      "post_collection_info": "Choisir parmi les étiquettes de collection sur la page d’accueil",
+      "post_feature_label": "Fonctionnalité",
+      "post_feature_info": "Choisir parmi les étiquettes de fonctionnalité sur la page d’accueil",
+      "post_tags_label": "Étiquettes",
+      "post_recommend_label": "À la une",
+      "post_recommend_info": "Si activé, la publication peut apparaître dans la liste mise en avant"
+    }
+  }
+}
