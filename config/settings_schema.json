@@ -11,10 +11,8 @@
     "theme_support_url": "https://help.baklib.cn/themes/community/question",
     "theme_thumb_url": "images/theme/thumb.png",
     "theme_preview_images": [
-      "images/theme/${lang}/question.webp",
+      "images/theme/${lang}/index-forum.webp",
       "images/theme/${lang}/index.webp",
-      "images/theme/${lang}/feeds.webp",
-      "images/theme/${lang}/page.webp",
       "images/theme/${lang}/comment.webp"
     ],
     "theme_languages": [
