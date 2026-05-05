@@ -24,8 +24,9 @@
       </div>
       <span class="text-xs text-slate-500 dark:text-slate-400 shrink-0">{{ reply.created_at | date: "%Y-%m-%d %H:%M" }}</span>
     </div>
-    <div class="text-sm text-slate-700 dark:text-slate-300 break-words">
-      {{ reply.body | sanitize_html }}
+    {% comment %} 同 _reply.liquid：与主帖一致输出富文本，依赖服务端净化 {% endcomment %}
+    <div class="ProseMirror prose prose-sm dark:prose-invert max-w-none break-words">
+      {{ reply.body }}
     </div>
     {% if current_user %}
       <div class="flex flex-wrap items-center gap-1 mt-2">

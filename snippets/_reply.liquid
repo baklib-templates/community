@@ -19,8 +19,12 @@
     </div>
     <!-- Content: 完整宽度 -->
     <div class="reply-content min-w-0">
-      <div class="text-sm text-slate-700 dark:text-slate-300 break-words">
-        {{ reply.body | sanitize_html }}
+      {% comment %}
+        与主帖 page.settings.content 一致：富文本在服务端入库/保存时已按编辑器 schema 净化。
+        再用 sanitize_html 会过严，易去掉合法样式、图片（含 DAM 等 data 属性）。防 XSS 应主要靠写入侧白名单。
+      {% endcomment %}
+      <div class="ProseMirror prose prose-sm dark:prose-invert max-w-none break-words">
+        {{ reply.body }}
       </div>
       {% if current_user %}
         <div class="flex flex-wrap items-center gap-1 mt-2">
