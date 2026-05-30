@@ -41,8 +41,8 @@
           "info": "Synchronized from data source, cannot be edited"
         },
         "icon": {
-          "label": "ICON",
-          "info": "1:1 ratio is recommended"
+          "label": "Page icon",
+          "info": "Lucide icon shown in lists and cards. Options come from site settings → Lucide icons. Look up icon names: <a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>"
         },
         "tags": {
           "label": "Tags"
@@ -77,18 +77,20 @@
       "shared_slogan_label": "Site slogan",
       "shared_slogan_default": "👋 A maker community to learn and grow together",
       "shared_tags_label": "Popular tags",
+      "hero_image_url_label": "Hero background image",
+      "hero_image_url_info": "Cover image for the hero section. Theme default: images/hero.png in assets.",
       "hero_text_color_label": "Hero text color",
-      "hero_bg_color_label": "Hero background",
-      "hero_illustration_label": "Hero illustration (SVG)",
-      "hero_illustration_info": "Decorative SVG background; see docs for examples.",
-      "hero_banner_label": "Hero banner (PNG)",
-      "hero_banner_info": "PNG with transparency; see docs for examples.",
+      "hero_text_color_info": "Optional override. Leave empty to use the site primary color.",
+      "hero_bg_color_label": "Hero overlay",
+      "hero_bg_color_info": "Optional color overlay on top of the background image.",
       "page_detail_name": "Post (Reddit style)",
       "page_detail_description": "Thread detail — linear layout",
       "page_two_name": "Post (Discourse style)",
       "page_two_description": "Thread detail — sidebar & timeline",
       "post_title_label": "Title",
       "post_title_info": "Headline shown above the body",
+      "post_icon_label": "Page icon",
+      "post_icon_info": "Lucide icon shown in lists and detail views. Options come from site settings → Lucide icons. Look up icon names: <a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>",
       "post_content_label": "Body",
       "post_collection_label": "Collection",
       "post_collection_info": "Choose from collection tags on the home page",
@@ -97,6 +99,15 @@
       "post_tags_label": "Tags",
       "post_recommend_label": "Featured",
       "post_recommend_info": "When enabled, the post can appear in the featured list"
+    }
+  },
+  "lucide_icons": {
+    "name": "Lucide icons",
+    "settings": {
+      "lucide_icons": {
+        "label": "Allowed Lucide icon names",
+        "info": "One kebab-case icon name per line (e.g. help-circle, package). Look up icon names: <a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>. Page templates use this list for the icon dropdown. Icons must match the theme JS bundle (src/lucide_icons.js); adding names here without updating the bundle will not render on the site."
+      }
     }
   }
 }

@@ -4,17 +4,17 @@
   x-cloak
   class="w-full mt-2"
   id="create_reply_{{ parent.id }}_id">
-  <div class="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 p-3">
+  <div class="rounded-lg border border-base-300 bg-base-100/50 p-3">
     {% form_tag 'reply' %}
       <input value="{{ root.target.full_slug }}" autocomplete="off" type="hidden" name="target_full_path">
       <input value="{{ return_template | default: 'create_answer_reply_success' }}" autocomplete="off" type="hidden" name="return_template_name">
       <input value="true" autocomplete="off" type="hidden" name="reply[published]">
       <input value="{{ root.id }}" autocomplete="off" type="hidden" name="reply[root_id]">
       <input value="{{ parent.id }}" autocomplete="off" type="hidden" name="reply[parent_id]">
-      <textarea name="reply[body]" rows="3" class="w-full form-textarea rounded-lg text-sm placeholder-slate-500 dark:placeholder-slate-400 border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900/50"
+      <textarea name="reply[body]" rows="3" class="w-full form-textarea rounded-lg text-sm placeholder:text-base-content/50 border-base-300 border-base-300 bg-base-200/50"
         placeholder="{{ 'generic.reply' | t }} {{ parent.author.name }}..." required></textarea>
 
-        <div id="create_reply_{{ parent.id }}_error" class="text-xs text-red-500 dark:text-red-400 mt-1"></div>
+        <div id="create_reply_{{ parent.id }}_error" class="text-xs text-error mt-1"></div>
         <div class="flex items-center gap-2 mt-2">
           <input type="submit" value="{{ 'buttons.submit' | t }}" @click="if($el.form.checkValidity()) {open = false}" class="btn btn-sm" />
           <button type="button" class="btn btn-sm btn-ghost" x-on:click="open = false">{{ 'buttons.cancel' | t }}</button>

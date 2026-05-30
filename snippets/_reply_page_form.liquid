@@ -10,7 +10,7 @@
         {% form_field_tag 'richtext', 'reply[body]', content, toolbar: 'simple', under_el_id: '#edit-info-bar-container' %}
 
 
-        <div id="reply_page_error" class="text-xs text-red-500 dark:text-red-400 mt-1"></div>
+        <div id="reply_page_error" class="text-xs text-error mt-1"></div>
         <div class="flex items-center justify-end space-x-3">
           <input
             type="submit"
@@ -23,13 +23,13 @@
   </div>
 {% else %}
   <div class="mx-auto max-w-5xl w-full">
-      <div class="[&:nth-child(-n+4)]:-order-1 rounded-lg border border-slate-200 dark:border-slate-700 bg-gradient-to-tr from-slate-50/80 via-blue-50/60 to-orange-50/40 dark:from-slate-800/40 dark:via-slate-800/60 dark:to-slate-800/40">
+      <div class="[&:nth-child(-n+4)]:-order-1 rounded-lg border border-base-300 bg-gradient-to-tr from-base-200/80 via-base-200/60 to-secondary/10">
         <div class="relative p-5">
           {{ 'generic.under_comment' | t }}
           {% form_tag 'sign_in_with_baklib' %}
             <input type="submit"
                 value="{{ 'buttons.login' | t }}"
-                class="mx-1 text-white bg-indigo-500 rounded-md btn-sm hover:bg-indigo-600"
+                class="mx-1 text-primary-content bg-primary rounded-md btn-sm hover:bg-primary/90"
                 data-disable-with=" ... "
                 >
           {% endform_tag %}

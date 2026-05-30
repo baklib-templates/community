@@ -39,7 +39,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .form-select,
 .form-checkbox,
 .form-radio {
-    @apply bg-transparent bg-gradient-to-tr from-slate-100/20 via-slate-100/50 to-slate-100/20 dark:from-slate-800/20 dark:via-slate-800/50 dark:to-slate-800/20 border dark:border-slate-700;
+    @apply bg-base-200 border border-base-300;
 }
 
 .form-input,
@@ -59,7 +59,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .form-input,
 .form-textarea {
-    @apply placeholder-slate-500 dark:placeholder-slate-400;
+    @apply placeholder:text-base-content placeholder:opacity-50;
 }
 
 .form-select {
@@ -68,7 +68,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .form-checkbox,
 .form-radio {
-    @apply text-indigo-500 border-2 rounded-sm;
+    @apply text-primary border-2 rounded-sm;
 }
 
 /* Chrome, Safari and Opera */
@@ -86,7 +86,7 @@ input[type="search"]::-webkit-search-results-decoration {
 /* Buttons */
 .btn,
 .btn-sm {
-    @apply text-sm text-white !bg-primary hover:!bg-secondary font-medium inline-flex items-center justify-center rounded-full leading-5 whitespace-nowrap duration-150 ease-in-out touch-manipulation;
+    @apply text-sm text-primary-content !bg-primary hover:!bg-secondary font-medium inline-flex items-center justify-center rounded-full leading-5 whitespace-nowrap duration-150 ease-in-out touch-manipulation;
 }
 
 .btn {
@@ -98,9 +98,9 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .btn-ghost{
-    @apply text-primary !bg-transparent hover:!bg-secondary hover:!text-white border border-primary;
+    @apply text-primary !bg-transparent hover:!bg-secondary hover:!text-primary-content border border-primary;
 }
 /* 搜索关键词高亮 */
 .search-highlight-block b {
-    color: hsl(var(--theme-color-primary));
+    color: hsl(var(--tw-primary));
 }

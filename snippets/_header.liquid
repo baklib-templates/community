@@ -1,4 +1,4 @@
-<header class="sticky top-0 z-50 w-full bg-white dark:bg-slate-900" id="edit-info-bar-container">
+<header class="sticky top-0 z-50 w-full bg-base-100" id="edit-info-bar-container">
     <div class="px-4 mx-auto max-w-7xl sm:px-6">
         <div class="flex items-center justify-between h-16 md:h-20">
             <!-- Site branding -->
@@ -7,8 +7,8 @@
                 {% if site.settings.logo_url %}
                     <a class="flex items-center space-x-1 group" href="/" aria-label="Baklib">
                         {% assign logo = 'images/demo/logo.svg' | asset_url %}
-                        <img src="{{ site.settings.logo_url | default: site.favicon_url | default: logo }}" class="w-auto h-12 hover:scale-175 hover:rotate-2" alt="{{ site.name }}" />
-                        <span class="sr-only">{{ site.name }}</span>
+                        <img src="{{ site.settings.logo_url | default: site.favicon_url | default: logo }}" class="w-auto h-8 rounded-3xl hover:scale-175 hover:rotate-2" alt="{{ site.name }}" />
+                        <span class="text-md md:text-2xl font-bold">{{ site.name }}</span>
                     </a>
                 {% else %}
                     <a class="flex items-center space-x-1 group" href="/" aria-label="Baklib">
@@ -29,7 +29,7 @@
                     </button>
                     <div
                         data-dropdown-target="menu"
-                        class="hidden transition transform origin-top-right absolute right-0 rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 py-1.5 font-inter px-2 min-w-[10rem] shadow-lg"
+                        class="hidden transition transform origin-top-right absolute right-0 rounded-md border border-base-300 bg-base-100 py-1.5 font-inter px-2 min-w-[10rem] shadow-lg"
                         data-transition-enter-from="opacity-0 scale-95"
                         data-transition-enter-to="opacity-100 scale-100"
                         data-transition-leave-from="opacity-100 scale-100"
@@ -39,7 +39,7 @@
                             {{ site.settings.header_menu_html }}
                             <hr/>
                             {% if current_user %}
-                                <a href="/s/new" class="py-2 text-white btn-sm bg-primary hover:bg-secondary">{{ 'buttons.create_post' | t }}</a>
+                                <a href="/s/new" class="py-2 text-primary-content btn-sm bg-primary hover:bg-secondary">{{ 'buttons.create_post' | t }}</a>
                                 <div>
                                     <div data-controller="dropdown" class="relative">
                                         <button type="button" data-action="dropdown#toggle click@window->dropdown#hide" class="flex items-center space-x-1 btn btn-sm btn-ghost">
@@ -47,7 +47,7 @@
                                         </button>
                                         <div
                                             data-dropdown-target="menu"
-                                            class="hidden transition transform origin-top-right absolute right-0 rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 py-1.5 font-inter px-2 min-w-[10rem] shadow-lg"
+                                            class="hidden transition transform origin-top-right absolute right-0 rounded-md border border-base-300 bg-base-100 py-1.5 font-inter px-2 min-w-[10rem] shadow-lg"
                                             data-transition-enter-from="opacity-0 scale-95"
                                             data-transition-enter-to="opacity-100 scale-100"
                                             data-transition-leave-from="opacity-100 scale-100"
@@ -63,9 +63,9 @@
                                                 {% endif %}
                                                 <span>{{ current_user.name }}</span>
                                             </div>
-                                            <a href="{{ current_user.profile_url }}"  class="block w-full py-2 hover:text-white hover:bg-accent" target="_blank"> {{ 'generic.profile' | t }} </a>
+                                            <a href="{{ current_user.profile_url }}"  class="block w-full py-2 hover:text-accent-content hover:bg-accent" target="_blank"> {{ 'generic.profile' | t }} </a>
                                             {% form_tag 'sign_out' %}
-                                                <button type="submit" class="w-full py-2 text-left hover:text-white hover:bg-accent">{{ 'buttons.logout' | t }}</button>
+                                                <button type="submit" class="w-full py-2 text-left hover:text-accent-content hover:bg-accent">{{ 'buttons.logout' | t }}</button>
                                             {% endform_tag %}
                                         </div>
                                     </div>
@@ -78,28 +78,6 @@
                                     {% endform_tag %}
                                 </div>
                             {% endif %}
-                            <!-- Lights switch -->
-                            <div>
-                                <div class="flex flex-col justify-center">
-                                <input
-                                    type="checkbox"
-                                    name="light-switch"
-                                    id="light-switch"
-                                    class="sr-only light-switch"
-                                    data-theme-target="checkbox"
-                                    data-action="change->theme#toggle"
-                                >
-                                <label class="relative p-2 rounded-full cursor-pointer hover:bg-primary focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-slate-300/20 dark:focus:bg-slate-300/20 dark:active:bg-slate-300/25" for="light-switch">
-                                    <svg x-transition:enter="transition-transform duration-200 ease-out absolute origin-top" x-transition:enter-start="scale-75" x-transition:enter-end="scale-100 static" class="hidden w-5 h-5 text-amber-400 dark:block" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M11.75 3.412a.818.818 0 01-.07.917 6.332 6.332 0 00-1.4 3.971c0 3.564 2.98 6.494 6.706 6.494a6.86 6.86 0 002.856-.617.818.818 0 011.1 1.047C19.593 18.614 16.218 21 12.283 21 7.18 21 3 16.973 3 11.956c0-4.563 3.46-8.31 7.925-8.948a.818.818 0 01.826.404z"></path>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" x-transition:enter="transition-transform duration-200 ease-out absolute origin-top" x-transition:enter-start="scale-75" x-transition:enter-end="scale-100 static" class="w-6 h-6 text-amber-400 dark:hidden" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="sr-only">Switch to light / dark version</span>
-                                </label>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -119,7 +97,7 @@
                     
 
                     {% if current_user %}
-                        <li><a href="/s/new" class="py-2 text-white btn-sm bg-primary hover:bg-secondary">{{ 'buttons.create_post' | t }}</a></li>
+                        <li><a href="/s/new" class="py-2 text-primary-content btn-sm bg-primary hover:bg-secondary">{{ 'buttons.create_post' | t }}</a></li>
                         <li>
                             <div data-controller="dropdown" class="relative">
                                 <button type="button" data-action="dropdown#toggle click@window->dropdown#hide" class="flex items-center space-x-1 btn btn-sm btn-ghost">
@@ -127,7 +105,7 @@
                                 </button>
                                 <div
                                     data-dropdown-target="menu"
-                                    class="hidden transition transform origin-top-right absolute right-0 rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 py-1.5 font-inter px-2 min-w-[10rem] shadow-lg"
+                                    class="hidden transition transform origin-top-right absolute right-0 rounded-md border border-base-300 bg-base-100 py-1.5 font-inter px-2 min-w-[10rem] shadow-lg"
                                     data-transition-enter-from="opacity-0 scale-95"
                                     data-transition-enter-to="opacity-100 scale-100"
                                     data-transition-leave-from="opacity-100 scale-100"
@@ -143,9 +121,9 @@
                                         {% endif %}
                                         <span>{{ current_user.name }}</span>
                                     </div>
-                                    <a href="{{ current_user.profile_url }}"  class="block w-full py-2 hover:text-white hover:bg-accent" target="_blank"> {{ 'generic.profile' | t }} </a>
+                                    <a href="{{ current_user.profile_url }}"  class="block w-full py-2 hover:text-accent-content hover:bg-accent" target="_blank"> {{ 'generic.profile' | t }} </a>
                                     {% form_tag 'sign_out' %}
-                                        <button type="submit" class="w-full py-2 text-left hover:text-white hover:bg-accent">{{ 'buttons.logout' | t }}</button>
+                                        <button type="submit" class="w-full py-2 text-left hover:text-accent-content hover:bg-accent">{{ 'buttons.logout' | t }}</button>
                                     {% endform_tag %}
                                 </div>
                             </div>
@@ -162,7 +140,7 @@
                     <li>
                         <div class="relative"data-controller="more-menu">
                             <button type="button"
-                                    class="p-2 rounded-full hover:bg-primary hover:text-white dark:hover:bg-gray-700 transition-colors text-gray-600 dark:text-gray-400"
+                                    class="p-2 rounded-full hover:bg-primary hover:text-primary-content hover:bg-base-200 transition-colors text-base-content/60"
                                     data-action="click->more-menu#toggle"
                                     title="{{ 'nav.more_menu_title' | t }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
@@ -171,10 +149,10 @@
                                         <path d="m10.933 19.231-7.668-4.13-1.37.739a.75.75 0 0 0 0 1.32l9.75 5.25c.221.12.489.12.71 0l9.75-5.25a.75.75 0 0 0 0-1.32l-1.37-.738-7.668 4.13a2.25 2.25 0 0 1-2.134-.001Z" />
                                     </svg>
                             </button>
-                            <div class="hidden absolute right-0 mt-2 w-64 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg z-50"
+                            <div class="hidden absolute right-0 mt-2 w-64 bg-base-100 border border-base-300 rounded-md shadow-lg z-50"
                                     data-more-menu-target="menu">
                                 <div class="py-1">
-                                <a href="/-/search" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <a href="/-/search" class="flex items-center gap-2 px-4 py-2 text-sm text-base-content hover:bg-base-200">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 w-4 h-4 text-secondary">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                     </svg>
@@ -187,7 +165,7 @@
                                     {% assign menu_parts = menu_line | split: '[' %}
                                     {% assign menu_name = menu_parts[0] %}
                                     {% assign menu_url = menu_parts[1] | split: ']' | first %}
-                                    <a href="{{ menu_url }}" target="_blank" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                    <a href="{{ menu_url }}" target="_blank" class="flex items-center gap-2 px-4 py-2 text-sm text-base-content hover:bg-base-200">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 w-4 h-4 text-secondary">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                         </svg>
@@ -198,28 +176,6 @@
 
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                    <!-- Lights switch -->
-                    <li>
-                        <div class="flex flex-col justify-center">
-                        <input
-                            type="checkbox"
-                            name="light-switch"
-                            id="light-switch"
-                            class="sr-only light-switch"
-                            data-theme-target="checkbox"
-                            data-action="change->theme#toggle"
-                        >
-                        <label class="relative p-2 rounded-full cursor-pointer hover:bg-primary focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-slate-300/20 dark:focus:bg-slate-300/20 dark:active:bg-slate-300/25" for="light-switch">
-                            <svg x-transition:enter="transition-transform duration-200 ease-out absolute origin-top" x-transition:enter-start="scale-75" x-transition:enter-end="scale-100 static" class="hidden w-5 h-5 text-amber-400 dark:block" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M11.75 3.412a.818.818 0 01-.07.917 6.332 6.332 0 00-1.4 3.971c0 3.564 2.98 6.494 6.706 6.494a6.86 6.86 0 002.856-.617.818.818 0 011.1 1.047C19.593 18.614 16.218 21 12.283 21 7.18 21 3 16.973 3 11.956c0-4.563 3.46-8.31 7.925-8.948a.818.818 0 01.826.404z"></path>
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" x-transition:enter="transition-transform duration-200 ease-out absolute origin-top" x-transition:enter-start="scale-75" x-transition:enter-end="scale-100 static" class="w-6 h-6 text-amber-400 dark:hidden" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
-                            </svg>
-                            <span class="sr-only">Switch to light / dark version</span>
-                        </label>
                         </div>
                     </li>
                 </ul>

@@ -1,22 +1,45 @@
-{% assign default_illustration_url = 'images/demo/hero-illustration.svg' |  asset_url %}
-{% assign default_hero_url = 'images/demo/hero-image.png' |  asset_url %}
 {% assign default_slogan = 'hero.default_slogan' | t %}
 {% assign default_description = 'hero.default_description' | t %}
 
+{% assign default_hero_image_url = 'images/hero.png' | asset_url %}
+{% assign hero_image_url = page.settings.hero_image_url | default: default_hero_image_url %}
+
+{% comment %} Hero text: force high-contrast white + shadow; independent of site light/dark. Custom text_color overrides via inline style only. {% endcomment %}
+{% assign hero_title_class = 'pb-6 h2 font-aspekta text-white drop-shadow-md' %}
+{% assign hero_desc_class = 'mb-8 text-lg text-white/95 drop-shadow-sm' %}
+
 <!-- Hero -->
-<section class="relative overflow-hidden">
-    {% if page.settings.bg_color %}
-    <div class="absolute inset-0 pointer-events-none -z-10" aria-hidden="true" style="background: {{ page.settings.bg_color }};"></div>
+<section class="relative overflow-hidden isolate min-h-[16rem] md:min-h-[20rem]">
+    {% comment %} Layer 0 — background {% endcomment %}
+    <div class="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+        <img
+            src="{{ hero_image_url }}"
+            alt=""
+            class="absolute inset-0 h-full w-full object-cover object-center"
+            width="1920"
+            height="800"
+            loading="eager"
+            decoding="async"
+        >
+    </div>
+
+    {% comment %} Layer 1 — readability scrim (theme-agnostic) {% endcomment %}
+    <div
+        class="absolute inset-0 z-[1] pointer-events-none bg-black/50"
+        aria-hidden="true"
+    ></div>
+
+    {% comment %} Layer 2 — optional CMS overlay color {% endcomment %}
+    {% if page.settings.bg_color != blank %}
+        <div
+            class="absolute inset-0 z-[2] pointer-events-none mix-blend-multiply opacity-80"
+            style="background-color: {{ page.settings.bg_color }};"
+            aria-hidden="true"
+        ></div>
     {% endif %}
 
-    <!-- Illustration -->
-    {% if page.settings.illustration_url %}
-        <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 z-1" aria-hidden="true">
-            <img src="{{ page.settings.illustration_url }}" class="max-w-none min-h-96" alt="Hero Illustration">
-        </div>
-    {% endif %}
-
-    <div class="max-w-7xl px-4 mx-auto sm:px-6">
+    {% comment %} Layer 10 — content {% endcomment %}
+    <div class="relative z-10 max-w-7xl px-4 mx-auto sm:px-6">
         <div class="pb-8 pt-12 md:pt-24 md:pb-16">
 
             <!-- Hero content -->
@@ -27,16 +50,9 @@
 
                     <!-- Copy -->
                     <div class="md:pr-32">
-                        <h1 class="pb-6 text-transparent h2 font-aspekta bg-clip-text" style="color: {{ page.settings.text_color | default: '#ffffff' }};">{{ page.settings.slogan | default: site.settings.slogan | default: default_slogan }}</h1>
-                        <p class="mb-8 text-lg" style="color: {{ page.settings.text_color | default: '#ffffff' }};">{{ page.settings.description | default: default_description }}</p>
+                        <h1 class="{{ hero_title_class }}"{% if page.settings.text_color != blank %} style="color: {{ page.settings.text_color }};"{% endif %}>{{ page.settings.slogan | default: site.settings.slogan | default: default_slogan }}</h1>
+                        <p class="{{ hero_desc_class }}"{% if page.settings.text_color != blank %} style="color: {{ page.settings.text_color }};"{% endif %}>{{ page.settings.description | default: default_description }}</p>
                     </div>
-
-                    <!-- Image -->
-                    {% if page.settings.hero_url %}
-                        <div class="max-w-sm mx-auto md:max-w-none md:absolute md:left-[42rem] lg:left-[48rem] mt-12 md:mt-0 md:top-1/2 md:-translate-y-1/2">
-                            <img src="{{ page.settings.hero_url }}" class="mx-auto md:max-w-none max-h-64" alt="Hero Image" />
-                        </div>
-                    {% endif %}
                 </div>
             </div>
         </div>

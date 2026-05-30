@@ -427,7 +427,7 @@
 }
 
 .ts-dropdown{
-  @apply dark:bg-gray-700 dark:text-gray-200;
+  @apply bg-base-100 text-base-content;
 }
 
 .ts-wrapper.form__select {

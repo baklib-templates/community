@@ -4,12 +4,12 @@
 {% endcomment %}
 <ul class="inline-flex flex-nowrap overflow-x-auto no-scrollbar -mx-3 -my-1 text-sm font-medium grow min-w-0 md:flex-wrap md:overflow-visible">
   <li class="px-3 py-1 shrink-0">
-    <a class="relative text-lg font-semibold transition duration-150 ease-in-out pb-1 border-b-2 {% if order_by == '-views_count' %}border-primary text-primary{% else %}border-transparent text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200{% endif %}" href="/?_order_by=-views_count">{{ 'generic.popular' | t }}</a>
+    <a class="relative text-lg font-semibold transition duration-150 ease-in-out pb-1 border-b-2 {% if order_by == '-views_count' %}border-primary text-primary{% else %}border-transparent text-base-content/70 hover:text-primary{% endif %}" href="/?_order_by=-views_count">{{ 'generic.popular' | t }}</a>
   </li>
   <li class="px-3 py-1 shrink-0">
-    <a class="relative text-lg font-semibold transition duration-150 ease-in-out pb-1 border-b-2 {% if order_by == '-created_at' %}border-primary text-primary{% else %}border-transparent text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200{% endif %}" href="/?_order_by=-created_at">{{ 'generic.newest' | t }}</a>
+    <a class="relative text-lg font-semibold transition duration-150 ease-in-out pb-1 border-b-2 {% if order_by == '-created_at' %}border-primary text-primary{% else %}border-transparent text-base-content/70 hover:text-primary{% endif %}" href="/?_order_by=-created_at">{{ 'generic.newest' | t }}</a>
   </li>
   <li class="px-3 py-1 shrink-0">
-    <a class="relative text-lg font-semibold transition duration-150 ease-in-out pb-1 border-b-2 {% if order_by == 'related' %}border-primary text-primary{% else %}border-transparent text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200{% endif %}" href="/?_order_by=related">{{ 'generic.related' | t }}</a>
+    <a class="relative text-lg font-semibold transition duration-150 ease-in-out pb-1 border-b-2 {% if order_by == 'related' %}border-primary text-primary{% else %}border-transparent text-base-content/70 hover:text-primary{% endif %}" href="/?_order_by=related">{{ 'generic.related' | t }}</a>
   </li>
 </ul>

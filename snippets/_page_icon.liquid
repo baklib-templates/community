@@ -1,0 +1,12 @@
+{% comment %}
+  Lucide icon from page.settings.icon (Page template select).
+  @param page {Object} required
+  @param class {String} optional CSS classes passed to icon snippet
+{% endcomment %}
+{% assign icon_name = 'help-circle' %}
+{% if page.settings.icon.value != blank %}
+  {% assign icon_name = page.settings.icon.value %}
+{% elsif page.settings.icon != blank %}
+  {% assign icon_name = page.settings.icon %}
+{% endif %}
+{% render 'icon', name: icon_name, class: class %}

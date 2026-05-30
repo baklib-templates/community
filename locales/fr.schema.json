@@ -41,8 +41,8 @@
           "info": "Synchronisé depuis la source de données, non modifiable"
         },
         "icon": {
-          "label": "Icône",
-          "info": "Ratio 1:1 recommandé"
+          "label": "Icône de page",
+          "info": "Icône Lucide affichée dans les listes et cartes. Les options proviennent des paramètres du site → Icônes Lucide. Rechercher un nom : <a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>"
         },
         "tags": {
           "label": "Étiquettes"
@@ -77,18 +77,20 @@
       "shared_slogan_label": "Slogan du site",
       "shared_slogan_default": "👋 Une communauté de créateurs pour apprendre et progresser",
       "shared_tags_label": "Étiquettes populaires",
+      "hero_image_url_label": "Image d’arrière-plan du hero",
+      "hero_image_url_info": "Image de fond du hero. Par défaut du thème : images/hero.png dans assets.",
       "hero_text_color_label": "Couleur du texte du hero",
-      "hero_bg_color_label": "Arrière-plan du hero",
-      "hero_illustration_label": "Illustration du hero (SVG)",
-      "hero_illustration_info": "SVG décoratif en arrière-plan ; voir la documentation.",
-      "hero_banner_label": "Bannière du hero (PNG)",
-      "hero_banner_info": "PNG avec transparence ; voir la documentation.",
+      "hero_text_color_info": "Facultatif. Laisser vide pour utiliser la couleur primary du site.",
+      "hero_bg_color_label": "Superposition du hero",
+      "hero_bg_color_info": "Couleur facultative par-dessus l’image de fond.",
       "page_detail_name": "Publication (style Reddit)",
       "page_detail_description": "Détail du fil — mise en page linéaire",
       "page_two_name": "Publication (style Discourse)",
       "page_two_description": "Détail du fil — barre latérale et chronologie",
       "post_title_label": "Titre",
       "post_title_info": "Titre affiché au-dessus du corps",
+      "post_icon_label": "Icône de page",
+      "post_icon_info": "Icône Lucide dans les listes et la page détail. Options depuis Paramètres du site → Icônes Lucide. Dictionnaire : <a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>",
       "post_content_label": "Corps",
       "post_collection_label": "Collection",
       "post_collection_info": "Choisir parmi les étiquettes de collection sur la page d’accueil",
@@ -97,6 +99,15 @@
       "post_tags_label": "Étiquettes",
       "post_recommend_label": "À la une",
       "post_recommend_info": "Si activé, la publication peut apparaître dans la liste mise en avant"
+    }
+  },
+  "lucide_icons": {
+    "name": "Icônes Lucide",
+    "settings": {
+      "lucide_icons": {
+        "label": "Noms d’icônes Lucide autorisés",
+        "info": "Un nom kebab-case par ligne (ex. help-circle, package). Dictionnaire : <a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>. Les modèles de page utilisent cette liste pour le menu déroulant. Les icônes doivent correspondre au bundle JS (src/lucide_icons.js)."
+      }
     }
   }
 }

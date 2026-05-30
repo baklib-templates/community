@@ -41,8 +41,8 @@
           "info": "データソースと同期され、ここでは編集できません"
         },
         "icon": {
-          "label": "アイコン",
-          "info": "1:1 の比率を推奨"
+          "label": "ページアイコン",
+          "info": "リストやカードに表示する Lucide アイコン。選択肢はサイト設定 → Lucide アイコンから取得。アイコン名の検索：<a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>"
         },
         "tags": {
           "label": "タグ"
@@ -77,18 +77,20 @@
       "shared_slogan_label": "サイトスローガン",
       "shared_slogan_default": "👋 学び合い成長するメーカーコミュニティ",
       "shared_tags_label": "人気タグ",
+      "hero_image_url_label": "ヒーロー背景画像",
+      "hero_image_url_info": "ヒーロー領域の背景画像。テーマ既定：assets/images/hero.png。",
       "hero_text_color_label": "ヒーロー文字色",
-      "hero_bg_color_label": "ヒーロー背景",
-      "hero_illustration_label": "ヒーローイラスト（SVG）",
-      "hero_illustration_info": "装飾用 SVG。ドキュメントの例を参照。",
-      "hero_banner_label": "ヒーローバナー（PNG）",
-      "hero_banner_info": "透過 PNG。ドキュメントの例を参照。",
+      "hero_text_color_info": "任意。空欄の場合はサイトの primary 色を使用します。",
+      "hero_bg_color_label": "ヒーローオーバーレイ",
+      "hero_bg_color_info": "背景画像の上に重ねる任意の色。",
       "page_detail_name": "投稿（Reddit 風）",
       "page_detail_description": "スレッド詳細 — 線形レイアウト",
       "page_two_name": "投稿（Discourse 風）",
       "page_two_description": "スレッド詳細 — サイドバーとタイムライン",
       "post_title_label": "タイトル",
       "post_title_info": "本文の上に表示する見出し",
+      "post_icon_label": "ページアイコン",
+      "post_icon_info": "リストと詳細に表示する Lucide アイコン。選択肢はサイト設定 → Lucide アイコンから取得。アイコン名の検索：<a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>",
       "post_content_label": "本文",
       "post_collection_label": "コレクション",
       "post_collection_info": "ホームで設定したコレクションタグから選択",
@@ -97,6 +99,15 @@
       "post_tags_label": "タグ",
       "post_recommend_label": "おすすめ",
       "post_recommend_info": "オンにするとおすすめ一覧に表示されることがあります"
+    }
+  },
+  "lucide_icons": {
+    "name": "Lucide アイコン",
+    "settings": {
+      "lucide_icons": {
+        "label": "許可する Lucide アイコン名",
+        "info": "1行に1つの kebab-case アイコン名（例: help-circle、package）。アイコン名の検索：<a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>。ページテンプレートのアイコン選択肢はこのリストから生成されます。アイコンはテーマ JS bundle（src/lucide_icons.js）と一致している必要があります。"
+      }
     }
   }
 }

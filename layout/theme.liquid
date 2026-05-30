@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="{{ site.language }}">
+<html lang="{{ site.language }}" class="bg-base-100 text-base-content">
 
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="author" content="Baklib">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% meta_tags %}
+
+  {%- comment -%}
+    Runtime color injection MUST be rendered before any stylesheet that
+    consumes --color-* (daisyUI / main.css). Static tokens live in src/main.css.
+  {%- endcomment -%}
+  {% render 'theme_runtime_colors' %}
+
   {{ 'baklib/shared/editor.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
   {{ 'baklib/shared/editor.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
   {{ 'javascripts/main.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
@@ -16,7 +23,10 @@
   {{ site.settings.head_html }}
 </head>
 
-<body class="antialiased tracking-tight font-inter dark:bg-slate-900 dark:text-slate-200" id="js-body" data-controller="theme">
+<body
+  class="antialiased tracking-tight font-inter bg-base-100 text-base-content"
+  id="js-body"
+>
   <!-- Page wrapper -->
   <div class="relative flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
     {% render "header" %}

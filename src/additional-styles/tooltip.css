@@ -3,11 +3,11 @@
 @import "tippy.js/animations/shift-away.css";
 
 .tippy-box {
-  @apply bg-slate-800 text-slate-50 dark:bg-navy-500 dark:text-navy-50 text-xs;
+  @apply bg-neutral text-neutral-content text-xs;
 }
 
 .tippy-svg-arrow svg {
-  @apply shadow-lg fill-current text-slate-800 dark:text-navy-500;
+  @apply shadow-lg fill-current text-neutral;
 }
 
 .tippy-box[data-theme~="content"] .tippy-content {
@@ -15,7 +15,7 @@
 }
 
 .tippy-box[data-theme~="primary"] {
-  @apply text-white bg-primary dark:bg-accent;
+  @apply text-primary-content bg-primary;
 }
 
 .tippy-box[data-theme~="primary"] > .tippy-svg-arrow svg {
@@ -23,7 +23,7 @@
 }
 
 .tippy-box[data-theme~="secondary"] {
-  @apply text-white bg-secondary;
+  @apply text-secondary-content bg-secondary;
 }
 
 .tippy-box[data-theme~="secondary"] > .tippy-svg-arrow svg {
@@ -31,7 +31,7 @@
 }
 
 .tippy-box[data-theme~="info"] {
-  @apply text-white bg-info;
+  @apply text-info-content bg-info;
 }
 
 .tippy-box[data-theme~="info"] > .tippy-svg-arrow svg {
@@ -39,7 +39,7 @@
 }
 
 .tippy-box[data-theme~="success"] {
-  @apply text-white bg-success;
+  @apply text-success-content bg-success;
 }
 
 .tippy-box[data-theme~="success"] > .tippy-svg-arrow svg {
@@ -47,7 +47,7 @@
 }
 
 .tippy-box[data-theme~="warning"] {
-  @apply text-white bg-warning;
+  @apply text-warning-content bg-warning;
 }
 
 .tippy-box[data-theme~="warning"] > .tippy-svg-arrow svg {
@@ -55,7 +55,7 @@
 }
 
 .tippy-box[data-theme~="error"] {
-  @apply text-white bg-error;
+  @apply text-error-content bg-error;
 }
 
 .tippy-box[data-theme~="error"] > .tippy-svg-arrow svg {
@@ -63,15 +63,15 @@
 }
 
 .tippy-box[data-theme~="light"] {
-  @apply bg-slate-150 text-slate-600;
+  @apply bg-base-200 text-base-content/70;
 }
 
 .tippy-box[data-theme~="light"] > .tippy-svg-arrow svg {
-  @apply text-slate-150;
+  @apply text-base-200;
 }
 
 .tippy-box[data-theme~="white"] {
-  @apply bg-white border shadow-sm text-slate-600;
+  @apply bg-base-100 border border-base-300 shadow-sm text-base-content/70;
 }
 
 .tippy-box[data-theme~="transparent"] {

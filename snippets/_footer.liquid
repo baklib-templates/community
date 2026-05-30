@@ -1,5 +1,5 @@
 <!-- Site footer -->
-<footer class="border-t border-slate-200 dark:border-slate-800">
+<footer class="border-t border-base-300">
     <div class="max-w-7xl px-4 mx-auto sm:px-6">
         <div class="py-8">
 
@@ -9,7 +9,7 @@
                     <!-- Logo -->
                     <a class="inline-flex mb-8 group md:mb-0 space-x-2" href="/" aria-label="{{ site.name }}">
                         {% assign logo = 'images/demo/logo.svg' | asset_url %}
-                        <img src="{{ site.settings.logo_url | default: logo }}" class="w-auto h-8 hover:scale-175 hover:rotate-2" alt="{{ site.name }}" />
+                        <img src="{{ site.settings.logo_url | default: logo }}" class="w-auto h-8 rounded-3xl hover:scale-175 hover:rotate-2" alt="{{ site.name }}" />
                     </a>
                     <p>{{ site.settings.slogan }}</p>
                 </div>
@@ -27,7 +27,7 @@
                 <!-- Social links -->
 
                 <!-- Copyright -->
-                <div class="text-sm text-slate-600"> &copy;{{ site.name }}. All rights reserved. <a href="https://beian.miit.gov.cn/" target="_blank">{{ site.settings.copyright_info }}</a></div>
+                <div class="text-sm text-base-content/70"> &copy;{{ site.name }}. All rights reserved. <a href="https://beian.miit.gov.cn/" target="_blank">{{ site.settings.copyright_info }}</a></div>
 
             </div>
 

@@ -3,17 +3,35 @@ pages:
   slug: "index"
   template_name: "index"
   settings:
-    description: "👋 A modern Q&A community template for knowledge bases, FAQs, technical support, and discussions."
+    slogan: "A modern Q&A community connecting questions and answers"
+    description: "Ask questions, share answers, and grow together — built for knowledge bases, FAQs, and technical support."
+    hero_image_url: "images/hero.png"
   children:
     - name: "Welcome — my first post"
       slug: "post1"
       template_name: "page"
       settings:
         title: "Welcome — my first post"
-        content: "This is sample content for the first post."
+        content: "This is sample content for the first post. Pick a Lucide icon in page settings to show it in lists and on the detail page."
+        icon: "message-square"
+        collection: "How-to Q&A"
+        feature: "Getting started"
+        is_recommend: true
     - name: "Getting started with discussions"
       slug: "post2"
       template_name: "page"
       settings:
         title: "Getting started with discussions"
-        content: "This is sample content for the second post."
+        content: "Use tags and collections to organize topics. Members can reply, vote, and follow threads."
+        icon: "book-open"
+        collection: "Announcements"
+        feature: "Tips & tricks"
+    - name: "Shipping and logistics FAQ"
+      slug: "post3"
+      template_name: "page"
+      settings:
+        title: "Shipping and logistics FAQ"
+        content: "Example post for e-commerce and logistics scenarios — customize icons from site settings → Lucide icons."
+        icon: "truck"
+        collection: "Troubleshooting"
+        feature: "Best practices"

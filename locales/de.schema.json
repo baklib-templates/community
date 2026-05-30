@@ -41,8 +41,8 @@
           "info": "Mit Datenquelle synchronisiert, nicht bearbeitbar"
         },
         "icon": {
-          "label": "Symbol",
-          "info": "Seitenverhältnis 1:1 empfohlen"
+          "label": "Seitensymbol",
+          "info": "Lucide-Symbol für Listen und Karten. Optionen stammen aus Site-Einstellungen → Lucide-Symbole. Symbolnamen nachschlagen: <a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>"
         },
         "tags": {
           "label": "Tags"
@@ -77,18 +77,20 @@
       "shared_slogan_label": "Site-Slogan",
       "shared_slogan_default": "👋 Eine Maker-Community zum Lernen und Wachsen",
       "shared_tags_label": "Beliebte Tags",
+      "hero_image_url_label": "Hero-Hintergrundbild",
+      "hero_image_url_info": "Hintergrundbild für den Hero-Bereich. Standard: images/hero.png in assets.",
       "hero_text_color_label": "Hero-Textfarbe",
-      "hero_bg_color_label": "Hero-Hintergrund",
-      "hero_illustration_label": "Hero-Illustration (SVG)",
-      "hero_illustration_info": "Dekoratives SVG im Hintergrund; siehe Dokumentation.",
-      "hero_banner_label": "Hero-Banner (PNG)",
-      "hero_banner_info": "PNG mit Transparenz; siehe Dokumentation.",
+      "hero_text_color_info": "Optional. Leer lassen für die Site-Primärfarbe.",
+      "hero_bg_color_label": "Hero-Überlagerung",
+      "hero_bg_color_info": "Optionale Farbüberlagerung auf dem Hintergrundbild.",
       "page_detail_name": "Beitrag (Reddit-Stil)",
       "page_detail_description": "Thread-Detail — lineares Layout",
       "page_two_name": "Beitrag (Discourse-Stil)",
       "page_two_description": "Thread-Detail — Seitenleiste & Zeitachse",
       "post_title_label": "Titel",
       "post_title_info": "Überschrift über dem Text",
+      "post_icon_label": "Seitensymbol",
+      "post_icon_info": "Lucide-Symbol in Listen und Detailansicht. Optionen aus Site-Einstellungen → Lucide-Symbole. Symbolnamen: <a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>",
       "post_content_label": "Text",
       "post_collection_label": "Sammlung",
       "post_collection_info": "Aus Sammlungs-Tags auf der Startseite wählen",
@@ -97,6 +99,15 @@
       "post_tags_label": "Tags",
       "post_recommend_label": "Empfohlen",
       "post_recommend_info": "Wenn aktiv, kann der Beitrag in der Empfehlungsliste erscheinen"
+    }
+  },
+  "lucide_icons": {
+    "name": "Lucide-Symbole",
+    "settings": {
+      "lucide_icons": {
+        "label": "Erlaubte Lucide-Symbolnamen",
+        "info": "Ein kebab-case-Symbolname pro Zeile (z. B. help-circle, package). Symbolnamen: <a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>. Seitenvorlagen nutzen diese Liste für das Symbol-Dropdown. Symbole müssen zum Theme-JS-Bundle (src/lucide_icons.js) passen."
+      }
     }
   }
 }

@@ -1,9 +1,9 @@
-<div class="overflow-visible h-auto pb-12 min-h-screen bg-slate-50 dark:bg-slate-900">
+<div class="overflow-visible h-auto pb-12 min-h-screen bg-base-200">
   <div class="max-w-3xl mx-auto relative pt-16 px-4 sm:px-6">
-    <div class="p-6 text-white rounded-xl bg-primary shadow-lg">
+    <div class="p-6 text-primary-content rounded-xl bg-primary shadow-lg">
       <div class="relative flex items-center mb-3 text-center">
-        <a class="absolute flex text-sm font-semibold leading-6 dark:text-slate-200 dark:hover:text-white" href="{{ site.index_path }}">
-          <svg viewBox="0 -9 3 24" class="w-auto h-6 mr-3 overflow-visible dark:group-hover:text-slate-300">
+        <a class="absolute flex text-sm font-semibold leading-6 text-primary-content hover:text-primary-content/80" href="{{ site.index_path }}">
+          <svg viewBox="0 -9 3 24" class="w-auto h-6 mr-3 overflow-visible group-hover:text-base-content/70">
             <path d="M3 0L0 3L3 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
           <span>{{ "generic.back" | t }}</span>
@@ -12,7 +12,7 @@
       </div>
       {% form_tag 'search' %}
         <div class="relative flex items-center">
-          <input type="text" name="{{form.keywords_field_name}}" value="{{ search.keywords | escape_once }}" class="block w-full outline-none border-0 bg-white dark:bg-slate-800 rounded-lg pl-4 pr-10 py-3.5 text-slate-800 dark:text-slate-200 placeholder:text-slate-400 text-sm" placeholder="{{ "placeholders.search" | t }}">
+          <input type="text" name="{{form.keywords_field_name}}" value="{{ search.keywords | escape_once }}" class="block w-full outline-none border-0 bg-base-100 rounded-lg pl-4 pr-10 py-3.5 text-base-content placeholder:text-base-content/50 text-sm" placeholder="{{ "placeholders.search" | t }}">
         </div>
       {% endform_tag %}
 
@@ -30,23 +30,23 @@
     </div>
 
     {% if search.keywords or search.tag %}
-      <ul class="mt-4 overflow-hidden list-none bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 divide-y divide-slate-200 dark:divide-slate-700">
+      <ul class="mt-4 overflow-hidden list-none bg-base-100 rounded-xl border border-base-300 divide-y divide-base-300">
         {% paginate_tag search.extends, as: 'extends' %}
           {% for extend in extends %}
-            <li class="px-4 py-4 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"><a href="{{extend.url}}" class="text-primary hover:underline">{{extend.link_text}}</a></li>
+            <li class="px-4 py-4 hover:bg-base-200/50 transition-colors"><a href="{{extend.url}}" class="text-primary hover:underline">{{extend.link_text}}</a></li>
           {% endfor %}
         {% endpaginate_tag %}
 
         {% paginate_tag search.pages, as: 'items' %}
           {% for page in items %}
-            <li class="flex items-center px-4 py-4 space-x-4 group hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+            <li class="flex items-center px-4 py-4 space-x-4 group hover:bg-base-200/50 transition-colors">
               <div class="flex-grow w-0">
                 <h3 class="h4 truncate">
                   <a href="{{ page.url }}" class="inline-block search-highlight-block">
                     {{ page.highlighted_search_title }}
                   </a>
                 </h3>
-                <p class="text-slate-500 dark:text-slate-400 line-clamp-3 search-highlight-block text-sm">
+                <p class="text-base-content/60 line-clamp-3 search-highlight-block text-sm">
                   {{ page.highlighted_search_content }}
                 </p>
               </div>

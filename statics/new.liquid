@@ -1,7 +1,7 @@
 {% assign title  =  'buttons.create_post' | t %}
 {% set_meta_title title %}
 {% if current_user %}
-  <main class="grow">
+  <main class="grow bg-base-100">
     <section class="relative">
       <!-- Illustration -->
       <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -z-10" aria-hidden="true">
@@ -9,7 +9,7 @@
       </div>
       <div class="max-w-6xl px-4 mx-auto sm:px-6">
         <div class="pt-6 md:pt-12">
-          <div class="md:flex md:justify-between md:divide-x md:divide-slate-300 dark:md:divide-slate-800">
+          <div class="md:flex md:justify-between md:divide-x md:divide-base-300">
             <div class="md:grow ">
               <!-- Post header -->
               <header class="mb-4">
@@ -40,7 +40,7 @@
       <input value="true" type="hidden" name="sign_up">
       <input type="submit"
         value="{{ 'buttons.login' | t }}"
-        class="items-center hidden px-3 py-2 text-sm font-medium text-white transition duration-150 ease-in-out hover:text-slate-200 lg:px-5"
+        class="items-center hidden px-3 py-2 text-sm font-medium text-primary-content transition duration-150 ease-in-out hover:text-primary-content/80 lg:px-5"
         data-disable-with=" ... " x-init="$el.click()"
         >
     {% endform_tag %}

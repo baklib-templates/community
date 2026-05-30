@@ -9,7 +9,7 @@
         <input value="create_reply_success_discourse" autocomplete="off" type="hidden" name="return_template_name">
         <input value="true" autocomplete="off" type="hidden" name="reply[published]">
         {% form_field_tag 'richtext', 'reply[body]', content, toolbar: 'simple', under_el_id: '#edit-info-bar-container' %}
-        <div id="reply_page_error" class="text-xs text-red-500 dark:text-red-400 mt-1"></div>
+        <div id="reply_page_error" class="text-xs text-error mt-1"></div>
         <div class="flex items-center justify-end space-x-3 mt-2">
           <input type="submit" value="{{ 'buttons.submit' | t }}" @click="open = false;name=content.substring(0, 50)" class="btn" />
         </div>
@@ -17,9 +17,9 @@
     </div>
   </div>
 {% else %}
-  <div class="rounded-xl border border-violet-200 dark:border-violet-800/50 bg-gradient-to-br from-violet-50/80 via-purple-50/60 to-indigo-50/50 dark:from-slate-800/60 dark:via-violet-900/20 dark:to-slate-800/60 p-6">
-    <p class="text-slate-700 dark:text-slate-300 mb-2">{{ 'generic.discourse_signup_prompt' | t }}</p>
-    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">{{ 'generic.discourse_signup_benefits' | t }}</p>
+  <div class="rounded-xl border border-primary/20 bg-gradient-to-br from-primary/5 via-base-200/60 to-base-200 p-6">
+    <p class="text-base-content mb-2">{{ 'generic.discourse_signup_prompt' | t }}</p>
+    <p class="text-sm text-base-content/70 mb-4">{{ 'generic.discourse_signup_benefits' | t }}</p>
     <div class="flex flex-wrap gap-2">
       {% form_tag 'sign_in_with_baklib' %}
         <input value="true" type="hidden" name="sign_up">
@@ -28,7 +28,7 @@
       <button type="button" class="btn btn-sm btn-ghost" onclick="this.closest('.rounded-xl').style.display='none'">
         {{ 'generic.maybe_later' | t }}
       </button>
-      <button type="button" class="btn btn-sm btn-ghost text-slate-500 hover:text-slate-700" onclick="this.closest('.rounded-xl').style.display='none'">
+      <button type="button" class="btn btn-sm btn-ghost text-base-content/60 hover:text-base-content" onclick="this.closest('.rounded-xl').style.display='none'">
         {{ 'generic.no_thanks' | t }}
       </button>
     </div>

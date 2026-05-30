@@ -22,7 +22,7 @@
 {% endfor %}
 
 {% if show_section %}
-<div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
+<div class="mt-12 pt-8 border-t border-base-300">
   <h2 class="text-lg font-semibold mb-4 flex items-center gap-2">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-primary">
       <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
@@ -32,7 +32,7 @@
   <div class="overflow-x-auto">
     <table class="w-full text-sm">
       <thead>
-        <tr class="border-b border-slate-200 dark:border-slate-700 text-left text-slate-500 dark:text-slate-400">
+        <tr class="border-b border-base-300 text-left text-base-content/60">
           <th class="py-3 font-medium">{{ 'generic.topic' | t }}</th>
           <th class="py-3 font-medium w-20">{{ 'generic.comments' | t }}</th>
           <th class="py-3 font-medium w-24">{{ 'generic.visit' | t }}</th>
@@ -44,9 +44,12 @@
         {% for p in pages %}
           {% if p.id != current_page.id and shown < 5 %}
             {% assign shown = shown | plus: 1 %}
-            <tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/30">
+            <tr class="border-b border-base-300 hover:bg-base-200">
               <td class="py-3">
-                <a href="{{ p.path }}" class="font-medium text-slate-800 dark:text-slate-200 hover:text-primary">{{ p.link_text }}</a>
+                <a href="{{ p.path }}" class="font-medium text-base-content hover:text-primary inline-flex items-center gap-2">
+                  {% render 'page_icon', page: p, class: 'size-4 shrink-0 text-primary' %}
+                  <span>{{ p.link_text }}</span>
+                </a>
                 {% if p.settings.tags.size > 0 %}
                   <div class="flex flex-wrap gap-1 mt-1">
                     {% for tag in p.settings.tags %}
@@ -55,9 +58,9 @@
                   </div>
                 {% endif %}
               </td>
-              <td class="py-3 text-slate-600 dark:text-slate-400">{{ p.comments | size }}</td>
-              <td class="py-3 text-slate-600 dark:text-slate-400">{{ p.visits_count | default: 0 }}</td>
-              <td class="py-3 text-slate-600 dark:text-slate-400">{{ p.updated_at | date: "%Y-%m-%d" }}</td>
+              <td class="py-3 text-base-content/70">{{ p.comments | size }}</td>
+              <td class="py-3 text-base-content/70">{{ p.visits_count | default: 0 }}</td>
+              <td class="py-3 text-base-content/70">{{ p.updated_at | date: "%Y-%m-%d" }}</td>
             </tr>
           {% endif %}
         {% endfor %}

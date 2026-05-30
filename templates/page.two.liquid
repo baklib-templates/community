@@ -26,17 +26,17 @@
                   {% form_tag 'delete_feedback', page: page, useful_type: site.settings.feedback_useful_type %}
                     <button name="feedback[useful_type]" value="{{ site.settings.feedback_useful_type }}"
                       :class="{ '!bg-primary': '{{ site.settings.feedback_useful_type }}' === '{{ page.last_feedback_emoji }}' }"
-                      class="h-12 w-12 pt-2 items-center text-center flex flex-col rounded border border-primary bg-primary hover:bg-slate-300 dark:hover:bg-slate-800">
-                      <svg class="fill-white" width="12" height="6" xmlns="http://www.w3.org/2000/svg"><path d="m0 6 6-6 6 6z"></path></svg>
-                      <span class="text-white" x-text="feedback_count"></span>
+                      class="h-12 w-12 pt-2 items-center text-center flex flex-col rounded border border-primary bg-primary hover:bg-base-300">
+                      <svg class="fill-primary-content" width="12" height="6" xmlns="http://www.w3.org/2000/svg"><path d="m0 6 6-6 6 6z"></path></svg>
+                      <span class="text-primary-content" x-text="feedback_count"></span>
                     </button>
                   {% endform_tag %}
                 </div>
                 <div x-show="posted_feedback == false" @click="posted_feedback=true;feedback_count++" x-cloak>
                   {% form_tag 'feedback', page: page %}
                     <button name="feedback[useful_type]" value="{{ site.settings.feedback_useful_type }}"
-                      class="h-12 w-12 pt-2 items-center text-center flex flex-col rounded border border-primary-200 bg-gradient-to-tr from-slate-200/20 via-slate-200/50 to-slate-200/20 hover:bg-slate-300 dark:hover:bg-slate-800">
-                      <svg class="fill-violet-500" width="12" height="6" xmlns="http://www.w3.org/2000/svg"><path d="m0 6 6-6 6 6z"></path></svg>
+                      class="h-12 w-12 pt-2 items-center text-center flex flex-col rounded border border-primary/30 bg-gradient-to-tr from-base-200/20 via-base-200/50 to-base-200/20 hover:bg-base-300">
+                      <svg class="fill-primary" width="12" height="6" xmlns="http://www.w3.org/2000/svg"><path d="m0 6 6-6 6 6z"></path></svg>
                       <span x-text="feedback_count"></span>
                     </button>
                   {% endform_tag %}
@@ -49,7 +49,10 @@
               <article class="mb-10">
                 {% comment %} Discourse: 标题 + 标签置顶 {% endcomment %}
                 <header class="mb-4">
-                  <h1 class="mb-3 text-2xl md:text-3xl font-bold font-aspekta text-slate-900 dark:text-slate-100">{{ page.link_text }}</h1>
+                  <h1 class="mb-3 text-2xl md:text-3xl font-bold font-aspekta text-base-content flex items-center gap-2">
+                    {% render 'page_icon', page: page, class: 'size-8 shrink-0 text-primary' %}
+                    <span>{{ page.link_text }}</span>
+                  </h1>
                   {% if page.settings.tags.size > 0 %}
                     <div class="flex flex-wrap gap-1.5 mb-4">
                       {% for tag in page.settings.tags %}
@@ -63,7 +66,7 @@
                       <img class="w-8 h-8 rounded-full shrink-0" src="{{ page.author.avatar_url | default: default_avatar_url }}" width="32" height="32" alt="" />
                       <a class="font-medium text-primary hover:text-primary/80" href="{{ page.author.profile_url | default: '#' }}">{{ page.author.name }}</a>
                     </div>
-                    <div class="text-sm text-slate-500 dark:text-slate-400">
+                    <div class="text-sm text-base-content/60">
                       {{ page.created_at | date: "%Y-%m-%d %H:%M" }} · {{ page.comments | size }} {{ 'generic.comments' | t }}
                     </div>
                   </div>
@@ -76,7 +79,7 @@
               </article>
 
               {% if page.author.id == current_user.member_id %}
-                <div class="my-4 p-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
+                <div class="my-4 p-4 rounded-lg border border-base-300 bg-base-200">
                   <div class="flex gap-3">
                     <a href="/s/edit?page_path={{ page.full_slug }}" class="btn">{{ 'buttons.edit' | t }}</a>
                     {% form_tag 'delete_page', page %}
@@ -88,7 +91,7 @@
 
               <!-- 回复列表 -->
               <div data-controller="load_more">
-                <div class="pb-4 mb-4 border-b border-slate-200 dark:border-slate-800">
+                <div class="pb-4 mb-4 border-b border-base-300">
                   <h2 class="text-xl font-semibold">{{ page.comments | size }} {{ 'generic.comments' | t }}</h2>
                 </div>
 
@@ -135,6 +138,14 @@
   "sub_page_templates": ["page"],
   "settings": [
     { "id": "title", "type": "text", "placeholder": "", "label": "t:settings_schema.community_templates.post_title_label", "info": "t:settings_schema.community_templates.post_title_info" },
+    {
+      "id": "icon",
+      "type": "select",
+      "choices_from": "$site.lucide_icons",
+      "queryable": true,
+      "label": "t:settings_schema.community_templates.post_icon_label",
+      "info": "t:settings_schema.community_templates.post_icon_info"
+    },
     { "id": "content", "type": "richtext", "label": "t:settings_schema.community_templates.post_content_label" },
     {
       "id": "collection",

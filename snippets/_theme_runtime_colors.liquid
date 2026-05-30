@@ -1,0 +1,53 @@
+{%- comment -%}
+  Runtime color mapping: platform --theme-color-* → daisyUI --color-*.
+  --tw-* bridges HSL triplets for Tailwind opacity utilities (bg-base-100/50, text-base-content/70).
+  Render inside <head> BEFORE application.css. See themes/cms/blog/statics/brand.liquid.
+{%- endcomment -%}
+<style>
+  :root {
+    color-scheme: light;
+    --tw-base-100: var(--theme-color-base-100);
+    --tw-base-200: var(--theme-color-base-200);
+    --tw-base-300: var(--theme-color-base-300);
+    --tw-base-content: var(--theme-color-base-content);
+    --tw-primary: var(--theme-color-primary);
+    --tw-primary-content: var(--theme-color-primary-content);
+    --tw-secondary: var(--theme-color-secondary);
+    --tw-secondary-content: var(--theme-color-secondary-content);
+    --tw-accent: var(--theme-color-accent);
+    --tw-accent-content: var(--theme-color-accent-content);
+    --tw-neutral: var(--theme-color-neutral);
+    --tw-neutral-content: var(--theme-color-neutral-content);
+    --tw-info: var(--theme-color-info);
+    --tw-info-content: var(--theme-color-info-content);
+    --tw-success: var(--theme-color-success);
+    --tw-success-content: var(--theme-color-success-content);
+    --tw-warning: var(--theme-color-warning);
+    --tw-warning-content: var(--theme-color-warning-content);
+    --tw-error: var(--theme-color-error);
+    --tw-error-content: var(--theme-color-error-content);
+
+    --color-base-100: hsl(var(--tw-base-100));
+    --color-base-200: hsl(var(--tw-base-200));
+    --color-base-300: hsl(var(--tw-base-300));
+    --color-base-content: hsl(var(--tw-base-content));
+    --color-primary: hsl(var(--tw-primary));
+    --color-primary-content: hsl(var(--tw-primary-content));
+    --color-secondary: hsl(var(--tw-secondary));
+    --color-secondary-content: hsl(var(--tw-secondary-content));
+    --color-accent: hsl(var(--tw-accent));
+    --color-accent-content: hsl(var(--tw-accent-content));
+    --color-neutral: hsl(var(--tw-neutral));
+    --color-neutral-content: hsl(var(--tw-neutral-content));
+    --color-info: hsl(var(--tw-info));
+    --color-info-content: hsl(var(--tw-info-content));
+    --color-success: hsl(var(--tw-success));
+    --color-success-content: hsl(var(--tw-success-content));
+    --color-warning: hsl(var(--tw-warning));
+    --color-warning-content: hsl(var(--tw-warning-content));
+    --color-error: hsl(var(--tw-error));
+    --color-error-content: hsl(var(--tw-error-content));
+
+    --header-height: {{ site.settings.header_height.value | presence | default: '68px' }};
+  }
+</style>

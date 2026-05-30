@@ -3,16 +3,16 @@
 {% unless default_avatar_url  %}
     {% assign default_avatar_url = 'images/avatar.svg' |  asset_url %}
 {% endunless %}
-<article class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-5 hover:shadow-md transition-shadow border border-slate-100 dark:border-slate-700/50">
+<article class="bg-base-100 rounded-xl border border-base-300 p-5 shadow-sm hover:shadow-md transition-shadow">
         <div class="flex flex-start space-x-4">
-            <!-- Avatar -->
-            <div class="shrink-0 mt-1.5">
-                <img class="w-8 h-8 rounded-full" src="{{ page.author.avatar_url | default: default_avatar_url }}" width="32" height="32" alt="User avatar">
+            <!-- Page icon -->
+            <div class="shrink-0 mt-1 text-primary">
+                {% render 'page_icon', page: page, class: 'size-8' %}
             </div>
             <!-- Content -->
             <div class="grow">
                 <!-- Title -->
-                <h2 class="font-semibold text-md text-slate-800 dark:text-slate-100 mb-2">
+                <h2 class="font-semibold text-md text-base-content mb-2 flex items-center gap-2">
                     <a href="{{ page.path }}" data-turbo="false" class="hover:text-primary">{{ page.link_text }}</a>
                 </h2>
                 <!-- Tags and Collection -->
@@ -37,27 +37,20 @@
                 <!-- Footer -->
                 <footer class="flex flex-wrap text-sm">
                     <div
-                        class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-500 after:px-2">
-                        <a class="font-medium text-primary hover:text-primary/80"
+                        class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-base-content/50 after:px-2">
+                        <a class="font-medium text-primary hover:text-primary/80 flex items-center gap-1.5"
                             href="#0">
-                            <div class="flex items-center">
-                                <svg class="mr-2 fill-current" width="16" height="16"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M15.686 5.708 10.291.313c-.4-.4-.999-.4-1.399 0s-.4 1 0 1.399l.6.6-6.794 3.696-1-1C1.299 4.61.7 4.61.3 5.009c-.4.4-.4 1 0 1.4l1.498 1.498 2.398 2.398L.6 14.001 2 15.4l3.696-3.697L9.692 15.7c.5.5 1.199.2 1.398 0 .4-.4.4-1 0-1.4l-.999-.998 3.697-6.695.6.6c.599.6 1.199.2 1.398 0 .3-.4.3-1.1-.1-1.499Zm-7.193 6.095L4.196 7.507l6.695-3.697 1.298 1.299-3.696 6.694Z">
-                                    </path>
-                                </svg>
-                                {{ page.author.name }}
-                            </div>
+                            <img class="w-4 h-4 rounded-full shrink-0" src="{{ page.author.avatar_url | default: default_avatar_url }}" width="16" height="16" alt="">
+                            {{ page.author.name }}
                         </a>
                     </div>
                     <div
-                        class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-500 after:px-2">
-                        <span class="text-slate-500 dark:text-slate-400">{{ page.created_at | date: "%Y-%m-%d %H:%M" }}</span>
+                        class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-base-content/50 after:px-2">
+                        <span class="text-base-content/60">{{ page.created_at | date: "%Y-%m-%d %H:%M" }}</span>
                     </div>
                     <div
-                        class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-500 after:px-2">
-                        <span class="text-slate-500 dark:text-slate-400">{{ page.comments | roots | size }} {{ 'generic.comments' | t }}</span>
+                        class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-base-content/50 after:px-2">
+                        <span class="text-base-content/60">{{ page.comments | roots | size }} {{ 'generic.comments' | t }}</span>
                     </div>
                 </footer>
             </div>

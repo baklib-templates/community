@@ -42,7 +42,7 @@
         },
         "icon": {
           "label": "页面图标",
-          "info": "用于显示页面图标，建议1:1比例"
+          "info": "在列表与卡片中显示的 Lucide 图标。选项来自站点设置 → Lucide 图标。图标名称查找：<a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>"
         },
         "tags": {
           "label": "标签"
@@ -77,18 +77,20 @@
       "shared_slogan_label": "站点口号",
       "shared_slogan_default": "👋 一个共同学习、共同成长的创客社区",
       "shared_tags_label": "站点热门标签",
+      "hero_image_url_label": "Hero 背景图",
+      "hero_image_url_info": "Hero 区域铺满的背景图。主题默认资源：assets/images/hero.png。",
       "hero_text_color_label": "Hero 文字颜色",
-      "hero_bg_color_label": "Hero 背景色",
-      "hero_illustration_label": "Hero 背景插图（SVG）",
-      "hero_illustration_info": "虚幻背景SVG格式，参考：",
-      "hero_banner_label": "Hero Banner 图片（PNG）",
-      "hero_banner_info": "PNG 透明背景格式，参考：",
+      "hero_text_color_info": "可选。留空则使用站点主题色（primary）。",
+      "hero_bg_color_label": "Hero 遮罩层",
+      "hero_bg_color_info": "可选，在背景图之上叠加的颜色遮罩。",
       "page_detail_name": "帖子页面模板",
       "page_detail_description": "发布的页面详情模板",
       "page_two_name": "帖子页面模板2",
       "page_two_description": "Discourse 风格帖子详情模板",
       "post_title_label": "标题",
       "post_title_info": "显示在正文上方的文章标题",
+      "post_icon_label": "页面图标",
+      "post_icon_info": "在列表与详情中显示的 Lucide 图标。选项来自站点设置 → Lucide 图标。图标名称查找：<a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>",
       "post_content_label": "问题内容",
       "post_collection_label": "集合",
       "post_collection_info": "从首页设置的集合标签中选择",
@@ -97,6 +99,15 @@
       "post_tags_label": "页面标签",
       "post_recommend_label": "是否推荐",
       "post_recommend_info": "选定推荐后，会在推荐栏目显示"
+    }
+  },
+  "lucide_icons": {
+    "name": "Lucide 图标",
+    "settings": {
+      "lucide_icons": {
+        "label": "允许的 Lucide 图标名称",
+        "info": "每行一个 kebab-case 图标名（如 help-circle、package）。图标名称查找：<a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>。页面模板从此列表生成图标下拉选项。图标须与主题 JS bundle（src/lucide_icons.js）一致；仅在此处添加名称而不更新 bundle 时，前台无法渲染。"
+      }
     }
   }
 }

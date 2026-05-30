@@ -15,7 +15,7 @@
 
 /* generic css */
 body.asleep header {
-  @apply h-[80px] shadow-md shadow-gray-400
+  @apply h-[80px] shadow-md shadow-base-300/40
 }
 body.asleep header .ctm-header_between {
   @apply h-full
@@ -38,7 +38,7 @@ body.asleep #screen {
   scrollbar-width: none;  /* Firefox */
 }
 .search-highlight-block b {
-  color: hsl(var(--theme-color-primary));
+  color: hsl(var(--tw-primary));
 }
 
 /* range 选择范围组件样式 */
@@ -65,9 +65,9 @@ body.asleep #screen {
 }
 
 .form-range::-moz-range-track {
-  @apply h-[var(--range-track-h)] w-full rounded-full bg-slate-150 dark:bg-navy-500;
+  @apply h-[var(--range-track-h)] w-full rounded-full bg-base-300;
 }
 
 .form-range::-webkit-slider-runnable-track {
-  @apply h-[var(--range-track-h)] w-full rounded-full bg-slate-150 dark:bg-navy-500;
+  @apply h-[var(--range-track-h)] w-full rounded-full bg-base-300;
 }

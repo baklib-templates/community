@@ -1,8 +1,8 @@
 {% comment %}
   Usage: {% render 'sidebar_recommend', pages: pages, default_avatar_url: default_avatar_url %}
 {% endcomment %}
-<div class="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4">
-  <div class="text-md font-semibold uppercase mb-4 text-slate-600 dark:text-slate-400">{{ 'generic.recommend' | t }}</div>
+<div class="bg-base-200 rounded-xl p-4">
+  <div class="text-md font-semibold uppercase mb-4 text-base-content/70">{{ 'generic.recommend' | t }}</div>
   <ul>
     {% assign index_count = 0 %}
     {% for item in pages %}
@@ -13,20 +13,23 @@
           <div class="pl-6">
             <div class="text-xs font-medium uppercase text-primary mb-0.5">{{ item.created_at | date: "%Y-%m-%d" }}</div>
             <div class="text-sm mb-2">
-              <a class="font-medium text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white" href="{{ item.path }}">{{ item.settings.title | default: item.link_text }}</a>
+              <a class="font-medium text-base-content hover:text-primary inline-flex items-center gap-1.5" href="{{ item.path }}">
+                {% render 'page_icon', page: item, class: 'size-4 shrink-0 text-primary' %}
+                <span>{{ item.settings.title | default: item.link_text }}</span>
+              </a>
             </div>
             <div class="flex items-center space-x-2">
               <div class="flex -space-x-3 -ml-0.5">
                 {% assign comments = item.comments | roots | order_by: '-created_at' | limit: 3 %}
                 {% for comment in comments %}
-                  <img class="rounded-full border-2 border-white dark:border-slate-800 box-content" src="{{ comment.author.avatar_url | default: default_avatar_url }}" width="32" height="32" alt="" />
+                  <img class="rounded-full border-2 border-base-100 box-content" src="{{ comment.author.avatar_url | default: default_avatar_url }}" width="32" height="32" alt="" />
                 {% endfor %}
               </div>
-              <div class="text-xs font-medium text-slate-500 italic">+{{ item.comments | size }}</div>
+              <div class="text-xs font-medium text-base-content/60 italic">+{{ item.comments | size }}</div>
             </div>
           </div>
-          <div aria-hidden="true" class="absolute top-0.5 -bottom-1 left-0.5 ml-px w-0.5 bg-slate-200 dark:bg-slate-700"></div>
-          <div aria-hidden="true" class="absolute top-0.5 left-0 -ml-0.5 w-3 h-3 rounded-full bg-slate-400 dark:bg-slate-500 border-2 border-white dark:border-slate-800"></div>
+          <div aria-hidden="true" class="absolute top-0.5 -bottom-1 left-0.5 ml-px w-0.5 bg-base-300"></div>
+          <div aria-hidden="true" class="absolute top-0.5 left-0 -ml-0.5 w-3 h-3 rounded-full bg-base-content/40 border-2 border-base-100"></div>
         </li>
       {% endif %}
     {% endfor %}
