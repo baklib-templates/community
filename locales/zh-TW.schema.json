@@ -1,0 +1,113 @@
+{
+  "settings_schema": {
+    "generic": {
+      "name": "站點基本資訊設定",
+      "help_center_index_description": "功能豐富的產品知識庫樣式",
+      "list_index_description": "首頁目錄列表樣式",
+      "header_name": "頁首頁尾導航選單",
+      "head_title": "Head HTML 設定",
+      "settings": {
+        "description": {
+          "label": "站點描述"
+        },
+        "copyright_info": {
+          "label": "備案/版權資訊",
+          "default": "蜀ICP備15035023號"
+        },
+        "header_menu_html": {
+          "label": "Header 頁首導航選單",
+          "info": "支援 HTML 標籤和 TailwindCss 樣式程式碼"
+        },
+        "footer_menu_html": {
+          "label": "Footer 頁尾導航選單",
+          "info": "支援 HTML 標籤和 TailwindCss 樣式程式碼"
+        },
+        "head_html": {
+          "label": "Head Meta HTML 程式碼",
+          "info": "這部分內容會植入到站點的 <head> 標籤內，請使用標準的 HTML 格式",
+          "placeholder": "<meta name='author' content='Baklib' />"
+        }
+      }
+    },
+    "page": {
+      "name": "頁面",
+      "description": "文件內容頁面",
+      "settings": {
+        "description": {
+          "label": "頁面描述"
+        },
+        "content": {
+          "label": "內容",
+          "info": "同步自資料來源，不可編輯"
+        },
+        "icon": {
+          "label": "頁面圖示",
+          "info": "在列表與卡片中顯示的 Lucide 圖示。選項來自站點設定 → Lucide 圖示。圖示名稱查找：<a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>"
+        },
+        "tags": {
+          "label": "標籤"
+        }
+      }
+    },
+    "community": {
+      "collections_section_name": "集合設定",
+      "logo_url_label": "站點 LOGO",
+      "logo_url_info": "用在站點頂部的 LOGO",
+      "default_avatar_label": "預設頭像",
+      "default_avatar_info": "新註冊使用者未設定頭像之前，顯示該預設頭像",
+      "is_allow_published_label": "是否開啟先發後審",
+      "is_allow_published_info": "先發後審：前台提交即發布；先審後發：前台提交，後台審核後發布。",
+      "feedback_useful_type_label": "首選回饋表情",
+      "feedback_useful_type_placeholder": "如 😊 等 emoji，需在應用設定中設定",
+      "copyright_info_label": "版權資訊",
+      "copyright_info_placeholder": "在站點頁尾顯示",
+      "is_show_collection_feature_tags_label": "是否顯示集合/功能標籤",
+      "feature_tags_label": "功能標籤",
+      "feature_tags_info": "每行一個功能標籤，用於集合分類。格式：每行一個標籤名稱",
+      "collection_tags_label": "集合標籤",
+      "collection_tags_info": "每行一個集合標籤，用於集合分類。格式：每行一個標籤名稱",
+      "header_menu_label": "導航選單",
+      "header_menu_info": "格式：menu_name[url，每行一個連結。"
+    },
+    "community_templates": {
+      "index_home_name": "Index",
+      "index_home_description": "社群首頁（列表）",
+      "index_forum_name": "Index Forum",
+      "index_forum_description": "社群首頁（論壇版面）",
+      "shared_slogan_label": "站點口號",
+      "shared_slogan_default": "👋 一個共同學習、共同成長的創客社群",
+      "shared_tags_label": "站點熱門標籤",
+      "hero_image_url_label": "Hero 背景圖",
+      "hero_image_url_info": "Hero 區域鋪滿的背景圖。主題預設資源：assets/images/hero.png。",
+      "hero_text_color_label": "Hero 文字顏色",
+      "hero_text_color_info": "可選。留空則使用站點主題色（primary）。",
+      "hero_bg_color_label": "Hero 遮罩層",
+      "hero_bg_color_info": "可選，在背景圖之上疊加的顏色遮罩。",
+      "page_detail_name": "帖子頁面模板",
+      "page_detail_description": "發布的頁面詳情模板",
+      "page_two_name": "帖子頁面模板 2",
+      "page_two_description": "Discourse 風格帖子詳情模板",
+      "post_title_label": "標題",
+      "post_title_info": "顯示在正文上方的文章標題",
+      "post_icon_label": "頁面圖示",
+      "post_icon_info": "在列表與詳情中顯示的 Lucide 圖示。選項來自站點設定 → Lucide 圖示。圖示名稱查找：<a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>",
+      "post_content_label": "問題內容",
+      "post_collection_label": "集合",
+      "post_collection_info": "從首頁設定的集合標籤中選擇",
+      "post_feature_label": "功能",
+      "post_feature_info": "從首頁設定的功能標籤中選擇",
+      "post_tags_label": "頁面標籤",
+      "post_recommend_label": "是否推薦",
+      "post_recommend_info": "選定推薦後，會在推薦欄目顯示"
+    }
+  },
+  "lucide_icons": {
+    "name": "Lucide 圖示",
+    "settings": {
+      "lucide_icons": {
+        "label": "允許的 Lucide 圖示名稱",
+        "info": "每行一個 kebab-case 圖示名（如 help-circle、package）。圖示名稱查找：<a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>。頁面模板從此列表產生圖示下拉選項。圖示須與主題 JS bundle（src/lucide_icons.js）一致；僅在此處新增名稱而不更新 bundle 時，前台無法渲染。"
+      }
+    }
+  }
+}

@@ -1,2 +1,5 @@
 /assets/builds
 /node_modules
+/data/
+.image-gen-prompts/
+.tmp/

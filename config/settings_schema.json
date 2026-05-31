@@ -4,21 +4,25 @@
     "theme_name": "community",
     "theme_label": "t:theme_label",
     "theme_description": "t:theme_description",
-    "theme_version": "1.0.0",
+    "theme_version": "2.0.0",
     "theme_scope": "community",
     "theme_author": "Baklib",
-    "theme_documentation_url": "https://help.baklib.cn/themes/community/question",
-    "theme_support_url": "https://help.baklib.cn/themes/community/question",
+    "theme_documentation_url": "https://github.com/baklib-templates/community",
+    "theme_support_url": "https://github.com/baklib-templates/community",
     "theme_thumb_url": "images/theme/thumb.png",
     "theme_preview_images": [
-      "images/theme/${lang}/index-forum.webp",
-      "images/theme/${lang}/index.webp",
-      "images/theme/${lang}/comment.webp"
+      "images/theme/${lang}/index.png",
+      "images/theme/${lang}/index2.png",
+      "images/theme/${lang}/page.png"
     ],
     "theme_languages": [
       {
         "name": "中文简体",
         "value": "zh-CN"
+      },
+      {
+        "name": "繁體中文",
+        "value": "zh-TW"
       },
       {
         "name": "English",

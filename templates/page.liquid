@@ -21,7 +21,7 @@
 
               <div class="flex flex-col gap-6 lg:flex-row lg:gap-6">
 
-                {% comment %} 
+                {% comment %}
                   此区域因 md:block md:space-y-2 md:space-x-0 所影响，导致在 MD 屏幕下变成 “block” 模式，且 gap 被设为 0，
                   如果父容器或相关布局有隐藏样式，也可能导致其消失。经过检查实际样式，与 page.two.liquid 代码对比，为确保
                   正常显示请采用如下样式（与 page.two.liquid 一致，优先使用 flex-row，避免不必要的隐藏和布局错乱）：
@@ -91,7 +91,7 @@
                           {% endif %}
                       </div>
                     {% endif %}
-                    
+
                   </article>
 
                   {% if page.author.id == current_user.member_id %}
@@ -174,7 +174,7 @@
   {
     "name": "t:settings_schema.community_templates.page_detail_name",
     "description": "t:settings_schema.community_templates.page_detail_description",
-    "thumb_url": "images/theme/${lang}/page.webp",
+    "thumb_url": "images/theme/${lang}/page.png",
     "sub_page_templates": ["page"],
     "settings": [
       {

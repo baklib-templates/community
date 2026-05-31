@@ -4,7 +4,7 @@ A modern Q&A and discussion theme whose layouts are easy to map to familiar prod
 
 **Docs (ZH):** See [README.zh-CN.md](README.zh-CN.md) for the Chinese readme.
 
-**Tutorial:** [https://help.baklib.cn/themes/community/question](https://help.baklib.cn/themes/community/question)  
+**Tutorial:** [https://github.com/baklib-templates/community](https://github.com/baklib-templates/community)  
 
 **Demo:** [https://demo-question.uibak.com/](https://demo-question.uibak.com/)
 

@@ -72,10 +72,10 @@
                                             </li>
                                             {% endif %}
                                         {% endfor %}
-                                        
+
                                     </ul>
                                 </div>
-                                
+
 
                                 <!-- 自定义集合 -->
                                 <div>
@@ -83,7 +83,7 @@
                                         class="text-xs font-semibold text-base-content/50 uppercase mb-3 ">
                                         {{ 'forum.resource_types' | t }} </div>
                                     <ul class="flex flex-nowrap md:block mr-3 md:mr-0">
-                                        
+
                                         {% assign collections = site.settings.collection_tags | newline_to_br | split: '<br />'  %}
                                         {% for collection in collections %}
                                             {% assign collection_name = collection | strip %}
@@ -106,7 +106,7 @@
                                     </ul>
                                 </div>
                             {% endif %}
-                            
+
                             <!-- Group 2 -->
                             <div>
                                 <div class="text-xs font-semibold text-base-content/50 uppercase mb-3">
@@ -193,7 +193,7 @@
     {
         "name": "t:settings_schema.community_templates.index_forum_name",
         "description": "t:settings_schema.community_templates.index_forum_description",
-        "thumb_url": "images/theme/${lang}/index-forum.webp",
+        "thumb_url": "images/theme/${lang}/index.png",
         "sub_page_templates": ["page"],
         "settings": [
             {

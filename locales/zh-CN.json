@@ -1,5 +1,5 @@
 {
-  "theme_label": "社区",
+  "theme_label": "Community",
   "theme_description": "对标 Discourse（论坛布局、时间线、侧栏）、Reddit（线性列表与帖子流）及 Stack Overflow 类结构化问答场景的现代化社区模板。支持帖子发布、多层级回复、标签与集合、点赞反馈与站内搜索，适用于知识库、FAQ、技术支持与社区讨论。",
   "nav": {
     "more_menu_title": "更多导航菜单",

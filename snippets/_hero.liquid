@@ -23,12 +23,6 @@
         >
     </div>
 
-    {% comment %} Layer 1 — readability scrim (theme-agnostic) {% endcomment %}
-    <div
-        class="absolute inset-0 z-[1] pointer-events-none bg-black/50"
-        aria-hidden="true"
-    ></div>
-
     {% comment %} Layer 2 — optional CMS overlay color {% endcomment %}
     {% if page.settings.bg_color != blank %}
         <div
