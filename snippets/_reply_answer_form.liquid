@@ -5,6 +5,8 @@
   class="w-full mt-2"
   id="create_reply_{{ parent.id }}_id">
   <div class="rounded-lg border border-base-300 bg-base-100/50 p-3">
+    {% render 'community_daily_limit_alert', community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
+    {% unless community_daily_limit_reached %}
     {% form_tag 'reply' %}
       <input value="{{ root.target.full_slug }}" autocomplete="off" type="hidden" name="target_full_path">
       <input value="{{ return_template | default: 'create_answer_reply_success' }}" autocomplete="off" type="hidden" name="return_template_name">
@@ -20,5 +22,6 @@
           <button type="button" class="btn btn-sm btn-ghost" x-on:click="open = false">{{ 'buttons.cancel' | t }}</button>
         </div>
       {% endform_tag %}
+    {% endunless %}
   </div>
 </div>

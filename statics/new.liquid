@@ -18,9 +18,13 @@
               <!-- Page content -->
               <div class="md:grow ">
                 <div class="md:pr-6 lg:pr-20">
-                  {% form_tag 'page' %}
-                    {% render 'page_form', page: page,  action: 'create' %}
-                  {% endform_tag %}
+                  {% include 'community_daily_limit' %}
+                  {% render 'community_daily_limit_alert', community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
+                  {% unless community_daily_limit_reached %}
+                    {% form_tag 'page' %}
+                      {% render 'page_form', page: page,  action: 'create' %}
+                    {% endform_tag %}
+                  {% endunless %}
                 </div>
               </div>
             </div>

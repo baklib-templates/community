@@ -1,0 +1,43 @@
+{% comment %}
+  勿用 community_daily_limit 作变量名：{% include 'community_daily_limit' %} 会先注入同名变量（常为 nil），assign 写进外层 scope 后查找仍命中内层 nil。
+{% endcomment %}
+{% assign daily_limit = site.settings.daily_post_reply_limit | default: 0 | plus: 0 %}
+{% assign community_daily_limit_reached = false %}
+{% comment %} {{ daily_limit }}-----------{{ site.settings.daily_post_reply_limit }}
+{{ current_user.present? }}-----------{{ current_user.id }} {% endcomment %}
+
+{% if daily_limit > -1 and current_user and current_user.department_ids == blank  %}
+  {% assign today_start = now | date: "%Y-%m-%d" | append: " 00:00:00" %}
+  {% assign my_pages = current_user.pages %}
+
+  {% query _today_posts from my_pages %}
+  {
+    "where": {
+      "created_at_gteq": "{{ today_start }}"
+    },
+    "limit": {{ daily_limit }}
+  }
+  {% endquery %}
+  {% assign today_posts_count = _today_posts | size %}
+  {% assign today_replies_count = 0 %}
+
+  {% if current_user.id %}
+    {% query _today_replies from site.comments %}
+    {
+      "where": {
+        "author_id_eq": {{ current_user.id }},
+        "created_at_gteq": "{{ today_start }}"
+      },
+      "limit": {{ daily_limit }}
+    }
+    {% endquery %}
+    {% assign today_replies_count = _today_replies | size %}
+  {% endif %}
+
+  {% assign community_daily_count = today_posts_count | plus: today_replies_count %}
+  {% comment %} community_daily_count-----------{{ community_daily_count }} {% endcomment %}
+  {% if community_daily_count >= daily_limit %}
+    {% assign community_daily_limit_reached = true %}
+  {% endif %}
+{% endif %}
+{% comment %} community_daily_limit_reached-----------{{ community_daily_limit_reached }} {% endcomment %}

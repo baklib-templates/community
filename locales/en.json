@@ -140,6 +140,9 @@
     "topic": "Topic",
     "activity": "Activity"
   },
+  "community": {
+    "daily_limit_reached": "Daily post/reply limit reached (%{limit}). Please try again tomorrow."
+  },
   "placeholders": {
     "search": "Search the site",
     "input_feedback": "Send us feedback",

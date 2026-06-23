@@ -57,6 +57,8 @@
       "default_avatar_info": "Shown for members who have not set an avatar",
       "is_allow_published_label": "Publish before review",
       "is_allow_published_info": "When enabled, submissions go live immediately; when disabled, staff must approve before they appear.",
+      "daily_post_reply_limit_label": "Daily post + reply limit",
+      "daily_post_reply_limit_info": "-1 means unlimited (frontend form hide only). Users with department IDs are exempt.",
       "feedback_useful_type_label": "Primary feedback emoji",
       "feedback_useful_type_placeholder": "e.g. 😊 — configure in app feedback settings",
       "copyright_info_label": "Copyright line",

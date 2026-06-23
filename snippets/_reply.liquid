@@ -47,7 +47,7 @@
           {% endif %}
         </div>
         {% if reply.root %}{% assign root = reply.root %}{% else %}{% assign root = reply %}{% endif %}
-        {% render 'reply_answer_form', root: root, parent: reply %}
+        {% render 'reply_answer_form', root: root, parent: reply, community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
       {% endif %}
     </div>
   </div>
@@ -84,7 +84,7 @@
   <ul class="reply-children mt-0 ml-6 sm:ml-8 pl-4 border-l-2 border-base-300 space-y-0" id="answer_{{ reply.id }}_replies_list" {% if is_collapsible %}x-show="!collapsed"{% endif %}>
     {% for r in all_under_root %}
       {% if r.parent.id == reply.id %}
-        {% render 'reply', reply: r, depth: next_depth %}
+        {% render 'reply', reply: r, depth: next_depth, community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
       {% endif %}
     {% endfor %}
   </ul>

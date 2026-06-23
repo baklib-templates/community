@@ -140,6 +140,9 @@
     "topic": "Sujet",
     "activity": "Activité"
   },
+  "community": {
+    "daily_limit_reached": "Limite quotidienne atteinte (%{limit}). Réessayez demain."
+  },
   "placeholders": {
     "search": "Rechercher sur le site",
     "input_feedback": "Nous envoyer un retour",

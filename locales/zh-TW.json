@@ -140,6 +140,9 @@
     "topic": "話題",
     "activity": "活動"
   },
+  "community": {
+    "daily_limit_reached": "今日發帖/回覆已達上限（%{limit} 次），請明天再試。"
+  },
   "placeholders": {
     "search": "站內搜尋",
     "input_feedback": "請與我們留言",

@@ -140,6 +140,9 @@
     "topic": "トピック",
     "activity": "アクティビティ"
   },
+  "community": {
+    "daily_limit_reached": "本日の投稿/返信上限（%{limit} 回）に達しました。明日再度お試しください。"
+  },
   "placeholders": {
     "search": "サイト内を検索",
     "input_feedback": "フィードバックを送る",

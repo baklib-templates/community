@@ -1,6 +1,8 @@
 {% if current_user %}
   <div class="flex flex-col sm:flex-row sm:space-x-3 w-full" id="create_reply_{{ target.id }}_form">
     <div class="w-full min-w-0">
+      {% render 'community_daily_limit_alert', community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
+      {% unless community_daily_limit_reached %}
       {% form_tag 'reply' %}
         <input value="{{ target.full_slug }}" autocomplete="off" type="hidden" name="target_full_path">
         <input value="create_reply_success" autocomplete="off" type="hidden" name="return_template_name">
@@ -19,6 +21,7 @@
             class="btn"/>
         </div>
       {% endform_tag %}
+      {% endunless %}
     </div>
   </div>
 {% else %}

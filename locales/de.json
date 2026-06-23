@@ -140,6 +140,9 @@
     "topic": "Thema",
     "activity": "Aktivität"
   },
+  "community": {
+    "daily_limit_reached": "Tageslimit für Beiträge/Antworten erreicht (%{limit}). Bitte morgen erneut versuchen."
+  },
   "placeholders": {
     "search": "Site durchsuchen",
     "input_feedback": "Feedback senden",

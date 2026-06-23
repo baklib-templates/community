@@ -111,6 +111,7 @@
 
                   <!-- Comments list -->
                   <div data-controller="load_more">
+                    {% include 'community_daily_limit' %}
                     <!-- Content header -->
                     <div class="pb-6 mb-4 border-b border-base-300">
                       <div class="items-center justify-between text-center md:text-left md:flex">
@@ -118,14 +119,14 @@
                       </div>
                     </div>
 
-                    {% render 'reply_page_form', target: page %}
+                    {% render 'reply_page_form', target: page, community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
 
                     <!-- Comments (1st level) -->
                     {% assign answers = page.comments | roots  %}
                     <ul id="page_{{ page.id }}_replies_list" data-load_more-target="container">
                       {% paginate_tag answers, per: 4 %}
                         {% for reply in answers %}
-                          {% render 'reply', reply: reply %}
+                          {% render 'reply', reply: reply, community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
                         {% endfor %}
                       {% endpaginate_tag %}
                     </ul>

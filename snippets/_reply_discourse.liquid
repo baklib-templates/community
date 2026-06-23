@@ -49,7 +49,7 @@
         {% endif %}
       </div>
       {% if reply.root %}{% assign root = reply.root %}{% else %}{% assign root = reply %}{% endif %}
-      {% render 'reply_answer_form', root: root, parent: reply, return_template: 'create_answer_reply_success_discourse' %}
+      {% render 'reply_answer_form', root: root, parent: reply, return_template: 'create_answer_reply_success_discourse', community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
     {% endif %}
   </div>
 
@@ -86,7 +86,7 @@
     <ul class="reply-children mt-0 pl-4 ml-8 border-l-2 border-base-300 space-y-0" id="answer_{{ reply.id }}_replies_list" {% if is_collapsible %}x-show="!collapsed"{% endif %}>
       {% for r in all_under_root %}
         {% if r.parent.id == reply.id %}
-          {% render 'reply_discourse', reply: r, depth: next_depth %}
+          {% render 'reply_discourse', reply: r, depth: next_depth, community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
         {% endif %}
       {% endfor %}
     </ul>

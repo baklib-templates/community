@@ -5,12 +5,13 @@
 
 <turbo-stream action="replace" target="create_reply_{{ reply.parent.id }}_id">
   <template>
-    {% render 'reply_answer_form', root: reply.root, parent: reply.parent, return_template: 'create_answer_reply_success_discourse' %}
+    {% include 'community_daily_limit' %}
+    {% render 'reply_answer_form', root: reply.root, parent: reply.parent, return_template: 'create_answer_reply_success_discourse', community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
   </template>
 </turbo-stream>
 
 <turbo-stream action="prepend" target="answer_{{ reply.parent.id }}_replies_list">
   <template>
-    {% render 'reply_discourse', reply: reply %}
+    {% render 'reply_discourse', reply: reply, community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
   </template>
 </turbo-stream>

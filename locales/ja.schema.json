@@ -57,6 +57,8 @@
       "default_avatar_info": "画像未設定のメンバーに表示",
       "is_allow_published_label": "承認前に公開",
       "is_allow_published_info": "オン：送信後すぐ公開。オフ：スタッフ承認後に公開。",
+      "daily_post_reply_limit_label": "1日の投稿+返信上限",
+      "daily_post_reply_limit_info": "-1 は無制限（フロントのみ）。部門 ID を持つユーザーは対象外。",
       "feedback_useful_type_label": "主なフィードバック絵文字",
       "feedback_useful_type_placeholder": "例：😊 — アプリのフィードバック設定で指定",
       "copyright_info_label": "著作権表示",

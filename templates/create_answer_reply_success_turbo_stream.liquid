@@ -11,13 +11,14 @@
 {%# 隐藏评论框 %}
 <turbo-stream action="replace" target="create_reply_{{ reply.parent.id }}_id">
   <template>
-    {% render 'reply_answer_form', root: reply.root, parent: reply.parent %}
+    {% include 'community_daily_limit' %}
+    {% render 'reply_answer_form', root: reply.root, parent: reply.parent, community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
   </template>
 </turbo-stream>
 
 {%# 将新增评论添加至被回复对象(parent)的子回复列表最上方 %}
 <turbo-stream action="prepend" target="answer_{{ reply.parent.id }}_replies_list">
   <template>
-    {% render 'reply', reply: reply %}
+    {% render 'reply', reply: reply, community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
   </template>
 </turbo-stream>

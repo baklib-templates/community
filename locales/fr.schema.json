@@ -57,6 +57,8 @@
       "default_avatar_info": "Affiché pour les membres sans photo",
       "is_allow_published_label": "Publier avant validation",
       "is_allow_published_info": "Activé : les envois sont en ligne immédiatement ; désactivé : validation requise avant publication.",
+      "daily_post_reply_limit_label": "Limite quotidienne de publications + réponses",
+      "daily_post_reply_limit_info": "-1 = illimité (masquage frontend). Les utilisateurs avec ID de département sont exemptés.",
       "feedback_useful_type_label": "Émoji de retour principal",
       "feedback_useful_type_placeholder": "ex. 😊 — à configurer dans les paramètres de feedback",
       "copyright_info_label": "Mention de copyright",

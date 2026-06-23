@@ -209,6 +209,16 @@
         "default": true
       },
       {
+        "id": "daily_post_reply_limit",
+        "type": "number",
+        "label": "t:settings_schema.community.daily_post_reply_limit_label",
+        "info": "t:settings_schema.community.daily_post_reply_limit_info",
+        "default": -1,
+        "step": 1,
+        "min": -1,
+        "max": 999
+      },
+      {
         "id": "feedback_useful_type",
         "type": "text",
         "label": "t:settings_schema.community.feedback_useful_type_label",
