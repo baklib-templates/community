@@ -98,11 +98,11 @@
                     <div class="my-4">
                       <div class="relative p-5 rounded-lg border border-base-300 bg-base-200">
                         <div class="items-center space-y-3 sm:flex sm:space-y-0 sm:space-x-5">
-                            <a href="/s/edit?page_path={{ page.full_slug }}" class="btn">
+                            <a href="/s/edit?page_path={{ page.full_slug }}" class="btn2">
                               <span>{{ 'buttons.edit' | t}}</span>
                             </a>
                             {% form_tag 'delete_page', page %}
-                              <button class="btn btn-ghost"> {{ 'buttons.delete' | t}} </button>
+                              <button class="btn2 btn2-ghost"> {{ 'buttons.delete' | t}} </button>
                             {% endform_tag %}
                         </div>
                       </div>
@@ -133,7 +133,7 @@
                     {{ paginate.next.page  }}
                     {% if paginate.next_page %}
                       <button id="load_more" data-action="click->load_more#loadMore" data-load_more-url-value="/s/replies?page_path={{ page.full_slug }}&_page={{ paginate.next_page }}"
-                        data-load_more-target="button" class="btn btn-ghost"
+                        data-load_more-target="button" class="btn2 btn2-ghost"
                       >
                         {{ 'generic.read_more' | t}}
                       </button>

@@ -84,20 +84,20 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 /* Buttons */
-.btn,
-.btn-sm {
+.btn2,
+.btn2-sm {
     @apply text-sm text-primary-content !bg-primary hover:!bg-secondary font-medium inline-flex items-center justify-center rounded-full leading-5 whitespace-nowrap duration-150 ease-in-out touch-manipulation;
 }
 
-.btn {
+.btn2 {
     @apply px-5 py-2.5;
 }
 
-.btn-sm {
+.btn2-sm {
     @apply px-4 py-2;
 }
 
-.btn-ghost{
+.btn2-ghost{
     @apply text-primary !bg-transparent hover:!bg-secondary hover:!text-primary-content border border-primary;
 }
 /* 搜索关键词高亮 */

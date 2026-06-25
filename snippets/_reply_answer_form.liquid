@@ -18,8 +18,8 @@
 
         <div id="create_reply_{{ parent.id }}_error" class="text-xs text-error mt-1"></div>
         <div class="flex items-center gap-2 mt-2">
-          <input type="submit" value="{{ 'buttons.submit' | t }}" @click="if($el.form.checkValidity()) {open = false}" class="btn btn-sm" />
-          <button type="button" class="btn btn-sm btn-ghost" x-on:click="open = false">{{ 'buttons.cancel' | t }}</button>
+          <input type="submit" value="{{ 'buttons.submit' | t }}" @click="if($el.form.checkValidity()) {open = false}" class="btn2 btn2-sm" />
+          <button type="button" class="btn2 btn2-sm btn2-ghost" x-on:click="open = false">{{ 'buttons.cancel' | t }}</button>
         </div>
       {% endform_tag %}
     {% endunless %}

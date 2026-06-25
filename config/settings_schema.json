@@ -92,12 +92,12 @@
         "fashion": {
           "name": "Retro",
           "colors": {
-            "--theme-color-base-100": "#ECE3CA",
-            "--theme-color-base-200": "#E4D8B4",
-            "--theme-color-base-300": "#DBCA9B",
+            "--theme-color-base-100": "#FDFAF1",
+            "--theme-color-base-200": "#ffffff",
+            "--theme-color-base-300": "#F4F1E9",
             "--theme-color-base-content": "#793205",
-            "--theme-color-primary": "#FF9FA0",
-            "--theme-color-primary-content": "#801518",
+            "--theme-color-primary": "#B48908",
+            "--theme-color-primary-content": "#F4EDEE",
             "--theme-color-secondary": "#B7F6CD",
             "--theme-color-secondary-content": "#00642E",
             "--theme-color-accent": "#CA8A00",

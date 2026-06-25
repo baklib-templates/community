@@ -13,7 +13,7 @@
         {% form_field_tag 'richtext', 'reply[body]', content, toolbar: 'simple', under_el_id: '#edit-info-bar-container' %}
         <div id="reply_page_error" class="text-xs text-error mt-1"></div>
         <div class="flex items-center justify-end space-x-3 mt-2">
-          <input type="submit" value="{{ 'buttons.submit' | t }}" @click="open = false;name=content.substring(0, 50)" class="btn" />
+          <input type="submit" value="{{ 'buttons.submit' | t }}" @click="open = false;name=content.substring(0, 50)" class="btn2" />
         </div>
       {% endform_tag %}
       {% endunless %}
@@ -26,12 +26,12 @@
     <div class="flex flex-wrap gap-2">
       {% form_tag 'sign_in_with_baklib' %}
         <input value="true" type="hidden" name="sign_up">
-        <input type="submit" value="{{ 'buttons.join' | t }}" class="btn btn-sm" data-disable-with="..." />
+        <input type="submit" value="{{ 'buttons.join' | t }}" class="btn2 btn2-sm" data-disable-with="..." />
       {% endform_tag %}
-      <button type="button" class="btn btn-sm btn-ghost" onclick="this.closest('.rounded-xl').style.display='none'">
+      <button type="button" class="btn2 btn2-sm btn2-ghost" onclick="this.closest('.rounded-xl').style.display='none'">
         {{ 'generic.maybe_later' | t }}
       </button>
-      <button type="button" class="btn btn-sm btn-ghost text-base-content/60 hover:text-base-content" onclick="this.closest('.rounded-xl').style.display='none'">
+      <button type="button" class="btn2 btn2-sm btn2-ghost text-base-content/60 hover:text-base-content" onclick="this.closest('.rounded-xl').style.display='none'">
         {{ 'generic.no_thanks' | t }}
       </button>
     </div>

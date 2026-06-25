@@ -39,10 +39,10 @@
                             {{ site.settings.header_menu_html }}
                             <hr/>
                             {% if current_user %}
-                                <a href="/s/new" class="py-2 text-primary-content btn-sm bg-primary hover:bg-secondary">{{ 'buttons.create_post' | t }}</a>
+                                <a href="/s/new" class="py-2 text-primary-content btn2-sm bg-primary hover:bg-secondary">{{ 'buttons.create_post' | t }}</a>
                                 <div>
                                     <div data-controller="dropdown" class="relative">
-                                        <button type="button" data-action="dropdown#toggle click@window->dropdown#hide" class="flex items-center space-x-1 btn btn-sm btn-ghost">
+                                        <button type="button" data-action="dropdown#toggle click@window->dropdown#hide" class="flex items-center space-x-1 btn2 btn2-sm btn2-ghost">
                                             <span>{{ 'generic.profile' | t }}</span>
                                         </button>
                                         <div
@@ -74,7 +74,7 @@
                                 <div>
                                     {% form_tag 'sign_in_with_baklib' %}
                                         <input value="true" type="hidden" name="sign_up">
-                                        <input type="submit" value="{{ 'buttons.join' | t }}"  class="btn bg-primary" data-disable-with=" ... ">
+                                        <input type="submit" value="{{ 'buttons.join' | t }}"  class="btn2 bg-primary" data-disable-with=" ... ">
                                     {% endform_tag %}
                                 </div>
                             {% endif %}
@@ -97,10 +97,10 @@
                     
 
                     {% if current_user %}
-                        <li><a href="/s/new" class="py-2 text-primary-content btn-sm bg-primary hover:bg-secondary">{{ 'buttons.create_post' | t }}</a></li>
+                        <li><a href="/s/new" class="py-2 text-primary-content btn2-sm bg-primary hover:bg-secondary">{{ 'buttons.create_post' | t }}</a></li>
                         <li>
                             <div data-controller="dropdown" class="relative">
-                                <button type="button" data-action="dropdown#toggle click@window->dropdown#hide" class="flex items-center space-x-1 btn btn-sm btn-ghost">
+                                <button type="button" data-action="dropdown#toggle click@window->dropdown#hide" class="flex items-center space-x-1 btn2 btn2-sm btn2-ghost">
                                     <span>{{ 'generic.profile' | t }}</span>
                                 </button>
                                 <div
@@ -132,7 +132,7 @@
                         <li>
                             {% form_tag 'sign_in_with_baklib' %}
                                 <input value="true" type="hidden" name="sign_up">
-                                <input type="submit" value="{{ 'buttons.join' | t }}"  class="btn bg-primary" data-disable-with=" ... ">
+                                <input type="submit" value="{{ 'buttons.join' | t }}"  class="btn2 bg-primary" data-disable-with=" ... ">
                             {% endform_tag %}
                         </li>
                     {% endif %}

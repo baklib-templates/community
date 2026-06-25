@@ -81,9 +81,9 @@
               {% if page.author.id == current_user.member_id %}
                 <div class="my-4 p-4 rounded-lg border border-base-300 bg-base-200">
                   <div class="flex gap-3">
-                    <a href="/s/edit?page_path={{ page.full_slug }}" class="btn">{{ 'buttons.edit' | t }}</a>
+                    <a href="/s/edit?page_path={{ page.full_slug }}" class="btn2">{{ 'buttons.edit' | t }}</a>
                     {% form_tag 'delete_page', page %}
-                      <button type="submit" class="btn btn-ghost">{{ 'buttons.delete' | t }}</button>
+                      <button type="submit" class="btn2 btn2-ghost">{{ 'buttons.delete' | t }}</button>
                     {% endform_tag %}
                   </div>
                 </div>
@@ -109,7 +109,7 @@
                 {{ paginate.next.page }}
                 {% if paginate.next_page %}
                   <button id="load_more" data-action="click->load_more#loadMore" data-load_more-url-value="/s/replies?page_path={{ page.full_slug }}&_page={{ paginate.next_page }}"
-                    data-load_more-target="button" class="btn btn-ghost mt-4">
+                    data-load_more-target="button" class="btn2 btn2-ghost mt-4">
                     {{ 'generic.read_more' | t }}
                   </button>
                 {% endif %}

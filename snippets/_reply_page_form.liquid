@@ -9,30 +9,28 @@
         <input value="true" autocomplete="off" type="hidden" name="reply[published]">
         {% comment %} <textarea name="reply[body]" rows="4" class="w-full p-2 border rounded-md form-textarea placeholder:italic"
         placeholder="{{ 'generic.reply' | t }}" required></textarea> {% endcomment %}
-        {% form_field_tag 'richtext', 'reply[body]', content, toolbar: 'simple', under_el_id: '#edit-info-bar-container' %}
-
-
+        {% form_field_tag 'richtext', 'reply[body]', content, toolbar: 'simple', under_el_id: '#edit-info-bar-container', class: 'bg-white rounded-2xl shadow-sm' %}
         <div id="reply_page_error" class="text-xs text-error mt-1"></div>
         <div class="flex items-center justify-end space-x-3">
           <input
             type="submit"
             value="{{ 'buttons.submit' | t }}"
             @click="open = false;name=content.substring(0, 50)"
-            class="btn"/>
+            class="btn2"/>
         </div>
       {% endform_tag %}
       {% endunless %}
     </div>
   </div>
 {% else %}
-  <div class="mx-auto max-w-5xl w-full">
+  <div class="mx-auto max-w-5xl w-full mb-6">
       <div class="[&:nth-child(-n+4)]:-order-1 rounded-lg border border-base-300 bg-gradient-to-tr from-base-200/80 via-base-200/60 to-secondary/10">
-        <div class="relative p-5">
-          {{ 'generic.under_comment' | t }}
+        <div class="relative p-5 flex items-center">
+          <p>{{ 'generic.under_comment' | t }}.</p>
           {% form_tag 'sign_in_with_baklib' %}
             <input type="submit"
                 value="{{ 'buttons.login' | t }}"
-                class="mx-1 text-primary-content bg-primary rounded-md btn-sm hover:bg-primary/90"
+                class="mx-1 text-primary btn2 btn2-ghost"
                 data-disable-with=" ... "
                 >
           {% endform_tag %}
