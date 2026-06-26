@@ -57,6 +57,8 @@
       "default_avatar_info": "新注册用户未设置头像之前，显示该默认头像",
       "is_allow_published_label": "是否开启先发后审",
       "is_allow_published_info": "先发后审：前台提交即发布；先审后发：前台提交，后台审核后发布。",
+      "is_allow_reply_published_label": "评论是否开启先发后审",
+      "is_allow_reply_published_info": "与帖子审核独立。开启：评论提交即展示；关闭：评论需后台审核后展示。",
       "daily_post_reply_limit_label": "每日发帖+回复上限",
       "daily_post_reply_limit_info": "-1 表示不限制，仅前台隐藏表单。有部门 ID 的用户不受限。",
       "feedback_useful_type_label": "首选反馈表情",

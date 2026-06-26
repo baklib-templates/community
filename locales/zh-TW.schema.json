@@ -57,6 +57,8 @@
       "default_avatar_info": "新註冊使用者未設定頭像之前，顯示該預設頭像",
       "is_allow_published_label": "是否開啟先發後審",
       "is_allow_published_info": "先發後審：前台提交即發布；先審後發：前台提交，後台審核後發布。",
+      "is_allow_reply_published_label": "評論是否開啟先發後審",
+      "is_allow_reply_published_info": "與帖子審核獨立。開啟：評論提交即展示；關閉：評論需後台審核後展示。",
       "daily_post_reply_limit_label": "每日發帖+回覆上限",
       "daily_post_reply_limit_info": "-1 表示不限制，僅前台隱藏表單。有部門 ID 的用戶不受限。",
       "feedback_useful_type_label": "首選回饋表情",

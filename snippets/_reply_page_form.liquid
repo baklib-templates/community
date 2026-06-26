@@ -6,7 +6,7 @@
       {% form_tag 'reply' %}
         <input value="{{ target.full_slug }}" autocomplete="off" type="hidden" name="target_full_path">
         <input value="create_reply_success" autocomplete="off" type="hidden" name="return_template_name">
-        <input value="true" autocomplete="off" type="hidden" name="reply[published]">
+        <input value="{{ site.settings.is_allow_reply_published }}" autocomplete="off" type="hidden" name="reply[published]">
         {% comment %} <textarea name="reply[body]" rows="4" class="w-full p-2 border rounded-md form-textarea placeholder:italic"
         placeholder="{{ 'generic.reply' | t }}" required></textarea> {% endcomment %}
         {% form_field_tag 'richtext', 'reply[body]', content, toolbar: 'simple', under_el_id: '#edit-info-bar-container', class: 'bg-white rounded-2xl shadow-sm' %}

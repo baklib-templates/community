@@ -209,6 +209,13 @@
         "default": true
       },
       {
+        "id": "is_allow_reply_published",
+        "type": "checkbox",
+        "label": "t:settings_schema.community.is_allow_reply_published_label",
+        "info": "t:settings_schema.community.is_allow_reply_published_info",
+        "default": true
+      },
+      {
         "id": "daily_post_reply_limit",
         "type": "number",
         "label": "t:settings_schema.community.daily_post_reply_limit_label",

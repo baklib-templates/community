@@ -12,6 +12,14 @@ A modern Q&A and discussion theme whose layouts are easy to map to familiar prod
 
 ---
 
+## Recent updates
+
+**2026-06-26**
+
+- **Comment moderation (independent from posts):** In theme settings you can choose publish-first or review-first for **replies**, separately from **posts**. Enabled by default: replies appear immediately after submission; when disabled, staff must approve replies before they show on the site.
+
+---
+
 ## Features
 
 ### Layout presets
@@ -28,7 +36,7 @@ A modern Q&A and discussion theme whose layouts are easy to map to familiar prod
 - Related topics
 - Feedback / reactions on posts
 - Site search (header menu entry)
-- Optional moderation: publish-first vs review-first (`is_allow_published`)
+- Optional moderation: publish-first vs review-first, separately for posts and replies
 - Responsive UI and dark mode
 - Turbo / Turbo Stream for partial updates
 
@@ -111,7 +119,7 @@ Notable snippets: `_page.liquid`, `_reply.liquid`, `_reply_discourse.liquid`, `_
 ## Getting started
 
 1. Install the theme in Baklib and create a site.
-2. Configure appearance: logo, default avatar, moderation mode, feedback emoji, copyright, header/footer HTML.
+2. Configure appearance: logo, default avatar, **post/reply moderation**, feedback emoji, copyright, header/footer HTML.
 3. Define **collection tags** and **feature tags** under theme settings if you use those facets.
 4. Set **home** and **topic** templates to either Reddit-style or Discourse-style variants.
 5. Optional: open `/s/about` (link it from **Settings → header menu**, e.g. `About[/s/about`) for operator-facing copy.
