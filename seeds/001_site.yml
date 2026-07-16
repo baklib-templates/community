@@ -7,6 +7,7 @@ site:
     default_avatar: "images/avatar.svg"
     slogan: "A modern Q&A community connecting questions and answers"
     is_allow_published: false
+    is_allow_reply_published: true
     feedback_useful_type: "😊"
     feature_tags: |
       Getting started

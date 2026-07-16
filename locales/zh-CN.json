@@ -104,6 +104,8 @@
     "comments": "评论",
     "join_to": "你需要注册或登录方可评论，加入我们",
     "profile": "个人中心",
+    "my_community": "我的社区",
+    "account_profile": "账号资料",
     "title": "标题",
     "content": "内容",
     "home": "首页",
@@ -114,6 +116,8 @@
     "tags": "标签分类",
     "recommend": "站长推荐",
     "under_review": "内容正在审核中，不对外展示",
+    "reviewing": "审核中",
+    "published": "已发布",
     "under_comment": "登录以后，参与评论",
     "discourse_signup_prompt": "你好！看来你很喜欢参与讨论，但你还没有注册账号。",
     "discourse_signup_benefits": "注册后你可以发布话题、回复评论，与社区成员互动。",
@@ -139,6 +143,27 @@
     "original_post": "主帖",
     "topic": "话题",
     "activity": "活动"
+  },
+  "me": {
+    "title": "我的社区",
+    "subtitle": "查看我的帖子、与我相关的讨论，以及收到的回复。",
+    "login_required": "登录后即可查看你的帖子与回复状态。",
+    "view_post": "查看帖子",
+    "view_status": "在「我的社区」查看审核状态",
+    "post_hint": "提交后可在「我的社区」查看审核状态：",
+    "tabs": {
+      "posts": "我的帖子",
+      "related": "与我相关",
+      "replies": "收到的回复"
+    },
+    "empty": {
+      "posts": "你还没有发布过帖子。",
+      "related": "暂无与你相关的帖子。",
+      "replies": "暂无收到的回复。"
+    },
+    "sidebar": {
+      "account": "当前账号"
+    }
   },
   "community": {
     "daily_limit_reached": "今日发帖/回复已达上限（%{limit} 次），请明天再试。"

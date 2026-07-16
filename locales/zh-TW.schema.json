@@ -58,7 +58,7 @@
       "is_allow_published_label": "是否開啟先發後審",
       "is_allow_published_info": "先發後審：前台提交即發布；先審後發：前台提交，後台審核後發布。",
       "is_allow_reply_published_label": "評論是否開啟先發後審",
-      "is_allow_reply_published_info": "與帖子審核獨立。開啟：評論提交即展示；關閉：評論需後台審核後展示。",
+      "is_allow_reply_published_info": "與帖子審核獨立。開啟：評論提交即展示；關閉：評論需後台審核後展示。組織員工帳號（有部門 ID）回覆始終即時發布，不受此開關限制。",
       "daily_post_reply_limit_label": "每日發帖+回覆上限",
       "daily_post_reply_limit_info": "-1 表示不限制，僅前台隱藏表單。有部門 ID 的用戶不受限。",
       "feedback_useful_type_label": "首選回饋表情",
@@ -102,7 +102,8 @@
       "post_feature_info": "從首頁設定的功能標籤中選擇",
       "post_tags_label": "頁面標籤",
       "post_recommend_label": "是否推薦",
-      "post_recommend_info": "選定推薦後，會在推薦欄目顯示"
+      "post_recommend_info": "選定推薦後，會在推薦欄目顯示",
+      "me_name": "我的社區"
     }
   },
   "lucide_icons": {

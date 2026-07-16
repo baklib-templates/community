@@ -6,10 +6,11 @@
     <div class="w-full min-w-0">
       {% render 'community_daily_limit_alert', community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
       {% unless community_daily_limit_reached %}
+      {% include 'reply_published_flag' %}
       {% form_tag 'reply' %}
         <input value="{{ target.full_slug }}" autocomplete="off" type="hidden" name="target_full_path">
         <input value="create_reply_success_discourse" autocomplete="off" type="hidden" name="return_template_name">
-        <input value="{{ site.settings.is_allow_reply_published }}" autocomplete="off" type="hidden" name="reply[published]">
+        <input value="{{ reply_published_flag }}" autocomplete="off" type="hidden" name="reply[published]">
         {% form_field_tag 'richtext', 'reply[body]', content, toolbar: 'simple', under_el_id: '#edit-info-bar-container' %}
         <div id="reply_page_error" class="text-xs text-error mt-1"></div>
         <div class="flex items-center justify-end space-x-3 mt-2">

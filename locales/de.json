@@ -138,7 +138,11 @@
     "timeline": "Zeitachse",
     "original_post": "Originalbeitrag",
     "topic": "Thema",
-    "activity": "Aktivität"
+    "activity": "Aktivität",
+    "my_community": "Meine Community",
+    "account_profile": "Kontoprofil",
+    "reviewing": "In Prüfung",
+    "published": "Veröffentlicht"
   },
   "community": {
     "daily_limit_reached": "Tageslimit für Beiträge/Antworten erreicht (%{limit}). Bitte morgen erneut versuchen."
@@ -174,6 +178,27 @@
       "name": "Site-Grundlagen",
       "title": "Registrierung",
       "beian_number": "Registrierungsnummer"
+    }
+  },
+  "me": {
+    "title": "Meine Community",
+    "subtitle": "Ihre Beiträge, verwandte Diskussionen und erhaltene Antworten.",
+    "login_required": "Melden Sie sich an, um Beiträge und Prüfstatus zu sehen.",
+    "view_post": "Beitrag ansehen",
+    "view_status": "Prüfstatus in Meine Community ansehen",
+    "post_hint": "Nach dem Absenden prüfen Sie den Status unter",
+    "tabs": {
+      "posts": "Meine Beiträge",
+      "related": "Für mich relevant",
+      "replies": "Erhaltene Antworten"
+    },
+    "empty": {
+      "posts": "Sie haben noch nichts gepostet.",
+      "related": "Noch keine relevanten Beiträge.",
+      "replies": "Noch keine Antworten erhalten."
+    },
+    "sidebar": {
+      "account": "Angemeldet als"
     }
   }
 }

@@ -53,6 +53,12 @@
                 <!-- Content -->
                 <div>
                   <article class="mb-10">
+                    {% if current_user and page.author.id == current_user.member_id and page.published_at == blank %}
+                      <div class="mb-4 rounded-lg border border-warning/40 bg-warning/10 px-4 py-3 text-sm">
+                        <p class="mb-1">{{ 'generic.under_review' | t }}</p>
+                        <a href="{{ statics['me'] }}" class="text-primary hover:underline">{{ 'me.view_status' | t }}</a>
+                      </div>
+                    {% endif %}
                     <!-- Page header -->
                     <header class="mb-4">
                       <h1 class="mb-4 h3 md:h2 font-aspekta flex items-center gap-2">

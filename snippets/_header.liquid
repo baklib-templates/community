@@ -43,7 +43,7 @@
                                 <div>
                                     <div data-controller="dropdown" class="relative">
                                         <button type="button" data-action="dropdown#toggle click@window->dropdown#hide" class="flex items-center space-x-1 btn2 btn2-sm btn2-ghost">
-                                            <span>{{ 'generic.profile' | t }}</span>
+                                            <span>{{ 'generic.my_community' | t }}</span>
                                         </button>
                                         <div
                                             data-dropdown-target="menu"
@@ -63,7 +63,8 @@
                                                 {% endif %}
                                                 <span>{{ current_user.name }}</span>
                                             </div>
-                                            <a href="{{ current_user.profile_url }}"  class="block w-full py-2 hover:text-accent-content hover:bg-accent" target="_blank"> {{ 'generic.profile' | t }} </a>
+                                            <a href="{{ statics['me'] }}" class="block w-full py-2 hover:text-accent-content hover:bg-accent">{{ 'generic.my_community' | t }}</a>
+                                            <a href="{{ current_user.profile_url }}" class="block w-full py-2 hover:text-accent-content hover:bg-accent" target="_blank" rel="noopener">{{ 'generic.account_profile' | t }}</a>
                                             {% form_tag 'sign_out' %}
                                                 <button type="submit" class="w-full py-2 text-left hover:text-accent-content hover:bg-accent">{{ 'buttons.logout' | t }}</button>
                                             {% endform_tag %}
@@ -101,7 +102,7 @@
                         <li>
                             <div data-controller="dropdown" class="relative">
                                 <button type="button" data-action="dropdown#toggle click@window->dropdown#hide" class="flex items-center space-x-1 btn2 btn2-sm btn2-ghost">
-                                    <span>{{ 'generic.profile' | t }}</span>
+                                    <span>{{ 'generic.my_community' | t }}</span>
                                 </button>
                                 <div
                                     data-dropdown-target="menu"
@@ -121,7 +122,8 @@
                                         {% endif %}
                                         <span>{{ current_user.name }}</span>
                                     </div>
-                                    <a href="{{ current_user.profile_url }}"  class="block w-full py-2 hover:text-accent-content hover:bg-accent" target="_blank"> {{ 'generic.profile' | t }} </a>
+                                    <a href="{{ statics['me'] }}" class="block w-full py-2 hover:text-accent-content hover:bg-accent">{{ 'generic.my_community' | t }}</a>
+                                    <a href="{{ current_user.profile_url }}" class="block w-full py-2 hover:text-accent-content hover:bg-accent" target="_blank" rel="noopener">{{ 'generic.account_profile' | t }}</a>
                                     {% form_tag 'sign_out' %}
                                         <button type="submit" class="w-full py-2 text-left hover:text-accent-content hover:bg-accent">{{ 'buttons.logout' | t }}</button>
                                     {% endform_tag %}

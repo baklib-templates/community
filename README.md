@@ -14,6 +14,12 @@ A modern Q&A and discussion theme whose layouts are easy to map to familiar prod
 
 ## Recent updates
 
+**2026-07-16**
+
+- **My community (`/s/me`):** After sign-in, the header opens My community (your posts with review badges, related threads, replies received). Account profile remains a secondary link to the org profile page.
+- **Staff reply auto-publish:** Organization staff accounts (with department IDs—same heuristic as the daily post limit) always publish replies immediately, regardless of the reply review setting.
+- **Review visibility:** Authors see an under-review banner on their own unpublished posts; My community lists review badges; the new-post form points users to My community for status.
+
 **2026-06-26**
 
 - **Comment moderation (independent from posts):** In theme settings you can choose publish-first or review-first for **replies**, separately from **posts**. Enabled by default: replies appear immediately after submission; when disabled, staff must approve replies before they show on the site.
@@ -36,7 +42,8 @@ A modern Q&A and discussion theme whose layouts are easy to map to familiar prod
 - Related topics
 - Feedback / reactions on posts
 - Site search (header menu entry)
-- Optional moderation: publish-first vs review-first, separately for posts and replies
+- **My community** (`/s/me`): your posts (with review status), related threads, and replies received
+- Optional moderation: publish-first vs review-first, separately for posts and replies; organization staff replies always publish immediately
 - Responsive UI and dark mode
 - Turbo / Turbo Stream for partial updates
 

@@ -12,8 +12,15 @@
             <!-- Content -->
             <div class="grow">
                 <!-- Title -->
-                <h2 class="font-semibold text-md text-base-content mb-2 flex items-center gap-2">
+                <h2 class="font-semibold text-md text-base-content mb-2 flex items-center gap-2 flex-wrap">
                     <a href="{{ page.path }}" data-turbo="false" class="hover:text-primary">{{ page.link_text }}</a>
+                    {% if show_review_badge %}
+                      {% if page.published_at == blank %}
+                        <span class="badge badge-sm badge-warning">{{ 'generic.reviewing' | t }}</span>
+                      {% else %}
+                        <span class="badge badge-sm badge-success">{{ 'generic.published' | t }}</span>
+                      {% endif %}
+                    {% endif %}
                 </h2>
                 <!-- Tags and Collection -->
                 {% if page.settings.tags.size > 0 or page.settings.collection %}

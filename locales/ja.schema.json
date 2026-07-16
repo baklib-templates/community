@@ -58,7 +58,7 @@
       "is_allow_published_label": "承認前に公開",
       "is_allow_published_info": "オン：送信後すぐ公開。オフ：スタッフ承認後に公開。",
       "is_allow_reply_published_label": "コメントを承認前に公開",
-      "is_allow_reply_published_info": "投稿の審査とは独立。オン：コメントはすぐ表示。オフ：スタッフ承認後に表示。",
+      "is_allow_reply_published_info": "投稿の審査とは独立。オン：コメントはすぐ表示。オフ：スタッフ承認後に表示。部門 ID を持つ組織スタッフの返信は常に即時公開されます。",
       "daily_post_reply_limit_label": "1日の投稿+返信上限",
       "daily_post_reply_limit_info": "-1 は無制限（フロントのみ）。部門 ID を持つユーザーは対象外。",
       "feedback_useful_type_label": "主なフィードバック絵文字",
@@ -102,7 +102,8 @@
       "post_feature_info": "ホームで設定した機能タグから選択",
       "post_tags_label": "タグ",
       "post_recommend_label": "おすすめ",
-      "post_recommend_info": "オンにするとおすすめ一覧に表示されることがあります"
+      "post_recommend_info": "オンにするとおすすめ一覧に表示されることがあります",
+      "me_name": "マイコミュニティ"
     }
   },
   "lucide_icons": {

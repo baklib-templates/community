@@ -138,7 +138,11 @@
     "timeline": "タイムライン",
     "original_post": "最初の投稿",
     "topic": "トピック",
-    "activity": "アクティビティ"
+    "activity": "アクティビティ",
+    "my_community": "マイコミュニティ",
+    "account_profile": "アカウント",
+    "reviewing": "審査中",
+    "published": "公開済み"
   },
   "community": {
     "daily_limit_reached": "本日の投稿/返信上限（%{limit} 回）に達しました。明日再度お試しください。"
@@ -174,6 +178,27 @@
       "name": "サイト基本情報",
       "title": "登録",
       "beian_number": "登録番号"
+    }
+  },
+  "me": {
+    "title": "マイコミュニティ",
+    "subtitle": "自分の投稿、関連ディスカッション、受け取った返信を確認できます。",
+    "login_required": "ログインすると投稿と審査状況を確認できます。",
+    "view_post": "投稿を見る",
+    "view_status": "マイコミュニティで審査状況を確認",
+    "post_hint": "送信後はマイコミュニティで審査状況を確認できます：",
+    "tabs": {
+      "posts": "自分の投稿",
+      "related": "関連",
+      "replies": "受け取った返信"
+    },
+    "empty": {
+      "posts": "まだ投稿がありません。",
+      "related": "関連する投稿はまだありません。",
+      "replies": "受け取った返信はまだありません。"
+    },
+    "sidebar": {
+      "account": "ログイン中"
     }
   }
 }

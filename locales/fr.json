@@ -138,7 +138,11 @@
     "timeline": "Chronologie",
     "original_post": "Publication d’origine",
     "topic": "Sujet",
-    "activity": "Activité"
+    "activity": "Activité",
+    "my_community": "Ma communauté",
+    "account_profile": "Profil du compte",
+    "reviewing": "En validation",
+    "published": "Publié"
   },
   "community": {
     "daily_limit_reached": "Limite quotidienne atteinte (%{limit}). Réessayez demain."
@@ -174,6 +178,27 @@
       "name": "Informations du site",
       "title": "Enregistrement",
       "beian_number": "Numéro d’enregistrement"
+    }
+  },
+  "me": {
+    "title": "Ma communauté",
+    "subtitle": "Vos publications, discussions liées et réponses reçues.",
+    "login_required": "Connectez-vous pour voir vos publications et leur statut.",
+    "view_post": "Voir la publication",
+    "view_status": "Voir le statut dans Ma communauté",
+    "post_hint": "Après envoi, consultez le statut dans",
+    "tabs": {
+      "posts": "Mes publications",
+      "related": "Liées à moi",
+      "replies": "Réponses reçues"
+    },
+    "empty": {
+      "posts": "Vous n’avez pas encore publié.",
+      "related": "Aucune publication liée pour l’instant.",
+      "replies": "Aucune réponse reçue pour l’instant."
+    },
+    "sidebar": {
+      "account": "Compte connecté"
     }
   }
 }

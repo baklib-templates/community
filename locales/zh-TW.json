@@ -138,7 +138,11 @@
     "timeline": "時間軸",
     "original_post": "主帖",
     "topic": "話題",
-    "activity": "活動"
+    "activity": "活動",
+    "my_community": "我的社區",
+    "account_profile": "帳號資料",
+    "reviewing": "審核中",
+    "published": "已發布"
   },
   "community": {
     "daily_limit_reached": "今日發帖/回覆已達上限（%{limit} 次），請明天再試。"
@@ -174,6 +178,27 @@
       "name": "站點基本資訊設定",
       "title": "備案相關",
       "beian_number": "備案號"
+    }
+  },
+  "me": {
+    "title": "我的社區",
+    "subtitle": "查看我的帖子、與我相關的討論，以及收到的回覆。",
+    "login_required": "登入後即可查看你的帖子與回覆狀態。",
+    "view_post": "查看帖子",
+    "view_status": "在「我的社區」查看審核狀態",
+    "post_hint": "提交後可在「我的社區」查看審核狀態：",
+    "tabs": {
+      "posts": "我的帖子",
+      "related": "與我相關",
+      "replies": "收到的回覆"
+    },
+    "empty": {
+      "posts": "你還沒有發布過帖子。",
+      "related": "暫無與你相關的帖子。",
+      "replies": "暫無收到的回覆。"
+    },
+    "sidebar": {
+      "account": "目前帳號"
     }
   }
 }

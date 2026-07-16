@@ -104,6 +104,8 @@
     "comments": "comments",
     "join_to": "Sign in to reply—join the community",
     "profile": "Profile",
+    "my_community": "My community",
+    "account_profile": "Account profile",
     "title": "Title",
     "content": "Content",
     "home": "Home",
@@ -114,6 +116,8 @@
     "tags": "Tags",
     "recommend": "Featured",
     "under_review": "This content is under review and not public yet",
+    "reviewing": "Under review",
+    "published": "Published",
     "under_comment": "Sign in to comment",
     "discourse_signup_prompt": "You look interested in this thread—create an account to take part.",
     "discourse_signup_benefits": "Members can start topics, reply, and interact with others.",
@@ -139,6 +143,27 @@
     "original_post": "Original post",
     "topic": "Topic",
     "activity": "Activity"
+  },
+  "me": {
+    "title": "My community",
+    "subtitle": "Your posts, related discussions, and replies you received.",
+    "login_required": "Sign in to see your posts and review status.",
+    "view_post": "View post",
+    "view_status": "Check review status in My community",
+    "post_hint": "After submitting, check review status in",
+    "tabs": {
+      "posts": "My posts",
+      "related": "Related to me",
+      "replies": "Replies received"
+    },
+    "empty": {
+      "posts": "You haven’t posted yet.",
+      "related": "No related posts yet.",
+      "replies": "No replies received yet."
+    },
+    "sidebar": {
+      "account": "Signed in as"
+    }
   },
   "community": {
     "daily_limit_reached": "Daily post/reply limit reached (%{limit}). Please try again tomorrow."

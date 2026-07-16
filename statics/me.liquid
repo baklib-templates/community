@@ -1,0 +1,147 @@
+{% assign default_avatar_url = site.settings.default_avatar %}
+{% unless default_avatar_url %}
+  {% assign default_avatar_url = 'images/avatar.svg' | asset_url %}
+{% endunless %}
+
+<main class="grow">
+  <section class="relative">
+    <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -z-10" aria-hidden="true">
+      <img src="{{ 'images/demo/hero-illustration.svg' | asset_url }}" class="max-w-none" width="1905" height="622" alt="">
+    </div>
+
+    <div class="max-w-7xl px-4 mx-auto sm:px-6">
+      <div class="pt-12 md:pt-20">
+        <div class="md:flex md:justify-between">
+          <div class="md:grow max-w-3xl">
+            <div class="md:pr-6 lg:pr-12">
+
+              {% unless current_user %}
+                <div class="text-center py-16">
+                  <h1 class="h2 font-aspekta mb-4">{{ 'me.title' | t }}</h1>
+                  <p class="text-base-content/70 mb-6">{{ 'me.login_required' | t }}</p>
+                  <a href="{{ current_site.login_url }}" class="btn2 btn2-primary">{{ 'buttons.login' | t }}</a>
+                </div>
+              {% else %}
+                <div class="mb-8">
+                  <h1 class="h2 font-aspekta mb-2">{{ 'me.title' | t }}</h1>
+                  <p class="text-base-content/60">{{ 'me.subtitle' | t }}</p>
+                </div>
+
+                {% assign me_tab = params.tab | default: 'posts' %}
+                {% assign my_pages = current_user.pages %}
+                {% assign related_pages = site.pages['/'].children_in_list | where: 'related', current_user.member_id %}
+                {% query inbox_replies from site.comments %}
+                  {
+                    "where": {
+                      "reply_to_user_id_eq": {{ current_user.id }}
+                    },
+                    "order_by": ["-created_at"],
+                    "limit": 50
+                  }
+                {% endquery %}
+
+                <div role="tablist" class="tabs tabs-border w-full mb-6">
+                  <a role="tab" href="{{ statics['me'] }}?tab=posts" class="tab {% if me_tab == 'posts' %}tab-active{% endif %}">
+                    {{ 'me.tabs.posts' | t }}
+                    <span class="badge badge-sm badge-ghost ml-1">{{ my_pages.size }}</span>
+                  </a>
+                  <a role="tab" href="{{ statics['me'] }}?tab=related" class="tab {% if me_tab == 'related' %}tab-active{% endif %}">
+                    {{ 'me.tabs.related' | t }}
+                    <span class="badge badge-sm badge-ghost ml-1">{{ related_pages.size }}</span>
+                  </a>
+                  <a role="tab" href="{{ statics['me'] }}?tab=replies" class="tab {% if me_tab == 'replies' %}tab-active{% endif %}">
+                    {{ 'me.tabs.replies' | t }}
+                  </a>
+                </div>
+
+                {% case me_tab %}
+                {% when 'related' %}
+                  <div class="space-y-2">
+                    {% if related_pages.size == 0 %}
+                      <p class="text-center text-base-content/50 py-12">{{ 'me.empty.related' | t }}</p>
+                    {% else %}
+                      {% for item in related_pages %}
+                        {% render 'page', page: item, show_review_badge: false %}
+                      {% endfor %}
+                    {% endif %}
+                  </div>
+
+                {% when 'replies' %}
+                  <div class="space-y-3">
+                    {% assign inbox_empty = true %}
+                    {% for reply in inbox_replies %}
+                      {% assign inbox_empty = false %}
+                      <div class="rounded-lg border border-base-300 bg-base-100 p-4">
+                        <div class="flex items-start gap-3">
+                          <img class="rounded-full shrink-0" src="{{ reply.author.avatar_url | default: default_avatar_url }}" width="36" height="36" alt="">
+                          <div class="min-w-0 grow">
+                            <div class="text-sm text-base-content/70 mb-1">
+                              <span class="font-medium text-base-content">{{ reply.author.name }}</span>
+                              <span class="mx-1">·</span>
+                              <span>{{ reply.created_at | date: '%Y-%m-%d %H:%M' }}</span>
+                            </div>
+                            <div class="text-sm line-clamp-3 mb-2 break-words">{{ reply.body | strip_html | truncate: 160 }}</div>
+                            {% if reply.target %}
+                              <a href="{{ reply.target.path }}" class="text-sm text-primary hover:underline">
+                                {{ 'me.view_post' | t }}: {{ reply.target.link_text | truncate: 40 }}
+                              </a>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    {% endfor %}
+                    {% if inbox_empty %}
+                      <p class="text-center text-base-content/50 py-12">{{ 'me.empty.replies' | t }}</p>
+                    {% endif %}
+                  </div>
+
+                {% else %}
+                  <div class="space-y-2">
+                    {% if my_pages.size == 0 %}
+                      <p class="text-center text-base-content/50 py-12">{{ 'me.empty.posts' | t }}</p>
+                      <div class="text-center">
+                        <a href="{{ statics['new'] }}" class="btn2 btn2-primary">{{ 'buttons.create_post' | t }}</a>
+                      </div>
+                    {% else %}
+                      {% for item in my_pages %}
+                        {% render 'page', page: item, show_review_badge: true %}
+                      {% endfor %}
+                    {% endif %}
+                  </div>
+                {% endcase %}
+              {% endunless %}
+
+            </div>
+          </div>
+
+          <aside class="md:w-72 md:ml-6 shrink-0 mt-8 md:mt-0">
+            <div class="sticky top-20 space-y-4">
+              {% if current_user %}
+                <div class="rounded-lg border border-base-300 bg-base-100 p-4">
+                  <div class="flex items-center gap-3 mb-3">
+                    <img class="rounded-full" src="{{ current_user.image | default: default_avatar_url }}" width="48" height="48" alt="">
+                    <div class="min-w-0">
+                      <div class="font-medium truncate">{{ current_user.name }}</div>
+                      <div class="text-xs text-base-content/50">{{ 'me.sidebar.account' | t }}</div>
+                    </div>
+                  </div>
+                  <a href="{{ current_user.profile_url }}" target="_blank" rel="noopener" class="btn2 btn2-ghost btn2-sm w-full">
+                    {{ 'generic.account_profile' | t }}
+                  </a>
+                </div>
+              {% endif %}
+              {% render 'sidebar' %}
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% schema %}
+{
+  "name": "t:settings_schema.community_templates.me_name",
+  "settings": []
+}
+{% endschema %}
