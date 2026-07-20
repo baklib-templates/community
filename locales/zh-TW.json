@@ -141,6 +141,8 @@
     "activity": "活動",
     "my_community": "我的社區",
     "account_profile": "帳號資料",
+    "organization_user": "組織用戶",
+    "regular_user": "普通用戶",
     "reviewing": "審核中",
     "published": "已發布"
   },

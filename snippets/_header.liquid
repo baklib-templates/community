@@ -53,16 +53,7 @@
                                             data-transition-leave-from="opacity-100 scale-100"
                                             data-transition-leave-to="opacity-0 scale-95"
                                         >
-                                            <div class="flex items-center py-2 space-x-2 border-b">
-                                                {% if current_user.image %}
-                                                    <img src="{{ current_user.image }}" class="w-4 h-4">
-                                                {% else %}
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 rounded-full">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                                    </svg>
-                                                {% endif %}
-                                                <span>{{ current_user.name }}</span>
-                                            </div>
+                                            {% render 'header_user_identity' %}
                                             <a href="{{ statics['me'] }}" class="block w-full py-2 hover:text-accent-content hover:bg-accent">{{ 'generic.my_community' | t }}</a>
                                             <a href="{{ current_user.profile_url }}" class="block w-full py-2 hover:text-accent-content hover:bg-accent" target="_blank" rel="noopener">{{ 'generic.account_profile' | t }}</a>
                                             {% form_tag 'sign_out' %}
@@ -112,16 +103,7 @@
                                     data-transition-leave-from="opacity-100 scale-100"
                                     data-transition-leave-to="opacity-0 scale-95"
                                 >
-                                    <div class="flex items-center py-2 space-x-2 border-b">
-                                        {% if current_user.image %}
-                                            <img src="{{ current_user.image }}" class="w-4 h-4">
-                                        {% else %}
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 rounded-full">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                            </svg>
-                                        {% endif %}
-                                        <span>{{ current_user.name }}</span>
-                                    </div>
+                                    {% render 'header_user_identity' %}
                                     <a href="{{ statics['me'] }}" class="block w-full py-2 hover:text-accent-content hover:bg-accent">{{ 'generic.my_community' | t }}</a>
                                     <a href="{{ current_user.profile_url }}" class="block w-full py-2 hover:text-accent-content hover:bg-accent" target="_blank" rel="noopener">{{ 'generic.account_profile' | t }}</a>
                                     {% form_tag 'sign_out' %}

@@ -1,9 +1,4 @@
 {% comment %}
-  员工账号（有 department_ids）回复始终即时发布；其余用户跟随 is_allow_reply_published。
-  使用 {% include 'reply_published_flag' %} 以便 reply_published_flag 写入外层作用域。
+  组织用户（department_ids 非空）回复始终即时发布；其余用户跟随 is_allow_reply_published。
 {% endcomment %}
-{% if current_user and current_user.department_ids != blank %}
-  {% assign reply_published_flag = true %}
-{% else %}
-  {% assign reply_published_flag = site.settings.is_allow_reply_published %}
-{% endif %}
+{%- if current_user and current_user.department_ids != blank -%}true{%- elsif site.settings.is_allow_reply_published -%}true{%- else -%}false{%- endif -%}

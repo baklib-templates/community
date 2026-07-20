@@ -3,7 +3,8 @@
     <div>
       <input value="page" autocomplete="off" type="hidden" name="page[template_name]">
       <input value="" autocomplete="off" type="hidden" name="page[template_style]">
-      <input value="{{ site.settings.is_allow_published }}" autocomplete="off" type="hidden" name="page[published]">
+      {% capture page_published_flag %}{% render 'page_published_flag' %}{% endcapture %}
+      <input value="{{ page_published_flag | strip | default: 'false' }}" autocomplete="off" type="hidden" name="page[published]">
       <label for="title" class="block mb-1 font-bold">{{ 'generic.title' | t }}</label>
       <input
       type="text"

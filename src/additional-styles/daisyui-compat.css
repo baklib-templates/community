@@ -1,0 +1,170 @@
+/*
+  daisyUI-compatible component styles for Tailwind CSS 3.
+  package.json 已依赖 daisyui@5，但本主题构建仍是 TW3 + @tailwind，
+  无法使用 @plugin "daisyui"。此处用站点 --color-* / --tw-* 变量实现
+  me.liquid 等页面用到的 tabs / badge / avatar / rounded-box。
+*/
+
+:root {
+  --border: 1px;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+  --radius-selector: 1.9rem;
+  --size-field: 0.25rem;
+  --size-selector: 0.25rem;
+}
+
+/* ---------- tabs ---------- */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  --tabs-height: auto;
+  --tab-height: calc(var(--size-field) * 10);
+  height: var(--tabs-height);
+}
+
+.tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: var(--tab-height);
+  padding-inline: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  text-align: center;
+  font-size: 0.875rem;
+  color: color-mix(in srgb, var(--color-base-content) 50%, transparent);
+  border-color: transparent;
+  background: transparent;
+  text-decoration: none;
+}
+
+.tab:hover {
+  color: var(--color-base-content);
+}
+
+.tab.tab-active,
+.tab[aria-selected="true"],
+.tab[aria-current="page"] {
+  color: var(--color-base-content);
+}
+
+.tabs-border > .tab {
+  border-radius: var(--radius-field);
+}
+
+.tabs-border > .tab::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 3px;
+  border-radius: var(--radius-field);
+  background-color: transparent;
+  transition: background-color 0.2s;
+}
+
+.tabs-border > .tab.tab-active::before,
+.tabs-border > .tab[aria-selected="true"]::before,
+.tabs-border > .tab[aria-current="page"]::before {
+  background-color: currentColor;
+}
+
+.tabs-sm {
+  --tab-height: calc(var(--size-field) * 8);
+}
+
+.tabs-sm > .tab {
+  padding-inline: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.tabs-md {
+  --tab-height: calc(var(--size-field) * 10);
+}
+
+.tabs-lg {
+  --tab-height: calc(var(--size-field) * 12);
+}
+
+.tabs-lg > .tab {
+  padding-inline: 1rem;
+  font-size: 1.125rem;
+}
+
+/* ---------- badge ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: fit-content;
+  height: calc(var(--size-selector) * 6);
+  padding-inline: calc(var(--size-selector) * 3 - var(--border));
+  border-radius: var(--radius-selector);
+  border: var(--border) solid var(--color-base-200);
+  background-color: var(--color-base-100);
+  color: var(--color-base-content);
+  font-size: 0.875rem;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.badge-ghost {
+  border-color: var(--color-base-200);
+  background-color: var(--color-base-200);
+  color: var(--color-base-content);
+}
+
+.badge-warning {
+  border-color: var(--color-warning);
+  background-color: var(--color-warning);
+  color: var(--color-warning-content);
+}
+
+.badge-success {
+  border-color: var(--color-success);
+  background-color: var(--color-success);
+  color: var(--color-success-content);
+}
+
+.badge-sm {
+  height: calc(var(--size-selector) * 5);
+  padding-inline: calc(var(--size-selector) * 2.5 - var(--border));
+  font-size: 0.75rem;
+}
+
+.badge-xs {
+  height: calc(var(--size-selector) * 4);
+  padding-inline: calc(var(--size-selector) * 2 - var(--border));
+  font-size: 0.625rem;
+}
+
+/* ---------- avatar ---------- */
+.avatar {
+  display: inline-flex;
+  position: relative;
+  vertical-align: middle;
+}
+
+.avatar > div {
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.avatar img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ---------- rounded-box ---------- */
+.rounded-box {
+  border-radius: var(--radius-box);
+}

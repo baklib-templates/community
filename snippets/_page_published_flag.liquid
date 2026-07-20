@@ -1,0 +1,6 @@
+{% comment %}
+  组织用户（department_ids 非空）帖子始终即时发布；其余用户跟随 is_allow_published。
+  调用方须用 capture + render：
+  {% capture page_published_flag %}{% render 'page_published_flag' %}{% endcapture %}
+{% endcomment %}
+{%- if current_user and current_user.department_ids != blank -%}true{%- elsif site.settings.is_allow_published -%}true{%- else -%}false{%- endif -%}

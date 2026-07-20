@@ -1,6 +1,6 @@
 site:
   language: "en"
-  time_zone: "UTC"
+  time_zone: "Beijing"
   favicon: "images/thumbnail.png"
   settings:
     logo_url: "images/logo.png"

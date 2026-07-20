@@ -104,7 +104,7 @@
 
                 {% render 'reply_page_form_discourse', target: page, community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
 
-                {% assign answers = page.comments | roots %}
+                {% assign answers = page.comments | roots | order_by: '-created_at' %}
                 <ul id="page_{{ page.id }}_replies_list" data-load_more-target="container">
                   {% paginate_tag answers, per: 4 %}
                     {% for reply in answers %}

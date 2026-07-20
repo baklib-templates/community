@@ -55,9 +55,9 @@
 
   {% comment %} 嵌套回复: 层级逻辑与 _reply 相同 {% endcomment %}
   {% if reply.root %}
-    {% assign all_under_root = reply.root.replies %}
+    {% assign all_under_root = reply.root.replies | order_by: '-created_at' %}
   {% else %}
-    {% assign all_under_root = reply.replies %}
+    {% assign all_under_root = reply.replies | order_by: '-created_at' %}
   {% endif %}
   {% assign next_depth = reply_depth | plus: 1 %}
   {% assign children_count = 0 %}
@@ -68,7 +68,7 @@
   {% endfor %}
   {% assign is_collapsible = false %}
   {% if children_count > 5 %}{% assign is_collapsible = true %}{% endif %}
-  <div class="reply-children-wrapper mt-2 w-full basis-full" x-data="{ collapsed: {{ is_collapsible | json }} }">
+  <div class="reply-children-wrapper mt-2 w-full basis-full" x-data="{ collapsed: {% if is_collapsible %}true{% else %}false{% endif %} }">
     {% if is_collapsible %}
       <button type="button" class="text-xs text-base-content/60 hover:text-primary mb-1 flex items-center gap-1" @click="collapsed = !collapsed" x-show="collapsed">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5">

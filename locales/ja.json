@@ -141,6 +141,8 @@
     "activity": "アクティビティ",
     "my_community": "マイコミュニティ",
     "account_profile": "アカウント",
+    "organization_user": "組織ユーザー",
+    "regular_user": "一般ユーザー",
     "reviewing": "審査中",
     "published": "公開済み"
   },

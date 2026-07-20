@@ -141,6 +141,8 @@
     "activity": "Activité",
     "my_community": "Ma communauté",
     "account_profile": "Profil du compte",
+    "organization_user": "Utilisateur organisation",
+    "regular_user": "Utilisateur standard",
     "reviewing": "En validation",
     "published": "Publié"
   },
