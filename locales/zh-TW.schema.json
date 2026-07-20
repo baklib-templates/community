@@ -109,6 +109,10 @@
   "lucide_icons": {
     "name": "Lucide 圖示",
     "settings": {
+      "is_show_lucide_icons": {
+        "label": "是否顯示帖子 Lucide 圖示",
+        "info": "開啟後，在帖子列表、詳情標題、側邊欄等位置顯示每帖配置的 Lucide 圖示；關閉時前台不渲染圖示。"
+      },
       "lucide_icons": {
         "label": "允許的 Lucide 圖示名稱",
         "info": "每行一個 kebab-case 圖示名（如 help-circle、package）。圖示名稱查找：<a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>。頁面模板從此列表產生圖示下拉選項。圖示須與主題 JS bundle（src/lucide_icons.js）一致；僅在此處新增名稱而不更新 bundle 時，前台無法渲染。"

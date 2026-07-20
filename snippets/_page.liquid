@@ -5,10 +5,11 @@
 {% endunless %}
 <article class="bg-base-200 rounded-xl border border-base-300 p-5 shadow-sm hover:shadow-md transition-shadow">
         <div class="flex flex-start space-x-4">
-            <!-- Page icon -->
+            {% if site.settings.is_show_lucide_icons %}
             <div class="shrink-0 mt-1 text-primary">
                 {% render 'page_icon', page: page, class: 'size-8' %}
             </div>
+            {% endif %}
             <!-- Content -->
             <div class="grow">
                 <!-- Title -->

@@ -109,6 +109,10 @@
   "lucide_icons": {
     "name": "Icônes Lucide",
     "settings": {
+      "is_show_lucide_icons": {
+        "label": "Afficher les icônes Lucide des sujets",
+        "info": "Si activé, les icônes Lucide s’affichent dans les listes, titres de détail et barres latérales. Si désactivé, aucune icône n’est rendue sur le site."
+      },
       "lucide_icons": {
         "label": "Noms d’icônes Lucide autorisés",
         "info": "Un nom kebab-case par ligne (ex. help-circle, package). Dictionnaire : <a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>. Les modèles de page utilisent cette liste pour le menu déroulant. Les icônes doivent correspondre au bundle JS (src/lucide_icons.js)."

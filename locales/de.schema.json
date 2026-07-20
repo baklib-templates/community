@@ -109,6 +109,10 @@
   "lucide_icons": {
     "name": "Lucide-Symbole",
     "settings": {
+      "is_show_lucide_icons": {
+        "label": "Lucide-Symbole für Beiträge anzeigen",
+        "info": "Wenn aktiviert, werden Lucide-Symbole in Listen, Detailtiteln und Seitenleisten angezeigt. Wenn deaktiviert, werden keine Symbole im Frontend gerendert."
+      },
       "lucide_icons": {
         "label": "Erlaubte Lucide-Symbolnamen",
         "info": "Ein kebab-case-Symbolname pro Zeile (z. B. help-circle, package). Symbolnamen: <a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>. Seitenvorlagen nutzen diese Liste für das Symbol-Dropdown. Symbole müssen zum Theme-JS-Bundle (src/lucide_icons.js) passen."

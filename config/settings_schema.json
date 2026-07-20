@@ -315,6 +315,13 @@
     "name": "t:lucide_icons.name",
     "settings": [
       {
+        "id": "is_show_lucide_icons",
+        "type": "checkbox",
+        "label": "t:lucide_icons.settings.is_show_lucide_icons.label",
+        "info": "t:lucide_icons.settings.is_show_lucide_icons.info",
+        "default": false
+      },
+      {
         "id": "lucide_icons",
         "type": "textarea",
         "label": "t:lucide_icons.settings.lucide_icons.label",

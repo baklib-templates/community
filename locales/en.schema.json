@@ -109,6 +109,10 @@
   "lucide_icons": {
     "name": "Lucide icons",
     "settings": {
+      "is_show_lucide_icons": {
+        "label": "Show post Lucide icons",
+        "info": "When enabled, Lucide icons appear in post lists, detail titles, sidebars, and related areas. When disabled, icons are not rendered on the site."
+      },
       "lucide_icons": {
         "label": "Allowed Lucide icon names",
         "info": "One kebab-case icon name per line (e.g. help-circle, package). Look up icon names: <a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>. Page templates use this list for the icon dropdown. Icons must match the theme JS bundle (src/lucide_icons.js); adding names here without updating the bundle will not render on the site."

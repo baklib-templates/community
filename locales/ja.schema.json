@@ -109,6 +109,10 @@
   "lucide_icons": {
     "name": "Lucide アイコン",
     "settings": {
+      "is_show_lucide_icons": {
+        "label": "投稿の Lucide アイコンを表示",
+        "info": "有効にすると、一覧・詳細タイトル・サイドバーなどに Lucide アイコンを表示します。無効の場合はフロントで描画しません。"
+      },
       "lucide_icons": {
         "label": "許可する Lucide アイコン名",
         "info": "1行に1つの kebab-case アイコン名（例: help-circle、package）。アイコン名の検索：<a href='https://lucide.dev/icons/' target='_blank'>lucide.dev/icons</a>。ページテンプレートのアイコン選択肢はこのリストから生成されます。アイコンはテーマ JS bundle（src/lucide_icons.js）と一致している必要があります。"
