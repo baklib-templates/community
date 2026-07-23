@@ -144,7 +144,8 @@
     "organization_user": "Utilisateur organisation",
     "regular_user": "Utilisateur standard",
     "reviewing": "En validation",
-    "published": "Publié"
+    "published": "Publié",
+    "pinned": "Épinglé"
   },
   "community": {
     "daily_limit_reached": "Limite quotidienne atteinte (%{limit}). Réessayez demain."
@@ -202,5 +203,11 @@
     "sidebar": {
       "account": "Compte connecté"
     }
+  },
+  "sidebar_stats": {
+    "title": "Communauté",
+    "articles": "Articles",
+    "qa": "Q&R",
+    "members": "Membres"
   }
 }

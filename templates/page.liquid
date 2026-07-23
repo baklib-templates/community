@@ -61,12 +61,15 @@
                     {% endif %}
                     <!-- Page header -->
                     <header class="mb-4">
-                      <h1 class="mb-4 h3 md:h2 font-aspekta flex items-center gap-2">
+                      <h1 class="mb-4 h3 md:h2 font-aspekta flex items-center gap-2 flex-wrap">
+                        {% if page.settings.pinned %}
+                          <span class="badge badge-sm badge-primary">{{ 'generic.pinned' | t }}</span>
+                        {% endif %}
                         {% render 'page_icon', page: page, class: 'size-8 shrink-0 text-primary' %}
                         <span>{{ page.link_text }}</span>
                       </h1>
                       <div class="flex items-center">
-                        <img class="mr-2 rounded-full" src="{{ page.author.avatar_url | default: default_avatar_url }}" width="20" height="20"
+                        <img class="mr-2 rounded-full" src="{{ page.author.avatar_url | replace: script_name, '' | default: default_avatar_url }}" width="20" height="20"
                           alt="User 01" />
                         <div class="text-sm text-base-content/70">
                           <a class="font-medium transition duration-150 ease-in-out text-primary hover:text-primary/80"
@@ -77,7 +80,7 @@
                     </header>
 
                     <!-- Page content -->
-                    <div class="ProseMirror prose dark:prose-invert max-w-none break-words">
+                    <div class="ProseMirror dark:prose-invert max-w-none break-words">
                       {{ page.settings.content }}
                     </div>
                     <!--Tags-->
@@ -234,11 +237,19 @@
         "label": "t:settings_schema.community_templates.post_recommend_label",
         "info": "t:settings_schema.community_templates.post_recommend_info",
         "default": false
+      },
+      {
+        "id": "pinned",
+        "type": "checkbox",
+        "queryable": true,
+        "label": "t:settings_schema.community_templates.post_pinned_label",
+        "info": "t:settings_schema.community_templates.post_pinned_info",
+        "default": false
       }
     ],
     "user_creatable": true,
     "user_editable": true,
     "user_deletable": true,
-    "user_permitted_attributes": ["title", "content"]
+    "user_permitted_attributes": ["title", "content", "collection", "feature", "tags"]
   }
 {% endschema %}

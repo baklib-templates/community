@@ -7,6 +7,13 @@
     {% assign pages = site.pages['/'].children_in_list | where: 'related', current_user.member_id %}
 {% else %}
     {% assign pages = site.pages['/'].children_in_list | order_by: order_by %}
+    {% query pinned_pages from site.pages['/'].children_in_list %}
+      {
+        "where": { "settings.pinned_true": true },
+        "order_by": ["-created_at"],
+        "limit": 50
+      }
+    {% endquery %}
 {% endif %}
 
 <!-- Hero -->
@@ -37,12 +44,7 @@
                         <div class="mb-12">
                             <!-- List container -->
                             <turbo-frame id="pages_list" class="flex flex-col mb-8 space-y-3">
-                                {% paginate_tag pages, per: 10 %}
-                                    {% for sub_page in pages %}
-                                        {% render 'page', page: sub_page %}
-                                    {% endfor %}
-                                    {% render 'paginate', paginate: paginate %}
-                                {% endpaginate_tag %}
+                                {% render 'pages_list', pages: pages, pinned_pages: pinned_pages %}
                                 <!-- Sponsored item -->
                             </turbo-frame>
                         </div>
@@ -58,6 +60,7 @@
                     <!-- Sidebar content -->
                     <div class="space-y-6">
                         {% render 'search_form' %}
+                        {% render 'sidebar_stats' %}
                         {% render 'sidebar_tags' %}
                         {% render 'sidebar_recommend', pages: pages, default_avatar_url: default_avatar_url %}
                         {% assign newest_replies = site.comments | order_by: '-created_at' | limit: 5 %}

@@ -63,15 +63,32 @@
       "daily_post_reply_limit_info": "-1 means unlimited (frontend form hide only). Users with department IDs are exempt.",
       "feedback_useful_type_label": "Primary feedback emoji",
       "feedback_useful_type_placeholder": "e.g. 😊 — configure in app feedback settings",
-      "copyright_info_label": "Copyright line",
-      "copyright_info_placeholder": "Shown in the footer",
+      "copyright_info_label": "Copyright text",
+      "copyright_info_placeholder": "e.g. Powered by Acme",
+      "copyright_info_info": "Shown in the footer copyright area. Link is configured separately and is not tied to the ICP filing site.",
+      "copyright_link_url_label": "Copyright text URL",
+      "copyright_link_url_placeholder": "https://example.com",
+      "copyright_link_url_info": "Optional. When set, the copyright text becomes a link; leave empty for plain text.",
+      "beian_number_label": "ICP filing number",
+      "beian_number_placeholder": "e.g. 京ICP备xxxxxxxx号",
+      "beian_number_info": "Shown separately from the copyright text.",
+      "beian_url_label": "ICP filing URL",
+      "beian_url_info": "Link target for the ICP filing number. Defaults to the MIIT filing query page.",
       "is_show_collection_feature_tags_label": "Show collection & feature tags",
       "feature_tags_label": "Feature tags",
       "feature_tags_info": "One tag per line; used to categorize posts.",
       "collection_tags_label": "Collection tags",
       "collection_tags_info": "One tag per line; used as collections.",
       "header_menu_label": "Header menu",
-      "header_menu_info": "Format: menu_name[url — one entry per line."
+      "header_menu_info": "Format: menu_name[url — one entry per line.",
+      "is_show_sidebar_stats_label": "Show homepage sidebar stats",
+      "is_show_sidebar_stats_info": "Shows articles (posts), Q&A (comments), and members (site members). Counting may be heavy on large sites.",
+      "sidebar_stats_articles_label": "Override “Articles” label",
+      "sidebar_stats_articles_info": "Optional. Leave empty for the default label.",
+      "sidebar_stats_qa_label": "Override “Q&A” label",
+      "sidebar_stats_qa_info": "Optional. Leave empty for the default label.",
+      "sidebar_stats_members_label": "Override “Members” label",
+      "sidebar_stats_members_info": "Optional. Leave empty for the default label."
     },
     "community_templates": {
       "index_home_name": "Index",
@@ -103,7 +120,9 @@
       "post_tags_label": "Tags",
       "post_recommend_label": "Featured",
       "post_recommend_info": "When enabled, the post can appear in the featured list",
-      "me_name": "My community"
+      "me_name": "My community",
+      "post_pinned_label": "Pin post",
+      "post_pinned_info": "Pinned posts appear at the top of the home list. Desk-only; front-end users cannot pin themselves."
     }
   },
   "lucide_icons": {

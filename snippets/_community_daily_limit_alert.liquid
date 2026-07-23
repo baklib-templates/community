@@ -1,5 +1,5 @@
 {% if community_daily_limit_reached %}
-  <div class="p-3 mb-3 text-sm rounded-lg border border-warning/30 bg-warning/10 text-warning-content" role="alert">
+  <div class="p-3 mb-3 text-sm rounded-lg border border-warning/30 bg-warning/10 text-error" role="alert">
     {{ 'community.daily_limit_reached' | t: limit: daily_limit }}
   </div>
 {% endif %}

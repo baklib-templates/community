@@ -144,7 +144,8 @@
     "organization_user": "Organisationsnutzer",
     "regular_user": "Standardnutzer",
     "reviewing": "In Prüfung",
-    "published": "Veröffentlicht"
+    "published": "Veröffentlicht",
+    "pinned": "Angepinnt"
   },
   "community": {
     "daily_limit_reached": "Tageslimit für Beiträge/Antworten erreicht (%{limit}). Bitte morgen erneut versuchen."
@@ -202,5 +203,11 @@
     "sidebar": {
       "account": "Angemeldet als"
     }
+  },
+  "sidebar_stats": {
+    "title": "Community",
+    "articles": "Beiträge",
+    "qa": "Q&A",
+    "members": "Mitglieder"
   }
 }

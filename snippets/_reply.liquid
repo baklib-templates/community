@@ -5,12 +5,12 @@
 {% comment %} depth: 0=root, 1+=nested. Pass depth when rendering {% endcomment %}
 {% assign reply_depth = depth | default: 0 %}
 
-<li class="reply-item flex flex-col gap-1.5 pt-3 first:pt-0 border-t border-base-300/60 border-base-300/60 first:border-t-0 first:pt-0" id="reply_{{ reply.id }}" x-data="{open: false}" style="--reply-depth: {{ reply_depth }};">
+<li class="reply-item flex flex-col gap-1 pt-2 first:pt-0 border-t border-base-300/60 first:border-t-0" id="reply_{{ reply.id }}" x-data="{open: false}" style="--reply-depth: {{ reply_depth }};">
   <!-- Reddit 风格：作者/日期在上方，内容占据完整宽度 -->
-  <div class="flex flex-col flex-1 min-w-0 gap-1.5">
+  <div class="flex flex-col flex-1 min-w-0 gap-1">
     <!-- Meta row: 头像+作者+日期 紧凑一行 -->
     <div class="flex items-center gap-2 text-xs">
-      <img class="w-6 h-6 rounded-full shrink-0" src="{{ reply.author.avatar_url | default: default_avatar_url }}" width="24" height="24" alt="" />
+      <img class="w-6 h-6 rounded-full shrink-0" src="{{ reply.author.avatar_url | replace: script_name, '' | default: default_avatar_url }}" width="24" height="24" alt="" />
       <a class="font-medium text-primary hover:text-primary/80 truncate" href="{{ reply.author.profile_url | default: '#' }}">{{ reply.author.name }}</a>
       <span class="text-base-content/50 shrink-0">{{ reply.created_at | date: "%Y-%m-%d %H:%M" }}</span>
       {% if reply.parent and reply.root.id != reply.parent.id %}
@@ -27,7 +27,7 @@
         {{ reply.body }}
       </div>
       {% if current_user %}
-        <div class="flex flex-wrap items-center gap-1 mt-2">
+        <div class="reply-actions flex flex-wrap items-center gap-1 mt-1">
           <span class="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs rounded-md cursor-pointer touch-manipulation text-base-content/70 hover:bg-base-200 hover:text-base-content hover:text-base-content transition-colors" @click="open = !open" role="button" tabindex="0">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />

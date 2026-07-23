@@ -144,7 +144,14 @@
     "timeline": "时间线",
     "original_post": "主帖",
     "topic": "话题",
-    "activity": "活动"
+    "activity": "活动",
+    "pinned": "置顶"
+  },
+  "sidebar_stats": {
+    "title": "社区概览",
+    "articles": "文章",
+    "qa": "问答",
+    "members": "成员"
   },
   "me": {
     "title": "我的社区",

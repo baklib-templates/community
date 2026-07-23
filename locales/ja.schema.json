@@ -63,15 +63,32 @@
       "daily_post_reply_limit_info": "-1 は無制限（フロントのみ）。部門 ID を持つユーザーは対象外。",
       "feedback_useful_type_label": "主なフィードバック絵文字",
       "feedback_useful_type_placeholder": "例：😊 — アプリのフィードバック設定で指定",
-      "copyright_info_label": "著作権表示",
-      "copyright_info_placeholder": "フッターに表示",
+      "copyright_info_label": "著作権テキスト",
+      "copyright_info_placeholder": "例: Powered by Acme",
+      "copyright_info_info": "フッターの著作権エリアに表示。リンクは別設定で、備案サイトには固定しません。",
+      "copyright_link_url_label": "著作権テキストの URL",
+      "copyright_link_url_placeholder": "https://example.com",
+      "copyright_link_url_info": "任意。設定すると著作権テキストがリンクになります。空欄ならテキストのみ。",
+      "beian_number_label": "備案番号",
+      "beian_number_placeholder": "例: 京ICP備xxxxxxxx号",
+      "beian_number_info": "著作権テキストとは別に表示する備案番号。",
+      "beian_url_label": "備案番号の URL",
+      "beian_url_info": "備案番号のリンク先。デフォルトは工信部の照会ページ。",
       "is_show_collection_feature_tags_label": "コレクションと機能タグを表示",
       "feature_tags_label": "機能タグ",
       "feature_tags_info": "1 行に 1 タグ。投稿の分類に使います。",
       "collection_tags_label": "コレクションタグ",
       "collection_tags_info": "1 行に 1 タグ。コレクションとして使います。",
       "header_menu_label": "ヘッダーメニュー",
-      "header_menu_info": "形式：メニュー名[URL — 1 行に 1 エントリ。"
+      "header_menu_info": "形式：メニュー名[URL — 1 行に 1 エントリ。",
+      "is_show_sidebar_stats_label": "ホーム側欄の統計カードを表示",
+      "is_show_sidebar_stats_info": "記事（投稿数）、Q&A（コメント数）、メンバー（サイトメンバー数）を表示。大規模サイトでは負荷に注意。",
+      "sidebar_stats_articles_label": "「記事」ラベル上書き",
+      "sidebar_stats_articles_info": "任意。空欄ならデフォルトを使用。",
+      "sidebar_stats_qa_label": "「Q&A」ラベル上書き",
+      "sidebar_stats_qa_info": "任意。空欄ならデフォルトを使用。",
+      "sidebar_stats_members_label": "「メンバー」ラベル上書き",
+      "sidebar_stats_members_info": "任意。空欄ならデフォルトを使用。"
     },
     "community_templates": {
       "index_home_name": "インデックス",
@@ -103,7 +120,9 @@
       "post_tags_label": "タグ",
       "post_recommend_label": "おすすめ",
       "post_recommend_info": "オンにするとおすすめ一覧に表示されることがあります",
-      "me_name": "マイコミュニティ"
+      "me_name": "マイコミュニティ",
+      "post_pinned_label": "固定表示",
+      "post_pinned_info": "固定投稿はホーム一覧の先頭に表示。管理画面のみ設定可。一般ユーザーは自分で固定できません。"
     }
   },
   "lucide_icons": {

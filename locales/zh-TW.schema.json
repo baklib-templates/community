@@ -63,15 +63,32 @@
       "daily_post_reply_limit_info": "-1 表示不限制，僅前台隱藏表單。有部門 ID 的用戶不受限。",
       "feedback_useful_type_label": "首選回饋表情",
       "feedback_useful_type_placeholder": "如 😊 等 emoji，需在應用設定中設定",
-      "copyright_info_label": "版權資訊",
-      "copyright_info_placeholder": "在站點頁尾顯示",
+      "copyright_info_label": "版權文案",
+      "copyright_info_placeholder": "如 Powered by PandaHR",
+      "copyright_info_info": "顯示在頁尾版權區；連結由「版權文案連結」單獨設定，不再綁定備案站。",
+      "copyright_link_url_label": "版權文案連結",
+      "copyright_link_url_placeholder": "https://example.com",
+      "copyright_link_url_info": "可選。填寫後版權文案可點擊跳轉；留空則僅顯示文字。",
+      "beian_number_label": "備案號",
+      "beian_number_placeholder": "如 京ICP備xxxxxxxx號",
+      "beian_number_info": "獨立展示的備案號，與版權文案分離。",
+      "beian_url_label": "備案號連結",
+      "beian_url_info": "備案號點擊跳轉地址，預設工信部備案查詢頁。",
       "is_show_collection_feature_tags_label": "是否顯示集合/功能標籤",
       "feature_tags_label": "功能標籤",
       "feature_tags_info": "每行一個功能標籤，用於集合分類。格式：每行一個標籤名稱",
       "collection_tags_label": "集合標籤",
       "collection_tags_info": "每行一個集合標籤，用於集合分類。格式：每行一個標籤名稱",
       "header_menu_label": "導航選單",
-      "header_menu_info": "格式：menu_name[url，每行一個連結。"
+      "header_menu_info": "格式：menu_name[url，每行一個連結。",
+      "is_show_sidebar_stats_label": "顯示首頁側欄統計卡片",
+      "is_show_sidebar_stats_info": "展示文章（帖子數）、問答（評論數）、成員（站點成員數）。大站計數可能偏重。",
+      "sidebar_stats_articles_label": "「文章」文案覆蓋",
+      "sidebar_stats_articles_info": "可選。留空則使用預設「文章」。",
+      "sidebar_stats_qa_label": "「問答」文案覆蓋",
+      "sidebar_stats_qa_info": "可選。留空則使用預設「問答」。",
+      "sidebar_stats_members_label": "「成員」文案覆蓋",
+      "sidebar_stats_members_info": "可選。留空則使用預設「成員」。"
     },
     "community_templates": {
       "index_home_name": "Index",
@@ -103,7 +120,9 @@
       "post_tags_label": "頁面標籤",
       "post_recommend_label": "是否推薦",
       "post_recommend_info": "選定推薦後，會在推薦欄目顯示",
-      "me_name": "我的社區"
+      "me_name": "我的社區",
+      "post_pinned_label": "是否置頂",
+      "post_pinned_info": "置頂帖優先顯示在首頁列表頂部；僅後台可設定，前台使用者不可自置頂。"
     }
   },
   "lucide_icons": {

@@ -63,15 +63,32 @@
       "daily_post_reply_limit_info": "-1 = illimité (masquage frontend). Les utilisateurs avec ID de département sont exemptés.",
       "feedback_useful_type_label": "Émoji de retour principal",
       "feedback_useful_type_placeholder": "ex. 😊 — à configurer dans les paramètres de feedback",
-      "copyright_info_label": "Mention de copyright",
-      "copyright_info_placeholder": "Affichée dans le pied de page",
+      "copyright_info_label": "Texte de copyright",
+      "copyright_info_placeholder": "ex. Powered by Acme",
+      "copyright_info_info": "Affiché dans la zone copyright du pied de page. Le lien est configuré séparément.",
+      "copyright_link_url_label": "URL du texte de copyright",
+      "copyright_link_url_placeholder": "https://example.com",
+      "copyright_link_url_info": "Facultatif. Si renseigné, le texte devient un lien ; sinon texte seul.",
+      "beian_number_label": "Numéro d’enregistrement ICP",
+      "beian_number_placeholder": "ex. 京ICP备xxxxxxxx号",
+      "beian_number_info": "Affiché séparément du texte de copyright.",
+      "beian_url_label": "URL d’enregistrement ICP",
+      "beian_url_info": "Cible du numéro ICP. Par défaut : page de consultation MIIT.",
       "is_show_collection_feature_tags_label": "Afficher les étiquettes collection et fonctionnalité",
       "feature_tags_label": "Étiquettes de fonctionnalité",
       "feature_tags_info": "Une étiquette par ligne ; utilisées pour catégoriser les publications.",
       "collection_tags_label": "Étiquettes de collection",
       "collection_tags_info": "Une étiquette par ligne ; utilisées comme collections.",
       "header_menu_label": "Menu d’en-tête",
-      "header_menu_info": "Format : nom_du_menu[url — une ligne par entrée."
+      "header_menu_info": "Format : nom_du_menu[url — une ligne par entrée.",
+      "is_show_sidebar_stats_label": "Afficher les stats de la barre latérale",
+      "is_show_sidebar_stats_info": "Affiche articles (publications), Q&R (commentaires) et membres. Le comptage peut être lourd sur les grands sites.",
+      "sidebar_stats_articles_label": "Libellé « Articles » (surcharge)",
+      "sidebar_stats_articles_info": "Optionnel. Laisser vide pour le libellé par défaut.",
+      "sidebar_stats_qa_label": "Libellé « Q&R » (surcharge)",
+      "sidebar_stats_qa_info": "Optionnel. Laisser vide pour le libellé par défaut.",
+      "sidebar_stats_members_label": "Libellé « Membres » (surcharge)",
+      "sidebar_stats_members_info": "Optionnel. Laisser vide pour le libellé par défaut."
     },
     "community_templates": {
       "index_home_name": "Index",
@@ -103,7 +120,9 @@
       "post_tags_label": "Étiquettes",
       "post_recommend_label": "À la une",
       "post_recommend_info": "Si activé, la publication peut apparaître dans la liste mise en avant",
-      "me_name": "Ma communauté"
+      "me_name": "Ma communauté",
+      "post_pinned_label": "Épingler",
+      "post_pinned_info": "Les publications épinglées apparaissent en tête de la liste d’accueil. Réservé au Desk ; les utilisateurs ne peuvent pas s’épingler eux-mêmes."
     }
   },
   "lucide_icons": {

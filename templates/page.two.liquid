@@ -55,7 +55,10 @@
                 {% endif %}
                 {% comment %} Discourse: 标题 + 标签置顶 {% endcomment %}
                 <header class="mb-4">
-                  <h1 class="mb-3 text-2xl md:text-3xl font-bold font-aspekta text-base-content flex items-center gap-2">
+                  <h1 class="mb-3 text-2xl md:text-3xl font-bold font-aspekta text-base-content flex items-center gap-2 flex-wrap">
+                    {% if page.settings.pinned %}
+                      <span class="badge badge-sm badge-primary">{{ 'generic.pinned' | t }}</span>
+                    {% endif %}
                     {% render 'page_icon', page: page, class: 'size-8 shrink-0 text-primary' %}
                     <span>{{ page.link_text }}</span>
                   </h1>
@@ -69,7 +72,7 @@
                   {% comment %} Discourse: 作者左，时间右 {% endcomment %}
                   <div class="flex items-center justify-between gap-4">
                     <div class="flex items-center gap-2">
-                      <img class="w-8 h-8 rounded-full shrink-0" src="{{ page.author.avatar_url | default: default_avatar_url }}" width="32" height="32" alt="" />
+                      <img class="w-8 h-8 rounded-full shrink-0" src="{{ page.author.avatar_url | replace: script_name, '' | default: default_avatar_url }}" width="32" height="32" alt="" />
                       <a class="font-medium text-primary hover:text-primary/80" href="{{ page.author.profile_url | default: '#' }}">{{ page.author.name }}</a>
                     </div>
                     <div class="text-sm text-base-content/60">
@@ -171,11 +174,12 @@
       "info": "t:settings_schema.community_templates.post_feature_info"
     },
     { "id": "tags", "type": "tag_picker", "multiple": true, "queryable": true, "label": "t:settings_schema.community_templates.post_tags_label" },
-    { "id": "is_recommend", "type": "checkbox", "queryable": true, "label": "t:settings_schema.community_templates.post_recommend_label", "info": "t:settings_schema.community_templates.post_recommend_info", "default": false }
+    { "id": "is_recommend", "type": "checkbox", "queryable": true, "label": "t:settings_schema.community_templates.post_recommend_label", "info": "t:settings_schema.community_templates.post_recommend_info", "default": false },
+    { "id": "pinned", "type": "checkbox", "queryable": true, "label": "t:settings_schema.community_templates.post_pinned_label", "info": "t:settings_schema.community_templates.post_pinned_info", "default": false }
   ],
   "user_creatable": true,
   "user_editable": true,
   "user_deletable": true,
-  "user_permitted_attributes": ["title", "content"]
+  "user_permitted_attributes": ["title", "content", "collection", "feature", "tags"]
 }
 {% endschema %}

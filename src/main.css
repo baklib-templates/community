@@ -72,3 +72,37 @@ body.asleep #screen {
 .form-range::-webkit-slider-runnable-track {
   @apply h-[var(--range-track-h)] w-full rounded-full bg-base-300;
 }
+
+/* Reply list: tighten ProseMirror spacing for short comments */
+.reply-content.ProseMirror,
+.reply-content .ProseMirror {
+  line-height: 1.5;
+}
+.reply-content.ProseMirror p,
+.reply-content .ProseMirror p {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+.reply-content.ProseMirror p:first-child,
+.reply-content .ProseMirror p:first-child {
+  margin-top: 0;
+}
+.reply-content.ProseMirror p:last-child,
+.reply-content .ProseMirror p:last-child {
+  margin-bottom: 0;
+}
+.reply-content.ProseMirror p:empty,
+.reply-content .ProseMirror p:empty,
+.reply-content.ProseMirror p:has(> br:only-child),
+.reply-content .ProseMirror p:has(> br:only-child) {
+  display: none;
+}
+.reply-actions {
+  margin-top: 0.25rem;
+}
+
+/* Mobile forum nav horizontal scroll safe padding */
+.forum-nav-scroll {
+  scroll-padding-inline: 1rem;
+}
+

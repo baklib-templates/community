@@ -144,7 +144,8 @@
     "organization_user": "組織用戶",
     "regular_user": "普通用戶",
     "reviewing": "審核中",
-    "published": "已發布"
+    "published": "已發布",
+    "pinned": "置頂"
   },
   "community": {
     "daily_limit_reached": "今日發帖/回覆已達上限（%{limit} 次），請明天再試。"
@@ -202,5 +203,11 @@
     "sidebar": {
       "account": "目前帳號"
     }
+  },
+  "sidebar_stats": {
+    "title": "社群概覽",
+    "articles": "文章",
+    "qa": "問答",
+    "members": "成員"
   }
 }

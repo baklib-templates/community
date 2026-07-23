@@ -63,15 +63,32 @@
       "daily_post_reply_limit_info": "-1 = unbegrenzt (nur Frontend). Nutzer mit Abteilungs-ID sind ausgenommen.",
       "feedback_useful_type_label": "Haupt-Feedback-Emoji",
       "feedback_useful_type_placeholder": "z. B. 😊 — in App-Feedback-Einstellungen konfigurieren",
-      "copyright_info_label": "Copyright-Zeile",
-      "copyright_info_placeholder": "Wird in der Fußzeile angezeigt",
+      "copyright_info_label": "Copyright-Text",
+      "copyright_info_placeholder": "z. B. Powered by Acme",
+      "copyright_info_info": "Wird im Copyright-Bereich der Fußzeile angezeigt. Link separat konfigurierbar.",
+      "copyright_link_url_label": "URL des Copyright-Texts",
+      "copyright_link_url_placeholder": "https://example.com",
+      "copyright_link_url_info": "Optional. Mit URL wird der Text verlinkt; leer = nur Text.",
+      "beian_number_label": "ICP-Registrierungsnummer",
+      "beian_number_placeholder": "z. B. 京ICP备xxxxxxxx号",
+      "beian_number_info": "Wird getrennt vom Copyright-Text angezeigt.",
+      "beian_url_label": "ICP-URL",
+      "beian_url_info": "Linkziel der ICP-Nummer. Standard: MIIT-Abfrageseite.",
       "is_show_collection_feature_tags_label": "Sammlungs- & Funktions-Tags anzeigen",
       "feature_tags_label": "Funktions-Tags",
       "feature_tags_info": "Ein Tag pro Zeile; zur Kategorisierung von Beiträgen.",
       "collection_tags_label": "Sammlungs-Tags",
       "collection_tags_info": "Ein Tag pro Zeile; werden als Sammlungen verwendet.",
       "header_menu_label": "Kopfzeilenmenü",
-      "header_menu_info": "Format: Menüname[URL — eine Zeile pro Eintrag."
+      "header_menu_info": "Format: Menüname[URL — eine Zeile pro Eintrag.",
+      "is_show_sidebar_stats_label": "Sidebar-Statistik auf der Startseite anzeigen",
+      "is_show_sidebar_stats_info": "Zeigt Beiträge, Q&A (Kommentare) und Mitglieder. Auf großen Sites kann das Zählen belastend sein.",
+      "sidebar_stats_articles_label": "Beschriftung „Beiträge“ überschreiben",
+      "sidebar_stats_articles_info": "Optional. Leer lassen für die Standardbeschriftung.",
+      "sidebar_stats_qa_label": "Beschriftung „Q&A“ überschreiben",
+      "sidebar_stats_qa_info": "Optional. Leer lassen für die Standardbeschriftung.",
+      "sidebar_stats_members_label": "Beschriftung „Mitglieder“ überschreiben",
+      "sidebar_stats_members_info": "Optional. Leer lassen für die Standardbeschriftung."
     },
     "community_templates": {
       "index_home_name": "Index",
@@ -103,7 +120,9 @@
       "post_tags_label": "Tags",
       "post_recommend_label": "Empfohlen",
       "post_recommend_info": "Wenn aktiv, kann der Beitrag in der Empfehlungsliste erscheinen",
-      "me_name": "Meine Community"
+      "me_name": "Meine Community",
+      "post_pinned_label": "Anpinnen",
+      "post_pinned_info": "Angepinnte Beiträge erscheinen oben in der Startlisten. Nur im Desk setzbar; Nutzer können sich nicht selbst anpinnen."
     }
   },
   "lucide_icons": {

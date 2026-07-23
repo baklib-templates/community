@@ -144,7 +144,8 @@
     "timeline": "Timeline",
     "original_post": "Original post",
     "topic": "Topic",
-    "activity": "Activity"
+    "activity": "Activity",
+    "pinned": "Pinned"
   },
   "me": {
     "title": "My community",
@@ -202,5 +203,11 @@
       "title": "Registration",
       "beian_number": "Registration number"
     }
+  },
+  "sidebar_stats": {
+    "title": "Community",
+    "articles": "Articles",
+    "qa": "Q&A",
+    "members": "Members"
   }
 }

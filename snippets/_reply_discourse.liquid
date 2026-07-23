@@ -8,10 +8,10 @@
 {% endunless %}
 {% assign reply_depth = depth | default: 0 %}
 
-<li class="reply-item flex flex-wrap gap-3 pt-3 first:pt-0 border-t border-base-300 first:border-t-0 first:pt-0" id="reply_{{ reply.id }}" x-data="{open: false}" style="--reply-depth: {{ reply_depth }};">
+<li class="reply-item flex flex-wrap gap-3 pt-2 first:pt-0 border-t border-base-300 first:border-t-0" id="reply_{{ reply.id }}" x-data="{open: false}" style="--reply-depth: {{ reply_depth }};">
   {% comment %} Discourse: 头像在左侧 {% endcomment %}
   <div class="shrink-0">
-    <img class="w-8 h-8 rounded-full" src="{{ reply.author.avatar_url | default: default_avatar_url }}" width="32" height="32" alt="" />
+    <img class="w-8 h-8 rounded-full" src="{{ reply.author.avatar_url | replace: script_name, '' | default: default_avatar_url }}" width="32" height="32" alt="" />
   </div>
   <div class="flex-1 min-w-0 flex flex-col rounded-xl border border-base-300 bg-base-200/50 p-3">
     {% comment %} 作者名 + 时间戳，时间右对齐 {% endcomment %}
@@ -25,11 +25,11 @@
       <span class="text-xs text-base-content/60 shrink-0">{{ reply.created_at | date: "%Y-%m-%d %H:%M" }}</span>
     </div>
     {% comment %} 同 _reply.liquid：与主帖一致输出富文本，依赖服务端净化 {% endcomment %}
-    <div class="ProseMirror prose prose-sm dark:prose-invert max-w-none break-words">
+    <div class="reply-content ProseMirror prose prose-sm dark:prose-invert max-w-none break-words">
       {{ reply.body }}
     </div>
     {% if current_user %}
-      <div class="flex flex-wrap items-center gap-1 mt-2">
+      <div class="reply-actions flex flex-wrap items-center gap-1 mt-1">
         <span class="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs rounded-md cursor-pointer touch-manipulation text-base-content/70 hover:bg-base-300 hover:text-base-content transition-colors" @click="open = !open" role="button" tabindex="0">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />

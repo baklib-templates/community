@@ -22,13 +22,23 @@
             </div>
 
             <!-- Bottom area -->
-            <div class="text-center md:flex md:items-center md:justify-between">
-
-                <!-- Social links -->
-
-                <!-- Copyright -->
-                <div class="text-sm text-base-content/70"> &copy;{{ site.name }}. All rights reserved. <a href="https://beian.miit.gov.cn/" target="_blank">{{ site.settings.copyright_info }}</a></div>
-
+            <div class="text-center md:flex md:items-center md:justify-between gap-2 flex-wrap">
+                <div class="text-sm text-base-content/70">
+                    &copy;{{ site.name }}. All rights reserved.
+                    {% if site.settings.copyright_info != blank %}
+                      {% if site.settings.copyright_link_url != blank %}
+                        <a href="{{ site.settings.copyright_link_url }}" target="_blank" rel="noopener" class="hover:text-primary">{{ site.settings.copyright_info }}</a>
+                      {% else %}
+                        <span>{{ site.settings.copyright_info }}</span>
+                      {% endif %}
+                    {% endif %}
+                </div>
+                {% if site.settings.beian_number != blank %}
+                  {% assign beian_href = site.settings.beian_url | default: 'https://beian.miit.gov.cn/' %}
+                  <div class="text-sm text-base-content/70">
+                    <a href="{{ beian_href }}" target="_blank" rel="noopener" class="hover:text-primary">{{ site.settings.beian_number }}</a>
+                  </div>
+                {% endif %}
             </div>
 
         </div>

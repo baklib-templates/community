@@ -22,7 +22,7 @@
               <div class="flex -space-x-3 -ml-0.5">
                 {% assign comments = item.comments | roots | order_by: '-created_at' | limit: 3 %}
                 {% for comment in comments %}
-                  <img class="rounded-full border-2 border-base-100 box-content" src="{{ comment.author.avatar_url | default: default_avatar_url }}" width="32" height="32" alt="" />
+                  <img class="rounded-full border-2 border-base-100 box-content" src="{{ comment.author.avatar_url | replace: script_name, '' | default: default_avatar_url }}" width="32" height="32" alt="" />
                 {% endfor %}
               </div>
               <div class="text-xs font-medium text-base-content/60 italic">+{{ item.comments | size }}</div>

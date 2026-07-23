@@ -1,0 +1,51 @@
+{% comment %}
+  Usage: {% render 'sidebar_stats' %}
+  Counts: articles = home children_in_list size; Q&A = published comments; members = site.users.
+{% endcomment %}
+{% unless site.settings.is_show_sidebar_stats == false %}
+  {% assign articles_count = site.pages['/'].children_in_list | size %}
+  {% assign qa_count = site.comments | size %}
+  {% assign members_count = site.users | size %}
+  {% assign articles_fallback = 'sidebar_stats.articles' | t %}
+  {% assign qa_fallback = 'sidebar_stats.qa' | t %}
+  {% assign members_fallback = 'sidebar_stats.members' | t %}
+  {% assign articles_label = site.settings.sidebar_stats_articles_label | default: articles_fallback %}
+  {% assign qa_label = site.settings.sidebar_stats_qa_label | default: qa_fallback %}
+  {% assign members_label = site.settings.sidebar_stats_members_label | default: members_fallback %}
+
+  <div class="bg-base-200 rounded-xl p-4 border border-base-300">
+    <div class="text-md font-semibold uppercase mb-4 text-base-content/70">{{ 'sidebar_stats.title' | t }}</div>
+    <ul class="space-y-3">
+      <li class="flex items-center justify-between gap-3">
+        <span class="inline-flex items-center gap-2 text-sm text-base-content/80">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 text-primary shrink-0" aria-hidden="true">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/>
+          </svg>
+          {{ articles_label }}
+        </span>
+        <span class="text-sm font-semibold tabular-nums">{{ articles_count }}</span>
+      </li>
+      <li class="flex items-center justify-between gap-3">
+        <span class="inline-flex items-center gap-2 text-sm text-base-content/80">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 text-primary shrink-0" aria-hidden="true">
+            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+          </svg>
+          {{ qa_label }}
+        </span>
+        <span class="text-sm font-semibold tabular-nums">{{ qa_count }}</span>
+      </li>
+      <li class="flex items-center justify-between gap-3">
+        <span class="inline-flex items-center gap-2 text-sm text-base-content/80">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 text-primary shrink-0" aria-hidden="true">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          {{ members_label }}
+        </span>
+        <span class="text-sm font-semibold tabular-nums">{{ members_count }}</span>
+      </li>
+    </ul>
+  </div>
+{% endunless %}

@@ -78,7 +78,7 @@
                       {% assign inbox_empty = false %}
                       <div class="rounded-lg border border-base-300 bg-base-100 p-4">
                         <div class="flex items-start gap-3">
-                          <img class="rounded-full shrink-0" src="{{ reply.author.avatar_url | default: default_avatar_url }}" width="36" height="36" alt="">
+                          <img class="rounded-full shrink-0" src="{{ reply.author.avatar_url | replace: script_name, '' | default: default_avatar_url }}" width="36" height="36" alt="">
                           <div class="min-w-0 grow">
                             <div class="text-sm text-base-content/70 mb-1">
                               <span class="font-medium text-base-content">{{ reply.author.name }}</span>
@@ -126,7 +126,7 @@
                   <div class="flex items-center gap-3 mb-3">
                     <div class="avatar">
                       <div class="w-12 rounded-full">
-                        <img src="{{ current_user.image | default: default_avatar_url }}" alt="">
+                        <img src="{{ current_user.image | replace: script_name, '' | default: default_avatar_url }}" alt="">
                       </div>
                     </div>
                     <div class="min-w-0">

@@ -1,0 +1,18 @@
+{% comment %}
+  Usage:
+  {% render 'pages_list', pages: pages, pinned_pages: pinned_pages %}
+  pinned_pages: optional; shown above the list on page 1; pinned items skipped in the main loop.
+{% endcomment %}
+{% paginate_tag pages, per: 10 %}
+  {% if paginate.current_page == 1 %}
+    {% for sub_page in pinned_pages %}
+      {% render 'page', page: sub_page %}
+    {% endfor %}
+  {% endif %}
+  {% for sub_page in pages %}
+    {% unless sub_page.settings.pinned %}
+      {% render 'page', page: sub_page %}
+    {% endunless %}
+  {% endfor %}
+  {% render 'paginate', paginate: paginate %}
+{% endpaginate_tag %}

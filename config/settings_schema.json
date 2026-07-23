@@ -236,7 +236,30 @@
         "id": "copyright_info",
         "type": "text",
         "label": "t:settings_schema.community.copyright_info_label",
-        "placeholder": "t:settings_schema.community.copyright_info_placeholder"
+        "placeholder": "t:settings_schema.community.copyright_info_placeholder",
+        "info": "t:settings_schema.community.copyright_info_info"
+      },
+      {
+        "id": "copyright_link_url",
+        "type": "text",
+        "label": "t:settings_schema.community.copyright_link_url_label",
+        "placeholder": "t:settings_schema.community.copyright_link_url_placeholder",
+        "info": "t:settings_schema.community.copyright_link_url_info"
+      },
+      {
+        "id": "beian_number",
+        "type": "text",
+        "label": "t:settings_schema.community.beian_number_label",
+        "placeholder": "t:settings_schema.community.beian_number_placeholder",
+        "info": "t:settings_schema.community.beian_number_info"
+      },
+      {
+        "id": "beian_url",
+        "type": "text",
+        "label": "t:settings_schema.community.beian_url_label",
+        "placeholder": "https://beian.miit.gov.cn/",
+        "default": "https://beian.miit.gov.cn/",
+        "info": "t:settings_schema.community.beian_url_info"
       }
     ]
   },
@@ -264,6 +287,31 @@
         "label": "t:settings_schema.community.collection_tags_label",
         "rows": 10,
         "info": "t:settings_schema.community.collection_tags_info"
+      },
+      {
+        "id": "is_show_sidebar_stats",
+        "type": "checkbox",
+        "label": "t:settings_schema.community.is_show_sidebar_stats_label",
+        "info": "t:settings_schema.community.is_show_sidebar_stats_info",
+        "default": true
+      },
+      {
+        "id": "sidebar_stats_articles_label",
+        "type": "text",
+        "label": "t:settings_schema.community.sidebar_stats_articles_label",
+        "info": "t:settings_schema.community.sidebar_stats_articles_info"
+      },
+      {
+        "id": "sidebar_stats_qa_label",
+        "type": "text",
+        "label": "t:settings_schema.community.sidebar_stats_qa_label",
+        "info": "t:settings_schema.community.sidebar_stats_qa_info"
+      },
+      {
+        "id": "sidebar_stats_members_label",
+        "type": "text",
+        "label": "t:settings_schema.community.sidebar_stats_members_label",
+        "info": "t:settings_schema.community.sidebar_stats_members_info"
       }
     ]
   },
