@@ -24,10 +24,8 @@
 {% if show_section %}
 <div class="mt-12 pt-8 border-t border-base-300">
   <h2 class="text-lg font-semibold mb-4 flex items-center gap-2">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-primary">
-      <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
-    </svg>
-    {{ 'generic.related_topics' | t }}
+    {% render 'icon', name: 'link', class: 'size-5 shrink-0 text-base-content/50' %}
+    <span>{{ 'generic.related_topics' | t }}</span>
   </h2>
   <div class="overflow-x-auto">
     <table class="w-full text-sm">
@@ -46,8 +44,8 @@
             {% assign shown = shown | plus: 1 %}
             <tr class="border-b border-base-300 hover:bg-base-200">
               <td class="py-3">
-                <a href="{{ p.path }}" class="font-medium text-base-content hover:text-primary inline-flex items-center gap-2">
-                  {% render 'page_icon', page: p, class: 'size-4 shrink-0 text-primary' %}
+                <a href="{{ p.path }}" class="font-semibold text-base-content hover:underline underline-offset-2 inline-flex items-center gap-2">
+                  {% render 'page_icon', page: p, class: 'size-4 shrink-0 text-base-content/60' %}
                   <span>{{ p.link_text }}</span>
                 </a>
                 {% if p.settings.tags.size > 0 %}

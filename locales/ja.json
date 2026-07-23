@@ -204,10 +204,70 @@
       "account": "ログイン中"
     }
   },
+  "reply_menu": {
+    "more": "その他",
+    "copy_link": "リンクをコピー",
+    "copied": "コピーしました",
+    "report_abuse": "不正利用を報告",
+    "collapse": "返信を折りたたむ",
+    "expand": "返信を展開"
+  },
+  "report_abuse": {
+    "meta_title": "不正利用の報告",
+    "eyebrow": "コミュニティの安全",
+    "title": "不正利用の報告",
+    "subtitle": "コミュニティの安全にご協力いただきありがとうございます。ガイドラインに違反する内容があればご報告ください。",
+    "fields": {
+      "category": "カテゴリ",
+      "url": "報告対象の URL",
+      "contact": "連絡先（任意）",
+      "contact_placeholder": "メールアドレスなど",
+      "message": "詳細",
+      "message_hint": "状況の把握に役立つ追加情報をご記入ください。",
+      "message_placeholder": "何が起きたか説明してください…"
+    },
+    "categories": {
+      "rude_or_vulgar": "無礼・下品",
+      "harassment": "ハラスメント・ヘイト",
+      "spam": "スパム・著作権",
+      "other": "その他"
+    },
+    "required": "必須項目です",
+    "submit": "報告を送信",
+    "submitting": "送信中…",
+    "success_hint": "できるだけ早く確認します。",
+    "error": "送信に失敗しました。しばらくしてから再試行してください。",
+    "unavailable": "このサイトではフィードバックが有効でないため、報告を送信できません。管理者にお問い合わせください。"
+  },
   "sidebar_stats": {
     "title": "コミュニティ概要",
     "articles": "記事",
+    "articles_unit": "件",
     "qa": "Q&A",
-    "members": "メンバー"
+    "qa_unit": "件",
+    "members": "メンバー",
+    "members_unit": "人"
+  },
+  "templates": {
+    "feedback": {
+      "success_title": "フィードバックを送信しました",
+      "success_message": "ご意見ありがとうございます。できるだけ早く対応します。",
+      "error_title": "送信に失敗しました",
+      "error_message": "送信に失敗しました。内容を確認して再試行してください。"
+    }
+  },
+  "snippets": {
+    "feedback_form": {
+      "title": "フィードバックを送信",
+      "message_label": "メッセージ",
+      "message_placeholder": "フィードバックを入力",
+      "message_required": "メッセージは必須です",
+      "submit": "送信",
+      "cancel": "キャンセル"
+    },
+    "feedback_button": {
+      "title_posted": "フィードバックありがとうございます",
+      "title_unposted": "フィードバックを送信"
+    }
   }
 }

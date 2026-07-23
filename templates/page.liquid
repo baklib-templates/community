@@ -4,77 +4,65 @@
     {% assign default_avatar_url = 'images/avatar.svg' |  asset_url %}
 {% endunless %}
 
-<main class="grow">
-  <section class="relative overflow-hidden">
-    <!-- Illustration -->
-    <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -z-10" aria-hidden="true">
-        <img src="{{ 'images/demo/hero-illustration.svg' | asset_url }}" class="max-w-none" width="1905" height="622" alt="Hero Illustration">
-    </div>
-
+<main class="grow bg-base-100">
+  <section class="relative">
     <div class="max-w-7xl px-4 mx-auto sm:px-6">
-      <div class="pt-6 md:pt-12">
-        <div class="md:flex md:justify-between md:divide-x md:divide-base-300">
+      <div class="pt-6 md:pt-10 pb-12 md:pb-16">
+        <div class="md:flex md:justify-between md:gap-8">
 
           <!-- Page content -->
           <div class="md:grow max-w-5xl">
-            <div class="md:pr-6 lg:pr-20 my-4">
+            <div class="md:pr-6 lg:pr-12">
 
               <div class="flex flex-col gap-6 lg:flex-row lg:gap-6">
 
-                {% comment %}
-                  此区域因 md:block md:space-y-2 md:space-x-0 所影响，导致在 MD 屏幕下变成 “block” 模式，且 gap 被设为 0，
-                  如果父容器或相关布局有隐藏样式，也可能导致其消失。经过检查实际样式，与 page.two.liquid 代码对比，为确保
-                  正常显示请采用如下样式（与 page.two.liquid 一致，优先使用 flex-row，避免不必要的隐藏和布局错乱）：
-                {% endcomment %}
                 <div class="flex flex-row lg:flex-col gap-2 shrink-0">
                   <div x-data="{ posted_feedback: {% if page.visitor_posted_feedback %}true{% else %}false{% endif %}, feedback_count: {{ page | feedback_type_count: site.settings.feedback_useful_type }} }">
                     <div x-show="posted_feedback == true" @click="posted_feedback=false;feedback_count--" x-cloak>
                       {% form_tag 'delete_feedback', page: page, useful_type: site.settings.feedback_useful_type %}
                         <button name="feedback[useful_type]" value="{{ site.settings.feedback_useful_type }}"
-                          :class="{ '!bg-primary': '{{ site.settings.feedback_useful_type }}' === '{{ page.last_feedback_emoji }}' }"
-                          class="h-12 w-12 pt-2 items-center text-center flex flex-col rounded border border-primary bg-primary hover:bg-base-300">
-                          <svg class="fill-primary-content" width="12" height="6" xmlns="http://www.w3.org/2000/svg"><path d="m0 6 6-6 6 6z"></path></svg>
-                          <span class="text-primary-content" x-text="feedback_count"></span>
+                          class="h-11 w-11 items-center text-center flex flex-col justify-center rounded-2xl border border-neutral bg-neutral text-neutral-content hover:brightness-110 shadow-sm">
+                          <svg class="fill-current mb-0.5" width="12" height="6" xmlns="http://www.w3.org/2000/svg"><path d="m0 6 6-6 6 6z"></path></svg>
+                          <span class="text-xs font-semibold" x-text="feedback_count"></span>
                         </button>
                       {% endform_tag %}
                     </div>
                     <div x-show="posted_feedback == false" @click="posted_feedback=true;feedback_count++" x-cloak>
                       {% form_tag 'feedback', page: page %}
                         <button name="feedback[useful_type]" value="{{ site.settings.feedback_useful_type }}"
-                          class="h-12 w-12 pt-2 items-center text-center flex flex-col rounded border border-primary/30 bg-gradient-to-tr from-base-200/20 via-base-200/50 to-base-200/20 hover:bg-base-300">
-                          <svg class="fill-primary" width="12" height="6" xmlns="http://www.w3.org/2000/svg"><path d="m0 6 6-6 6 6z"></path></svg>
-                          <span x-text="feedback_count"></span>
+                          class="h-11 w-11 items-center text-center flex flex-col justify-center rounded-2xl border border-base-300 bg-base-200 hover:border-base-content/30 text-base-content/70 shadow-sm">
+                          <svg class="fill-current mb-0.5" width="12" height="6" xmlns="http://www.w3.org/2000/svg"><path d="m0 6 6-6 6 6z"></path></svg>
+                          <span class="text-xs font-semibold" x-text="feedback_count"></span>
                         </button>
                       {% endform_tag %}
                     </div>
                   </div>
                 </div>
 
-                <!-- Content -->
-                <div>
-                  <article class="mb-10">
+                <!-- Content panel elevated above canvas -->
+                <div class="min-w-0 grow">
+                  <article class="mb-8 pin-card p-6 md:p-8">
                     {% if current_user and page.author.id == current_user.member_id and page.published_at == blank %}
-                      <div class="mb-4 rounded-lg border border-warning/40 bg-warning/10 px-4 py-3 text-sm">
-                        <p class="mb-1">{{ 'generic.under_review' | t }}</p>
-                        <a href="{{ statics['me'] }}" class="text-primary hover:underline">{{ 'me.view_status' | t }}</a>
+                      <div class="mb-4 rounded-2xl border border-base-300 bg-base-100 px-4 py-3 text-sm">
+                        <p class="mb-1 text-base-content/80">{{ 'generic.under_review' | t }}</p>
+                        <a href="{{ statics['me'] }}" class="font-semibold text-base-content hover:underline">{{ 'me.view_status' | t }}</a>
                       </div>
                     {% endif %}
                     <!-- Page header -->
-                    <header class="mb-4">
-                      <h1 class="mb-4 h3 md:h2 font-aspekta flex items-center gap-2 flex-wrap">
+                    <header class="mb-6">
+                      <h1 class="mb-4 h3 md:h2 flex items-center gap-2 flex-wrap tracking-tight">
                         {% if page.settings.pinned %}
-                          <span class="badge badge-sm badge-primary">{{ 'generic.pinned' | t }}</span>
+                          <span class="badge badge-sm badge-neutral">{{ 'generic.pinned' | t }}</span>
                         {% endif %}
-                        {% render 'page_icon', page: page, class: 'size-8 shrink-0 text-primary' %}
+                        {% render 'page_icon', page: page, class: 'size-8 shrink-0 text-base-content/70' %}
                         <span>{{ page.link_text }}</span>
                       </h1>
                       <div class="flex items-center">
                         <img class="mr-2 rounded-full" src="{{ page.author.avatar_url | replace: script_name, '' | default: default_avatar_url }}" width="20" height="20"
-                          alt="User 01" />
-                        <div class="text-sm text-base-content/70">
-                          <a class="font-medium transition duration-150 ease-in-out text-primary hover:text-primary/80"
-                            href="#0">{{ page.author.name }}</a> · <span class="text-base-content/60">{{ page.created_at | date: "%Y-%m-%d %H:%M" }}</span> · <span
-                            class="text-base-content/60">{{ page.comments | size }} {{ 'generic.comments' | t}}</span>
+                          alt="" />
+                        <div class="text-sm text-base-content/50">
+                          <a class="font-semibold text-base-content/80 hover:text-base-content"
+                            href="#0">{{ page.author.name }}</a> · <span>{{ page.created_at | date: "%Y-%m-%d %H:%M" }}</span> · <span>{{ page.comments | size }} {{ 'generic.comments' | t}}</span>
                         </div>
                       </div>
                     </header>
@@ -84,19 +72,16 @@
                       {{ page.settings.content }}
                     </div>
                     <!--Tags-->
-                    {% if page.settings.tags.size > 0 %}
-                      <div class="flex items-center py-4 mt-4 space-x-2 text-xs font-light md:mt-8 shrink-0 ">
-                          <p>{{ 'generic.tags' | t }} </p>
+                    {% if page.settings.tags.size > 0 or page.settings.collection or page.settings.feature %}
+                      <div class="flex flex-wrap items-center gap-2 py-4 mt-4 text-xs shrink-0">
                           {% for tag in page.settings.tags %}
                             {% render 'tag', tag: tag %}
                           {% endfor %}
-                          <!--Collection-->
                           {% if page.settings.collection %}
-                                <a href="/s/tag?c={{ page.settings.collection }}" class=" text-primary hover:text-primary/80 px-2 py-1 rounded-full bg-primary/10">#{{ page.settings.collection }}</a>
+                                <a href="/s/tag?c={{ page.settings.collection }}" class="pin-chip text-xs">#{{ page.settings.collection }}</a>
                           {% endif %}
-                          <!--Feature-->
                           {% if page.settings.feature %}
-                                <a href="/s/tag?f={{ page.settings.feature }}" class=" text-primary hover:text-primary/80 px-2 py-1 rounded-full bg-primary/10">#{{ page.settings.feature }}</a>
+                                <a href="/s/tag?f={{ page.settings.feature }}" class="pin-chip text-xs">#{{ page.settings.feature }}</a>
                           {% endif %}
                       </div>
                     {% endif %}
@@ -105,7 +90,7 @@
 
                   {% if page.author.id == current_user.member_id %}
                     <div class="my-4">
-                      <div class="relative p-5 rounded-lg border border-base-300 bg-base-200">
+                      <div class="relative p-5 rounded-2xl border border-base-300 bg-base-200">
                         <div class="items-center space-y-3 sm:flex sm:space-y-0 sm:space-x-5">
                             <a href="/s/edit?page_path={{ page.full_slug }}" class="btn2">
                               <span>{{ 'buttons.edit' | t}}</span>
@@ -119,10 +104,10 @@
                   {% endif %}
 
                   <!-- Comments list -->
-                  <div data-controller="load_more">
+                  <div class="pin-card p-6 md:p-8" data-controller="load_more">
                     {% include 'community_daily_limit' %}
                     <!-- Content header -->
-                    <div class="pb-6 mb-4 border-b border-base-300">
+                    <div class="pb-4 mb-4 border-b border-base-300">
                       <div class="items-center justify-between text-center md:text-left md:flex">
                           <h2 class="text-xl font-semibold">{{ page.comments | size }} {{ 'generic.comments' | t }}</h2>
                       </div>
@@ -132,7 +117,7 @@
 
                     <!-- Comments (1st level) -->
                     {% assign answers = page.comments | roots | order_by: '-created_at' %}
-                    <ul id="page_{{ page.id }}_replies_list" data-load_more-target="container">
+                    <ul id="page_{{ page.id }}_replies_list" class="reply-list" data-load_more-target="container">
                       {% paginate_tag answers, per: 4 %}
                         {% for reply in answers %}
                           {% render 'reply', reply: reply, community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}

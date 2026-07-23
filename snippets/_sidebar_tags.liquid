@@ -1,11 +1,13 @@
 {% comment %}
   Usage: {% render 'sidebar_tags' %}
-  Uses site.tags
 {% endcomment %}
 {% assign tag_size = site.tags | size %}
 {% if tag_size > 0 %}
-  <div class="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4">
-    <div class="text-md font-semibold mb-4 text-slate-600 dark:text-slate-400">{{ 'generic.tags' | t }}</div>
+  <div class="pin-card-soft p-4">
+    <div class="text-sm font-bold uppercase tracking-wide mb-3 text-base-content/50 inline-flex items-center gap-1.5">
+      {% render 'icon', name: 'tag', class: 'size-3.5 shrink-0' %}
+      <span>{{ 'generic.tags' | t }}</span>
+    </div>
     <div class="flex flex-wrap gap-2">
       {% for tag in site.tags %}
         {% render 'tag', tag: tag %}

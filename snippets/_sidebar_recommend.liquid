@@ -1,8 +1,11 @@
 {% comment %}
   Usage: {% render 'sidebar_recommend', pages: pages, default_avatar_url: default_avatar_url %}
 {% endcomment %}
-<div class="bg-base-200 rounded-xl p-4">
-  <div class="text-md font-semibold uppercase mb-4 text-base-content/70">{{ 'generic.recommend' | t }}</div>
+<div class="pin-card-soft p-4">
+  <div class="text-sm font-bold uppercase tracking-wide mb-4 text-base-content/50 inline-flex items-center gap-1.5">
+    {% render 'icon', name: 'sparkles', class: 'size-3.5 shrink-0' %}
+    <span>{{ 'generic.recommend' | t }}</span>
+  </div>
   <ul>
     {% assign index_count = 0 %}
     {% for item in pages %}
@@ -11,10 +14,10 @@
         {% assign index_count = index_count | plus: 1 %}
         <li class="relative pb-4 last-of-type:pb-0">
           <div class="pl-6">
-            <div class="text-xs font-medium uppercase text-primary mb-0.5">{{ item.created_at | date: "%Y-%m-%d" }}</div>
+            <div class="text-xs font-medium uppercase text-base-content/40 mb-0.5">{{ item.created_at | date: "%Y-%m-%d" }}</div>
             <div class="text-sm mb-2">
-              <a class="font-medium text-base-content hover:text-primary inline-flex items-center gap-1.5" href="{{ item.path }}">
-                {% render 'page_icon', page: item, class: 'size-4 shrink-0 text-primary' %}
+              <a class="font-semibold text-base-content hover:underline underline-offset-2 inline-flex items-center gap-1.5" href="{{ item.path }}">
+                {% render 'page_icon', page: item, class: 'size-4 shrink-0 text-base-content/60' %}
                 <span>{{ item.settings.title | default: item.link_text }}</span>
               </a>
             </div>
@@ -25,16 +28,16 @@
                   <img class="rounded-full border-2 border-base-100 box-content" src="{{ comment.author.avatar_url | replace: script_name, '' | default: default_avatar_url }}" width="32" height="32" alt="" />
                 {% endfor %}
               </div>
-              <div class="text-xs font-medium text-base-content/60 italic">+{{ item.comments | size }}</div>
+              <div class="text-xs font-medium text-base-content/50 italic">+{{ item.comments | size }}</div>
             </div>
           </div>
           <div aria-hidden="true" class="absolute top-0.5 -bottom-1 left-0.5 ml-px w-0.5 bg-base-300"></div>
-          <div aria-hidden="true" class="absolute top-0.5 left-0 -ml-0.5 w-3 h-3 rounded-full bg-base-content/40 border-2 border-base-100"></div>
+          <div aria-hidden="true" class="absolute top-0.5 left-0 -ml-0.5 w-3 h-3 rounded-full bg-base-content/30 border-2 border-base-100"></div>
         </li>
       {% endif %}
     {% endfor %}
   </ul>
   <div class="mt-4">
-    <a href="/s/feed" class="btn2 btn2-ghost w-full">{{ 'generic.read_more' | t }}</a>
+    <a href="/s/feed" class="btn2 btn2-ghost btn2-sm w-full">{{ 'generic.read_more' | t }}</a>
   </div>
 </div>

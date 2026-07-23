@@ -1,33 +1,30 @@
 <!-- Site footer -->
-<footer class="border-t border-base-300">
+<footer class="border-t border-base-300 bg-base-200">
     <div class="max-w-7xl px-4 mx-auto sm:px-6">
         <div class="py-8">
-
-            <!-- Top area -->
-            <div class="flex flex-col items-center justify-center mb-4 md:flex-row md:justify-between">
-                <div class="mr-4 shrink-0">
-                    <!-- Logo -->
-                    <a class="inline-flex mb-8 group md:mb-0 space-x-2" href="/" aria-label="{{ site.name }}">
+            <div class="flex flex-col items-center justify-center mb-6 md:flex-row md:justify-between gap-4">
+                <div class="shrink-0 text-center md:text-left">
+                    <a class="inline-flex items-center gap-2 mb-3 md:mb-0" href="/" aria-label="{{ site.name }}">
                         {% assign logo = 'images/demo/logo.svg' | asset_url %}
-                        <img src="{{ site.settings.logo_url | default: logo }}" class="w-auto h-8 rounded-3xl hover:scale-175 hover:rotate-2" alt="{{ site.name }}" />
+                        <img src="{{ site.settings.logo_url | default: logo }}" class="w-auto h-8 rounded-2xl" alt="{{ site.name }}" />
                     </a>
-                    <p>{{ site.settings.slogan }}</p>
+                    {% if site.settings.slogan != blank %}
+                      <p class="text-sm text-base-content/60 mt-2">{{ site.settings.slogan }}</p>
+                    {% endif %}
                 </div>
-                <!-- Right links -->
-                <div class="mb-2 text-sm font-medium md:order-1 md:mb-0">
-                    <div class="inline-flex flex-wrap space-x-6 text-sm">
+                <div class="text-sm font-semibold text-base-content/60">
+                    <div class="inline-flex flex-wrap gap-x-6 gap-y-2">
                         {{ site.settings.footer_menu_html }}
                     </div>
                 </div>
             </div>
 
-            <!-- Bottom area -->
-            <div class="text-center md:flex md:items-center md:justify-between gap-2 flex-wrap">
-                <div class="text-sm text-base-content/70">
+            <div class="text-center md:flex md:items-center md:justify-between gap-2 flex-wrap border-t border-base-300 pt-6">
+                <div class="text-sm text-base-content/50">
                     &copy;{{ site.name }}. All rights reserved.
                     {% if site.settings.copyright_info != blank %}
                       {% if site.settings.copyright_link_url != blank %}
-                        <a href="{{ site.settings.copyright_link_url }}" target="_blank" rel="noopener" class="hover:text-primary">{{ site.settings.copyright_info }}</a>
+                        <a href="{{ site.settings.copyright_link_url }}" target="_blank" rel="noopener" class="hover:text-base-content underline-offset-2 hover:underline">{{ site.settings.copyright_info }}</a>
                       {% else %}
                         <span>{{ site.settings.copyright_info }}</span>
                       {% endif %}
@@ -35,12 +32,11 @@
                 </div>
                 {% if site.settings.beian_number != blank %}
                   {% assign beian_href = site.settings.beian_url | default: 'https://beian.miit.gov.cn/' %}
-                  <div class="text-sm text-base-content/70">
-                    <a href="{{ beian_href }}" target="_blank" rel="noopener" class="hover:text-primary">{{ site.settings.beian_number }}</a>
+                  <div class="text-sm text-base-content/50">
+                    <a href="{{ beian_href }}" target="_blank" rel="noopener" class="hover:text-base-content underline-offset-2 hover:underline">{{ site.settings.beian_number }}</a>
                   </div>
                 {% endif %}
             </div>
-
         </div>
     </div>
 </footer>

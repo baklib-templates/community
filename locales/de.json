@@ -204,10 +204,70 @@
       "account": "Angemeldet als"
     }
   },
+  "reply_menu": {
+    "more": "Weitere Aktionen",
+    "copy_link": "Link kopieren",
+    "copied": "Kopiert",
+    "report_abuse": "Missbrauch melden",
+    "collapse": "Antwort einklappen",
+    "expand": "Antwort ausklappen"
+  },
+  "report_abuse": {
+    "meta_title": "Missbrauch melden",
+    "eyebrow": "Community-Sicherheit",
+    "title": "Missbrauch melden",
+    "subtitle": "Danke, dass Sie helfen, diese Community sicher zu halten. Bitte melden Sie Verstöße gegen unsere Richtlinien.",
+    "fields": {
+      "category": "Kategorie",
+      "url": "Gemeldete URL",
+      "contact": "Kontakt (optional)",
+      "contact_placeholder": "E-Mail oder anderer Kontakt",
+      "message": "Nachricht",
+      "message_hint": "Bitte geben Sie zusätzlichen Kontext an, der uns hilft, den Fall zu verstehen.",
+      "message_placeholder": "Beschreiben Sie, was passiert ist…"
+    },
+    "categories": {
+      "rude_or_vulgar": "Unhöflich oder anstößig",
+      "harassment": "Belästigung oder Hassrede",
+      "spam": "Spam oder Urheberrecht",
+      "other": "Sonstiges"
+    },
+    "required": "Dieses Feld ist erforderlich",
+    "submit": "Meldung senden",
+    "submitting": "Wird gesendet…",
+    "success_hint": "Wir prüfen Ihre Meldung so schnell wie möglich.",
+    "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "unavailable": "Feedback ist auf dieser Seite nicht aktiviert. Bitte wenden Sie sich an den Administrator."
+  },
   "sidebar_stats": {
     "title": "Community",
     "articles": "Beiträge",
+    "articles_unit": "",
     "qa": "Q&A",
-    "members": "Mitglieder"
+    "qa_unit": "",
+    "members": "Mitglieder",
+    "members_unit": ""
+  },
+  "templates": {
+    "feedback": {
+      "success_title": "Feedback gesendet",
+      "success_message": "Danke für Ihr Feedback — wir melden uns bald.",
+      "error_title": "Senden fehlgeschlagen",
+      "error_message": "Etwas ist schiefgelaufen. Bitte prüfen und erneut versuchen."
+    }
+  },
+  "snippets": {
+    "feedback_form": {
+      "title": "Feedback senden",
+      "message_label": "Nachricht",
+      "message_placeholder": "Feedback eingeben",
+      "message_required": "Nachricht ist erforderlich",
+      "submit": "Senden",
+      "cancel": "Abbrechen"
+    },
+    "feedback_button": {
+      "title_posted": "Danke für Ihr Feedback",
+      "title_unposted": "Feedback senden"
+    }
   }
 }

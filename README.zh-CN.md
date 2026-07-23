@@ -16,6 +16,7 @@
 
 **2026-07-23**
 
+- **Pinterest 视觉改版：** 新增 Pinterest 色板（`fashion` / `pinterest`），奶油底 + 红色主 CTA；全局按钮/表单/导航/列表卡/侧栏按 [DESIGN.md](./DESIGN.md) 用色纪律统一。详见设计规范文档。
 - **发帖分类：** 前台发帖/编辑表单可选合集、类型、标签（`user_permitted_attributes` 已放行）。
 - **页脚：** 版权文案与备案号拆分；版权链接可单独配置。
 - **评论留白：** 收紧回复区 ProseMirror 段落间距与操作区 margin。

@@ -204,10 +204,70 @@
       "account": "目前帳號"
     }
   },
+  "reply_menu": {
+    "more": "更多操作",
+    "copy_link": "複製連結",
+    "copied": "已複製",
+    "report_abuse": "檢舉濫用",
+    "collapse": "摺疊回覆",
+    "expand": "展開回覆"
+  },
+  "report_abuse": {
+    "meta_title": "檢舉濫用",
+    "eyebrow": "社群安全",
+    "title": "檢舉濫用",
+    "subtitle": "感謝你協助維護社群環境。若內容違反規範，請提交檢舉，我們會盡快處理。",
+    "fields": {
+      "category": "檢舉類型",
+      "url": "被檢舉連結",
+      "contact": "聯絡方式（選填）",
+      "contact_placeholder": "電子郵件或其他聯絡方式",
+      "message": "補充說明",
+      "message_hint": "請提供有助於我們理解與處理的額外資訊。",
+      "message_placeholder": "描述發生了什麼…"
+    },
+    "categories": {
+      "rude_or_vulgar": "粗魯或不雅",
+      "harassment": "騷擾或仇恨言論",
+      "spam": "垃圾廣告或版權問題",
+      "other": "其他"
+    },
+    "required": "此項為必填",
+    "submit": "提交檢舉",
+    "submitting": "提交中…",
+    "success_hint": "提交後我們會盡快查看。",
+    "error": "提交失敗，請稍後重試。",
+    "unavailable": "目前站點未開啟回饋功能，暫時無法提交檢舉。請聯絡站點管理員。"
+  },
   "sidebar_stats": {
     "title": "社群概覽",
     "articles": "文章",
+    "articles_unit": "篇",
     "qa": "問答",
-    "members": "成員"
+    "qa_unit": "則",
+    "members": "成員",
+    "members_unit": "人"
+  },
+  "templates": {
+    "feedback": {
+      "success_title": "回饋已提交",
+      "success_message": "感謝您的回饋，我們會盡快處理。",
+      "error_title": "提交失敗",
+      "error_message": "提交失敗，請檢查後重試。"
+    }
+  },
+  "snippets": {
+    "feedback_form": {
+      "title": "提交回饋",
+      "message_label": "留言",
+      "message_placeholder": "請輸入回饋內容",
+      "message_required": "回饋內容不能為空",
+      "submit": "提交",
+      "cancel": "取消"
+    },
+    "feedback_button": {
+      "title_posted": "感謝您的回饋",
+      "title_unposted": "提交回饋"
+    }
   }
 }

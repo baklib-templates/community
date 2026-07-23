@@ -5,88 +5,159 @@
 {% comment %} depth: 0=root, 1+=nested. Pass depth when rendering {% endcomment %}
 {% assign reply_depth = depth | default: 0 %}
 
-<li class="reply-item flex flex-col gap-1 pt-2 first:pt-0 border-t border-base-300/60 first:border-t-0" id="reply_{{ reply.id }}" x-data="{open: false}" style="--reply-depth: {{ reply_depth }};">
-  <!-- Reddit 风格：作者/日期在上方，内容占据完整宽度 -->
-  <div class="flex flex-col flex-1 min-w-0 gap-1">
-    <!-- Meta row: 头像+作者+日期 紧凑一行 -->
-    <div class="flex items-center gap-2 text-xs">
-      <img class="w-6 h-6 rounded-full shrink-0" src="{{ reply.author.avatar_url | replace: script_name, '' | default: default_avatar_url }}" width="24" height="24" alt="" />
-      <a class="font-medium text-primary hover:text-primary/80 truncate" href="{{ reply.author.profile_url | default: '#' }}">{{ reply.author.name }}</a>
-      <span class="text-base-content/50 shrink-0">{{ reply.created_at | date: "%Y-%m-%d %H:%M" }}</span>
-      {% if reply.parent and reply.root.id != reply.parent.id %}
-        <span class="text-primary text-primary">@{{ reply.reply_to_user.name }}</span>
-      {% endif %}
-    </div>
-    <!-- Content: 完整宽度 -->
-    <div class="reply-content min-w-0">
-      {% comment %}
-        与主帖 page.settings.content 一致：富文本在服务端入库/保存时已按编辑器 schema 净化。
-        再用 sanitize_html 会过严，易去掉合法样式、图片（含 DAM 等 data 属性）。防 XSS 应主要靠写入侧白名单。
-      {% endcomment %}
-      <div class="ProseMirror prose prose-sm dark:prose-invert max-w-none break-words">
-        {{ reply.body }}
-      </div>
-      {% if current_user %}
-        <div class="reply-actions flex flex-wrap items-center gap-1 mt-1">
-          <span class="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs rounded-md cursor-pointer touch-manipulation text-base-content/70 hover:bg-base-200 hover:text-base-content hover:text-base-content transition-colors" @click="open = !open" role="button" tabindex="0">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
-            </svg>
-            {{ 'generic.reply' | t }}
-          </span>
-          {% if current_user.member_id == reply.author.id %}
-            {% form_tag 'reply', reply, method: 'delete' %}
-              <input value="destroy_reply_success" autocomplete="off" type="hidden" name="return_template_name">
-              <button type="submit" class="inline-flex items-center gap-1 px-2 py-1 text-xs rounded-md text-base-content/70 hover:bg-error/10 hover:text-error transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                </svg>
-                {{ 'buttons.delete' | t }}
-              </button>
-            {% endform_tag %}
-          {% endif %}
-        </div>
-        {% if reply.root %}{% assign root = reply.root %}{% else %}{% assign root = reply %}{% endif %}
-        {% render 'reply_answer_form', root: root, parent: reply, community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
-      {% endif %}
-    </div>
-  </div>
-  <!-- Nested replies: 必须渲染 ul 供 Turbo prepend 使用，即使当前无子回复 -->
-  {% if reply.root %}
-    {% assign all_under_root = reply.root.replies | order_by: '-created_at' %}
-  {% else %}
-    {% assign all_under_root = reply.replies | order_by: '-created_at' %}
+{% if reply.root %}
+  {% assign all_under_root = reply.root.replies | order_by: '-created_at' %}
+{% else %}
+  {% assign all_under_root = reply.replies | order_by: '-created_at' %}
+{% endif %}
+{% assign next_depth = reply_depth | plus: 1 %}
+{% assign children_count = 0 %}
+{% for r in all_under_root %}
+  {% if r.parent.id == reply.id %}
+    {% assign children_count = children_count | plus: 1 %}
   {% endif %}
-  {% assign next_depth = reply_depth | plus: 1 %}
-  {% assign children_count = 0 %}
-  {% for r in all_under_root %}
-    {% if r.parent.id == reply.id %}
-      {% assign children_count = children_count | plus: 1 %}
-    {% endif %}
-  {% endfor %}
-  {% assign is_collapsible = false %}
-  {% if children_count > 5 %}{% assign is_collapsible = true %}{% endif %}
-  <div class="reply-children-wrapper mt-2" x-data="{ collapsed: {% if is_collapsible %}true{% else %}false{% endif %} }">
-    {% if is_collapsible %}
-      <button type="button" class="text-xs text-base-content/60 hover:text-primary mb-1 flex items-center gap-1" @click="collapsed = !collapsed" x-show="collapsed">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-        </svg>
-        {{ 'generic.show_replies' | t }} ({{ children_count }})
-      </button>
-      <button type="button" class="text-xs text-base-content/60 hover:text-primary mb-1 flex items-center gap-1" @click="collapsed = !collapsed" x-show="!collapsed" x-cloak>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-        </svg>
-        {{ 'generic.collapse_replies' | t }}
-      </button>
-    {% endif %}
-  <ul class="reply-children mt-0 ml-6 sm:ml-8 pl-4 border-l-2 border-base-300 space-y-0" id="answer_{{ reply.id }}_replies_list" {% if is_collapsible %}x-show="!collapsed"{% endif %}>
-    {% for r in all_under_root %}
-      {% if r.parent.id == reply.id %}
-        {% render 'reply', reply: r, depth: next_depth, community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
+{% endfor %}
+{% assign is_collapsible = false %}
+{% if children_count > 5 %}{% assign is_collapsible = true %}{% endif %}
+
+<li
+  class="reply-item {% if reply_depth == 0 %}reply-item--root{% else %}reply-item--nested{% endif %}"
+  id="reply_{{ reply.id }}"
+  x-data="{ open: false, collapsed: false, menuOpen: false, copied: false }"
+  :class="{ 'is-collapsed': collapsed }"
+  style="--reply-depth: {{ reply_depth }};"
+>
+  <div class="reply-row flex gap-2.5">
+    {% comment %} Avatar column; collapse toggle only on root (depth 0) {% endcomment %}
+    <div class="reply-gutter flex flex-col items-center shrink-0 w-8 {% if reply_depth == 0 %}reply-gutter--root{% else %}reply-gutter--nested{% endif %}">
+      <img
+        class="size-7 rounded-full ring-1 ring-base-300/60"
+        src="{{ reply.author.avatar_url | replace: script_name, '' | default: default_avatar_url }}"
+        width="28"
+        height="28"
+        alt=""
+      />
+      {% if reply_depth == 0 %}
+        <button
+          type="button"
+          class="reply-collapse-btn mt-1"
+          @click="collapsed = !collapsed"
+          :aria-expanded="(!collapsed).toString()"
+          :title="collapsed ? '{{ 'reply_menu.expand' | t | escape }}' : '{{ 'reply_menu.collapse' | t | escape }}'"
+          aria-label="{{ 'reply_menu.collapse' | t }}"
+        >
+          <span class="reply-collapse-icon" :class="collapsed ? 'is-collapsed' : ''" aria-hidden="true"></span>
+        </button>
       {% endif %}
-    {% endfor %}
-  </ul>
+    </div>
+
+    <div class="reply-body min-w-0 flex-1">
+      <div class="flex items-center gap-1.5 text-xs min-w-0 mb-1">
+        <a class="font-semibold text-base-content/85 hover:text-base-content truncate" href="{{ reply.author.profile_url | default: '#' }}">{{ reply.author.name }}</a>
+        {% if reply.parent and reply.root.id != reply.parent.id %}
+          <span class="text-base-content/45 shrink-0">→</span>
+          <span class="text-base-content/60 truncate">@{{ reply.reply_to_user.name }}</span>
+        {% endif %}
+        <span class="text-base-content/35 shrink-0" aria-hidden="true">·</span>
+        <time class="text-base-content/45 shrink-0 tabular-nums">{{ reply.created_at | date: "%Y-%m-%d %H:%M" }}</time>
+
+        <div class="relative ml-auto shrink-0" @keydown.escape.window="menuOpen = false">
+          <button
+            type="button"
+            class="inline-flex items-center justify-center size-7 rounded-lg text-base-content/45 hover:bg-base-100 hover:text-base-content transition-colors"
+            @click.stop="menuOpen = !menuOpen"
+            :aria-expanded="menuOpen.toString()"
+            aria-haspopup="menu"
+            aria-label="{{ 'reply_menu.more' | t }}"
+          >
+            {% render 'icon', name: 'ellipsis', class: 'size-4' %}
+          </button>
+          <div
+            x-show="menuOpen"
+            x-cloak
+            @click.outside="menuOpen = false"
+            class="reply-more-menu absolute right-0 top-full z-20 mt-1 min-w-[10.5rem] rounded-xl border border-base-300 bg-base-200 py-1 shadow-lg"
+            role="menu"
+          >
+            <button
+              type="button"
+              role="menuitem"
+              class="flex w-full items-center gap-2 px-3 py-2 text-left text-sm text-base-content hover:bg-base-100"
+              @click="
+                const url = window.location.origin + window.location.pathname + window.location.search + '#reply_{{ reply.id }}';
+                window.copyToClipboard(url).then(() => { copied = true; setTimeout(() => copied = false, 2000); }).catch(() => {});
+                menuOpen = false;
+              "
+            >
+              {% render 'icon', name: 'link', class: 'size-3.5 shrink-0 text-base-content/55' %}
+              <span x-text="copied ? '{{ 'reply_menu.copied' | t | escape }}' : '{{ 'reply_menu.copy_link' | t | escape }}'"></span>
+            </button>
+            <a
+              role="menuitem"
+              class="flex w-full items-center gap-2 px-3 py-2 text-sm text-base-content hover:bg-base-100"
+              :href="'/s/report-abuse?url=' + encodeURIComponent(window.location.origin + window.location.pathname + window.location.search + '#reply_{{ reply.id }}')"
+              @click="menuOpen = false"
+            >
+              {% render 'icon', name: 'triangle-alert', class: 'size-3.5 shrink-0 text-base-content/55' %}
+              <span>{{ 'reply_menu.report_abuse' | t }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="reply-main" x-show="!collapsed" x-collapse>
+        {% comment %} Content + actions share reply-body left edge (no extra indent) {% endcomment %}
+        <div class="reply-content min-w-0">
+          <div class="ProseMirror prose prose-sm dark:prose-invert max-w-none break-words">
+            {{ reply.body }}
+          </div>
+        </div>
+
+        {% if current_user %}
+          <div class="reply-actions">
+            <span
+              class="reply-action-btn"
+              @click="open = !open"
+              role="button"
+              tabindex="0"
+            >
+              {% render 'icon', name: 'message-square', class: 'size-3.5 shrink-0' %}
+              {{ 'generic.reply' | t }}
+            </span>
+            {% if current_user.member_id == reply.author.id %}
+              {% form_tag 'reply', reply, method: 'delete' %}
+                <input value="destroy_reply_success" autocomplete="off" type="hidden" name="return_template_name">
+                <button type="submit" class="reply-action-btn reply-action-btn--danger">
+                  {% render 'icon', name: 'x', class: 'size-3.5 shrink-0' %}
+                  {{ 'buttons.delete' | t }}
+                </button>
+              {% endform_tag %}
+            {% endif %}
+          </div>
+          {% if reply.root %}{% assign root = reply.root %}{% else %}{% assign root = reply %}{% endif %}
+          {% render 'reply_answer_form', root: root, parent: reply, community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
+        {% endif %}
+
+        <div class="reply-children-wrapper" x-data="{ kidsCollapsed: {% if is_collapsible %}true{% else %}false{% endif %} }">
+          {% if is_collapsible %}
+            <button type="button" class="text-xs text-base-content/55 hover:text-base-content mt-2 mb-1 inline-flex items-center gap-1" @click="kidsCollapsed = !kidsCollapsed" x-show="kidsCollapsed">
+              {% render 'icon', name: 'list', class: 'size-3.5 shrink-0' %}
+              {{ 'generic.show_replies' | t }} ({{ children_count }})
+            </button>
+            <button type="button" class="text-xs text-base-content/55 hover:text-base-content mt-2 mb-1 inline-flex items-center gap-1" @click="kidsCollapsed = !kidsCollapsed" x-show="!kidsCollapsed" x-cloak>
+              {% render 'icon', name: 'list', class: 'size-3.5 shrink-0' %}
+              {{ 'generic.collapse_replies' | t }}
+            </button>
+          {% endif %}
+          <ul class="reply-children" id="answer_{{ reply.id }}_replies_list" {% if is_collapsible %}x-show="!kidsCollapsed"{% endif %}>
+            {% for r in all_under_root %}
+              {% if r.parent.id == reply.id %}
+                {% render 'reply', reply: r, depth: next_depth, community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </li>

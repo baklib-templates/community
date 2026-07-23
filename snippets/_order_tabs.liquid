@@ -1,15 +1,23 @@
 {% comment %}
   Usage: {% render 'order_tabs', order_by: order_by %}
-  Expects: order_by (e.g. '-views_count', '-created_at', 'related')
 {% endcomment %}
-<ul class="inline-flex flex-nowrap overflow-x-auto no-scrollbar -mx-3 -my-1 text-sm font-medium grow min-w-0 md:flex-wrap md:overflow-visible">
-  <li class="px-3 py-1 shrink-0">
-    <a class="relative text-lg font-semibold transition duration-150 ease-in-out pb-1 border-b-2 {% if order_by == '-views_count' %}border-primary text-primary{% else %}border-transparent text-base-content/70 hover:text-primary{% endif %}" href="/?_order_by=-views_count">{{ 'generic.popular' | t }}</a>
+<ul class="inline-flex flex-nowrap overflow-x-auto no-scrollbar gap-3 text-sm font-semibold grow min-w-0 md:flex-wrap md:overflow-visible">
+  <li class="shrink-0">
+    <a class="relative inline-flex items-center gap-1.5 px-1 pb-2 border-b-2 transition {% if order_by == '-views_count' %}border-primary text-base-content{% else %}border-transparent text-base-content/50 hover:text-base-content{% endif %}" href="/?_order_by=-views_count">
+      {% render 'icon', name: 'trending-up', class: 'size-3.5 shrink-0' %}
+      <span>{{ 'generic.popular' | t }}</span>
+    </a>
   </li>
-  <li class="px-3 py-1 shrink-0">
-    <a class="relative text-lg font-semibold transition duration-150 ease-in-out pb-1 border-b-2 {% if order_by == '-created_at' %}border-primary text-primary{% else %}border-transparent text-base-content/70 hover:text-primary{% endif %}" href="/?_order_by=-created_at">{{ 'generic.newest' | t }}</a>
+  <li class="shrink-0">
+    <a class="relative inline-flex items-center gap-1.5 px-1 pb-2 border-b-2 transition {% if order_by == '-created_at' %}border-primary text-base-content{% else %}border-transparent text-base-content/50 hover:text-base-content{% endif %}" href="/?_order_by=-created_at">
+      {% render 'icon', name: 'clock', class: 'size-3.5 shrink-0' %}
+      <span>{{ 'generic.newest' | t }}</span>
+    </a>
   </li>
-  <li class="px-3 py-1 shrink-0">
-    <a class="relative text-lg font-semibold transition duration-150 ease-in-out pb-1 border-b-2 {% if order_by == 'related' %}border-primary text-primary{% else %}border-transparent text-base-content/70 hover:text-primary{% endif %}" href="/?_order_by=related">{{ 'generic.related' | t }}</a>
+  <li class="shrink-0">
+    <a class="relative inline-flex items-center gap-1.5 px-1 pb-2 border-b-2 transition {% if order_by == 'related' %}border-primary text-base-content{% else %}border-transparent text-base-content/50 hover:text-base-content{% endif %}" href="/?_order_by=related">
+      {% render 'icon', name: 'users', class: 'size-3.5 shrink-0' %}
+      <span>{{ 'generic.related' | t }}</span>
+    </a>
   </li>
 </ul>

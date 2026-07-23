@@ -1,5 +1,6 @@
 import * as Turbo from "@hotwired/turbo"
 import { initLucideIcons } from "./lucide_icons"
+import { copyToClipboard } from "./utils/copyToClipboard"
 import Alpine from 'alpinejs'
 import collapse from '@alpinejs/collapse'
 import { Application } from "@hotwired/stimulus"
@@ -27,6 +28,21 @@ import SmartForegroundColorController from "./controllers/smart_foreground_color
 import ColorPickerController from "./controllers/color_picker_controller"
 //更多菜单
 import MoreMenuController from "./controllers/more_menu_controller"
+import ReportAbuseFeedbackController from "./controllers/report_abuse_feedback_controller"
+
+window.Turbo = Turbo
+window.copyToClipboard = copyToClipboard
+window.initLucideIcons = initLucideIcons
+
+function scrollToReplyHash() {
+  const hash = window.location.hash
+  if (!hash || !/^#reply_/.test(hash)) return
+  const el = document.getElementById(hash.slice(1))
+  if (!el) return
+  el.scrollIntoView({ behavior: "smooth", block: "center" })
+  el.classList.add("is-reply-target")
+  window.setTimeout(() => el.classList.remove("is-reply-target"), 2400)
+}
 
 Alpine.directive("tom-select", tomSelect);
 Alpine.directive("tooltip", tooltip);
@@ -39,12 +55,19 @@ document.addEventListener('alpine:init', () => {
 Alpine.magic("dispatchTo", () => dispatchTo);
 Alpine.start()
 
-document.addEventListener("turbo:load", initLucideIcons)
+document.addEventListener("turbo:load", () => {
+  initLucideIcons()
+  scrollToReplyHash()
+})
 document.addEventListener("turbo:frame-render", initLucideIcons)
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initLucideIcons)
+  document.addEventListener("DOMContentLoaded", () => {
+    initLucideIcons()
+    scrollToReplyHash()
+  })
 } else {
   initLucideIcons()
+  scrollToReplyHash()
 }
 
 const application = Application.start()
@@ -58,4 +81,5 @@ application.register("upload", UploadController)
 application.register("smart-foreground-color", SmartForegroundColorController)
 application.register("color-picker", ColorPickerController)
 application.register("more-menu", MoreMenuController)
+application.register("report-abuse-feedback", ReportAbuseFeedbackController)
 

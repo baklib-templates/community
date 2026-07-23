@@ -204,10 +204,70 @@
       "account": "Compte connecté"
     }
   },
+  "reply_menu": {
+    "more": "Plus d’actions",
+    "copy_link": "Copier le lien",
+    "copied": "Copié",
+    "report_abuse": "Signaler un abus",
+    "collapse": "Réduire la réponse",
+    "expand": "Développer la réponse"
+  },
+  "report_abuse": {
+    "meta_title": "Signaler un abus",
+    "eyebrow": "Sécurité de la communauté",
+    "title": "Signaler un abus",
+    "subtitle": "Merci d’aider à garder cette communauté sûre. Si un contenu viole nos règles, merci de le signaler.",
+    "fields": {
+      "category": "Catégorie",
+      "url": "URL signalée",
+      "contact": "Contact (facultatif)",
+      "contact_placeholder": "E-mail ou autre contact",
+      "message": "Message",
+      "message_hint": "Ajoutez tout contexte utile pour nous aider à traiter la situation.",
+      "message_placeholder": "Décrivez ce qui s’est passé…"
+    },
+    "categories": {
+      "rude_or_vulgar": "Grossier ou vulgaire",
+      "harassment": "Harcèlement ou discours haineux",
+      "spam": "Spam ou droit d’auteur",
+      "other": "Autre"
+    },
+    "required": "Ce champ est obligatoire",
+    "submit": "Envoyer le signalement",
+    "submitting": "Envoi…",
+    "success_hint": "Nous examinerons votre signalement dès que possible.",
+    "error": "Une erreur s’est produite. Veuillez réessayer.",
+    "unavailable": "Les retours ne sont pas activés sur ce site. Contactez l’administrateur."
+  },
   "sidebar_stats": {
     "title": "Communauté",
     "articles": "Articles",
+    "articles_unit": "",
     "qa": "Q&R",
-    "members": "Membres"
+    "qa_unit": "",
+    "members": "Membres",
+    "members_unit": ""
+  },
+  "templates": {
+    "feedback": {
+      "success_title": "Retour envoyé",
+      "success_message": "Merci pour votre retour — nous reviendrons vers vous bientôt.",
+      "error_title": "Échec de l’envoi",
+      "error_message": "Une erreur s’est produite. Vérifiez et réessayez."
+    }
+  },
+  "snippets": {
+    "feedback_form": {
+      "title": "Envoyer un retour",
+      "message_label": "Message",
+      "message_placeholder": "Saisissez votre retour",
+      "message_required": "Le message est obligatoire",
+      "submit": "Envoyer",
+      "cancel": "Annuler"
+    },
+    "feedback_button": {
+      "title_posted": "Merci pour votre retour",
+      "title_unposted": "Envoyer un retour"
+    }
   }
 }

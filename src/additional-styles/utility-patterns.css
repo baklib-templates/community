@@ -1,18 +1,18 @@
 /* Typography */
 .h1 {
-    @apply text-4xl font-bold;
+    @apply text-4xl font-semibold tracking-tight;
 }
 
 .h2 {
-    @apply text-3xl font-bold;
+    @apply text-3xl font-semibold tracking-tight;
 }
 
 .h3 {
-    @apply text-2xl font-bold;
+    @apply text-2xl font-semibold tracking-tight;
 }
 
 .h4 {
-    @apply text-xl font-bold;
+    @apply text-xl font-semibold;
 }
 
 @screen md {
@@ -25,7 +25,7 @@
     }
 }
 
-/* Forms */
+/* Forms — Pinterest: 16px radius, cream fill, blue focus ring */
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
@@ -39,27 +39,24 @@ input[type="search"]::-webkit-search-results-decoration {
 .form-select,
 .form-checkbox,
 .form-radio {
-    @apply bg-base-200 border border-base-300;
-}
-
-.form-input,
-.form-textarea,
-.form-multiselect,
-.form-select,
-.form-checkbox {
-    @apply rounded;
+    @apply bg-base-200 border border-base-300 text-base-content;
 }
 
 .form-input,
 .form-textarea,
 .form-multiselect,
 .form-select {
-    @apply text-sm px-3 py-1.5;
+    @apply rounded-2xl text-sm px-4 py-2.5;
+    @apply focus:outline-none focus:ring-2 focus:ring-info focus:border-transparent;
+}
+
+.form-checkbox {
+    @apply rounded;
 }
 
 .form-input,
 .form-textarea {
-    @apply placeholder:text-base-content placeholder:opacity-50;
+    @apply placeholder:text-base-content/40;
 }
 
 .form-select {
@@ -68,7 +65,14 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .form-checkbox,
 .form-radio {
-    @apply text-primary border-2 rounded-sm;
+    @apply text-primary border-2 border-base-300;
+}
+
+/* Pill search */
+.form-search-pill {
+    @apply w-full rounded-full border-0 bg-base-200 text-base-content text-sm py-3 pl-11 pr-4;
+    @apply placeholder:text-base-content/40;
+    @apply focus:outline-none focus:ring-2 focus:ring-info focus:bg-base-100;
 }
 
 /* Chrome, Safari and Opera */
@@ -83,23 +87,55 @@ input[type="search"]::-webkit-search-results-decoration {
     /* Firefox */
 }
 
-/* Buttons */
+/* Buttons — primary red CTA; hover darkens, never jumps to secondary */
 .btn2,
 .btn2-sm {
-    @apply text-sm text-primary-content !bg-primary hover:!bg-secondary font-medium inline-flex items-center justify-center rounded-full leading-5 whitespace-nowrap duration-150 ease-in-out touch-manipulation;
+    @apply text-sm text-primary-content !bg-primary font-bold inline-flex items-center justify-center rounded-2xl leading-5 whitespace-nowrap duration-150 ease-in-out touch-manipulation;
+    @apply hover:!bg-primary hover:brightness-90;
 }
 
 .btn2 {
-    @apply px-5 py-2.5;
+    @apply px-4 py-2.5 min-h-10;
 }
 
 .btn2-sm {
-    @apply px-4 py-2;
+    @apply px-3.5 py-2 text-xs;
 }
 
-.btn2-ghost{
-    @apply text-primary !bg-transparent hover:!bg-secondary hover:!text-primary-content border border-primary;
+.btn2-secondary {
+    @apply !bg-secondary !text-secondary-content hover:!bg-secondary hover:brightness-95 font-bold rounded-2xl;
 }
+
+.btn2-ghost {
+    @apply !text-base-content !bg-transparent hover:!bg-base-200 hover:!text-base-content border border-base-300 font-semibold rounded-2xl;
+}
+
+/* Surface hierarchy:
+   base-100 = page canvas (tinted wash)
+   base-200 = elevated cards / panels (typically white)
+   Do not paint every region with base-100. */
+.pin-card {
+    @apply bg-base-200 border border-base-300 rounded-2xl shadow-sm;
+}
+
+.pin-card-soft {
+    @apply bg-base-200 border border-base-300/80 rounded-2xl;
+}
+
+/* Filter / nav chip */
+.pin-chip {
+    @apply inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-full bg-base-200 text-base-content border border-base-300 hover:border-base-content/20 transition-colors;
+}
+
+.pin-chip-active {
+    @apply bg-neutral text-neutral-content border-neutral hover:bg-neutral hover:brightness-110;
+}
+
+/* Nav link active underline */
+.pin-nav-active {
+    @apply border-b-2 border-primary text-base-content font-semibold;
+}
+
 /* 搜索关键词高亮 */
 .search-highlight-block b {
     color: hsl(var(--tw-primary));

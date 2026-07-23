@@ -1,0 +1,15 @@
+<div id="js--feedback-{{ page.id }}" class="flex w-full flex-col items-center justify-center space-y-2 print:hidden">
+  <a
+    data-turbo-stream="true"
+    href="{{ page.feedback_path }}"
+    class="btn btn-circle btn-ghost border border-base-300"
+    aria-label="{{ 'generic.feedback' | t: '反馈' }}"
+  >
+    {% render 'icon', name: 'message-square', class: 'size-5' %}
+  </a>
+  {% if page.visitor_posted_feedback %}
+    <span class="w-full text-center text-sm">{{ 'snippets.feedback_button.title_posted' | t: '感谢您的反馈' }}</span>
+  {% else %}
+    <span class="w-full text-center text-sm">{{ 'snippets.feedback_button.title_unposted' | t: '提交反馈' }}</span>
+  {% endif %}
+</div>

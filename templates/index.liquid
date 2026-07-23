@@ -20,14 +20,14 @@
 <!-- Hero -->
 {% render 'hero', page: page %}
 
-<div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-7xl mx-auto bg-base-100">
+<div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-7xl mx-auto">
     <div class="xl:flex">
 
         <!-- Left + Middle content -->
         <div class="md:flex flex-1">
 
             <!-- Left content -->
-            <div class="md:w-60 mb-8 md:mb-0 p-2 bg-base-200 rounded-lg border border-base-300">
+            <div class="md:w-60 mb-8 md:mb-0 md:pr-2">
                 <div class="md:sticky md:top-16 md:h-[calc(100dvh-64px)] md:overflow-x-hidden md:overflow-y-auto no-scrollbar">
                     <div class="md:py-4">
 
@@ -35,16 +35,18 @@
 
                             <!-- Title -->
                             <header class="mb-4">
-                                <h1 class="text-lg md:text-xl text-base-content font-bold">
+                                <h1 class="text-lg md:text-xl text-base-content font-bold tracking-tight">
                                 {{ site.name }}
                                 </h1>
                             </header>
 
                             <!-- Button -->
                             {% if current_user %}
-                                <div class=" mb-6">
-                                    <a href="/s/new" class="btn2 md:w-full bg-primary text-primary-content hover:bg-primary/90">
-                                        {{ 'buttons.create_post' | t }}</a>
+                                <div class="mb-6">
+                                    <a href="/s/new" class="btn2 md:w-full inline-flex items-center justify-center gap-2">
+                                        {% render 'icon', name: 'plus', class: 'size-4 shrink-0' %}
+                                        <span>{{ 'buttons.create_post' | t }}</span>
+                                    </a>
                                 </div>
                             {% endif %}
 
@@ -53,28 +55,25 @@
 
                         <!-- Links -->
                         <div
-                            class="forum-nav-scroll flex flex-nowrap overflow-x-auto no-scrollbar md:block md:overflow-visible px-4 md:px-0 md:space-y-3 -mx-4 md:mx-0 scroll-pl-4 scroll-pr-4">
+                            class="forum-nav-scroll flex flex-nowrap overflow-x-auto no-scrollbar md:block md:overflow-visible px-4 md:px-0 md:space-y-4 -mx-4 md:mx-0 scroll-pl-4 scroll-pr-4">
                             <!-- Group 1 -->
                             {% if true %}
                                 <div class="shrink-0 md:shrink">
                                     <div
-                                        class="text-xs font-semibold text-base-content/50 uppercase mb-3 px-1 md:px-0">
-                                        {{ 'generic.navigation' | t}}</div>
-                                    <ul class="flex flex-nowrap md:block mr-3 md:mr-0 pe-4 md:pe-0">
+                                        class="text-xs font-bold text-base-content/40 uppercase tracking-wide mb-2 px-1 md:px-0 inline-flex items-center gap-1.5">
+                                        {% render 'icon', name: 'navigation', class: 'size-3.5 shrink-0' %}
+                                        <span>{{ 'generic.navigation' | t}}</span>
+                                    </div>
+                                    <ul class="flex flex-nowrap md:block gap-1 md:gap-0 mr-3 md:mr-0 pe-4 md:pe-0">
                                         {% assign features = site.settings.feature_tags | newline_to_br | split: '<br />'  %}
                                         {% for feature in features %}
                                             {% assign feature_name = feature | strip %}
                                             {% if feature_name != '' %}
-                                            <li class="mr-0.5 md:mr-0 md:mb-0.5">
-                                                <a class="flex items-center px-2.5 py-2 rounded-lg whitespace-nowrap bg-base-200 hover:bg-base-200"
+                                            <li class="mr-1 md:mr-0 md:mb-1">
+                                                <a class="pin-chip whitespace-nowrap md:w-full md:justify-start"
                                                     href="/s/tag?f={{ feature_name | url_encode }}">
-                                                    <svg class="shrink-0 fill-current text-base-content/60 mr-2" width="16"
-                                                        height="16" viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M4.904 10.114a.98.98 0 0 1 0-1.961h5.886a.98.98 0 0 1 0 1.961H4.904ZM2.863 5.166a1.962 1.962 0 0 0-.901 1.651v5.26c0 1.083.878 1.961 1.961 1.961h7.85a1.962 1.962 0 0 0 1.961-1.961v-5.26c0-.668-.34-1.29-.901-1.65L7.848 1.961 2.863 5.166ZM6.786.312a1.962 1.962 0 0 1 2.123 0l4.985 3.204a3.923 3.923 0 0 1 1.802 3.301v5.26A3.923 3.923 0 0 1 11.772 16H3.923A3.923 3.923 0 0 1 0 12.077v-5.26c0-1.335.679-2.579 1.802-3.3L6.786.311Z">
-                                                        </path>
-                                                    </svg>
-                                                    <span class="text-sm font-medium text-base-content/60">{{ feature_name }}</span>
+                                                    {% render 'icon', name: 'zap', class: 'size-3.5 shrink-0 opacity-70' %}
+                                                    <span>{{ feature_name }}</span>
                                                 </a>
                                             </li>
                                             {% endif %}
@@ -87,25 +86,21 @@
                                 <!-- 自定义集合 -->
                                 <div class="shrink-0 md:shrink">
                                     <div
-                                        class="text-xs font-semibold text-base-content/50 uppercase mb-3 px-1 md:px-0">
-                                        {{ 'forum.resource_types' | t }} </div>
-                                    <ul class="flex flex-nowrap md:block mr-3 md:mr-0 pe-4 md:pe-0">
+                                        class="text-xs font-bold text-base-content/40 uppercase tracking-wide mb-2 px-1 md:px-0 inline-flex items-center gap-1.5">
+                                        {% render 'icon', name: 'layers', class: 'size-3.5 shrink-0' %}
+                                        <span>{{ 'forum.resource_types' | t }}</span>
+                                    </div>
+                                    <ul class="flex flex-nowrap md:block gap-1 md:gap-0 mr-3 md:mr-0 pe-4 md:pe-0">
 
                                         {% assign collections = site.settings.collection_tags | newline_to_br | split: '<br />'  %}
                                         {% for collection in collections %}
                                             {% assign collection_name = collection | strip %}
                                             {% if collection_name != '' %}
-                                                <li class="mr-0.5 md:mr-0 md:mb-0.5">
-                                                    <a class="flex items-center px-2.5 py-2 rounded-lg whitespace-nowrap hover:bg-base-200"
+                                                <li class="mr-1 md:mr-0 md:mb-1">
+                                                    <a class="pin-chip whitespace-nowrap md:w-full md:justify-start"
                                                         href="/s/tag?c={{ collection_name | url_encode }}">
-                                                        <svg class="shrink-0 fill-current text-base-content/50 mr-2"
-                                                            width="16" height="16" viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M5 9a1 1 0 1 1 0-2h6a1 1 0 0 1 0 2H5ZM1 4a1 1 0 1 1 0-2h14a1 1 0 0 1 0 2H1Zm0 10a1 1 0 0 1 0-2h14a1 1 0 0 1 0 2H1Z">
-                                                            </path>
-                                                        </svg>
-                                                        <span
-                                                            class="text-sm font-medium text-base-content/70">{{ collection_name }}</span>
+                                                        {% render 'icon', name: 'folder', class: 'size-3.5 shrink-0 opacity-70' %}
+                                                        <span>{{ collection_name }}</span>
                                                     </a>
                                                 </li>
                                             {% endif %}
@@ -116,21 +111,17 @@
 
                             <!-- Group 2 -->
                             <div class="shrink-0 md:shrink pe-4 md:pe-0">
-                                <div class="text-xs font-semibold text-base-content/50 uppercase mb-3 px-1 md:px-0">
-                                    {{ 'generic.tags' | t}}</div>
-                                <ul class="flex flex-nowrap md:block mr-3 md:mr-0">
+                                <div class="text-xs font-bold text-base-content/40 uppercase tracking-wide mb-2 px-1 md:px-0 inline-flex items-center gap-1.5">
+                                    {% render 'icon', name: 'tag', class: 'size-3.5 shrink-0' %}
+                                    <span>{{ 'generic.tags' | t}}</span>
+                                </div>
+                                <ul class="flex flex-nowrap md:block gap-1 md:gap-0 mr-3 md:mr-0">
                                     {% for tag in page.settings.tags %}
-                                        <li class="mr-0.5 md:mr-0 md:mb-0.5">
-                                            <a class="flex items-center px-2.5 py-2 rounded-lg whitespace-nowrap"
+                                        <li class="mr-1 md:mr-0 md:mb-1">
+                                            <a class="pin-chip whitespace-nowrap md:w-full md:justify-start"
                                                 href="{{ tag.path }}">
-                                                <svg class="w-3 h-3 shrink-0 fill-current mr-3" style="color: {{ tag.color }}"
-                                                    viewBox="0 0 12 12">
-                                                    <path
-                                                        d="M6 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2A6 6 0 1 1 6 0a6 6 0 0 1 0 12Z">
-                                                    </path>
-                                                </svg>
-                                                <span
-                                                    class="text-sm font-medium text-base-content/70">{{ tag.name }}</span>
+                                                {% render 'icon', name: 'tag', class: 'size-3.5 shrink-0 opacity-70' %}
+                                                <span>{{ tag.name }}</span>
                                             </a>
                                         </li>
                                     {% endfor %}
@@ -147,17 +138,24 @@
             <div class="flex-1 md:ml-8 xl:mx-4 2xl:mx-8">
                 <div class="md:py-8">
 
-                    <!-- Buttons group -->
-                    <div class="mb-4">
-                        <div class="w-full flex flex-wrap -space-x-px">
-                            <a href="?_order_by=-created_at" class="btn2 grow border border-r-2 font-semibold border-base-300 rounded-none hover:text-primary-content first:rounded-l-full last:rounded-r-full {% if order_by != '-created_at' %}text-primary !bg-base-200{% endif %}">{{ 'generic.newest' | t }}</a>
-                            <a href="?_order_by=-views_count" class="btn2 grow border border-r-2 font-semibold border-base-300 rounded-none hover:text-primary-content first:rounded-l-full last:rounded-r-full {% if order_by != '-views_count' %}text-primary !bg-base-200{% endif %}">{{ 'generic.popular' | t }}</a>
-                            <a href="?_order_by=related" class="btn2 grow border font-semibold border-base-300 rounded-none hover:text-primary-content first:rounded-l-full last:rounded-r-full {% if order_by != 'related' %}text-primary !bg-base-200{% endif %}">{{ 'generic.related' | t }}</a>
-                        </div>
+                    <!-- Buttons group — chip tabs -->
+                    <div class="mb-5 flex flex-wrap gap-2">
+                        <a href="?_order_by=-created_at" class="{% if order_by == '-created_at' %}pin-chip pin-chip-active{% else %}pin-chip{% endif %}">
+                            {% render 'icon', name: 'clock', class: 'size-3.5 shrink-0' %}
+                            <span>{{ 'generic.newest' | t }}</span>
+                        </a>
+                        <a href="?_order_by=-views_count" class="{% if order_by == '-views_count' %}pin-chip pin-chip-active{% else %}pin-chip{% endif %}">
+                            {% render 'icon', name: 'trending-up', class: 'size-3.5 shrink-0' %}
+                            <span>{{ 'generic.popular' | t }}</span>
+                        </a>
+                        <a href="?_order_by=related" class="{% if order_by == 'related' %}pin-chip pin-chip-active{% else %}pin-chip{% endif %}">
+                            {% render 'icon', name: 'users', class: 'size-3.5 shrink-0' %}
+                            <span>{{ 'generic.related' | t }}</span>
+                        </a>
                     </div>
 
                     <!-- List container -->
-                    <turbo-frame id="pages_list" class="space-y-2">
+                    <turbo-frame id="pages_list" class="space-y-3">
                         {% render 'pages_list', pages: pages, pinned_pages: pinned_pages %}
                     </turbo-frame>
 

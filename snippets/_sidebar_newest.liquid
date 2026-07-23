@@ -2,28 +2,31 @@
   Usage (for index with replies): {% render 'sidebar_newest', items: newest_replies, default_avatar_url: default_avatar_url, type: 'replies' %}
   Usage (for page with pages): {% render 'sidebar_newest', items: newest_pages, default_avatar_url: default_avatar_url, type: 'pages' %}
 {% endcomment %}
-<div class="bg-base-200 rounded-xl p-4">
-  <div class="text-md font-semibold uppercase mb-4 text-base-content/70">{{ 'generic.newest_reply' | t }}</div>
+<div class="pin-card-soft p-4">
+  <div class="text-sm font-bold uppercase tracking-wide mb-4 text-base-content/50 inline-flex items-center gap-1.5">
+    {% render 'icon', name: 'clock', class: 'size-3.5 shrink-0' %}
+    <span>{{ 'generic.newest_reply' | t }}</span>
+  </div>
   <ul class="space-y-3">
     {% for item in items %}
       <li>
         <div class="flex items-center mb-1">
           <img class="mr-2 rounded-full" src="{{ item.author.avatar_url | replace: script_name, '' | default: default_avatar_url }}" width="16" height="16" alt="" />
           <div class="text-xs">
-            <a class="font-medium text-primary hover:text-primary/80" href="{{ item.author.profile_url | default: '#' }}">{{ item.author.name }}</a>
+            <a class="font-semibold text-base-content/70 hover:text-base-content" href="{{ item.author.profile_url | default: '#' }}">{{ item.author.name }}</a>
           </div>
         </div>
         <h3 class="mb-1 text-sm">
           {% if type == 'replies' %}
-            <a class="font-semibold text-base-content hover:text-primary" href="{{ item.target.full_slug }}">{{ item.body | sanitize_html | truncate: 100 }}</a>
+            <a class="font-semibold text-base-content hover:underline underline-offset-2" href="{{ item.target.full_slug }}">{{ item.body | sanitize_html | truncate: 100 }}</a>
           {% else %}
-            <a class="font-semibold text-base-content hover:text-primary inline-flex items-center gap-1.5" href="{{ item.full_slug }}">
-              {% render 'page_icon', page: item, class: 'size-4 shrink-0 text-primary' %}
+            <a class="font-semibold text-base-content hover:underline underline-offset-2 inline-flex items-center gap-1.5" href="{{ item.full_slug }}">
+              {% render 'page_icon', page: item, class: 'size-4 shrink-0 text-base-content/60' %}
               <span>{{ item.link_text }}</span>
             </a>
           {% endif %}
         </h3>
-        <div class="text-xs text-base-content/60">{{ item.created_at | date: "%Y-%m-%d %H:%M" }}{% if type == 'pages' %} · {{ item.comments | size }} {{ 'generic.comments' | t }}{% endif %}</div>
+        <div class="text-xs text-base-content/50">{{ item.created_at | date: "%Y-%m-%d %H:%M" }}{% if type == 'pages' %} · {{ item.comments | size }} {{ 'generic.comments' | t }}{% endif %}</div>
       </li>
     {% endfor %}
   </ul>

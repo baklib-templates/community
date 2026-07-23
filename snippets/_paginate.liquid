@@ -3,8 +3,8 @@
     {% if paginate.total_pages > 1 %}
 
       <div class="flex justify-between flex-1 sm:hidden">
-        <a data-turbo-action="advance" {% if paginate.prev_page %}href="{{ paginate.url_for[paginate.prev_page] }}"{% else %}disabled{% endif %} class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-base-content bg-base-100 text-base-content border border-base-300 rounded-md hover:bg-base-200">{{ "paginate.previous" | t }}</a>
-        <a data-turbo-action="advance" {% if paginate.next_page %}href="{{ paginate.url_for[paginate.next_page] }}"{% else %}disabled{% endif %} class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-base-content bg-base-100 text-base-content border border-base-300 rounded-md hover:bg-base-200">{{ "paginate.next" | t }}</a>
+        <a data-turbo-action="advance" {% if paginate.prev_page %}href="{{ paginate.url_for[paginate.prev_page] }}"{% else %}disabled{% endif %} class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-base-content bg-base-200 text-base-content border border-base-300 rounded-md hover:border-base-content/30">{{ "paginate.previous" | t }}</a>
+        <a data-turbo-action="advance" {% if paginate.next_page %}href="{{ paginate.url_for[paginate.next_page] }}"{% else %}disabled{% endif %} class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-base-content bg-base-200 text-base-content border border-base-300 rounded-md hover:border-base-content/30">{{ "paginate.next" | t }}</a>
       </div>
       <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div>

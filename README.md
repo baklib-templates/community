@@ -16,6 +16,7 @@ A modern Q&A and discussion theme whose layouts are easy to map to familiar prod
 
 **2026-07-23**
 
+- **Pinterest visual system:** cream chrome + single red CTA color schemas (`fashion` / `pinterest`); quiet cards, pill search, chip filters. See [DESIGN.md](./DESIGN.md).
 - Front-end post form: collection / feature / tags (whitelisted in `user_permitted_attributes`).
 - Footer: copyright text vs ICP filing split; custom copyright link URL.
 - Tighter reply ProseMirror spacing; homepage sidebar stats card; Desk-only post pinning; mobile resource-type scroll padding fix.

@@ -8,7 +8,7 @@
     {{ 'javascripts/main.js' | asset_url | script_tag: defer: true, data-turbo-track: 'reload' }}
     {{ 'css/main.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
   </head>
-  <body class="min-h-screen antialiased tracking-tight font-inter bg-base-100 text-base-content">
+  <body class="min-h-screen antialiased tracking-tight bg-base-100 text-base-content">
     {{ content_for_layout }}
   </body>
 </html>

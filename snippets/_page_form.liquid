@@ -1,35 +1,40 @@
 <div>
-  <div class="mt-5 flex flex-col -my-2.5 space-y-5 text-black">
+  <div class="mt-5 flex flex-col space-y-5">
     <div>
       <input value="page" autocomplete="off" type="hidden" name="page[template_name]">
       <input value="" autocomplete="off" type="hidden" name="page[template_style]">
       {% capture page_published_flag %}{% render 'page_published_flag' %}{% endcapture %}
       <input value="{{ page_published_flag | strip | default: 'false' }}" autocomplete="off" type="hidden" name="page[published]">
-      <label for="title" class="block mb-2 px-2 font-bold">{{ 'generic.title' | t }}</label>
+      <label for="title" class="mb-2 inline-flex items-center gap-1.5 font-bold text-base-content">
+        {% render 'icon', name: 'pencil', class: 'size-4 shrink-0 text-base-content/55' %}
+        <span>{{ 'generic.title' | t }}</span>
+      </label>
       <input
       type="text"
       name="page[template_variables][title]"
       value="{% if page.id  %}{{ page.link_text }}{% endif %}"
-      class="form-input mt-1.5 w-full rounded-lg border-2 border-primary py-2 bg-white text-black"
+      class="form-input w-full"
       required />
-      {%# 提示 %}
     </div>
 
-    {%# 内容 %}
-    <div class="bg-white text-black p-0 rounded-lg border-2 border-primary">
-      <label for="content" class="block mb-2 px-2 font-bold">{{ 'generic.content' | t }}</label>
+    <div class="pin-card overflow-hidden">
+      <label for="content" class="mb-2 inline-flex items-center gap-1.5 px-4 pt-3 font-bold text-base-content">
+        {% render 'icon', name: 'file-text', class: 'size-4 shrink-0 text-base-content/55' %}
+        <span>{{ 'generic.content' | t }}</span>
+      </label>
       {% assign content = page.settings.content %}
       {% form_field_tag 'richtext', 'page[template_variables][content]', content, toolbar: 'full', under_el_id: '#edit-info-bar-container' %}
-      {% comment %} <textarea name="page[template_variables][content]" rows="12" class="w-full form-textarea placeholder:italic"
-      placeholder="问题详情" required>{{ content }}</textarea> {% endcomment %}
     </div>
 
     {% assign collection_options = site.settings.collection_tags | default: '' | newline_to_br | split: '<br />' %}
     {% assign feature_options = site.settings.feature_tags | default: '' | newline_to_br | split: '<br />' %}
     <div class="grid gap-4 sm:grid-cols-2">
       <div>
-        <label for="page_collection" class="block mb-1 font-bold">{{ 'generic.collection' | t }}</label>
-        <select id="page_collection" name="page[template_variables][collection]" class="form-select mt-1.5 w-full rounded-lg border-2 py-2 bg-white">
+        <label for="page_collection" class="mb-2 inline-flex items-center gap-1.5 font-bold text-base-content">
+          {% render 'icon', name: 'folder', class: 'size-4 shrink-0 text-base-content/55' %}
+          <span>{{ 'generic.collection' | t }}</span>
+        </label>
+        <select id="page_collection" name="page[template_variables][collection]" class="form-select w-full">
           <option value="">—</option>
           {% for opt in collection_options %}
             {% assign opt_name = opt | strip %}
@@ -40,8 +45,11 @@
         </select>
       </div>
       <div>
-        <label for="page_feature" class="block mb-1 font-bold">{{ 'generic.feature' | t }}</label>
-        <select id="page_feature" name="page[template_variables][feature]" class="form-select mt-1.5 w-full rounded-lg border-2 py-2 bg-white">
+        <label for="page_feature" class="mb-2 inline-flex items-center gap-1.5 font-bold text-base-content">
+          {% render 'icon', name: 'zap', class: 'size-4 shrink-0 text-base-content/55' %}
+          <span>{{ 'generic.feature' | t }}</span>
+        </label>
+        <select id="page_feature" name="page[template_variables][feature]" class="form-select w-full">
           <option value="">—</option>
           {% for opt in feature_options %}
             {% assign opt_name = opt | strip %}
@@ -54,17 +62,26 @@
     </div>
 
     <div>
-      <label class="block mb-1 font-bold">{{ 'generic.tags' | t }}</label>
+      <label class="mb-2 inline-flex items-center gap-1.5 font-bold text-base-content">
+        {% render 'icon', name: 'tag', class: 'size-4 shrink-0 text-base-content/55' %}
+        <span>{{ 'generic.tags' | t }}</span>
+      </label>
       {% form_field_tag 'tag', 'page[template_variables][tags]', page %}
     </div>
   </div>
-  <div class="my-6 space-x-4">
-    <button type="submit" class="py-2 btn2">{{ 'buttons.submit' | t }}</button>
-    <a href="/" class="btn2 btn2-ghost">{{ 'buttons.cancel' | t }}</a>
+  <div class="my-6 flex flex-wrap gap-3">
+    <button type="submit" class="btn2 inline-flex items-center gap-2">
+      {% render 'icon', name: 'check', class: 'size-4 shrink-0' %}
+      <span>{{ 'buttons.submit' | t }}</span>
+    </button>
+    <a href="/" class="btn2 btn2-ghost inline-flex items-center gap-2">
+      {% render 'icon', name: 'x', class: 'size-4 shrink-0' %}
+      <span>{{ 'buttons.cancel' | t }}</span>
+    </a>
   </div>
-  <ul class="text-sm text-base-content/60 list-disc list-inside">
+  <ul class="text-sm text-base-content/50 list-disc list-inside space-y-1">
     <li>{{ 'generic.terms1' | t }}</li>
-    <li>{{ 'me.post_hint' | t }} <a href="{{ statics['me'] }}" class="font-semibold text-primary">{{ 'generic.my_community' | t }}</a></li>
-    <li>{{ 'generic.terms2' | t }}<a href="/s/terms" class="font-semibold text-primary">{{ 'generic.terms_link' | t }}</a>。</li>
+    <li>{{ 'me.post_hint' | t }} <a href="{{ statics['me'] }}" class="font-semibold text-base-content hover:underline">{{ 'generic.my_community' | t }}</a></li>
+    <li>{{ 'generic.terms2' | t }}<a href="/s/terms" class="font-semibold text-base-content hover:underline">{{ 'generic.terms_link' | t }}</a>。</li>
   </ul>
 </div>

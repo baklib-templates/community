@@ -17,13 +17,13 @@
 
               {% unless current_user %}
                 <div class="text-center py-16">
-                  <h1 class="h2 font-aspekta mb-4">{{ 'me.title' | t }}</h1>
+                  <h1 class="h2 mb-4">{{ 'me.title' | t }}</h1>
                   <p class="text-base-content/70 mb-6">{{ 'me.login_required' | t }}</p>
                   <a href="{{ current_site.login_url }}" class="btn2 btn2-primary">{{ 'buttons.login' | t }}</a>
                 </div>
               {% else %}
                 <div class="mb-8">
-                  <h1 class="h2 font-aspekta mb-2">{{ 'me.title' | t }}</h1>
+                  <h1 class="h2 mb-2">{{ 'me.title' | t }}</h1>
                   <p class="text-base-content/60">{{ 'me.subtitle' | t }}</p>
                 </div>
 
@@ -76,7 +76,7 @@
                     {% assign inbox_empty = true %}
                     {% for reply in inbox_replies %}
                       {% assign inbox_empty = false %}
-                      <div class="rounded-lg border border-base-300 bg-base-100 p-4">
+                      <div class="rounded-lg border border-base-300 bg-base-200 p-4">
                         <div class="flex items-start gap-3">
                           <img class="rounded-full shrink-0" src="{{ reply.author.avatar_url | replace: script_name, '' | default: default_avatar_url }}" width="36" height="36" alt="">
                           <div class="min-w-0 grow">
@@ -122,7 +122,7 @@
           <aside class="md:w-72 md:ml-6 shrink-0 mt-8 md:mt-0">
             <div class="sticky top-20 space-y-4">
               {% if current_user %}
-                <div class="rounded-box border border-base-300 bg-base-100 p-4">
+                <div class="rounded-box border border-base-300 bg-base-200 p-4">
                   <div class="flex items-center gap-3 mb-3">
                     <div class="avatar">
                       <div class="w-12 rounded-full">

@@ -54,7 +54,7 @@
                         <ul class="space-y-1 text-sm">
                           {% for p in collection_pages %}
                             <li class="flex items-center justify-between gap-2">
-                              <a href="{{ p.path }}" class="text-primary hover:text-primary/80 truncate inline-flex items-center gap-1.5 min-w-0">
+                              <a href="{{ p.path }}" class="text-base-content hover:underline underline-offset-2 truncate inline-flex items-center gap-1.5 min-w-0">
                                 {% render 'page_icon', page: p, class: 'size-4 shrink-0' %}
                                 <span class="truncate">{{ p.link_text }}</span>
                               </a>
@@ -65,7 +65,7 @@
                           {% endfor %}
                         </ul>
                         <div class="mt-3">
-                          <a href="/s/tag?c={{ collection_name | url_encode }}" class="text-xs text-primary hover:text-primary/80">
+                          <a href="/s/tag?c={{ collection_name | url_encode }}" class="text-xs text-base-content hover:underline underline-offset-2">
                             {{ 'generic.read_more' | t }}
                           </a>
                         </div>
@@ -124,7 +124,7 @@
                         <ul class="space-y-1 text-sm">
                           {% for p in feature_pages %}
                             <li class="flex items-center justify-between gap-2">
-                              <a href="{{ p.path }}" class="text-primary hover:text-primary/80 truncate inline-flex items-center gap-1.5 min-w-0">
+                              <a href="{{ p.path }}" class="text-base-content hover:underline underline-offset-2 truncate inline-flex items-center gap-1.5 min-w-0">
                                 {% render 'page_icon', page: p, class: 'size-4 shrink-0' %}
                                 <span class="truncate">{{ p.link_text }}</span>
                               </a>
@@ -135,7 +135,7 @@
                           {% endfor %}
                         </ul>
                         <div class="mt-3">
-                          <a href="/s/tag?f={{ feature_name | url_encode }}" class="text-xs text-primary hover:text-primary/80">
+                          <a href="/s/tag?f={{ feature_name | url_encode }}" class="text-xs text-base-content hover:underline underline-offset-2">
                             {{ 'generic.read_more' | t }}
                           </a>
                         </div>

@@ -204,10 +204,70 @@
       "beian_number": "Registration number"
     }
   },
+  "reply_menu": {
+    "more": "More actions",
+    "copy_link": "Copy link",
+    "copied": "Copied",
+    "report_abuse": "Report abuse",
+    "collapse": "Collapse reply",
+    "expand": "Expand reply"
+  },
+  "report_abuse": {
+    "meta_title": "Report abuse",
+    "eyebrow": "Community safety",
+    "title": "Report abuse",
+    "subtitle": "Thank you for helping keep this community safe. If something violates our guidelines, please report it and we will review it.",
+    "fields": {
+      "category": "Category",
+      "url": "Reported URL",
+      "contact": "Contact (optional)",
+      "contact_placeholder": "Email or other contact",
+      "message": "Message",
+      "message_hint": "Please provide any additional context that helps us understand and handle the situation.",
+      "message_placeholder": "Describe what happened…"
+    },
+    "categories": {
+      "rude_or_vulgar": "Rude or vulgar",
+      "harassment": "Harassment or hate speech",
+      "spam": "Spam or copyright issue",
+      "other": "Other"
+    },
+    "required": "This field is required",
+    "submit": "Send report",
+    "submitting": "Sending…",
+    "success_hint": "We will review your report as soon as possible.",
+    "error": "Something went wrong. Please try again.",
+    "unavailable": "Feedback is not enabled on this site, so reports cannot be submitted. Please contact the site admin."
+  },
   "sidebar_stats": {
     "title": "Community",
     "articles": "Articles",
+    "articles_unit": "",
     "qa": "Q&A",
-    "members": "Members"
+    "qa_unit": "",
+    "members": "Members",
+    "members_unit": ""
+  },
+  "templates": {
+    "feedback": {
+      "success_title": "Feedback submitted",
+      "success_message": "Thanks for your feedback — we’ll follow up soon.",
+      "error_title": "Submission failed",
+      "error_message": "Something went wrong. Please check and try again."
+    }
+  },
+  "snippets": {
+    "feedback_form": {
+      "title": "Send feedback",
+      "message_label": "Message",
+      "message_placeholder": "Enter your feedback",
+      "message_required": "Message is required",
+      "submit": "Submit",
+      "cancel": "Cancel"
+    },
+    "feedback_button": {
+      "title_posted": "Thanks for your feedback",
+      "title_unposted": "Send feedback"
+    }
   }
 }

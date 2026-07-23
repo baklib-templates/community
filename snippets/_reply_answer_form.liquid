@@ -4,7 +4,7 @@
   x-cloak
   class="w-full mt-2"
   id="create_reply_{{ parent.id }}_id">
-  <div class="rounded-lg border border-base-300 bg-base-100/50 p-3">
+  <div class="rounded-xl border border-base-300 bg-base-100/60 p-2.5 mt-1.5">
     {% render 'community_daily_limit_alert', community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
     {% unless community_daily_limit_reached %}
     {% capture reply_published_flag %}{% render 'reply_published_flag' %}{% endcapture %}
@@ -14,7 +14,7 @@
       <input value="{{ reply_published_flag | strip | default: 'false' }}" autocomplete="off" type="hidden" name="reply[published]">
       <input value="{{ root.id }}" autocomplete="off" type="hidden" name="reply[root_id]">
       <input value="{{ parent.id }}" autocomplete="off" type="hidden" name="reply[parent_id]">
-      <textarea name="reply[body]" rows="3" class="w-full form-textarea rounded-lg text-sm placeholder:text-base-content/50 border-base-300 border-base-300 bg-base-200/50"
+      <textarea name="reply[body]" rows="2" class="w-full form-textarea rounded-lg text-sm placeholder:text-base-content/50 border-base-300 bg-base-200"
         placeholder="{{ 'generic.reply' | t }} {{ parent.author.name }}..." required></textarea>
 
         <div id="create_reply_{{ parent.id }}_error" class="text-xs text-error mt-1"></div>

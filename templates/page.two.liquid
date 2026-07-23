@@ -4,7 +4,7 @@
   {% assign default_avatar_url = 'images/avatar.svg' | asset_url %}
 {% endunless %}
 
-<main class="grow">
+<main class="grow bg-base-100">
   <section class="py-6 md:py-10">
     <div class="max-w-7xl px-4 mx-auto sm:px-6">
       {% comment %} Discourse 三栏布局: 左导航 | 主内容 | 右时间线 {% endcomment %}
@@ -25,19 +25,18 @@
                 <div x-show="posted_feedback == true" @click="posted_feedback=false;feedback_count--" x-cloak>
                   {% form_tag 'delete_feedback', page: page, useful_type: site.settings.feedback_useful_type %}
                     <button name="feedback[useful_type]" value="{{ site.settings.feedback_useful_type }}"
-                      :class="{ '!bg-primary': '{{ site.settings.feedback_useful_type }}' === '{{ page.last_feedback_emoji }}' }"
-                      class="h-12 w-12 pt-2 items-center text-center flex flex-col rounded border border-primary bg-primary hover:bg-base-300">
-                      <svg class="fill-primary-content" width="12" height="6" xmlns="http://www.w3.org/2000/svg"><path d="m0 6 6-6 6 6z"></path></svg>
-                      <span class="text-primary-content" x-text="feedback_count"></span>
+                      class="h-11 w-11 items-center text-center flex flex-col justify-center rounded-2xl border border-neutral bg-neutral text-neutral-content hover:brightness-110 shadow-sm">
+                      <svg class="fill-current mb-0.5" width="12" height="6" xmlns="http://www.w3.org/2000/svg"><path d="m0 6 6-6 6 6z"></path></svg>
+                      <span class="text-xs font-semibold" x-text="feedback_count"></span>
                     </button>
                   {% endform_tag %}
                 </div>
                 <div x-show="posted_feedback == false" @click="posted_feedback=true;feedback_count++" x-cloak>
                   {% form_tag 'feedback', page: page %}
                     <button name="feedback[useful_type]" value="{{ site.settings.feedback_useful_type }}"
-                      class="h-12 w-12 pt-2 items-center text-center flex flex-col rounded border border-primary/30 bg-gradient-to-tr from-base-200/20 via-base-200/50 to-base-200/20 hover:bg-base-300">
-                      <svg class="fill-primary" width="12" height="6" xmlns="http://www.w3.org/2000/svg"><path d="m0 6 6-6 6 6z"></path></svg>
-                      <span x-text="feedback_count"></span>
+                      class="h-11 w-11 items-center text-center flex flex-col justify-center rounded-2xl border border-base-300 bg-base-200 hover:border-base-content/30 text-base-content/70 shadow-sm">
+                      <svg class="fill-current mb-0.5" width="12" height="6" xmlns="http://www.w3.org/2000/svg"><path d="m0 6 6-6 6 6z"></path></svg>
+                      <span class="text-xs font-semibold" x-text="feedback_count"></span>
                     </button>
                   {% endform_tag %}
                 </div>
@@ -46,20 +45,20 @@
 
             <!-- 帖子内容 -->
             <div class="flex-1 min-w-0">
-              <article class="mb-10">
+              <article class="mb-6 pin-card p-6 md:p-8">
                 {% if current_user and page.author.id == current_user.member_id and page.published_at == blank %}
-                  <div class="mb-4 rounded-lg border border-warning/40 bg-warning/10 px-4 py-3 text-sm">
-                    <p class="mb-1">{{ 'generic.under_review' | t }}</p>
-                    <a href="{{ statics['me'] }}" class="text-primary hover:underline">{{ 'me.view_status' | t }}</a>
+                  <div class="mb-4 rounded-2xl border border-base-300 bg-base-100 px-4 py-3 text-sm">
+                    <p class="mb-1 text-base-content/80">{{ 'generic.under_review' | t }}</p>
+                    <a href="{{ statics['me'] }}" class="font-semibold text-base-content hover:underline">{{ 'me.view_status' | t }}</a>
                   </div>
                 {% endif %}
                 {% comment %} Discourse: 标题 + 标签置顶 {% endcomment %}
-                <header class="mb-4">
-                  <h1 class="mb-3 text-2xl md:text-3xl font-bold font-aspekta text-base-content flex items-center gap-2 flex-wrap">
+                <header class="mb-6">
+                  <h1 class="mb-3 text-2xl md:text-3xl font-bold tracking-tight text-base-content flex items-center gap-2 flex-wrap">
                     {% if page.settings.pinned %}
-                      <span class="badge badge-sm badge-primary">{{ 'generic.pinned' | t }}</span>
+                      <span class="badge badge-sm badge-neutral">{{ 'generic.pinned' | t }}</span>
                     {% endif %}
-                    {% render 'page_icon', page: page, class: 'size-8 shrink-0 text-primary' %}
+                    {% render 'page_icon', page: page, class: 'size-8 shrink-0 text-base-content/70' %}
                     <span>{{ page.link_text }}</span>
                   </h1>
                   {% if page.settings.tags.size > 0 %}
@@ -73,9 +72,9 @@
                   <div class="flex items-center justify-between gap-4">
                     <div class="flex items-center gap-2">
                       <img class="w-8 h-8 rounded-full shrink-0" src="{{ page.author.avatar_url | replace: script_name, '' | default: default_avatar_url }}" width="32" height="32" alt="" />
-                      <a class="font-medium text-primary hover:text-primary/80" href="{{ page.author.profile_url | default: '#' }}">{{ page.author.name }}</a>
+                      <a class="font-semibold text-base-content/80 hover:text-base-content" href="{{ page.author.profile_url | default: '#' }}">{{ page.author.name }}</a>
                     </div>
-                    <div class="text-sm text-base-content/60">
+                    <div class="text-sm text-base-content/50">
                       {{ page.created_at | date: "%Y-%m-%d %H:%M" }} · {{ page.comments | size }} {{ 'generic.comments' | t }}
                     </div>
                   </div>
@@ -99,7 +98,7 @@
               {% endif %}
 
               <!-- 回复列表 -->
-              <div data-controller="load_more">
+              <div class="pin-card p-6 md:p-8" data-controller="load_more">
                 {% include 'community_daily_limit' %}
                 <div class="pb-4 mb-4 border-b border-base-300">
                   <h2 class="text-xl font-semibold">{{ page.comments | size }} {{ 'generic.comments' | t }}</h2>
@@ -108,7 +107,7 @@
                 {% render 'reply_page_form_discourse', target: page, community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}
 
                 {% assign answers = page.comments | roots | order_by: '-created_at' %}
-                <ul id="page_{{ page.id }}_replies_list" data-load_more-target="container">
+                <ul id="page_{{ page.id }}_replies_list" class="reply-list" data-load_more-target="container">
                   {% paginate_tag answers, per: 4 %}
                     {% for reply in answers %}
                       {% render 'reply_discourse', reply: reply, community_daily_limit_reached: community_daily_limit_reached, daily_limit: daily_limit %}

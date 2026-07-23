@@ -30,7 +30,7 @@
     </div>
 
     {% if search.keywords or search.tag %}
-      <ul class="mt-4 overflow-hidden list-none bg-base-100 rounded-xl border border-base-300 divide-y divide-base-300">
+      <ul class="mt-4 overflow-hidden list-none bg-base-200 rounded-xl border border-base-300 divide-y divide-base-300">
         {% paginate_tag search.extends, as: 'extends' %}
           {% for extend in extends %}
             <li class="px-4 py-4 hover:bg-base-200/50 transition-colors"><a href="{{extend.url}}" class="text-primary hover:underline">{{extend.link_text}}</a></li>

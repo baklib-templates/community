@@ -1,0 +1,66 @@
+{%# locals: (variant: 'success', message:) %}
+{% assign toast_variant = variant | default: 'success' %}
+{% assign toast_message = message | default: '' | strip %}
+{% assign toast_is_success = false %}
+{% if toast_variant == 'success' %}
+  {% assign toast_is_success = true %}
+{% endif %}
+
+{% if toast_is_success %}
+  {% assign toast_title = 'templates.feedback.success_title' | t: '反馈已提交' %}
+  {% assign toast_icon = 'circle-check' %}
+  {% assign toast_border_l = 'border-l-success' %}
+  {% assign toast_icon_color = 'text-success' %}
+  {% assign toast_line = toast_message | presence | default: toast_title %}
+  {% assign toast_detail = '' %}
+  {% if toast_message != blank and toast_message != toast_title and toast_message.size > 18 %}
+    {% assign toast_line = toast_title %}
+    {% assign toast_detail = toast_message %}
+  {% endif %}
+{% else %}
+  {% assign toast_title = 'templates.feedback.error_title' | t: '提交失败' %}
+  {% assign toast_icon = 'circle-x' %}
+  {% assign toast_border_l = 'border-l-error' %}
+  {% assign toast_icon_color = 'text-error' %}
+  {% assign toast_line = toast_title %}
+  {% assign toast_detail = toast_message %}
+{% endif %}
+
+<dialog
+  id="js--feedback-toast"
+  class="feedback-toast-dialog pointer-events-none fixed inset-auto top-[calc(var(--header-height,4rem)+0.75rem)] right-4 bottom-auto left-auto z-[200] m-0 w-auto max-w-[min(100vw-2rem,24rem)] border-0 bg-transparent p-0 shadow-none sm:right-6 print:hidden"
+  role="alert"
+  aria-live="polite"
+  aria-atomic="true"
+  aria-labelledby="js--feedback-toast-title"
+>
+  <div class="pointer-events-auto flex w-full items-center gap-3 rounded-lg border border-base-300 border-l-[3px] {{ toast_border_l }} bg-base-100 px-3.5 py-2.5 shadow-md">
+    {% assign toast_icon_class = 'size-5 shrink-0 ' | append: toast_icon_color %}
+    {% render 'icon', name: toast_icon, class: toast_icon_class %}
+    <div class="min-w-0 flex-1">
+      <p id="js--feedback-toast-title" class="text-sm leading-snug text-base-content{% if toast_detail != blank %} font-medium{% endif %}">{{ toast_line }}</p>
+      {% if toast_detail != blank %}
+        <p class="mt-0.5 text-xs leading-relaxed text-base-content/60">{{ toast_detail }}</p>
+      {% endif %}
+    </div>
+    <button
+      type="button"
+      class="btn btn-ghost btn-xs btn-circle size-7 min-h-0 shrink-0 text-base-content/40 hover:bg-base-200 hover:text-base-content"
+      onclick="this.closest('dialog')?.close()"
+      aria-label="{{ 'generic.close' | t: '关闭' }}"
+    >
+      {% render 'icon', name: 'x', class: 'size-3.5' %}
+    </button>
+  </div>
+</dialog>
+<script>
+  (function () {
+    var el = document.getElementById('js--feedback-toast');
+    if (!el) return;
+    if (typeof el.show === 'function') el.show();
+    else el.setAttribute('open', '');
+    el.addEventListener('close', function () { el.remove(); }, { once: true });
+    setTimeout(function () { if (el.open) el.close(); }, 5000);
+    if (typeof window.initLucideIcons === 'function') window.initLucideIcons();
+  })();
+</script>

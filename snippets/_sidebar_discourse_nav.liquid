@@ -2,32 +2,26 @@
   Discourse-style left sidebar: Topics, Tags
   Usage: {% render 'sidebar_discourse_nav' %}
 {% endcomment %}
-<nav class="bg-base-200 rounded-xl p-4 space-y-4">
-  <!-- Topics -->
+<nav class="pin-card-soft p-4 space-y-4">
   <div>
-    <h3 class="text-xs font-semibold uppercase text-base-content/60 mb-2 flex items-center gap-2">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 w-5 h-5">
-        <path d="M18.75 12.75h1.5a.75.75 0 0 0 0-1.5h-1.5a.75.75 0 0 0 0 1.5ZM12 6a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 12 6ZM12 18a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 12 18ZM3.75 6.75h1.5a.75.75 0 1 0 0-1.5h-1.5a.75.75 0 0 0 0 1.5ZM5.25 18.75h-1.5a.75.75 0 0 1 0-1.5h1.5a.75.75 0 0 1 0 1.5ZM3 12a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 3 12ZM9 3.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM12.75 12a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM9 15.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" />
-      </svg>
-
-      {{ 'generic.navigation' | t }}
+    <h3 class="text-xs font-bold uppercase tracking-wide text-base-content/40 mb-2 inline-flex items-center gap-1.5">
+      {% render 'icon', name: 'navigation', class: 'size-3.5 shrink-0' %}
+      <span>{{ 'generic.navigation' | t }}</span>
     </h3>
     <ul class="space-y-1">
       <li>
-        <a href="/" class="flex items-center gap-2 px-2.5 py-2 text-sm rounded-lg text-base-content hover:bg-base-300">
-          {{ 'generic.home' | t }}
+        <a href="/" class="pin-chip md:w-full md:justify-start">
+          {% render 'icon', name: 'home', class: 'size-3.5 shrink-0 opacity-70' %}
+          <span>{{ 'generic.home' | t }}</span>
         </a>
       </li>
     </ul>
   </div>
 
-  <!-- Tags -->
   <div class="mt-4">
-    <h3 class="text-xs font-semibold uppercase text-base-content/60 mb-4 flex items-center gap-2">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-5 h-5">
-        <path fill-rule="evenodd" d="M4.5 2A2.5 2.5 0 0 0 2 4.5v2.879a2.5 2.5 0 0 0 .732 1.767l4.5 4.5a2.5 2.5 0 0 0 3.536 0l2.878-2.878a2.5 2.5 0 0 0 0-3.536l-4.5-4.5A2.5 2.5 0 0 0 7.38 2H4.5Z" clip-rule="evenodd" />
-      </svg>
-      {{ 'generic.tags' | t }}
+    <h3 class="text-xs font-bold uppercase tracking-wide text-base-content/40 mb-3 inline-flex items-center gap-1.5">
+      {% render 'icon', name: 'tag', class: 'size-3.5 shrink-0' %}
+      <span>{{ 'generic.tags' | t }}</span>
     </h3>
     <div class="flex flex-wrap gap-1.5">
       {% for tag in site.tags %}
