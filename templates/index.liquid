@@ -173,7 +173,7 @@
                         {% render 'sidebar_recommend', pages: pages, default_avatar_url: default_avatar_url %}
                         {% assign newest_replies = site.comments | order_by: '-created_at' | limit: 5 %}
                         {% render 'sidebar_newest', items: newest_replies, default_avatar_url: default_avatar_url, type: 'replies' %}
-                        {% assign popular_replies = site.comments | order_by: '-published_replies_count' | limit: 3 %}
+                        {% assign popular_replies = site.comments | order_by: '-feedbacks_count' | limit: 3 %}
                         {% render 'sidebar_popular', items: popular_replies, default_avatar_url: default_avatar_url, type: 'replies' %}
                     </div>
                 </div>

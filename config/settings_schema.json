@@ -7,6 +7,7 @@
     "theme_version": "2.0.0",
     "theme_scope": "community",
     "theme_author": "Baklib",
+    "miniprogram": "true",
     "theme_documentation_url": "https://github.com/baklib-templates/community",
     "theme_support_url": "https://github.com/baklib-templates/community",
     "theme_thumb_url": "images/theme/thumb.png",
@@ -267,12 +268,6 @@
     "name": "t:settings_schema.community.collections_section_name",
     "settings": [
       {
-        "id": "is_show_collection_feature_tags",
-        "type": "checkbox",
-        "label": "t:settings_schema.community.is_show_collection_feature_tags_label",
-        "default": true
-      },
-      {
         "id": "feature_tags",
         "queryable": true,
         "type": "textarea",
@@ -287,6 +282,24 @@
         "label": "t:settings_schema.community.collection_tags_label",
         "rows": 10,
         "info": "t:settings_schema.community.collection_tags_info"
+      },
+      {
+        "id": "is_show_collection_feature_tags",
+        "type": "checkbox",
+        "label": "t:settings_schema.community.is_show_collection_feature_tags_label",
+        "info": "t:settings_schema.community.is_show_collection_feature_tags_info",
+        "default": true
+      },
+      {
+        "id": "is_show_post_form_tags",
+        "type": "checkbox",
+        "label": "t:settings_schema.community.is_show_post_form_tags_label",
+        "info": "t:settings_schema.community.is_show_post_form_tags_info",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "-----"
       },
       {
         "id": "is_show_sidebar_stats",

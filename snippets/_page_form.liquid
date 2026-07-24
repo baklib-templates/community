@@ -26,48 +26,53 @@
       {% form_field_tag 'richtext', 'page[template_variables][content]', content, toolbar: 'full', under_el_id: '#edit-info-bar-container' %}
     </div>
 
-    {% assign collection_options = site.settings.collection_tags | default: '' | newline_to_br | split: '<br />' %}
-    {% assign feature_options = site.settings.feature_tags | default: '' | newline_to_br | split: '<br />' %}
-    <div class="grid gap-4 sm:grid-cols-2">
-      <div>
-        <label for="page_collection" class="mb-2 inline-flex items-center gap-1.5 font-bold text-base-content">
-          {% render 'icon', name: 'folder', class: 'size-4 shrink-0 text-base-content/55' %}
-          <span>{{ 'generic.collection' | t }}</span>
-        </label>
-        <select id="page_collection" name="page[template_variables][collection]" class="form-select w-full">
-          <option value="">—</option>
-          {% for opt in collection_options %}
-            {% assign opt_name = opt | strip %}
-            {% if opt_name != blank %}
-              <option value="{{ opt_name }}" {% if page.settings.collection == opt_name %}selected{% endif %}>{{ opt_name }}</option>
-            {% endif %}
-          {% endfor %}
-        </select>
+    {% if site.settings.is_show_collection_feature_tags != false %}
+      {% assign collection_options = site.settings.collection_tags | default: '' | newline_to_br | split: '<br />' %}
+      {% assign feature_options = site.settings.feature_tags | default: '' | newline_to_br | split: '<br />' %}
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label for="page_collection" class="mb-2 inline-flex items-center gap-1.5 font-bold text-base-content">
+            {% render 'icon', name: 'folder', class: 'size-4 shrink-0 text-base-content/55' %}
+            <span>{{ 'generic.collection' | t }}</span>
+          </label>
+          <select id="page_collection" name="page[template_variables][collection]" class="form-select w-full">
+            <option value="">—</option>
+            {% for opt in collection_options %}
+              {% assign opt_name = opt | strip %}
+              {% if opt_name != blank %}
+                <option value="{{ opt_name }}" {% if page.settings.collection == opt_name %}selected{% endif %}>{{ opt_name }}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+        </div>
+        <div>
+          <label for="page_feature" class="mb-2 inline-flex items-center gap-1.5 font-bold text-base-content">
+            {% render 'icon', name: 'zap', class: 'size-4 shrink-0 text-base-content/55' %}
+            <span>{{ 'generic.feature' | t }}</span>
+          </label>
+          <select id="page_feature" name="page[template_variables][feature]" class="form-select w-full">
+            <option value="">—</option>
+            {% for opt in feature_options %}
+              {% assign opt_name = opt | strip %}
+              {% if opt_name != blank %}
+                <option value="{{ opt_name }}" {% if page.settings.feature == opt_name %}selected{% endif %}>{{ opt_name }}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+        </div>
       </div>
-      <div>
-        <label for="page_feature" class="mb-2 inline-flex items-center gap-1.5 font-bold text-base-content">
-          {% render 'icon', name: 'zap', class: 'size-4 shrink-0 text-base-content/55' %}
-          <span>{{ 'generic.feature' | t }}</span>
-        </label>
-        <select id="page_feature" name="page[template_variables][feature]" class="form-select w-full">
-          <option value="">—</option>
-          {% for opt in feature_options %}
-            {% assign opt_name = opt | strip %}
-            {% if opt_name != blank %}
-              <option value="{{ opt_name }}" {% if page.settings.feature == opt_name %}selected{% endif %}>{{ opt_name }}</option>
-            {% endif %}
-          {% endfor %}
-        </select>
-      </div>
-    </div>
+    {% endif %}
 
-    <div>
-      <label class="mb-2 inline-flex items-center gap-1.5 font-bold text-base-content">
-        {% render 'icon', name: 'tag', class: 'size-4 shrink-0 text-base-content/55' %}
-        <span>{{ 'generic.tags' | t }}</span>
-      </label>
-      {% form_field_tag 'tag', 'page[template_variables][tags]', page %}
-    </div>
+    {% if site.settings.is_show_post_form_tags != false %}
+      <div>
+        <label class="mb-2 inline-flex items-center gap-1.5 font-bold text-base-content">
+          {% render 'icon', name: 'tag', class: 'size-4 shrink-0 text-base-content/55' %}
+          <span>{{ 'generic.tags' | t }}</span>
+        </label>
+        {% form_field_tag 'tag', 'page[template_variables][tags]', page %}
+      </div>
+    {% endif %}
+ 
   </div>
   <div class="my-6 flex flex-wrap gap-3">
     <button type="submit" class="btn2 inline-flex items-center gap-2">
