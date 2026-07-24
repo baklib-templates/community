@@ -100,6 +100,8 @@
       "shared_tags_label": "人気タグ",
       "hero_image_url_label": "ヒーロー背景画像",
       "hero_image_url_info": "ヒーロー領域の背景画像。テーマ既定：assets/images/hero.png。",
+      "hero_cta_image_url_label": "ヒーロー右側画像",
+      "hero_cta_image_url_info": "スローガンと説明の右側に表示するイラスト（透過 PNG 推奨）。テーマ既定：assets/images/hero-actor.png。",
       "hero_text_color_label": "ヒーロー文字色",
       "hero_text_color_info": "任意。空欄の場合はサイトの primary 色を使用します。",
       "hero_bg_color_label": "ヒーローオーバーレイ",

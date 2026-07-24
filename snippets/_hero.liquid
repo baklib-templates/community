@@ -1,36 +1,52 @@
 {% assign default_slogan = 'hero.default_slogan' | t %}
 {% assign default_description = 'hero.default_description' | t %}
 
-{% assign default_hero_image_url = 'images/hero.png' | asset_url %}
-{% assign hero_image_url = page.settings.hero_image_url | default: default_hero_image_url %}
+{% assign hero_image_url = page.settings.hero_image_url %}
+{% assign hero_cta_image_url = page.settings.hero_cta_image_url %}
 
-<!-- Hero — magazine chrome, quiet cream overlay -->
-<section class="relative overflow-hidden isolate min-h-[12rem] md:min-h-[16rem] bg-base-200">
-    <div class="absolute inset-0 z-0 pointer-events-none opacity-40" aria-hidden="true">
-        <img
-            src="{{ hero_image_url }}"
-            alt=""
-            class="absolute inset-0 h-full w-full object-cover object-center"
-            width="1920"
-            height="800"
-            loading="eager"
-            decoding="async"
-        >
-    </div>
-    <div class="absolute inset-0 z-[1] pointer-events-none bg-base-100/70" aria-hidden="true"></div>
-    {% if page.settings.bg_color != blank %}
-        <div
-            class="absolute inset-0 z-[2] pointer-events-none opacity-40"
-            style="background-color: {{ page.settings.bg_color }};"
-            aria-hidden="true"
-        ></div>
+{% comment %}
+  Hero layout mirrors Cruip Community:
+  - hero_image_url: full-bleed background
+  - hero_cta_image_url: side graphic to the right of title/description
+{% endcomment %}
+<section class="relative overflow-hidden isolate min-h-[12rem] md:min-h-[16rem]">
+    {% if hero_image_url != blank %}
+        <div class="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+            <img
+                src="{{ hero_image_url }}"
+                alt=""
+                class="absolute inset-0 h-full w-full object-cover object-center"
+                width="1920"
+                height="800"
+                loading="eager"
+                decoding="async"
+            >
+        </div>
+    {% else %}
+        <div class="absolute inset-0 bg-opacity-50 pointer-events-none -z-10" aria-hidden="true" style="background: {{ page.settings.bg_color }};"></div>
     {% endif %}
 
     <div class="relative z-10 max-w-7xl px-4 mx-auto sm:px-6">
         <div class="pb-10 pt-12 md:pt-16 md:pb-14">
-            <div class="max-w-2xl">
-                <h1 class="h2 tracking-tight text-base-content mb-4"{% if page.settings.text_color != blank %} style="color: {{ page.settings.text_color }};"{% endif %}>{{ page.settings.slogan | default: site.settings.slogan | default: default_slogan }}</h1>
-                <p class="text-base md:text-lg text-base-content/60 leading-relaxed"{% if page.settings.text_color != blank %} style="color: {{ page.settings.text_color }};"{% endif %}>{{ page.settings.description | default: default_description }}</p>
+            <div class="relative flex flex-col max-w-xl mx-auto text-center md:max-w-none md:text-left md:flex-row">
+                <div class="md:w-[48rem]">
+                    <div class="md:pr-32">
+                        <h1 class="h2 tracking-tight text-base-content mb-4"{% if page.settings.text_color != blank %} style="color: {{ page.settings.text_color }};"{% endif %}>{{ page.settings.slogan | default: site.settings.slogan | default: default_slogan }}</h1>
+                        <p class="text-base md:text-lg text-base-content/60 leading-relaxed"{% if page.settings.text_color != blank %} style="color: {{ page.settings.text_color }};"{% endif %}>{{ page.settings.description | default: default_description }}</p>
+                    </div>
+
+                    {% if hero_cta_image_url != blank %}
+                        <div class="max-w-sm mx-auto md:max-w-none md:absolute md:left-[42rem] lg:left-[48rem] mt-10 md:mt-0 md:top-1/2 md:-translate-y-1/2">
+                            <img
+                                src="{{ hero_cta_image_url }}"
+                                class="mx-auto block h-auto w-auto max-w-full max-h-64 object-contain"
+                                alt=""
+                                loading="eager"
+                                decoding="async"
+                            >
+                        </div>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>

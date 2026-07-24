@@ -33,13 +33,6 @@
 
                         <div class="flex justify-between items-center md:block">
 
-                            <!-- Title -->
-                            <header class="mb-4">
-                                <h1 class="text-lg md:text-xl text-base-content font-bold tracking-tight">
-                                {{ site.name }}
-                                </h1>
-                            </header>
-
                             <!-- Button -->
                             {% if current_user %}
                                 <div class="mb-6">
@@ -55,79 +48,80 @@
 
                         <!-- Links -->
                         <div
-                            class="forum-nav-scroll flex flex-nowrap overflow-x-auto no-scrollbar md:block md:overflow-visible px-4 md:px-0 md:space-y-4 -mx-4 md:mx-0 scroll-pl-4 scroll-pr-4">
+                            class="forum-nav-scroll flex flex-nowrap overflow-x-auto no-scrollbar md:block md:overflow-visible px-4 md:px-0 md:space-y-8 -mx-4 md:mx-0 scroll-pl-4 scroll-pr-4">
+                            
                             <!-- Group 1 -->
-                            {% if true %}
-                                <div class="shrink-0 md:shrink">
-                                    <div
-                                        class="text-xs font-bold text-base-content/40 uppercase tracking-wide mb-2 px-1 md:px-0 inline-flex items-center gap-1.5">
-                                        {% render 'icon', name: 'navigation', class: 'size-3.5 shrink-0' %}
-                                        <span>{{ 'generic.navigation' | t}}</span>
-                                    </div>
-                                    <ul class="flex flex-nowrap md:block gap-1 md:gap-0 mr-3 md:mr-0 pe-4 md:pe-0">
-                                        {% assign features = site.settings.feature_tags | newline_to_br | split: '<br />'  %}
-                                        {% for feature in features %}
-                                            {% assign feature_name = feature | strip %}
-                                            {% if feature_name != '' %}
-                                            <li class="mr-1 md:mr-0 md:mb-1">
-                                                <a class="pin-chip whitespace-nowrap md:w-full md:justify-start"
-                                                    href="/s/tag?f={{ feature_name | url_encode }}">
-                                                    {% render 'icon', name: 'zap', class: 'size-3.5 shrink-0 opacity-70' %}
-                                                    <span>{{ feature_name }}</span>
-                                                </a>
-                                            </li>
-                                            {% endif %}
-                                        {% endfor %}
-
-                                    </ul>
+                            <div class="shrink-0 md:shrink">
+                                <div
+                                    class="text-xs font-bold text-base-content/40 uppercase tracking-wide mb-2 px-1 md:px-0 inline-flex items-center gap-1.5">
+                                    {% render 'icon', name: 'navigation', class: 'size-3.5 shrink-0' %}
+                                    <span>{{ 'generic.navigation' | t}}</span>
                                 </div>
-
-
-                                <!-- 自定义集合 -->
-                                <div class="shrink-0 md:shrink">
-                                    <div
-                                        class="text-xs font-bold text-base-content/40 uppercase tracking-wide mb-2 px-1 md:px-0 inline-flex items-center gap-1.5">
-                                        {% render 'icon', name: 'layers', class: 'size-3.5 shrink-0' %}
-                                        <span>{{ 'forum.resource_types' | t }}</span>
-                                    </div>
-                                    <ul class="flex flex-nowrap md:block gap-1 md:gap-0 mr-3 md:mr-0 pe-4 md:pe-0">
-
-                                        {% assign collections = site.settings.collection_tags | newline_to_br | split: '<br />'  %}
-                                        {% for collection in collections %}
-                                            {% assign collection_name = collection | strip %}
-                                            {% if collection_name != '' %}
-                                                <li class="mr-1 md:mr-0 md:mb-1">
-                                                    <a class="pin-chip whitespace-nowrap md:w-full md:justify-start"
-                                                        href="/s/tag?c={{ collection_name | url_encode }}">
-                                                        {% render 'icon', name: 'folder', class: 'size-3.5 shrink-0 opacity-70' %}
-                                                        <span>{{ collection_name }}</span>
-                                                    </a>
-                                                </li>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                            {% endif %}
-
-                            <!-- Group 2 -->
-                            <div class="shrink-0 md:shrink pe-4 md:pe-0">
-                                <div class="text-xs font-bold text-base-content/40 uppercase tracking-wide mb-2 px-1 md:px-0 inline-flex items-center gap-1.5">
-                                    {% render 'icon', name: 'tag', class: 'size-3.5 shrink-0' %}
-                                    <span>{{ 'generic.tags' | t}}</span>
-                                </div>
-                                <ul class="flex flex-nowrap md:block gap-1 md:gap-0 mr-3 md:mr-0">
-                                    {% for tag in page.settings.tags %}
+                                <ul class="flex flex-nowrap md:block gap-1 md:gap-0 mr-3 md:mr-0 pe-4 md:pe-0">
+                                    {% assign features = site.settings.feature_tags | newline_to_br | split: '<br />'  %}
+                                    {% for feature in features %}
+                                        {% assign feature_name = feature | strip %}
+                                        {% if feature_name != '' %}
                                         <li class="mr-1 md:mr-0 md:mb-1">
                                             <a class="pin-chip whitespace-nowrap md:w-full md:justify-start"
-                                                href="{{ tag.path }}">
-                                                {% render 'icon', name: 'tag', class: 'size-3.5 shrink-0 opacity-70' %}
-                                                <span>{{ tag.name }}</span>
+                                                href="/s/tag?f={{ feature_name | url_encode }}">
+                                                {% render 'icon', name: 'zap', class: 'size-3.5 shrink-0 opacity-70' %}
+                                                <span>{{ feature_name }}</span>
                                             </a>
                                         </li>
+                                        {% endif %}
                                     {% endfor %}
 
                                 </ul>
                             </div>
+
+                            <!-- 自定义集合 -->
+                            <div class="shrink-0 md:shrink">
+                                <div
+                                    class="text-xs font-bold text-base-content/40 uppercase tracking-wide mb-2 px-1 md:px-0 inline-flex items-center gap-1.5">
+                                    {% render 'icon', name: 'layers', class: 'size-3.5 shrink-0' %}
+                                    <span>{{ 'forum.resource_types' | t }}</span>
+                                </div>
+                                <ul class="flex flex-nowrap md:block gap-1 md:gap-0 mr-3 md:mr-0 pe-4 md:pe-0">
+
+                                    {% assign collections = site.settings.collection_tags | newline_to_br | split: '<br />'  %}
+                                    {% for collection in collections %}
+                                        {% assign collection_name = collection | strip %}
+                                        {% if collection_name != '' %}
+                                            <li class="mr-1 md:mr-0 md:mb-1">
+                                                <a class="pin-chip whitespace-nowrap md:w-full md:justify-start"
+                                                    href="/s/tag?c={{ collection_name | url_encode }}">
+                                                    {% render 'icon', name: 'folder', class: 'size-3.5 shrink-0 opacity-70' %}
+                                                    <span>{{ collection_name }}</span>
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                
+                            <!-- Group 2 -->
+                            {% assign tag_size = page.settings.tags | size %}
+                            {% if tag_size > 0 %}
+                                <div class="shrink-0 md:shrink pe-4 md:pe-0">
+                                    <div class="text-xs font-bold text-base-content/40 uppercase tracking-wide mb-2 px-1 md:px-0 inline-flex items-center gap-1.5">
+                                        {% render 'icon', name: 'tag', class: 'size-3.5 shrink-0' %}
+                                        <span>{{ 'generic.tags' | t}}</span>
+                                    </div>
+                                    <ul class="flex flex-nowrap md:block gap-1 md:gap-0 mr-3 md:mr-0">
+                                        {% for tag in page.settings.tags %}
+                                            <li class="mr-1 md:mr-0 md:mb-1">
+                                                <a class="pin-chip whitespace-nowrap md:w-full md:justify-start"
+                                                    href="{{ tag.path }}">
+                                                    {% render 'icon', name: 'tag', class: 'size-3.5 shrink-0 opacity-70' %}
+                                                    <span>{{ tag.name }}</span>
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+
+                                    </ul>
+                                </div>
+                            {% endif %}
                         </div>
 
                     </div>
@@ -223,6 +217,15 @@
                 "label": "t:settings_schema.community_templates.hero_image_url_label",
                 "info": "t:settings_schema.community_templates.hero_image_url_info",
                 "default": "images/hero.png"
+            },
+            {
+                "id": "hero_cta_image_url",
+                "type": "image_picker",
+                "ratio": "4:3",
+                "width": 320,
+                "label": "t:settings_schema.community_templates.hero_cta_image_url_label",
+                "info": "t:settings_schema.community_templates.hero_cta_image_url_info",
+                "default": "images/hero-actor.png"
             },
             {
                 "id": "text_color",

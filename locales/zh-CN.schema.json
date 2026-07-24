@@ -100,6 +100,8 @@
       "shared_tags_label": "站点热门标签",
       "hero_image_url_label": "Hero 背景图",
       "hero_image_url_info": "Hero 区域铺满的背景图。主题默认资源：assets/images/hero.png。",
+      "hero_cta_image_url_label": "Hero 右侧配图",
+      "hero_cta_image_url_info": "显示在口号与描述右侧的插图（建议透明底 PNG）。主题默认：assets/images/hero-actor.png。",
       "hero_text_color_label": "Hero 文字颜色",
       "hero_text_color_info": "可选。留空则使用站点主题色（primary）。",
       "hero_bg_color_label": "Hero 遮罩层",

@@ -100,6 +100,8 @@
       "shared_tags_label": "Popular tags",
       "hero_image_url_label": "Hero background image",
       "hero_image_url_info": "Cover image for the hero section. Theme default: images/hero.png in assets.",
+      "hero_cta_image_url_label": "Hero side image",
+      "hero_cta_image_url_info": "Illustration to the right of the slogan and description (transparent PNG recommended). Theme default: assets/images/hero-actor.png.",
       "hero_text_color_label": "Hero text color",
       "hero_text_color_info": "Optional override. Leave empty to use the site primary color.",
       "hero_bg_color_label": "Hero overlay",

@@ -100,6 +100,8 @@
       "shared_tags_label": "Beliebte Tags",
       "hero_image_url_label": "Hero-Hintergrundbild",
       "hero_image_url_info": "Hintergrundbild für den Hero-Bereich. Standard: images/hero.png in assets.",
+      "hero_cta_image_url_label": "Hero-Seitenbild",
+      "hero_cta_image_url_info": "Illustration rechts neben Slogan und Beschreibung (transparentes PNG empfohlen). Standard: assets/images/hero-actor.png.",
       "hero_text_color_label": "Hero-Textfarbe",
       "hero_text_color_info": "Optional. Leer lassen für die Site-Primärfarbe.",
       "hero_bg_color_label": "Hero-Überlagerung",
